@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="APEX – La academia de E-Sim Racing más exigente de Latinoamérica. Del simulador a la pista: formación, entrenamiento y competición al más alto nivel.">
+  <meta property="og:title" content="APEX | Del Simulador a la Pista">
+  <meta property="og:description" content="Academia de E-Sim Racing profesional. Formamos pilotos de alto rendimiento.">
+  <title>APEX | Del Simulador a la Pista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  GLOW CURSOR                          -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="glow-cursor" id="glowCursor"></div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  NAVIGATION                           -->
+  <!-- ══════════════════════════════════════ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="APEX inicio">
+        <span class="nav-logo-text">APEX</span>
+        <span class="nav-logo-dot"></span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#sobre" class="nav-link">Nosotros</a></li>
+        <li><a href="#proceso" class="nav-link">Proceso</a></li>
+        <li><a href="#simuladores" class="nav-link">Simuladores</a></li>
+        <li><a href="#eventos" class="nav-link">Eventos</a></li>
+        <li><a href="#inscripcion" class="nav-link nav-link--cta">Inscribite</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  MOBILE MENU                          -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <ul class="mobile-nav-list" role="list">
+        <li><a href="#sobre"       class="mobile-nav-link"><span class="mobile-link-num">01</span> Nosotros</a></li>
+        <li><a href="#proceso"     class="mobile-nav-link"><span class="mobile-link-num">02</span> Proceso</a></li>
+        <li><a href="#simuladores" class="mobile-nav-link"><span class="mobile-link-num">03</span> Simuladores</a></li>
+        <li><a href="#eventos"     class="mobile-nav-link"><span class="mobile-link-num">04</span> Eventos</a></li>
+        <li><a href="#inscripcion" class="mobile-nav-link mobile-nav-link--cta">INSCRIBITE</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  HERO                                 -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-label="Inicio">
+    <!-- Background layers -->
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-orb hero-orb--violet"></div>
+      <div class="hero-orb hero-orb--blue"></div>
+      <div class="hero-orb hero-orb--accent"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-scanlines"></div>
+      <div class="racing-stripe"></div>
+      <div class="hero-corner hero-corner--tl"></div>
+      <div class="hero-corner hero-corner--tr"></div>
+      <div class="hero-corner hero-corner--bl"></div>
+      <div class="hero-corner hero-corner--br"></div>
+    </div>
+
+    <!-- Hero content -->
+    <div class="hero-content" id="heroContent">
+      <div class="hero-eyebrow" aria-hidden="true">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">E–SIM RACING ACADEMY</span>
+        <span class="eyebrow-line"></span>
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-title-main">APEX</span>
+      </h1>
+      <p class="hero-tagline">DEL SIMULADOR A LA PISTA</p>
+      <p class="hero-description">
+        No es un videojuego. No es una escuela gamer.<br>
+        Es donde los pilotos del futuro se forjan hoy.
+      </p>
+      <div class="hero-actions">
+        <a href="#inscripcion" class="btn btn--primary magnetic-btn" data-magnetic>
+          <span class="btn-inner">
+            <span class="btn-text">INSCRIBITE</span>
+            <span class="btn-arrow">→</span>
+          </span>
+          <span class="btn-glow"></span>
+        </a>
+        <a href="#sobre" class="btn btn--ghost magnetic-btn" data-magnetic>
+          <span class="btn-inner">
+            <span class="btn-text">CONOCÉ MÁS</span>
+          </span>
+        </a>
+      </div>
+      <div class="hero-stats" aria-label="Estadísticas principales">
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">1500<span class="hero-stat-plus">+</span></span>
+          <span class="hero-stat-label">Pilotos</span>
+        </div>
+        <div class="hero-stat-divider" aria-hidden="true"></div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">8</span>
+          <span class="hero-stat-label">Simuladores</span>
+        </div>
+        <div class="hero-stat-divider" aria-hidden="true"></div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">42</span>
+          <span class="hero-stat-label">Eventos</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-track">
+        <div class="scroll-thumb"></div>
+      </div>
+      <span class="scroll-text">SCROLL</span>
+    </div>
+
+    <!-- Speed lines decoration -->
+    <div class="speed-lines" aria-hidden="true">
+      <div class="speed-line speed-line--1"></div>
+      <div class="speed-line speed-line--2"></div>
+      <div class="speed-line speed-line--3"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  SOBRE APEX                           -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="section sobre" id="sobre" aria-label="Sobre APEX">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">SOBRE APEX</span>
+        <h2 class="section-title">No entrenamos gamers.<br><em>Formamos pilotos.</em></h2>
+      </div>
+      <div class="sobre-layout">
+
+        <!-- Visual: Cockpit HUD -->
+        <div class="sobre-visual reveal" aria-hidden="true">
+          <div class="cockpit-card glass-card">
+            <div class="cockpit-hud">
+              <svg class="cockpit-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <radialGradient id="hudGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#7B2FFF" stop-opacity="0.15"/>
+                    <stop offset="100%" stop-color="#7B2FFF" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <!-- Background glow -->
+                <circle cx="180" cy="180" r="175" fill="url(#hudGlow)"/>
+                <!-- Outer dashed ring -->
+                <circle cx="180" cy="180" r="165" fill="none" stroke="rgba(123,47,255,0.2)" stroke-width="1" stroke-dasharray="3 9"/>
+                <!-- Middle ring -->
+                <circle cx="180" cy="180" r="130" fill="none" stroke="rgba(0,212,255,0.25)" stroke-width="1.5"/>
+                <!-- Inner ring -->
+                <circle cx="180" cy="180" r="90" fill="none" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" stroke-dasharray="8 4"/>
+                <!-- Core -->
+                <circle cx="180" cy="180" r="55" fill="rgba(123,47,255,0.08)" stroke="rgba(123,47,255,0.7)" stroke-width="2"/>
+                <!-- Apex text -->
+                <text x="180" y="175" text-anchor="middle" fill="#A855F7" font-family="Orbitron, monospace" font-size="13" font-weight="900" letter-spacing="3">APEX</text>
+                <text x="180" y="192" text-anchor="middle" fill="rgba(0,212,255,0.7)" font-family="Barlow Condensed, sans-serif" font-size="9" font-weight="600" letter-spacing="2">SIM PRO</text>
+                <!-- Tick marks on outer ring (every 30°) -->
+                <line x1="180" y1="15" x2="180" y2="28" stroke="rgba(123,47,255,0.6)" stroke-width="2" transform="rotate(0,180,180)"/>
+                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(30,180,180)"/>
+                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(60,180,180)"/>
+                <line x1="180" y1="15" x2="180" y2="28" stroke="rgba(123,47,255,0.6)" stroke-width="2" transform="rotate(90,180,180)"/>
+                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(120,180,180)"/>
+                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(150,180,180)"/>
+                <line x1="180" y1="15" x2="180" y2="28" stroke="rgba(123,47,255,0.6)" stroke-width="2" transform="rotate(180,180,180)"/>
+                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(210,180,180)"/>
+                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(240,180,180)"/>
+                <line x1="180" y1="15" x2="180" y2="28" stroke="rgba(123,47,255,0.6)" stroke-width="2" transform="rotate(270,180,180)"/>
+                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(300,180,180)"/>
+                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(330,180,180)"/>
+                <!-- Progress arc (throttle) -->
+                <path d="M 180 50 A 130 130 0 0 1 310 180" fill="none" stroke="rgba(0,212,255,0.6)" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+              <!-- Telemetry readouts -->
+              <div class="telem-panel">
+                <div class="telem-row">
+                  <span class="telem-label">VELOCIDAD</span>
+                  <span class="telem-value telem-blue">287 km/h</span>
+                </div>
+                <div class="telem-row">
+                  <span class="telem-label">VUELTA</span>
+                  <span class="telem-value telem-violet">1:42.381</span>
+                </div>
+                <div class="telem-row">
+                  <span class="telem-label">THROTTLE</span>
+                  <span class="telem-value telem-blue">98%</span>
+                </div>
+                <div class="telem-row">
+                  <span class="telem-label">DELTA</span>
+                  <span class="telem-value telem-green">–0.412s</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="sobre-content reveal" data-delay="100">
+          <p class="sobre-text">APEX nació de la convicción de que el automovilismo profesional comienza mucho antes de subirse a un auto real. Combinamos tecnología de simulación de nivel Fórmula 1, metodología de entrenamiento de alto rendimiento y análisis de datos en tiempo real para desarrollar el piloto que hay en vos.</p>
+          <p class="sobre-text">Nuestros simuladores replican con precisión milimétrica la física de los autos de competición. Cada sesión es analizada, cada curva optimizada, cada décima de segundo importa.</p>
+          <div class="sobre-pillars">
+            <div class="pillar">
+              <div class="pillar-icon" aria-hidden="true">◆</div>
+              <div class="pillar-body">
+                <strong>Tecnología Profesional</strong>
+                <span>Simuladores de clase F1 con movimiento real</span>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon" aria-hidden="true">◆</div>
+              <div class="pillar-body">
+                <strong>Análisis en Tiempo Real</strong>
+                <span>Telemetría avanzada en cada vuelta</span>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon" aria-hidden="true">◆</div>
+              <div class="pillar-body">
+                <strong>Competición Real</strong>
+                <span>Campeonatos con premios y proyección</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  PROCESO DE FORMACIÓN                 -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="section proceso" id="proceso" aria-label="Proceso de formación">
+    <div class="proceso-bg" aria-hidden="true">
+      <div class="proceso-orb proceso-orb--1"></div>
+    </div>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">METODOLOGÍA</span>
+        <h2 class="section-title">El camino<br><em>al podio.</em></h2>
+      </div>
+      <div class="proceso-track" aria-hidden="true">
+        <div class="track-line"></div>
+      </div>
+      <div class="proceso-grid">
+
+        <article class="proceso-step reveal" data-delay="0">
+          <div class="step-marker">
+            <span class="step-num">01</span>
+            <div class="step-pulse"></div>
+          </div>
+          <div class="step-card glass-card">
+            <span class="step-tag">INICIO</span>
+            <h3 class="step-title">Introducción</h3>
+            <p class="step-desc">Evaluación inicial de habilidades, creación del perfil de piloto y primera sesión guiada en nuestros simuladores.</p>
+            <ul class="step-list">
+              <li>Assessment de nivel inicial</li>
+              <li>Configuración de perfil</li>
+              <li>Primera sesión supervisada</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="proceso-step reveal" data-delay="120">
+          <div class="step-marker">
+            <span class="step-num">02</span>
+            <div class="step-pulse"></div>
+          </div>
+          <div class="step-card glass-card">
+            <span class="step-tag">DESARROLLO</span>
+            <h3 class="step-title">Entrenamiento</h3>
+            <p class="step-desc">Programa intensivo con sesiones guiadas, análisis de telemetría y coaching técnico uno a uno.</p>
+            <ul class="step-list">
+              <li>Sesiones de práctica intensivas</li>
+              <li>Análisis de datos en vivo</li>
+              <li>Coaching individualizado</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="proceso-step reveal" data-delay="240">
+          <div class="step-marker">
+            <span class="step-num">03</span>
+            <div class="step-pulse"></div>
+          </div>
+          <div class="step-card glass-card">
+            <span class="step-tag">COMPETICIÓN</span>
+            <h3 class="step-title">Racing</h3>
+            <p class="step-desc">Participación en campeonatos oficiales APEX, ligas nacionales e internacionales y eventos presenciales.</p>
+            <ul class="step-list">
+              <li>Campeonatos APEX internos</li>
+              <li>Ligas online globales</li>
+              <li>Eventos presenciales</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="proceso-step reveal" data-delay="360">
+          <div class="step-marker step-marker--elite">
+            <span class="step-num">04</span>
+            <div class="step-pulse step-pulse--elite"></div>
+          </div>
+          <div class="step-card glass-card step-card--elite">
+            <span class="step-tag step-tag--elite">ÉLITE</span>
+            <h3 class="step-title">Piloto APEX</h3>
+            <p class="step-desc">Certificación oficial, acceso a la red de contactos del automovilismo y oportunidades en equipos profesionales.</p>
+            <ul class="step-list">
+              <li>Certificación oficial APEX</li>
+              <li>Red de contactos pro</li>
+              <li>Oportunidades profesionales</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  SIMULADORES                          -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="section simuladores" id="simuladores" aria-label="Nuestros simuladores">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">EQUIPAMIENTO</span>
+        <h2 class="section-title">Simuladores<br><em>de clase mundial.</em></h2>
+        <p class="section-subtitle">Tecnología que usan los equipos de Fórmula 1. Ahora en Buenos Aires.</p>
+      </div>
+      <div class="sim-grid">
+
+        <article class="sim-card glass-card reveal" data-delay="0">
+          <div class="sim-visual sim-visual--gt3" aria-hidden="true">
+            <div class="sim-badge">GT3</div>
+            <div class="sim-cockpit">
+              <div class="sim-screens">
+                <div class="sim-screen sim-screen--left"></div>
+                <div class="sim-screen sim-screen--center"></div>
+                <div class="sim-screen sim-screen--right"></div>
+              </div>
+              <div class="sim-wheel">
+                <div class="sim-wheel-inner">
+                  <div class="wheel-btn wheel-btn--1"></div>
+                  <div class="wheel-btn wheel-btn--2"></div>
+                </div>
+              </div>
+            </div>
+            <div class="sim-glow-line"></div>
+          </div>
+          <div class="sim-body">
+            <h3 class="sim-name">APEX GT3 Pro</h3>
+            <p class="sim-desc">Simulador de clase GT3 con triple pantalla 4K, volante Direct Drive Fanatec y sistema de vibración háptica completo.</p>
+            <div class="sim-specs">
+              <span class="sim-spec">Triple 4K</span>
+              <span class="sim-spec">Direct Drive</span>
+              <span class="sim-spec">Háptico</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="sim-card sim-card--featured glass-card reveal" data-delay="120">
+          <div class="sim-visual sim-visual--f3" aria-hidden="true">
+            <div class="sim-badge sim-badge--featured">ELITE</div>
+            <div class="sim-cockpit">
+              <div class="sim-screens">
+                <div class="sim-screen sim-screen--left"></div>
+                <div class="sim-screen sim-screen--center"></div>
+                <div class="sim-screen sim-screen--right"></div>
+              </div>
+              <div class="sim-wheel sim-wheel--mono">
+                <div class="sim-wheel-inner">
+                  <div class="wheel-btn wheel-btn--1"></div>
+                  <div class="wheel-btn wheel-btn--2"></div>
+                </div>
+              </div>
+            </div>
+            <div class="sim-glow-line sim-glow-line--blue"></div>
+          </div>
+          <div class="sim-body">
+            <h3 class="sim-name">APEX F3 Elite</h3>
+            <p class="sim-desc">Plataforma monoplaza con movimiento 6DOF real, pedalera hidráulica y proyección inmersiva de 240°. La experiencia más cercana a la F1.</p>
+            <div class="sim-specs">
+              <span class="sim-spec">6DOF Motion</span>
+              <span class="sim-spec">Hidráulico</span>
+              <span class="sim-spec">240° FOV</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="sim-card glass-card reveal" data-delay="240">
+          <div class="sim-visual sim-visual--turismo" aria-hidden="true">
+            <div class="sim-badge sim-badge--new">NUEVO</div>
+            <div class="sim-cockpit">
+              <div class="sim-screens">
+                <div class="sim-screen sim-screen--left"></div>
+                <div class="sim-screen sim-screen--center"></div>
+                <div class="sim-screen sim-screen--right"></div>
+              </div>
+              <div class="sim-wheel">
+                <div class="sim-wheel-inner">
+                  <div class="wheel-btn wheel-btn--1"></div>
+                  <div class="wheel-btn wheel-btn--2"></div>
+                </div>
+              </div>
+            </div>
+            <div class="sim-glow-line"></div>
+          </div>
+          <div class="sim-body">
+            <h3 class="sim-name">APEX Turismo Pro</h3>
+            <p class="sim-desc">Ideal para iniciación de alto nivel. TrackIR, sistema de audio surround envolvente y butaca racing de fibra de carbono.</p>
+            <div class="sim-specs">
+              <span class="sim-spec">TrackIR</span>
+              <span class="sim-spec">Surround</span>
+              <span class="sim-spec">Carbon Seat</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      <div class="sim-cta reveal">
+        <a href="#inscripcion" class="btn btn--primary magnetic-btn" data-magnetic>
+          <span class="btn-inner">
+            <span class="btn-text">RESERVÁ TU SESIÓN</span>
+            <span class="btn-arrow">→</span>
+          </span>
+          <span class="btn-glow"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  ESTADÍSTICAS                         -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="section stats" id="stats" aria-label="Estadísticas APEX">
+    <div class="stats-bg" aria-hidden="true">
+      <div class="stats-orb stats-orb--1"></div>
+      <div class="stats-orb stats-orb--2"></div>
+      <div class="stats-grid-line stats-grid-line--h1"></div>
+      <div class="stats-grid-line stats-grid-line--h2"></div>
+    </div>
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-block reveal" data-delay="0">
+          <div class="stat-icon" aria-hidden="true">◈</div>
+          <div class="stat-figure">
+            <span class="stat-counter" data-target="1500" data-suffix="+">0</span>
+          </div>
+          <div class="stat-label">Pilotos Entrenados</div>
+          <div class="stat-sub">y creciendo</div>
+        </div>
+        <div class="stat-block reveal" data-delay="100">
+          <div class="stat-icon" aria-hidden="true">◉</div>
+          <div class="stat-figure">
+            <span class="stat-counter" data-target="8" data-suffix="">0</span>
+          </div>
+          <div class="stat-label">Simuladores</div>
+          <div class="stat-sub">última generación</div>
+        </div>
+        <div class="stat-block reveal" data-delay="200">
+          <div class="stat-icon" aria-hidden="true">◎</div>
+          <div class="stat-figure">
+            <span class="stat-counter" data-target="42" data-suffix="">0</span>
+          </div>
+          <div class="stat-label">Eventos Realizados</div>
+          <div class="stat-sub">en 3 países</div>
+        </div>
+        <div class="stat-block reveal" data-delay="300">
+          <div class="stat-icon" aria-hidden="true">◇</div>
+          <div class="stat-figure">
+            <span class="stat-counter" data-target="97" data-suffix="%">0</span>
+          </div>
+          <div class="stat-label">Satisfacción</div>
+          <div class="stat-sub">de nuestros pilotos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  EVENTOS                              -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="section eventos" id="eventos" aria-label="Próximos eventos">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">CALENDARIO 2025</span>
+        <h2 class="section-title">Próximos<br><em>eventos.</em></h2>
+      </div>
+      <div class="eventos-grid">
+
+        <article class="evento-card glass-card reveal" data-delay="0">
+          <div class="evento-top">
+            <div class="evento-date">
+              <span class="date-day">15</span>
+              <span class="date-month">AGO</span>
+            </div>
+            <span class="evento-category">CAMPEONATO</span>
+          </div>
+          <h3 class="evento-title">APEX Open Series — Round 1</h3>
+          <p class="evento-desc">Primera ronda del campeonato oficial. GT3 en Spa-Francorchamps. 32 pilotos clasificados, premio en efectivo.</p>
+          <div class="evento-footer">
+            <div class="evento-meta">
+              <span class="evento-location">◎ APEX HQ · Buenos Aires</span>
+              <span class="evento-slots slots--warning">12 cupos</span>
+            </div>
+            <a href="#inscripcion" class="evento-link">INSCRIBIRSE <span class="evento-arrow">→</span></a>
+          </div>
+        </article>
+
+        <article class="evento-card glass-card reveal" data-delay="120">
+          <div class="evento-top">
+            <div class="evento-date">
+              <span class="date-day">22</span>
+              <span class="date-month">AGO</span>
+            </div>
+            <span class="evento-category">MASTERCLASS</span>
+          </div>
+          <h3 class="evento-title">Telemetría Avanzada con Coach PRO</h3>
+          <p class="evento-desc">Masterclass intensiva de análisis de datos con nuestro equipo técnico. Máximo 8 participantes por sesión.</p>
+          <div class="evento-footer">
+            <div class="evento-meta">
+              <span class="evento-location">◎ APEX HQ · Buenos Aires</span>
+              <span class="evento-slots slots--critical">3 cupos</span>
+            </div>
+            <a href="#inscripcion" class="evento-link">INSCRIBIRSE <span class="evento-arrow">→</span></a>
+          </div>
+        </article>
+
+        <article class="evento-card glass-card reveal" data-delay="240">
+          <div class="evento-top">
+            <div class="evento-date">
+              <span class="date-day">05</span>
+              <span class="date-month">SEP</span>
+            </div>
+            <span class="evento-category">ENDURANCE</span>
+          </div>
+          <h3 class="evento-title">APEX 24H – Le Mans Virtual</h3>
+          <p class="evento-desc">Carrera de resistencia 24 horas en equipos de 3 pilotos. Transmisión en vivo, premios y cobertura mediática.</p>
+          <div class="evento-footer">
+            <div class="evento-meta">
+              <span class="evento-location">◎ Online + Presencial</span>
+              <span class="evento-slots">8 equipos</span>
+            </div>
+            <a href="#inscripcion" class="evento-link">INSCRIBIRSE <span class="evento-arrow">→</span></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  INSCRIPCIÓN                          -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="section inscripcion" id="inscripcion" aria-label="Formulario de inscripción">
+    <div class="inscripcion-bg" aria-hidden="true">
+      <div class="insc-orb insc-orb--1"></div>
+      <div class="insc-orb insc-orb--2"></div>
+    </div>
+    <div class="container">
+      <div class="inscripcion-layout">
+
+        <div class="inscripcion-info reveal">
+          <span class="section-eyebrow">UNITE AL EQUIPO</span>
+          <h2 class="section-title">Tu primera vuelta<br><em>comienza hoy.</em></h2>
+          <p class="inscripcion-desc">Completá el formulario y uno de nuestros coaches te contactará para diseñar tu plan de formación personalizado.</p>
+          <ul class="insc-checks" aria-label="Beneficios">
+            <li class="insc-check">
+              <span class="check-icon" aria-hidden="true">✓</span>
+              <span>Evaluación inicial gratuita</span>
+            </li>
+            <li class="insc-check">
+              <span class="check-icon" aria-hidden="true">✓</span>
+              <span>Plan personalizado de entrenamiento</span>
+            </li>
+            <li class="insc-check">
+              <span class="check-icon" aria-hidden="true">✓</span>
+              <span>Acceso completo a todos los simuladores</span>
+            </li>
+            <li class="insc-check">
+              <span class="check-icon" aria-hidden="true">✓</span>
+              <span>Comunidad exclusiva de pilotos APEX</span>
+            </li>
+            <li class="insc-check">
+              <span class="check-icon" aria-hidden="true">✓</span>
+              <span>Análisis de telemetría en cada sesión</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="inscripcion-form-wrap reveal" data-delay="100">
+          <div class="form-card glass-card">
+            <div class="form-card-header">
+              <span class="form-card-title">FORMULARIO DE INSCRIPCIÓN</span>
+              <span class="form-card-badge">GRATIS</span>
+            </div>
+            <form class="apex-form" id="apexForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="fNombre">Nombre completo</label>
+                  <input class="form-input" type="text" id="fNombre" name="nombre" placeholder="Tu nombre completo" autocomplete="name" required>
+                  <span class="form-error" id="fNombreErr" role="alert"></span>
+                </div>
+              </div>
+              <div class="form-row form-row--two">
+                <div class="form-group">
+                  <label class="form-label" for="fEmail">Email</label>
+                  <input class="form-input" type="email" id="fEmail" name="email" placeholder="tu@email.com" autocomplete="email" required>
+                  <span class="form-error" id="fEmailErr" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="fTel">Teléfono</label>
+                  <input class="form-input" type="tel" id="fTel" name="tel" placeholder="+54 11 xxxx xxxx" autocomplete="tel">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="fNivel">Nivel de experiencia</label>
+                  <div class="select-wrap">
+                    <select class="form-input form-select" id="fNivel" name="nivel" required>
+                      <option value="" disabled selected>Seleccioná tu nivel</option>
+                      <option value="principiante">Principiante — Primera vez en un sim</option>
+                      <option value="intermedio">Intermedio — Simracer con experiencia</option>
+                      <option value="avanzado">Avanzado — Compito actualmente</option>
+                      <option value="pro">Pro — Busco nivel profesional</option>
+                    </select>
+                    <span class="select-arrow" aria-hidden="true">▾</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="fMensaje">¿Por qué querés unirte a APEX?</label>
+                  <textarea class="form-input form-textarea" id="fMensaje" name="mensaje" placeholder="Contanos sobre vos, tus objetivos y por qué querés ser piloto APEX..." rows="4"></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full magnetic-btn" id="formSubmit" data-magnetic>
+                <span class="btn-inner">
+                  <span class="btn-text">ENVIAR INSCRIPCIÓN</span>
+                  <span class="btn-arrow">→</span>
+                </span>
+                <span class="btn-glow"></span>
+              </button>
+              <p class="form-privacy">Sin spam. Tus datos están protegidos. Te contactamos en menos de 24hs.</p>
+            </form>
+            <div class="form-success" id="formSuccess" aria-live="polite" hidden>
+              <div class="success-icon" aria-hidden="true">◉</div>
+              <h3 class="success-title">¡Bienvenido al equipo!</h3>
+              <p class="success-text">Tu inscripción fue recibida. Un coach de APEX te contactará en las próximas 24 horas para diseñar tu plan personalizado.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  CTA FINAL                            -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="section cta-final" aria-label="Llamado a la acción">
+    <div class="cta-bg" aria-hidden="true">
+      <div class="cta-orb cta-orb--1"></div>
+      <div class="cta-orb cta-orb--2"></div>
+      <div class="cta-line cta-line--1"></div>
+      <div class="cta-line cta-line--2"></div>
+    </div>
+    <div class="container">
+      <div class="cta-content reveal">
+        <span class="cta-eyebrow">APEX RACING ACADEMY</span>
+        <h2 class="cta-headline">El podio<br><span class="cta-accent">no espera.</span></h2>
+        <p class="cta-text">Cada segundo que no estás en el simulador, alguien más lo está. El tiempo es tu rival más importante. La carrera ya empezó.</p>
+        <a href="#inscripcion" class="btn btn--primary btn--xl magnetic-btn" data-magnetic>
+          <span class="btn-inner">
+            <span class="btn-text">COMENZÁ AHORA</span>
+            <span class="btn-arrow">→</span>
+          </span>
+          <span class="btn-glow"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  FOOTER                               -->
+  <!-- ══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#hero" class="footer-logo" aria-label="APEX inicio">APEX</a>
+            <p class="footer-tagline">DEL SIMULADOR A LA PISTA</p>
+            <p class="footer-brand-desc">La academia de E-Sim Racing más exigente de Latinoamérica.</p>
+            <div class="footer-social" aria-label="Redes sociales">
+              <a href="#" class="social-link" aria-label="Instagram">IG</a>
+              <a href="#" class="social-link" aria-label="Twitter / X">TW</a>
+              <a href="#" class="social-link" aria-label="YouTube">YT</a>
+              <a href="#" class="social-link" aria-label="Twitch">TV</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Academia</h4>
+            <ul class="footer-links">
+              <li><a href="#sobre">Sobre APEX</a></li>
+              <li><a href="#proceso">Proceso de formación</a></li>
+              <li><a href="#simuladores">Simuladores</a></li>
+              <li><a href="#eventos">Eventos</a></li>
+              <li><a href="#inscripcion">Inscripción</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Comunidad</h4>
+            <ul class="footer-links">
+              <li><a href="#">Campeonatos</a></li>
+              <li><a href="#">Rankings oficiales</a></li>
+              <li><a href="#">Blog APEX</a></li>
+              <li><a href="#">Pilotos destacados</a></li>
+              <li><a href="#">Partners</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Contacto</h4>
+            <ul class="footer-links">
+              <li><a href="mailto:hola@apexracing.gg">hola@apexracing.gg</a></li>
+              <li><a href="#">WhatsApp</a></li>
+              <li><a href="#">Buenos Aires, Argentina</a></li>
+            </ul>
+            <div class="footer-badge">
+              <span class="footer-badge-dot" aria-hidden="true"></span>
+              <span>Abiertos hoy · 10:00 – 22:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copy">© 2025 APEX Racing Academy. Todos los derechos reservados.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacidad</a>
+          <a href="#">Términos</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
