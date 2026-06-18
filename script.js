@@ -30,46 +30,6 @@ const mapRange = (value, inMin, inMax, outMin, outMax) =>
 // ─────────────────────────────────────────────────────
 // 1. GLOW CURSOR
 // ─────────────────────────────────────────────────────
-function initGlowCursor() {
-  const cursor = $('#glowCursor');
-  if (!cursor) return;
-
-  // Hide on touch devices
-  if (window.matchMedia('(hover: none)').matches) {
-    cursor.style.display = 'none';
-    document.body.style.cursor = 'auto';
-    $$('button, a, [data-magnetic]').forEach(el => {
-      el.style.cursor = 'auto';
-    });
-    return;
-  }
-
-  let mouseX = -400, mouseY = -400;
-  let curX = -400, curY = -400;
-  let rafId = null;
-
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  document.addEventListener('mouseleave', () => {
-    cursor.style.opacity = '0';
-  });
-
-  document.addEventListener('mouseenter', () => {
-    cursor.style.opacity = '1';
-  });
-
-  function animateCursor() {
-    curX = lerp(curX, mouseX, 0.08);
-    curY = lerp(curY, mouseY, 0.08);
-    cursor.style.transform = `translate(${curX}px, ${curY}px) translate(-50%, -50%)`;
-    rafId = requestAnimationFrame(animateCursor);
-  }
-
-  animateCursor();
-}
 
 // ─────────────────────────────────────────────────────
 // 2. NAVBAR SCROLL BEHAVIOR
