@@ -2316,3 +2316,33 @@ input, select, textarea {
   .hero-corner--bl { bottom: 80px; left: 40px; }
   .hero-corner--br { bottom: 80px; right: 40px; }
 }
+
+.glow-cursor{
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(123,47,255,0.9) 0%,
+    rgba(123,47,255,0.3) 40%,
+    transparent 70%
+  );
+
+  pointer-events: none;
+  z-index: 999999;
+
+  transform: translate(-50%, -50%);
+
+  box-shadow:
+    0 0 20px rgba(123,47,255,.8),
+    0 0 40px rgba(123,47,255,.5);
+
+  mix-blend-mode: screen;
+}
+
