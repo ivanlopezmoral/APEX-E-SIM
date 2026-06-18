@@ -102,7 +102,6 @@ a {
 button {
   border: none;
   background: none;
-  cursor: none;
   font-family: inherit;
 }
 
@@ -229,7 +228,6 @@ input, select, textarea {
   text-transform: uppercase;
   transition: transform var(--t-fast) var(--ease-out),
               box-shadow var(--t-med) var(--ease-out);
-  cursor: none;
   white-space: nowrap;
   user-select: none;
 }
@@ -458,7 +456,6 @@ input, select, textarea {
   height: 36px;
   padding: 4px;
   border-radius: 6px;
-  cursor: none;
 }
 
 .toggle-bar {
@@ -1890,7 +1887,6 @@ input, select, textarea {
 }
 
 .form-select {
-  cursor: none;
   background-color: rgba(7,7,15,0.95);
 }
 
