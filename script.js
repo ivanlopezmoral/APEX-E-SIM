@@ -889,3 +889,16 @@ document.addEventListener('visibilitychange', () => {
     el.style.animationPlayState = isHidden ? 'paused' : 'running';
   });
 });
+
+const glowCursor = document.getElementById('glowCursor');
+
+if (glowCursor) {
+
+  document.addEventListener('mousemove', (e) => {
+
+    glowCursor.style.left = e.clientX + 'px';
+    glowCursor.style.top = e.clientY + 'px';
+
+  });
+
+}
