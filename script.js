@@ -809,7 +809,6 @@ function init() {
   initScrollReveal();
 
   // Visual effects
-  initGlowCursor();
   initCustomCursorTarget();
   initHeroEntrance();
 
@@ -847,18 +846,6 @@ document.addEventListener('visibilitychange', () => {
   const isHidden = document.hidden;
   $$('.hero-orb, .stats-orb, .cockpit-svg').forEach(el => {
     el.style.animationPlayState = isHidden ? 'paused' : 'running';
-  });
-});
-
-const glowCursor = document.getElementById('glowCursor');
-
-if (glowCursor) {
-
-  document.addEventListener('mousemove', (e) => {
-
-    glowCursor.style.left = e.clientX + 'px';
-    glowCursor.style.top = e.clientY + 'px';
-
   });
 
 }
