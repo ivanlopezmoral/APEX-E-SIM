@@ -575,11 +575,10 @@ input, select, textarea {
 .hero-bg {
   position: absolute;
   inset: 0;
-
   z-index: 2;
 
   background: transparent;
-}
+} 
 
 .hero-content {
   position: relative;
