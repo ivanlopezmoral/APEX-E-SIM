@@ -851,5 +851,3 @@ document.addEventListener('visibilitychange', () => {
   });
 
 });
-
-}
