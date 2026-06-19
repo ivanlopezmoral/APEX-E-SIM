@@ -808,9 +808,10 @@ function init() {
   initSmoothScroll();
   initScrollReveal();
 
-  // Visual effects
-  initCustomCursorTarget();
-  initHeroEntrance();
+// Visual effects
+// initGlowCursor();
+initCustomCursorTarget();
+initHeroEntrance();
 
   // Conditional (performance-aware)
   if (!window.matchMedia('(hover: none)').matches) {
