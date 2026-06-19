@@ -845,8 +845,11 @@ if (document.readyState === 'loading') {
 // ─────────────────────────────────────────────────────
 document.addEventListener('visibilitychange', () => {
   const isHidden = document.hidden;
+
   $$('.hero-orb, .stats-orb, .cockpit-svg').forEach(el => {
     el.style.animationPlayState = isHidden ? 'paused' : 'running';
   });
+
+});
 
 }
