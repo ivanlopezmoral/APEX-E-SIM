@@ -849,5 +849,4 @@ document.addEventListener('visibilitychange', () => {
   $$('.hero-orb, .stats-orb, .cockpit-svg').forEach(el => {
     el.style.animationPlayState = isHidden ? 'paused' : 'running';
   });
-
 });
