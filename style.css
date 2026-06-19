@@ -573,8 +573,7 @@ input, select, textarea {
 .hero-bg {
   position: absolute;
   inset: 0;
-  z-index: 2;
-  opacity: .6;
+  z-index: 0;
 }
 
 .hero-content {
