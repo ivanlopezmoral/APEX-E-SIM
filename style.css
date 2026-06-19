@@ -558,6 +558,7 @@ input, select, textarea {
   justify-content: center;
   overflow: hidden;
   padding-top: 80px;
+  isolation: isolate;
 }
 .hero-video {
   position: absolute;
@@ -566,11 +567,11 @@ input, select, textarea {
   height: 100%;
   object-fit: cover;
 
-  z-index: 1;
-  opacity: .25;
+  z-index: -1;
 
+  opacity: .25;
   pointer-events: none;
-}
+} 
 
 .hero-bg {
   position: absolute;
