@@ -324,9 +324,10 @@ input, select, textarea {
 .reveal {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity var(--t-slow) var(--ease-out),
-              transform var(--t-slow) var(--ease-out);
-}
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+} 
 
 .reveal.visible {
   opacity: 1;
