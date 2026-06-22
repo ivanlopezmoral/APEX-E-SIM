@@ -806,7 +806,9 @@ function init() {
   initNavbar();
   initMobileMenu();
   initSmoothScroll();
-  initScrollReveal();
+  initScrollReveal(); 
+  initCustomCursorTarget();
+  initHeroEntrance();
 
 // Visual effects
 // initGlowCursor();
