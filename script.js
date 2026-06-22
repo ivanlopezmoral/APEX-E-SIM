@@ -814,12 +814,12 @@ initCustomCursorTarget();
 initHeroEntrance();
 
   // Conditional (performance-aware)
-  if (!window.matchMedia('(hover: none)').matches) {
-    initHeroParallax();
-    initScrollParallax();
-    initMagneticButtons();
-    initCardTilt();
-  }
+if (!window.matchMedia('(hover: none)').matches) {
+  // initHeroParallax();
+  // initScrollParallax();
+  initMagneticButtons();
+  initCardTilt();
+} 
 
   // Data & interactivity
   initCounters();
