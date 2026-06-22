@@ -598,19 +598,16 @@ function initHeroEntrance() {
 function initScrollParallax() {
   const hero = $('#hero');
   const heroContent = $('#heroContent');
+
   if (!hero || !heroContent) return;
 
   let ticking = false;
 
   function updateParallax() {
     const scrollY = window.scrollY;
-    const heroHeight = hero.offsetHeight;
 
-    if (scrollY < heroHeight) {
-      const progress = scrollY / heroHeight;
-      heroContent.style.transform = `translateY(${scrollY * 0.3}px)`;
-      heroContent.style.opacity = `${1 - progress * 1.8}`;
-    }
+    heroContent.style.transform =
+      `translateY(${scrollY * 0.08}px)`;
 
     ticking = false;
   }
@@ -621,7 +618,7 @@ function initScrollParallax() {
       ticking = true;
     }
   }, { passive: true });
-}
+} 
 
 // ─────────────────────────────────────────────────────
 // 15. ACTIVE NAV LINK (scroll spy)
@@ -817,8 +814,8 @@ initHeroEntrance();
 
   // Conditional (performance-aware)
 if (!window.matchMedia('(hover: none)').matches) {
-  // initHeroParallax();
-  // initScrollParallax();
+  initScrollParallax();
+
   initMagneticButtons();
   initCardTilt();
 } 
