@@ -596,30 +596,15 @@ function initHeroEntrance() {
 // 14. HERO SCROLL PARALLAX
 // ─────────────────────────────────────────────────────
 function initScrollParallax() {
-  const hero = $('#hero');
-  const heroContent = $('#heroContent');
+  const heroContent = document.getElementById('heroContent');
 
-  if (!hero || !heroContent) return;
-
-  let ticking = false;
-
-  function updateParallax() {
-    const scrollY = window.scrollY;
-
-    heroContent.style.transform =
-      `translateY(${scrollY * 0.08}px)`;
-
-    ticking = false;
-  }
+  if (!heroContent) return;
 
   window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(updateParallax);
-      ticking = true;
-    }
-  }, { passive: true });
+    heroContent.style.transform =
+      `translateY(${window.scrollY * 0.2}px)`;
+  });
 } 
-
 // ─────────────────────────────────────────────────────
 // 15. ACTIVE NAV LINK (scroll spy)
 // ─────────────────────────────────────────────────────
@@ -835,6 +820,7 @@ if (!window.matchMedia('(hover: none)').matches) {
   initCockpitSVG();
   initDynamicOrbs();
   initScrollSpy();
+  initScrollParalax();
   initProcesoSteps();
   initForm();
 }
