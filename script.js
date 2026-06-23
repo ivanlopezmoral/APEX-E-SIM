@@ -799,17 +799,6 @@ initHeroEntrance();
 
   // Conditional (performance-aware)
 if (!window.matchMedia('(hover: none)').matches) {
-  initScrollParallax();
-   function updateParallax() {
-  const scrollY = window.scrollY;
-
-  console.log(scrollY);
-
-  heroContent.style.transform =
-    `translateY(${scrollY * 0.08}px)`;
-
-  ticking = false;
-}
   initMagneticButtons();
   initCardTilt();
 } 
