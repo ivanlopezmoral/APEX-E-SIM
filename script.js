@@ -809,7 +809,6 @@ if (!window.matchMedia('(hover: none)').matches) {
   initCockpitSVG();
   initDynamicOrbs();
   initScrollSpy();
-  initScrollParallax();
   initProcesoSteps();
   initForm();
 }
