@@ -887,7 +887,6 @@ input, select, textarea {
   text-transform: uppercase;
 }
 
-
 /* ─────────────────────────────────────────────────────
    12. SOBRE APEX
    ───────────────────────────────────────────────────── */
@@ -1239,13 +1238,13 @@ input, select, textarea {
   margin-bottom: 3rem;
 }
 
-.sim-card{
-    position:relative;
-    overflow:hidden;
-    transition:
-        transform .45s cubic-bezier(.2,.8,.2,1),
-        border-color .45s,
-        box-shadow .45s;
+.sim-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--t-med) var(--ease-out),
+              box-shadow var(--t-med) var(--ease-out),
+              border-color var(--t-med) ease;
 }
 
 .sim-card:hover {
@@ -1259,34 +1258,6 @@ input, select, textarea {
 .sim-card--featured:hover {
   border-color: rgba(0, 212, 255, 0.65);
   box-shadow: 0 0 50px rgba(0, 212, 255, 0.1), 0 25px 60px rgba(0,0,0,0.45);
-}
-
-/*==========================
-REFLEJO PREMIUM
-==========================*/
-
-.sim-card::before{
-    content:"";
-    position:absolute;
-    top:-40%;
-    left:-80%;
-    width:60%;
-    height:180%;
-    background:linear-gradient(
-        110deg,
-        transparent,
-        rgba(255,255,255,.18),
-        rgba(255,255,255,.35),
-        transparent
-    );
-    transform:rotate(18deg);
-    transition:left .9s ease;
-    pointer-events:none;
-    z-index:20;
-}
-
-.sim-card:hover::before{
-    left:140%;
 }
 
 /* Sim visual (CSS cockpit art) */
@@ -1354,88 +1325,13 @@ REFLEJO PREMIUM
   border: 1px solid rgba(123,47,255,0.2);
   position: relative;
   overflow: hidden;
-  background:#07111e;
-  transition:.45s;
 }
 
-.sim-card:hover .sim-screen{
-
-    background:
-    radial-gradient(circle at center,
-    rgba(80,180,255,.9),
-    rgba(40,120,255,.45),
-    #07111e);
-
-    transform:scale(1.03);
-
-    box-shadow:
-    0 0 20px rgba(70,180,255,.45),
-    inset 0 0 18px rgba(80,180,255,.35);
-
-}
-
-
-/* HUD */
-
-.sim-screen::before{
-
-    position:absolute;
-    inset:8px;
-
-    white-space:pre;
-
-    font-family:"Courier New",monospace;
-
-    font-size:8px;
-
-    line-height:1.4;
-
-    color:#73d7ff;
-
-    opacity:0;
-
-    transition:.35s;
-
-    text-shadow:
-        0 0 8px rgba(80,180,255,.8);
-
-}
-
-.sim-card:hover .sim-screen::before{
-
-    opacity:1;
-
-}
-.sim-screen--left::before{
-
-content:
-"TRACK\n\
-INTERLAGOS\n\
-TEMP 27°\n\
-GRIP 98%";
-
-}
-
-.sim-screen--center::before{
-
-content:
-"SPEED\n\
-287 km/h\n\
-\n\
-RPM\n\
-████████";
-
-font-size:9px;
-
-}
-
-.sim-screen--right::before{
-
-content:
-"GEAR 5\n\
-P2\n\
-+0.214";
-
+.sim-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,212,255,0.05) 0%, transparent 60%);
 }
 
 .sim-screen--left, .sim-screen--right {
@@ -1464,35 +1360,6 @@ P2\n\
   justify-content: center;
   position: relative;
   box-shadow: 0 0 20px rgba(123,47,255,0.2), inset 0 0 15px rgba(123,47,255,0.05);
-  transition:.45s;
-  transition:
-    transform .28s cubic-bezier(.18,.8,.22,1),
-    box-shadow .35s,
-    border-color .35s;
-transform-style: preserve-3d;
-will-change: transform;
-}
-
-.sim-card:hover .sim-wheel{
-
-    box-shadow:
-        0 0 18px rgba(116,78,255,.45),
-        inset 0 0 12px rgba(116,78,255,.35);
-
-}
-
-.sim-card:hover{
-
-    transform:
-        translateY(-12px)
-        scale(1.02);
-
-    border-color:#6d46ff;
-
-    box-shadow:
-        0 30px 70px rgba(0,0,0,.45),
-        0 0 45px rgba(109,70,255,.25);
-
 }
 
 .sim-card:hover .sim-wheel {
@@ -1595,193 +1462,6 @@ will-change: transform;
 
 @media (min-width: 1024px) {
   .sim-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-/*======================================
-BOOT DE PANTALLAS
-======================================*/
-
-.sim-screen{
-    position:relative;
-    overflow:hidden;
-}
-
-.sim-screen::before{
-
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:linear-gradient(
-        180deg,
-        rgba(255,255,255,.12),
-        transparent 25%,
-        transparent 75%,
-        rgba(255,255,255,.08)
-    );
-
-    transform:translateY(-120%);
-    opacity:0;
-
-}
-
-.sim-card:hover .sim-screen::before{
-
-    animation:screenBoot .8s forwards;
-
-}
-
-@keyframes screenBoot{
-
-0%{
-
-transform:translateY(-120%);
-opacity:0;
-
-}
-
-30%{
-
-opacity:1;
-
-}
-
-100%{
-
-transform:translateY(120%);
-opacity:0;
-
-}
-
-}
-.sim-screen::after{
-
-content:"";
-
-position:absolute;
-
-left:10%;
-top:50%;
-
-width:0%;
-
-height:2px;
-
-background:#71d5ff;
-
-box-shadow:0 0 10px #71d5ff;
-
-transition:.4s;
-
-}
-
-.sim-card:hover .sim-screen::after{
-
-width:80%;
-
-}
-/*=========================
-HUD
-=========================*/
-
-.hud{
-
-position:absolute;
-inset:0;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-
-opacity:0;
-transition:.35s;
-
-font-family:var(--font-condensed);
-
-pointer-events:none;
-
-}
-
-.sim-card:hover .hud{
-
-opacity:1;
-
-}
-
-.hud-speed{
-
-font-size:30px;
-font-weight:800;
-
-letter-spacing:.05em;
-
-color:#8ee8ff;
-
-text-shadow:
-0 0 12px rgba(0,212,255,.8);
-
-}
-
-.hud-unit{
-
-font-size:9px;
-
-letter-spacing:.3em;
-
-margin-top:-4px;
-
-color:#8ee8ff;
-
-opacity:.8;
-
-}
-
-.hud-rpm{
-
-width:70%;
-
-height:5px;
-
-margin-top:10px;
-
-background:rgba(255,255,255,.08);
-
-border-radius:10px;
-
-overflow:hidden;
-
-}
-
-.hud-rpm-bar{
-
-height:100%;
-
-width:40%;
-
-background:linear-gradient(
-90deg,
-#7b2fff,
-#00d4ff);
-
-border-radius:20px;
-
-}
-
-.hud-gear{
-
-margin-top:10px;
-
-font-size:20px;
-
-font-weight:800;
-
-color:white;
-
-text-shadow:
-0 0 12px rgba(255,255,255,.4);
-
 }
 
 /* ─────────────────────────────────────────────────────
@@ -2750,153 +2430,3 @@ text-shadow:
     transform: translateX(-50%);
   }
 } 
-@keyframes rpmPulse{
-
-0%{
-
-filter:brightness(.8);
-
-}
-
-50%{
-
-filter:brightness(1.5);
-
-}
-
-100%{
-
-filter:brightness(.8);
-
-}
-
-}
-
-.sim-card:hover .sim-screen--center::before{
-
-animation:rpmPulse .7s infinite;
-
-}
-/*========== HUD V3 ==========*/
-
-.hud{
-    position:absolute;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    padding:8px;
-    color:#dff7ff;
-    font-family:Orbitron,sans-serif;
-    z-index:5;
-}
-
-.hud::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-    repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,.02) 0px,
-        rgba(255,255,255,.02) 1px,
-        transparent 2px,
-        transparent 4px
-    );
-    pointer-events:none;
-}
-
-.hud-leds{
-    position:absolute;
-    top:5px;
-    display:flex;
-    gap:2px;
-}
-
-.hud-leds span{
-    width:8px;
-    height:3px;
-    border-radius:3px;
-    background:#133;
-}
-
-.sim-card:hover .hud-leds span:nth-child(-n+3){
-    background:#00d4ff;
-    box-shadow:0 0 6px #00d4ff;
-}
-
-.sim-card:hover .hud-leds span:nth-child(n+4):nth-child(-n+6){
-    background:#ffe600;
-    box-shadow:0 0 6px #ffe600;
-}
-
-.sim-card:hover .hud-leds span:nth-child(n+7){
-    background:#ff3636;
-    box-shadow:0 0 8px #ff3636;
-}
-
-.hud-top{
-    text-align:center;
-}
-
-.hud-speed{
-    font-size:20px;
-    font-weight:700;
-    line-height:1;
-}
-
-.hud-unit{
-    font-size:8px;
-    letter-spacing:2px;
-    opacity:.6;
-}
-
-.hud-rpm{
-    width:80%;
-    height:5px;
-    background:#0d2235;
-    margin:8px 0;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.hud-rpm-bar{
-    width:65%;
-    height:100%;
-    background:linear-gradient(90deg,#00d4ff,#00ff88,#ffe600,#ff4b4b);
-    animation:rpmIdle 2s ease-in-out infinite alternate;
-}
-
-@keyframes rpmIdle{
-
-    from{width:58%;}
-
-    to{width:76%;}
-
-}
-
-.hud-bottom{
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.hud-box{
-    display:flex;
-    flex-direction:column;
-    font-size:7px;
-    opacity:.8;
-}
-
-.hud-box strong{
-    font-size:8px;
-}
-
-.hud-gear{
-    font-size:28px;
-    font-weight:800;
-    color:white;
-    text-shadow:0 0 10px rgba(255,255,255,.35);
-}
