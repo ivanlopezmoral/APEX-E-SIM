@@ -791,6 +791,7 @@ function init() {
   initScrollReveal(); 
   initCustomCursorTarget();
   initHeroEntrance();
+  initTrackAnimation();
 
 // Visual effects
 // initGlowCursor();
@@ -832,3 +833,41 @@ document.addEventListener('visibilitychange', () => {
     el.style.animationPlayState = isHidden ? 'paused' : 'running';
   });
 });
+
+
+//CIRCUITO//
+
+function initTrackAnimation(){
+
+    const path=document.querySelector("#trackPath");
+    const car=document.querySelector("#trackCar");
+
+    if(!path || !car) return;
+
+    const length=path.getTotalLength();
+
+    let target=0;
+    let current=0;
+
+    window.addEventListener("mousemove",(e)=>{
+
+        target=e.clientX/window.innerWidth;
+
+    });
+
+    function animate(){
+
+        current+= (target-current)*0.06;
+
+        const point=path.getPointAtLength(length*current);
+
+        car.setAttribute("cx",point.x);
+        car.setAttribute("cy",point.y);
+
+        requestAnimationFrame(animate);
+
+    }
+
+    animate();
+
+}
