@@ -1366,17 +1366,89 @@ REFLEJO PREMIUM
     rgba(40,120,255,.45),
     #07111e);
 
+    transform:scale(1.03);
+
     box-shadow:
     0 0 20px rgba(70,180,255,.45),
     inset 0 0 18px rgba(80,180,255,.35);
 
 }
 
-.sim-screen::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,212,255,0.05) 0%, transparent 60%);
+.sim-screen::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            rgba(255,255,255,.03),
+            transparent 18%,
+            transparent 82%,
+            rgba(255,255,255,.04)
+        );
+    pointer-events:none;
+}
+
+/* HUD */
+
+.sim-screen::before{
+
+    position:absolute;
+    inset:8px;
+
+    white-space:pre;
+
+    font-family:"Courier New",monospace;
+
+    font-size:8px;
+
+    line-height:1.4;
+
+    color:#73d7ff;
+
+    opacity:0;
+
+    transition:.35s;
+
+    text-shadow:
+        0 0 8px rgba(80,180,255,.8);
+
+}
+
+.sim-card:hover .sim-screen::before{
+
+    opacity:1;
+
+}
+.sim-screen--left::before{
+
+content:
+"TRACK\n\
+INTERLAGOS\n\
+TEMP 27°\n\
+GRIP 98%";
+
+}
+
+.sim-screen--center::before{
+
+content:
+"SPEED\n\
+287 km/h\n\
+\n\
+RPM\n\
+████████";
+
+font-size:9px;
+
+}
+
+.sim-screen--right::before{
+
+content:
+"GEAR 5\n\
+P2\n\
++0.214";
+
 }
 
 .sim-screen--left, .sim-screen--right {
@@ -2504,4 +2576,30 @@ will-change: transform;
     transform: translateX(-50%);
   }
 } 
+@keyframes rpmPulse{
 
+0%{
+
+filter:brightness(.8);
+
+}
+
+50%{
+
+filter:brightness(1.5);
+
+}
+
+100%{
+
+filter:brightness(.8);
+
+}
+
+}
+
+.sim-card:hover .sim-screen--center::before{
+
+animation:rpmPulse .7s infinite;
+
+}
