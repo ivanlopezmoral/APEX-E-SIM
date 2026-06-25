@@ -370,6 +370,55 @@ function initCardTilt() {
 // SIM WHEEL INTERACTION
 // ─────────────────────────────────────────────────────
 function initSimWheelInteraction() {
+   //────────────────────────────────────
+// SIM HUD
+//────────────────────────────────────
+
+function initSimHUD(){
+
+const cards=document.querySelectorAll(".sim-card");
+
+cards.forEach(card=>{
+
+const speed=card.querySelector(".hud-speed");
+const gear=card.querySelector(".hud-gear");
+const rpm=card.querySelector(".hud-rpm-bar");
+
+if(!speed)return;
+
+let timer;
+
+card.addEventListener("mouseenter",()=>{
+
+timer=setInterval(()=>{
+
+const vel=280+Math.floor(Math.random()*18);
+
+speed.textContent=vel;
+
+gear.textContent=4+Math.floor(Math.random()*3);
+
+rpm.style.width=(40+Math.random()*60)+"%";
+
+},180);
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+clearInterval(timer);
+
+speed.textContent="286";
+
+gear.textContent="5";
+
+rpm.style.width="40%";
+
+});
+
+});
+
+}
 
   const cards = document.querySelectorAll(".sim-card");
 
@@ -839,6 +888,7 @@ function init() {
   initScrollReveal(); 
   initCustomCursorTarget();
   initHeroEntrance();
+  initSimHUD();
 
 // Visual effects
 // initGlowCursor();
