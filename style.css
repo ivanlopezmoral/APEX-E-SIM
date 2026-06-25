@@ -1374,19 +1374,6 @@ REFLEJO PREMIUM
 
 }
 
-.sim-screen::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        linear-gradient(
-            rgba(255,255,255,.03),
-            transparent 18%,
-            transparent 82%,
-            rgba(255,255,255,.04)
-        );
-    pointer-events:none;
-}
 
 /* HUD */
 
@@ -1608,6 +1595,91 @@ will-change: transform;
 
 @media (min-width: 1024px) {
   .sim-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/*======================================
+BOOT DE PANTALLAS
+======================================*/
+
+.sim-screen{
+    position:relative;
+    overflow:hidden;
+}
+
+.sim-screen::before{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.12),
+        transparent 25%,
+        transparent 75%,
+        rgba(255,255,255,.08)
+    );
+
+    transform:translateY(-120%);
+    opacity:0;
+
+}
+
+.sim-card:hover .sim-screen::before{
+
+    animation:screenBoot .8s forwards;
+
+}
+
+@keyframes screenBoot{
+
+0%{
+
+transform:translateY(-120%);
+opacity:0;
+
+}
+
+30%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(120%);
+opacity:0;
+
+}
+
+}
+.sim-screen::after{
+
+content:"";
+
+position:absolute;
+
+left:10%;
+top:50%;
+
+width:0%;
+
+height:2px;
+
+background:#71d5ff;
+
+box-shadow:0 0 10px #71d5ff;
+
+transition:.4s;
+
+}
+
+.sim-card:hover .sim-screen::after{
+
+width:80%;
+
 }
 
 /* ─────────────────────────────────────────────────────
