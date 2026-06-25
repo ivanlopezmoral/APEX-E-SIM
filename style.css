@@ -2777,3 +2777,126 @@ filter:brightness(.8);
 animation:rpmPulse .7s infinite;
 
 }
+/*========== HUD V3 ==========*/
+
+.hud{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:8px;
+    color:#dff7ff;
+    font-family:Orbitron,sans-serif;
+    z-index:5;
+}
+
+.hud::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,.02) 0px,
+        rgba(255,255,255,.02) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events:none;
+}
+
+.hud-leds{
+    position:absolute;
+    top:5px;
+    display:flex;
+    gap:2px;
+}
+
+.hud-leds span{
+    width:8px;
+    height:3px;
+    border-radius:3px;
+    background:#133;
+}
+
+.sim-card:hover .hud-leds span:nth-child(-n+3){
+    background:#00d4ff;
+    box-shadow:0 0 6px #00d4ff;
+}
+
+.sim-card:hover .hud-leds span:nth-child(n+4):nth-child(-n+6){
+    background:#ffe600;
+    box-shadow:0 0 6px #ffe600;
+}
+
+.sim-card:hover .hud-leds span:nth-child(n+7){
+    background:#ff3636;
+    box-shadow:0 0 8px #ff3636;
+}
+
+.hud-top{
+    text-align:center;
+}
+
+.hud-speed{
+    font-size:20px;
+    font-weight:700;
+    line-height:1;
+}
+
+.hud-unit{
+    font-size:8px;
+    letter-spacing:2px;
+    opacity:.6;
+}
+
+.hud-rpm{
+    width:80%;
+    height:5px;
+    background:#0d2235;
+    margin:8px 0;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.hud-rpm-bar{
+    width:65%;
+    height:100%;
+    background:linear-gradient(90deg,#00d4ff,#00ff88,#ffe600,#ff4b4b);
+    animation:rpmIdle 2s ease-in-out infinite alternate;
+}
+
+@keyframes rpmIdle{
+
+    from{width:58%;}
+
+    to{width:76%;}
+
+}
+
+.hud-bottom{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.hud-box{
+    display:flex;
+    flex-direction:column;
+    font-size:7px;
+    opacity:.8;
+}
+
+.hud-box strong{
+    font-size:8px;
+}
+
+.hud-gear{
+    font-size:28px;
+    font-weight:800;
+    color:white;
+    text-shadow:0 0 10px rgba(255,255,255,.35);
+}
