@@ -367,6 +367,54 @@ function initCardTilt() {
 }
 
 // ─────────────────────────────────────────────────────
+// SIM WHEEL INTERACTION
+// ─────────────────────────────────────────────────────
+function initSimWheelInteraction() {
+
+  const cards = document.querySelectorAll(".sim-card");
+
+  cards.forEach(card => {
+
+    const wheel = card.querySelector(".sim-wheel");
+
+    if (!wheel) return;
+
+    card.addEventListener("mousemove", (e) => {
+
+      const rect = card.getBoundingClientRect();
+
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+
+      const rotateY = (x - 0.5) * 35;
+      const rotateX = -(y - 0.5) * 12;
+
+      wheel.style.transform = `
+        perspective(700px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        rotateZ(${rotateY * .45}deg)
+        scale(1.05)
+      `;
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+      wheel.style.transform = `
+        perspective(700px)
+        rotateX(0deg)
+        rotateY(0deg)
+        rotateZ(0deg)
+        scale(1)
+      `;
+
+    });
+
+  });
+
+}
+// ─────────────────────────────────────────────────────
 // 10. TELEMETRY VALUES (random fluctuation)
 // ─────────────────────────────────────────────────────
 function initTelemetry() {
@@ -808,6 +856,7 @@ if (!window.matchMedia('(hover: none)').matches) {
   initTelemetry();
   initCockpitSVG();
   initDynamicOrbs();
+  initSimWheelInteraction();
   initScrollSpy();
   initProcesoSteps();
   initForm();
