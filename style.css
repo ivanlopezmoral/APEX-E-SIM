@@ -1406,6 +1406,12 @@ REFLEJO PREMIUM
   position: relative;
   box-shadow: 0 0 20px rgba(123,47,255,0.2), inset 0 0 15px rgba(123,47,255,0.05);
   transition:.45s;
+  transition:
+    transform .28s cubic-bezier(.18,.8,.22,1),
+    box-shadow .35s,
+    border-color .35s;
+transform-style: preserve-3d;
+will-change: transform;
 }
 
 .sim-card:hover .sim-wheel{
