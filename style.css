@@ -887,48 +887,6 @@ input, select, textarea {
   text-transform: uppercase;
 }
 
-/* ======================================
-   HERO TRACK
-====================================== */
-
-.hero-track{
-    position:absolute;
-    inset:0;
-    z-index:2;
-    pointer-events:none;
-    overflow:hidden;
-}
-
-.track-svg{
-    width:100%;
-    height:100%;
-}
-
-#trackPath{
-
-    fill:none;
-
-    stroke:rgba(120,80,255,.08);
-
-    stroke-width:2;
-
-    stroke-linecap:round;
-
-    stroke-linejoin:round;
-
-    filter:drop-shadow(0 0 8px rgba(120,80,255,.25));
-
-}
-
-#trackCar{
-
-    fill:#7b2fff;
-
-    filter:
-        drop-shadow(0 0 8px #7b2fff)
-        drop-shadow(0 0 18px #00d4ff);
-
-}
 
 /* ─────────────────────────────────────────────────────
    12. SOBRE APEX
