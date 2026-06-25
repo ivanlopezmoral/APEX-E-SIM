@@ -1239,13 +1239,13 @@ input, select, textarea {
   margin-bottom: 3rem;
 }
 
-.sim-card {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform var(--t-med) var(--ease-out),
-              box-shadow var(--t-med) var(--ease-out),
-              border-color var(--t-med) ease;
+.sim-card{
+    position:relative;
+    overflow:hidden;
+    transition:
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        border-color .45s,
+        box-shadow .45s;
 }
 
 .sim-card:hover {
@@ -1259,6 +1259,34 @@ input, select, textarea {
 .sim-card--featured:hover {
   border-color: rgba(0, 212, 255, 0.65);
   box-shadow: 0 0 50px rgba(0, 212, 255, 0.1), 0 25px 60px rgba(0,0,0,0.45);
+}
+
+/*==========================
+REFLEJO PREMIUM
+==========================*/
+
+.sim-card::before{
+    content:"";
+    position:absolute;
+    top:-40%;
+    left:-80%;
+    width:60%;
+    height:180%;
+    background:linear-gradient(
+        110deg,
+        transparent,
+        rgba(255,255,255,.18),
+        rgba(255,255,255,.35),
+        transparent
+    );
+    transform:rotate(18deg);
+    transition:left .9s ease;
+    pointer-events:none;
+    z-index:20;
+}
+
+.sim-card:hover::before{
+    left:140%;
 }
 
 /* Sim visual (CSS cockpit art) */
@@ -1326,6 +1354,22 @@ input, select, textarea {
   border: 1px solid rgba(123,47,255,0.2);
   position: relative;
   overflow: hidden;
+  background:#07111e;
+  transition:.45s;
+}
+
+.sim-card:hover .sim-screen{
+
+    background:
+    radial-gradient(circle at center,
+    rgba(80,180,255,.9),
+    rgba(40,120,255,.45),
+    #07111e);
+
+    box-shadow:
+    0 0 20px rgba(70,180,255,.45),
+    inset 0 0 18px rgba(80,180,255,.35);
+
 }
 
 .sim-screen::after {
@@ -1361,6 +1405,29 @@ input, select, textarea {
   justify-content: center;
   position: relative;
   box-shadow: 0 0 20px rgba(123,47,255,0.2), inset 0 0 15px rgba(123,47,255,0.05);
+  transition:.45s;
+}
+
+.sim-card:hover .sim-wheel{
+
+    box-shadow:
+        0 0 18px rgba(116,78,255,.45),
+        inset 0 0 12px rgba(116,78,255,.35);
+
+}
+
+.sim-card:hover{
+
+    transform:
+        translateY(-12px)
+        scale(1.02);
+
+    border-color:#6d46ff;
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.45),
+        0 0 45px rgba(109,70,255,.25);
+
 }
 
 .sim-card:hover .sim-wheel {
