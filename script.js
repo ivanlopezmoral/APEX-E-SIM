@@ -863,7 +863,7 @@ const drivers = {
         vel: "89",
         cur: "95",
         color: "#7B2FFF",
-        image: "himages/Corredor 3 (Ramiro).png"
+        image: "images/Corredor 3 (Ramiro).png"
     }
 };
 
