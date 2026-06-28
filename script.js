@@ -832,3 +832,64 @@ document.addEventListener('visibilitychange', () => {
     el.style.animationPlayState = isHidden ? 'paused' : 'running';
   });
 });
+const drivers = {
+    maria: {
+        name: "MARÍA",
+        team: "APEX ELITE",
+        rating: "97",
+        iq: "99",
+        vel: "96",
+        cur: "98",
+        color: "#00d4ff",
+        image: "images/Corredora 1 (Maria).png"
+    },
+
+    thomas: {
+        name: "THOMAS",
+        team: "APEX PRO",
+        rating: "94",
+        iq: "91",
+        vel: "95",
+        cur: "92",
+        color: "#ff3b5c",
+        image: "images/Corredor 2 (Thomas).png"
+    },
+
+    ramiro: {
+        name: "RAMIRO",
+        team: "APEX GT",
+        rating: "91",
+        iq: "94",
+        vel: "89",
+        cur: "95",
+        color: "#7B2FFF",
+        image: "himages/Corredor 3 (Ramiro).png"
+    }
+};
+
+const tabs = document.querySelectorAll(".driver-tab");
+
+tabs.forEach(tab => {
+
+    tab.addEventListener("mouseenter", () => {
+
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const d = drivers[tab.dataset.driver];
+
+        document.getElementById("driverImage").src = d.image;
+        document.getElementById("driverName").textContent = d.name;
+        document.getElementById("driverTeam").textContent = d.team;
+        document.querySelector(".driver-rating").textContent = d.rating;
+
+        document.getElementById("statIQ").textContent = d.iq;
+        document.getElementById("statVEL").textContent = d.vel;
+        document.getElementById("statCUR").textContent = d.cur;
+
+        document.querySelector(".driver-rating").style.color = d.color;
+        document.querySelector(".driver-card").style.boxShadow =
+            `0 0 50px ${d.color}22`;
+    });
+
+});
