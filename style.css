@@ -2433,28 +2433,27 @@ input, select, textarea {
 
 .driver-photo{
     position:absolute;
-    bottom:90px;
     left:50%;
+    top:180px;
     transform:translateX(-50%);
 
-    width:100%;
-    height:520px;
+    width:320px;
+    height:320px;
 
     display:flex;
     justify-content:center;
-    align-items:flex-end;
+    align-items:center;
 
-    z-index:1;
+    z-index:2;
 }
 
 .driver-photo img{
-    width:auto;
-    height:auto;
-
-    max-width:85%;
-    max-height:100%;
-
+    width:100%;
+    height:100%;
     object-fit:contain;
+
+    filter:
+        drop-shadow(0 0 50px rgba(123,47,255,.35));
 }
 
 .driver-photo img{
@@ -2467,13 +2466,13 @@ input, select, textarea {
 .driver-info{
     position:absolute;
     left:50px;
-    bottom:140px;
+    bottom:150px;
     z-index:3;
 }
 
 .driver-info h3{
     margin:0;
-    font-size:64px;
+    font-size:58px;
     line-height:1;
 }
 
@@ -2490,7 +2489,7 @@ input, select, textarea {
 
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    gap:15px;
 }
 
 .driver-stat{
@@ -2513,17 +2512,4 @@ input, select, textarea {
     font-size:48px;
     color:#fff;
 }
-/* MARIA */
-.driver-photo img[src*="Maria"]{
-    max-height:500px;
-}
 
-/* THOMAS */
-.driver-photo img[src*="Thomas"]{
-    max-height:560px;
-}
-
-/* RAMIRO */
-.driver-photo img[src*="Ramiro"]{
-    max-height:540px;
-}
