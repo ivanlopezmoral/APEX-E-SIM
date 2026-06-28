@@ -913,8 +913,11 @@ input, select, textarea {
 
 .cockpit-card {
   width: 100%;
-  max-width: 420px;
-  padding: 2rem;
+  max-width: 560px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .cockpit-hud {
@@ -1032,6 +1035,119 @@ input, select, textarea {
   }
   .sobre-visual { order: 1; }
   .sobre-content { order: 2; }
+}
+.driver-card{
+    position:relative;
+    width:100%;
+    max-width:560px;
+    height:720px;
+
+    background:linear-gradient(
+        180deg,
+        #100d20 0%,
+        #07070d 100%
+    );
+
+    border:1px solid rgba(123,47,255,.25);
+    border-radius:32px;
+
+    overflow:hidden;
+}
+
+.driver-tabs{
+    position:absolute;
+    top:25px;
+    left:50%;
+    transform:translateX(-50%);
+
+    display:flex;
+    gap:12px;
+    z-index:100;
+}
+
+.driver-tab{
+    padding:10px 20px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.1);
+
+    background:#111;
+    color:#888;
+
+    cursor:pointer;
+}
+
+.driver-tab.active{
+    background:#7B2FFF;
+    color:#fff;
+}
+
+.driver-rating{
+    position:absolute;
+    top:90px;
+    left:35px;
+
+    font-size:110px;
+    font-family:Orbitron;
+    font-weight:900;
+    color:#00d4ff;
+}
+
+.driver-photo{
+    position:absolute;
+    bottom:120px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.driver-photo img{
+    height:470px;
+    width:auto;
+    object-fit:contain;
+}
+
+.driver-info{
+    position:absolute;
+    bottom:100px;
+    left:35px;
+}
+
+.driver-info h3{
+    margin:0;
+    font-size:42px;
+}
+
+.driver-info span{
+    color:#888;
+}
+
+.driver-stats{
+    position:absolute;
+    bottom:30px;
+    left:30px;
+    right:30px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.driver-stat{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:16px;
+    padding:16px;
+    text-align:center;
+}
+
+.driver-stat span{
+    display:block;
+    color:#777;
+    font-size:12px;
+}
+
+.driver-stat strong{
+    font-size:30px;
+    color:white;
 }
 
 /* ─────────────────────────────────────────────────────
