@@ -2434,11 +2434,11 @@ input, select, textarea {
 .driver-photo{
     position:absolute;
     left:50%;
-    top:180px;
+    top:200px;
     transform:translateX(-50%);
 
-    width:320px;
-    height:320px;
+    width:260px;
+    height:260px;
 
     display:flex;
     justify-content:center;
@@ -2453,8 +2453,8 @@ input, select, textarea {
     object-fit:contain;
 
     filter:
-        drop-shadow(0 0 50px rgba(123,47,255,.35));
-}
+        drop-shadow(0 0 40px rgba(123,47,255,.35));
+} 
 
 .driver-photo img{
     height:650px;
@@ -2466,20 +2466,19 @@ input, select, textarea {
 .driver-info{
     position:absolute;
     left:50px;
-    bottom:150px;
-    z-index:3;
+    bottom:180px;
+    z-index:5;
 }
 
 .driver-info h3{
     margin:0;
-    font-size:58px;
+    font-size:52px;
     line-height:1;
 }
 
 .driver-info span{
-    color:#999;
-    font-size:28px;
-}
+    font-size:18px;
+} 
 
 .driver-stats{
     position:absolute;
