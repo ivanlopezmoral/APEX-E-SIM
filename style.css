@@ -911,65 +911,6 @@ input, select, textarea {
   justify-content: center;
 }
 
-.cockpit-card {
-  width: 100%;
-  max-width: 560px;
-  padding: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-.cockpit-hud {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.cockpit-svg {
-  width: 100%;
-  max-width: 320px;
-  animation: cockpit-spin 60s linear infinite;
-}
-
-.telem-panel {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-}
-
-.telem-row {
-  display: flex;
-  flex-direction: column;
-  background: rgba(123, 47, 255, 0.05);
-  border: 1px solid rgba(123, 47, 255, 0.1);
-  border-radius: var(--radius-sm);
-  padding: 0.6rem 0.75rem;
-}
-
-.telem-label {
-  font-family: var(--font-condensed);
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  color: var(--apex-grey-2);
-  text-transform: uppercase;
-}
-
-.telem-value {
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  font-weight: 700;
-  margin-top: 0.2rem;
-  animation: telem-flicker 5s ease-in-out infinite;
-}
-
-.telem-violet { color: var(--apex-violet-light); }
-.telem-blue   { color: var(--apex-blue); }
-.telem-green  { color: var(--apex-green); }
 
 .sobre-text {
   font-size: 1.05rem;
@@ -2841,4 +2782,124 @@ input, select, textarea {
     font-size:28px;
 
     color:#fff;
+}
+/* ==========================================
+   TOP DRIVERS
+========================================== */
+
+.driver-card{
+    position:relative;
+    width:100%;
+    max-width:520px;
+    height:760px;
+    padding:40px;
+    overflow:hidden;
+    background:linear-gradient(180deg,#0b0b1d,#080814);
+    border:1px solid rgba(123,47,255,.25);
+    border-radius:32px;
+}
+
+.driver-tabs{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    margin-bottom:30px;
+    position:relative;
+    z-index:10;
+}
+
+.driver-tab{
+    padding:16px 32px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.1);
+    background:transparent;
+    color:#999;
+    cursor:pointer;
+}
+
+.driver-tab.active{
+    background:linear-gradient(135deg,#7b2fff,#9b4dff);
+    color:#fff;
+}
+
+.driver-rating{
+    position:absolute;
+    top:120px;
+    left:40px;
+    font-family:var(--font-display);
+    font-size:180px;
+    font-weight:900;
+    line-height:1;
+    background:linear-gradient(180deg,#b167ff,#7b2fff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    z-index:1;
+}
+
+.driver-photo{
+    position:absolute;
+    left:50%;
+    bottom:170px;
+    transform:translateX(-50%);
+    width:360px;
+    height:500px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    z-index:5;
+}
+
+.driver-photo img{
+    max-height:100%;
+    max-width:100%;
+    object-fit:contain;
+    filter:drop-shadow(0 0 60px rgba(123,47,255,.35));
+}
+
+.driver-info{
+    position:absolute;
+    left:40px;
+    bottom:170px;
+    z-index:8;
+}
+
+.driver-info h3{
+    font-size:72px;
+    line-height:1;
+    margin:0;
+}
+
+.driver-info span{
+    display:block;
+    margin-top:8px;
+    color:#bbb;
+}
+
+.driver-stats{
+    position:absolute;
+    left:40px;
+    right:40px;
+    bottom:40px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.driver-stat{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:24px;
+    padding:28px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+}
+
+.driver-stat span{
+    display:block;
+    color:#888;
+    margin-bottom:15px;
+}
+
+.driver-stat strong{
+    font-size:52px;
 }
