@@ -2678,3 +2678,167 @@ input, select, textarea {
     font-size:28px;
     color:#fff;
 }
+/* ===== DRIVER CARD ===== */
+
+.driver-card{
+    position:relative;
+    width:100%;
+    max-width:560px;
+    height:760px;
+
+    background:
+        radial-gradient(circle at top,#15152d 0%,#08080f 70%);
+
+    border:1px solid rgba(123,47,255,.25);
+    border-radius:32px;
+
+    overflow:hidden;
+    box-shadow:
+        0 0 40px rgba(123,47,255,.15);
+}
+
+/* TABS */
+
+.driver-tabs{
+    position:absolute;
+    top:25px;
+    left:50%;
+    transform:translateX(-50%);
+
+    display:flex;
+    gap:12px;
+
+    z-index:100;
+}
+
+.driver-tab{
+    padding:10px 18px;
+
+    background:#11131d;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:999px;
+
+    color:#888;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.driver-tab.active,
+.driver-tab:hover{
+    background:#7B2FFF;
+    color:#fff;
+}
+
+/* RATING */
+
+.driver-rating{
+    position:absolute;
+    top:90px;
+    left:40px;
+
+    font-family:Orbitron;
+    font-size:110px;
+    font-weight:900;
+
+    color:#00d4ff;
+
+    line-height:1;
+}
+
+/* FOTO */
+
+.driver-photo{
+    position:absolute;
+
+    left:50%;
+    bottom:140px;
+
+    transform:translateX(-50%);
+
+    width:100%;
+    height:500px;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+}
+
+.driver-photo img{
+    max-height:500px;
+    width:auto;
+
+    object-fit:contain;
+
+    filter:
+        drop-shadow(0 0 40px rgba(123,47,255,.35));
+}
+
+/* INFO */
+
+.driver-info{
+    position:absolute;
+
+    left:40px;
+    bottom:105px;
+}
+
+.driver-info h3{
+    margin:0;
+
+    font-size:44px;
+    font-weight:900;
+
+    color:#fff;
+}
+
+.driver-info span{
+    color:#999;
+    font-size:18px;
+}
+
+/* STATS */
+
+.driver-stats{
+    position:absolute;
+
+    left:30px;
+    right:30px;
+    bottom:25px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+}
+
+.driver-stat{
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    border-radius:16px;
+
+    padding:18px;
+
+    text-align:center;
+}
+
+.driver-stat span{
+    display:block;
+
+    color:#777;
+
+    font-size:12px;
+
+    margin-bottom:8px;
+}
+
+.driver-stat strong{
+    font-size:28px;
+
+    color:#fff;
+}
