@@ -2433,13 +2433,28 @@ input, select, textarea {
 
 .driver-photo{
     position:absolute;
-    bottom:110px;
+    bottom:90px;
     left:50%;
     transform:translateX(-50%);
+
     width:100%;
+    height:520px;
+
     display:flex;
     justify-content:center;
+    align-items:flex-end;
+
     z-index:1;
+}
+
+.driver-photo img{
+    width:auto;
+    height:auto;
+
+    max-width:85%;
+    max-height:100%;
+
+    object-fit:contain;
 }
 
 .driver-photo img{
@@ -2497,4 +2512,18 @@ input, select, textarea {
 .driver-stat strong{
     font-size:48px;
     color:#fff;
+}
+/* MARIA */
+.driver-photo img[src*="Maria"]{
+    max-height:500px;
+}
+
+/* THOMAS */
+.driver-photo img[src*="Thomas"]{
+    max-height:560px;
+}
+
+/* RAMIRO */
+.driver-photo img[src*="Ramiro"]{
+    max-height:540px;
 }
