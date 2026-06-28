@@ -151,68 +151,80 @@
       <div class="sobre-layout">
 
         <!-- Visual: Cockpit HUD -->
-        <div class="sobre-visual reveal" aria-hidden="true">
-          <div class="cockpit-card glass-card">
-            <div class="cockpit-hud">
-              <svg class="cockpit-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <radialGradient id="hudGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#7B2FFF" stop-opacity="0.15"/>
-                    <stop offset="100%" stop-color="#7B2FFF" stop-opacity="0"/>
-                  </radialGradient>
-                </defs>
-                <!-- Background glow -->
-                <circle cx="180" cy="180" r="175" fill="url(#hudGlow)"/>
-                <!-- Outer dashed ring -->
-                <circle cx="180" cy="180" r="165" fill="none" stroke="rgba(123,47,255,0.2)" stroke-width="1" stroke-dasharray="3 9"/>
-                <!-- Middle ring -->
-                <circle cx="180" cy="180" r="130" fill="none" stroke="rgba(0,212,255,0.25)" stroke-width="1.5"/>
-                <!-- Inner ring -->
-                <circle cx="180" cy="180" r="90" fill="none" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" stroke-dasharray="8 4"/>
-                <!-- Core -->
-                <circle cx="180" cy="180" r="55" fill="rgba(123,47,255,0.08)" stroke="rgba(123,47,255,0.7)" stroke-width="2"/>
-                <!-- Apex text -->
-                <text x="180" y="175" text-anchor="middle" fill="#A855F7" font-family="Orbitron, monospace" font-size="13" font-weight="900" letter-spacing="3">APEX</text>
-                <text x="180" y="192" text-anchor="middle" fill="rgba(0,212,255,0.7)" font-family="Barlow Condensed, sans-serif" font-size="9" font-weight="600" letter-spacing="2">SIM PRO</text>
-                <!-- Tick marks on outer ring (every 30°) -->
-                <line x1="180" y1="15" x2="180" y2="28" stroke="rgba(123,47,255,0.6)" stroke-width="2" transform="rotate(0,180,180)"/>
-                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(30,180,180)"/>
-                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(60,180,180)"/>
-                <line x1="180" y1="15" x2="180" y2="28" stroke="rgba(123,47,255,0.6)" stroke-width="2" transform="rotate(90,180,180)"/>
-                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(120,180,180)"/>
-                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(150,180,180)"/>
-                <line x1="180" y1="15" x2="180" y2="28" stroke="rgba(123,47,255,0.6)" stroke-width="2" transform="rotate(180,180,180)"/>
-                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(210,180,180)"/>
-                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(240,180,180)"/>
-                <line x1="180" y1="15" x2="180" y2="28" stroke="rgba(123,47,255,0.6)" stroke-width="2" transform="rotate(270,180,180)"/>
-                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(300,180,180)"/>
-                <line x1="180" y1="15" x2="180" y2="22" stroke="rgba(123,47,255,0.4)" stroke-width="1.5" transform="rotate(330,180,180)"/>
-                <!-- Progress arc (throttle) -->
-                <path d="M 180 50 A 130 130 0 0 1 310 180" fill="none" stroke="rgba(0,212,255,0.6)" stroke-width="3" stroke-linecap="round"/>
-              </svg>
-              <!-- Telemetry readouts -->
-              <div class="telem-panel">
-                <div class="telem-row">
-                  <span class="telem-label">VELOCIDAD</span>
-                  <span class="telem-value telem-blue">287 km/h</span>
-                </div>
-                <div class="telem-row">
-                  <span class="telem-label">VUELTA</span>
-                  <span class="telem-value telem-violet">1:42.381</span>
-                </div>
-                <div class="telem-row">
-                  <span class="telem-label">THROTTLE</span>
-                  <span class="telem-value telem-blue">98%</span>
-                </div>
-                <div class="telem-row">
-                  <span class="telem-label">DELTA</span>
-                  <span class="telem-value telem-green">–0.412s</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+     <!-- Visual: TOP DRIVERS -->
+<div class="sobre-visual reveal">
 
+  <div class="driver-card glass-card">
+
+    <!-- SELECTORES -->
+    <div class="driver-tabs">
+      <button class="driver-tab active"
+              data-driver="maria">
+        TOP 1
+      </button>
+
+      <button class="driver-tab"
+              data-driver="thomas">
+        TOP 2
+      </button>
+
+      <button class="driver-tab"
+              data-driver="ramiro">
+        TOP 3
+      </button>
+    </div>
+
+    <!-- RATING -->
+    <div class="driver-rating">
+      97
+    </div>
+
+    <!-- FOTO -->
+    <div class="driver-photo">
+
+      <img
+        id="driverImage"
+        src="hero/Corredora 1 (Maria).png"
+        alt="María">
+
+    </div>
+
+    <!-- NOMBRE -->
+    <div class="driver-info">
+
+      <h3 id="driverName">
+        MARÍA
+      </h3>
+
+      <span id="driverTeam">
+        APEX ELITE
+      </span>
+
+    </div>
+
+    <!-- STATS -->
+    <div class="driver-stats">
+
+      <div class="driver-stat">
+        <span>IQ</span>
+        <strong id="statIQ">99</strong>
+      </div>
+
+      <div class="driver-stat">
+        <span>VEL</span>
+        <strong id="statVEL">96</strong>
+      </div>
+
+      <div class="driver-stat">
+        <span>CUR</span>
+        <strong id="statCUR">98</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
         <!-- Content -->
         <div class="sobre-content reveal" data-delay="100">
           <p class="sobre-text">APEX nació de la convicción de que el automovilismo profesional comienza mucho antes de subirse a un auto real. Combinamos tecnología de simulación de nivel Fórmula 1, metodología de entrenamiento de alto rendimiento y análisis de datos en tiempo real para desarrollar el piloto que hay en vos.</p>
