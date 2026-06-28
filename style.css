@@ -2443,9 +2443,10 @@ input, select, textarea {
 }
 
 .driver-photo img{
-    max-height:420px;
+    height:650px;
     width:auto;
     object-fit:contain;
+    border:2px solid red;
 }
 
 .driver-info{
