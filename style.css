@@ -2456,12 +2456,6 @@ input, select, textarea {
         drop-shadow(0 0 40px rgba(123,47,255,.35));
 } 
 
-.driver-photo img{
-    height:650px;
-    width:auto;
-    object-fit:contain;
-    border:2px solid red;
-}
 
 .driver-info{
     position:absolute;
