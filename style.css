@@ -2378,8 +2378,8 @@ input, select, textarea {
 .driver-card{
     position:relative;
     width:100%;
-    max-width:560px;
-    height:720px;
+    max-width:520px;
+    height:620px;
     margin:auto;
 
     background:linear-gradient(
@@ -2420,10 +2420,10 @@ input, select, textarea {
 
 .driver-rating{
     position:absolute;
-    top:100px;
-    left:50px;
+    top:80px;
+    left:40px;
 
-    font-size:150px;
+    font-size:120px;
     line-height:1;
     font-weight:900;
     font-family:'Orbitron';
@@ -2434,11 +2434,11 @@ input, select, textarea {
 .driver-photo{
     position:absolute;
     left:50%;
-    top:200px;
+    top:160px;
     transform:translateX(-50%);
 
-    width:260px;
-    height:260px;
+    width:220px;
+    height:220px;
 
     display:flex;
     justify-content:center;
@@ -2460,13 +2460,13 @@ input, select, textarea {
 .driver-info{
     position:absolute;
     left:50px;
-    bottom:180px;
+    bottom:140px;
     z-index:5;
 }
 
 .driver-info h3{
     margin:0;
-    font-size:52px;
+    font-size:46px;
     line-height:1;
 }
 
@@ -2478,7 +2478,7 @@ input, select, textarea {
     position:absolute;
     left:30px;
     right:30px;
-    bottom:30px;
+    bottom:20px;
 
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -2502,7 +2502,7 @@ input, select, textarea {
 }
 
 .driver-stat strong{
-    font-size:48px;
+    font-size:40px;
     color:#fff;
 }
 
