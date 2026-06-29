@@ -2468,11 +2468,11 @@ input, select, textarea {
 .driver-photo{
     position:absolute;
     left:50%;
-    top:110px;
+    top:90px;
     transform:translateX(-50%);
 
-    width:380px;
-    height:380px;
+    width:430px;
+    height:430px;
 
     display:flex;
     justify-content:center;
@@ -2482,7 +2482,7 @@ input, select, textarea {
 }
 
 .driver-photo img{
-    width:115%;
+    width:130%;
     height:auto;
     object-fit:contain;
 
