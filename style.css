@@ -2698,3 +2698,33 @@ input, select, textarea {
 .sobre-layout{
     gap:2rem;
 }
+/* ==========================================
+   GLOW DINÁMICO POR PILOTO
+========================================== */
+
+.driver-card.top1::before{
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,212,255,.28),
+            transparent 70%
+        );
+}
+
+.driver-card.top2::before{
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,216,77,.28),
+            transparent 70%
+        );
+}
+
+.driver-card.top3::before{
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,94,94,.28),
+            transparent 70%
+        );
+}
