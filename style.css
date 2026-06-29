@@ -1807,6 +1807,123 @@ input, select, textarea {
     }
 
 }
+/* ==========================================
+   COLORES POR NIVEL
+========================================== */
+
+/* ROOKIE */
+
+.evento-card:nth-child(1) .evento-date{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,212,255,.12),
+            rgba(0,120,255,.08)
+        );
+
+    border:
+        1px solid
+        rgba(0,212,255,.25);
+
+    box-shadow:
+        0 0 30px
+        rgba(0,212,255,.15);
+}
+
+.evento-card:nth-child(1) .program-level{
+    background:
+        linear-gradient(
+            90deg,
+            #00D4FF,
+            #008CFF
+        );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.evento-card:nth-child(1):hover{
+    box-shadow:
+        0 25px 70px
+        rgba(0,212,255,.18);
+}
+
+
+/* ELITE */
+
+.evento-card:nth-child(2) .evento-date{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(123,47,255,.12),
+            rgba(180,90,255,.08)
+        );
+
+    border:
+        1px solid
+        rgba(123,47,255,.25);
+
+    box-shadow:
+        0 0 30px
+        rgba(123,47,255,.15);
+}
+
+.evento-card:nth-child(2) .program-level{
+    background:
+        linear-gradient(
+            90deg,
+            #7B2FFF,
+            #C36CFF
+        );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.evento-card:nth-child(2):hover{
+    box-shadow:
+        0 25px 70px
+        rgba(123,47,255,.18);
+}
+
+
+/* PRO */
+
+.evento-card:nth-child(3) .evento-date{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,215,0,.14),
+            rgba(255,180,0,.08)
+        );
+
+    border:
+        1px solid
+        rgba(255,215,0,.25);
+
+    box-shadow:
+        0 0 30px
+        rgba(255,215,0,.18);
+}
+
+.evento-card:nth-child(3) .program-level{
+    background:
+        linear-gradient(
+            90deg,
+            #FFD700,
+            #FF9F1C
+        );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.evento-card:nth-child(3):hover{
+    box-shadow:
+        0 25px 70px
+        rgba(255,200,0,.20);
+}
+
 /* ─────────────────────────────────────────────────────
    17. INSCRIPCIÓN
    ───────────────────────────────────────────────────── */
