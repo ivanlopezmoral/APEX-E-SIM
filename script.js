@@ -887,8 +887,27 @@ tabs.forEach(tab => {
         document.getElementById("statVEL").textContent = d.vel;
         document.getElementById("statCUR").textContent = d.cur;
 
-        document.querySelector(".driver-rating").style.color = d.color;
-        document.querySelector(".driver-card").style.boxShadow =
+        const card = document.querySelector(".driver-card");
+
+        card.classList.remove(
+            "top1",
+            "top2",
+            "top3"
+        );
+
+        if(tab.dataset.driver === "maria"){
+            card.classList.add("top1");
+        }
+
+        if(tab.dataset.driver === "thomas"){
+            card.classList.add("top2");
+        }
+
+        if(tab.dataset.driver === "ramiro"){
+            card.classList.add("top3");
+        }
+
+        card.style.boxShadow =
             `0 0 50px ${d.color}22`;
     });
 
