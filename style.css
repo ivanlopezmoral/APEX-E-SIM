@@ -2379,24 +2379,29 @@ input, select, textarea {
 ========================================== */
 
 .driver-card{
+    --glow: rgba(0,212,255,.25);
+
     position:relative;
     width:100%;
     max-width:420px;
     height:520px;
     margin:auto;
 
-    background:linear-gradient(
-        180deg,
-        #100d20 0%,
-        #07070d 100%
-    );
+    background:
+        linear-gradient(
+            180deg,
+            #100d20 0%,
+            #07070d 100%
+        );
 
     border:1px solid rgba(123,47,255,.25);
     border-radius:32px;
     overflow:hidden;
+
+    transition:.4s;
 }
 
-/* GLOW CENTRAL */
+/* GLOW */
 
 .driver-card::before{
     content:"";
@@ -2407,18 +2412,17 @@ input, select, textarea {
 
     left:50%;
     top:110px;
+
     transform:translateX(-50%);
 
     background:
         radial-gradient(
             circle,
-            var(--glow, rgba(123,47,255,.28)),
+            var(--glow),
             transparent 70%
         );
 
     z-index:0;
-
-    transition:.4s;
 }
 
 /* TABS */
@@ -2427,42 +2431,54 @@ input, select, textarea {
     position:absolute;
     top:18px;
     left:50%;
+
     transform:translateX(-50%);
+
     display:flex;
     gap:14px;
+
     z-index:100;
 }
 
 .driver-tab{
     padding:12px 24px;
+
     border-radius:999px;
+
     border:1px solid rgba(255,255,255,.08);
-    background:rgba(255,255,255,.03);
+
+    background:
+        rgba(255,255,255,.03);
+
     color:#8b8b9f;
+
     cursor:pointer;
+
     transition:.3s;
 }
 
 .driver-tab.active{
     background:#7B2FFF;
-    color:#fff;
+    color:white;
 }
 
 /* RATING */
 
 .driver-rating{
     position:absolute;
+
     top:90px;
     left:35px;
 
-    font-size:100px;
+    font-size:90px;
     line-height:1;
+
     font-weight:900;
     font-family:'Orbitron';
 
     color:#00d4ff;
 
-    z-index:2;
+    z-index:10;
 
     transition:.3s;
 }
@@ -2471,24 +2487,31 @@ input, select, textarea {
 
 .driver-photo{
     position:absolute;
+
     left:50%;
-    top:45px;
+    top:70px;
+
     transform:translateX(-50%);
 
     width:430px;
-    height:430px;
+    height:420px;
 
     display:flex;
     justify-content:center;
     align-items:flex-end;
 
+    overflow:hidden;
+
     z-index:5;
 }
 
 .driver-photo img{
-    width:130%;
-    height:auto;
+    height:520px;
+    width:auto;
+
     object-fit:contain;
+
+    transform:translateY(20px);
 
     filter:
         drop-shadow(
@@ -2501,20 +2524,22 @@ input, select, textarea {
 
 .driver-photo::after{
     content:"";
+
     position:absolute;
 
     left:0;
     right:0;
     bottom:0;
 
-    height:70px;
+    height:90px;
 
-    background:linear-gradient(
-        to bottom,
-        rgba(7,7,13,0),
-        rgba(7,7,13,.45),
-        rgba(7,7,13,.9)
-    );
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(7,7,13,0),
+            rgba(7,7,13,.35),
+            rgba(7,7,13,.95)
+        );
 
     pointer-events:none;
 }
@@ -2523,13 +2548,16 @@ input, select, textarea {
 
 .driver-info{
     position:absolute;
+
     left:35px;
     bottom:120px;
-    z-index:20;
+
+    z-index:50;
 }
 
 .driver-info h3{
     margin:0;
+
     font-size:38px;
     line-height:1;
 }
@@ -2543,29 +2571,40 @@ input, select, textarea {
 
 .driver-stats{
     position:absolute;
+
     left:20px;
     right:20px;
     bottom:20px;
 
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:12px;
 
-    z-index:20;
+    z-index:50;
 }
 
 .driver-stat{
-    background:rgba(255,255,255,.03);
+    background:
+        rgba(255,255,255,.03);
+
     border-radius:20px;
+
     padding:12px;
+
     text-align:center;
+
     backdrop-filter:blur(20px);
 }
 
 .driver-stat span{
     display:block;
+
     font-size:12px;
+
     color:#888;
+
     margin-bottom:8px;
 }
 
@@ -2574,27 +2613,47 @@ input, select, textarea {
     color:white;
 }
 
-/* COLORES DE STATS */
+/* CARD IQ */
 
 .driver-stat:nth-child(1){
-    border:1px solid rgba(0,212,255,.25);
-    background:rgba(0,212,255,.05);
+    border:
+        1px solid
+        rgba(0,212,255,.25);
+
+    background:
+        rgba(0,212,255,.05);
 }
+
+/* CARD VEL */
 
 .driver-stat:nth-child(2){
-    border:1px solid rgba(255,216,77,.25);
-    background:rgba(255,216,77,.05);
+    border:
+        1px solid
+        rgba(255,216,77,.25);
+
+    background:
+        rgba(255,216,77,.05);
 }
 
+/* CARD CUR */
+
 .driver-stat:nth-child(3){
-    border:1px solid rgba(255,94,94,.25);
-    background:rgba(255,94,94,.05);
+    border:
+        1px solid
+        rgba(255,94,94,.25);
+
+    background:
+        rgba(255,94,94,.05);
 }
 
 /* TOP 1 */
 
 .driver-card.top1{
-    border-color:rgba(0,212,255,.25);
+    border-color:
+        rgba(0,212,255,.30);
+
+    --glow:
+        rgba(0,212,255,.22);
 }
 
 .driver-card.top1 .driver-rating{
@@ -2604,7 +2663,11 @@ input, select, textarea {
 /* TOP 2 */
 
 .driver-card.top2{
-    border-color:rgba(255,216,77,.25);
+    border-color:
+        rgba(255,216,77,.30);
+
+    --glow:
+        rgba(255,216,77,.22);
 }
 
 .driver-card.top2 .driver-rating{
@@ -2614,7 +2677,11 @@ input, select, textarea {
 /* TOP 3 */
 
 .driver-card.top3{
-    border-color:rgba(255,94,94,.25);
+    border-color:
+        rgba(255,94,94,.30);
+
+    --glow:
+        rgba(255,94,94,.22);
 }
 
 .driver-card.top3 .driver-rating{
