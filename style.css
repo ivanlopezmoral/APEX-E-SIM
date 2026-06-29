@@ -1807,6 +1807,14 @@ input, select, textarea {
     }
 
 }
+.evento-card{
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition:
+        transform .15s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+} 
 /* ==========================================
    COLORES POR NIVEL
 ========================================== */
