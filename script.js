@@ -825,13 +825,6 @@ if (document.readyState === 'loading') {
 // ─────────────────────────────────────────────────────
 // PERFORMANCE: Pause heavy animations when tab is hidden
 // ─────────────────────────────────────────────────────
-document.addEventListener('visibilitychange', () => {
-  const isHidden = document.hidden;
-
-  $$('.hero-orb, .stats-orb, .cockpit-svg').forEach(el => {
-    el.style.animationPlayState = isHidden ? 'paused' : 'running';
-  });
-});
 const drivers = {
 
     maria: {
@@ -841,7 +834,7 @@ const drivers = {
         iq: "99",
         vel: "96",
         cur: "98",
-        color: "#00d4ff",
+        color: "#00D4FF",
         class: "top1",
         image: "images/Corredora 1 (Maria).png"
     },
@@ -872,62 +865,55 @@ const drivers = {
 };
 
 const tabs = document.querySelectorAll(".driver-tab");
-const card = document.getElementById("driverCard");
+const card = document.querySelector(".driver-card");
 const rating = document.querySelector(".driver-rating");
 
 tabs.forEach(tab => {
 
     tab.addEventListener("mouseenter", () => {
 
-        tabs.forEach(t =>
-            t.classList.remove("active")
-        );
-
+        // botón activo
+        tabs.forEach(t => t.classList.remove("active"));
         tab.classList.add("active");
 
+        // piloto actual
         const d = drivers[tab.dataset.driver];
 
-        // FOTO
-        document.getElementById(
-            "driverImage"
-        ).src = d.image;
+        // foto
+        document.getElementById("driverImage").src = d.image;
 
-        // NOMBRE
-        document.getElementById(
-            "driverName"
-        ).textContent = d.name;
+        // nombre
+        document.getElementById("driverName").textContent = d.name;
 
-        // EQUIPO
-        document.getElementById(
-            "driverTeam"
-        ).textContent = d.team;
+        // equipo
+        document.getElementById("driverTeam").textContent = d.team;
 
-        // RATING
+        // rating
         rating.textContent = d.rating;
         rating.style.color = d.color;
 
-        // STATS
-        document.getElementById(
-            "statIQ"
-        ).textContent = d.iq;
+        // stats
+        document.getElementById("statIQ").textContent = d.iq;
+        document.getElementById("statVEL").textContent = d.vel;
+        document.getElementById("statCUR").textContent = d.cur;
 
-        document.getElementById(
-            "statVEL"
-        ).textContent = d.vel;
-
-        document.getElementById(
-            "statCUR"
-        ).textContent = d.cur;
-
-        // CAMBIAR CLASE VISUAL
+        // clase visual
         card.classList.remove(
             "top1",
             "top2",
             "top3"
         );
 
-        card.classList.add(
-            d.class
+        card.classList.add(d.class);
+
+        // glow exterior
+        card.style.boxShadow =
+            `0 0 60px ${d.color}20`;
+
+        // glow interior dinámico
+        card.style.setProperty(
+            "--driver-glow",
+            d.color
         );
     });
 
