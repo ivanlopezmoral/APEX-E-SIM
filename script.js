@@ -842,7 +842,6 @@ const drivers = {
         vel: "96",
         cur: "98",
         color: "#00d4ff",
-        glow: "rgba(0,212,255,.28)",
         class: "top1",
         image: "images/Corredora 1 (Maria).png"
     },
@@ -855,7 +854,6 @@ const drivers = {
         vel: "95",
         cur: "92",
         color: "#FFD84D",
-        glow: "rgba(255,216,77,.28)",
         class: "top2",
         image: "images/Corredor 2 (Thomas).png"
     },
@@ -868,39 +866,60 @@ const drivers = {
         vel: "89",
         cur: "95",
         color: "#FF5E5E",
-        glow: "rgba(255,94,94,.28)",
         class: "top3",
         image: "images/Corredor 3 (Ramiro).png"
     }
 };
+
 const tabs = document.querySelectorAll(".driver-tab");
 const card = document.getElementById("driverCard");
+const rating = document.querySelector(".driver-rating");
 
 tabs.forEach(tab => {
 
     tab.addEventListener("mouseenter", () => {
 
-        tabs.forEach(t => t.classList.remove("active"));
+        tabs.forEach(t =>
+            t.classList.remove("active")
+        );
+
         tab.classList.add("active");
 
         const d = drivers[tab.dataset.driver];
 
-        document.getElementById("driverImage").src = d.image;
-        document.getElementById("driverName").textContent = d.name;
-        document.getElementById("driverTeam").textContent = d.team;
-        document.querySelector(".driver-rating").textContent = d.rating;
+        // FOTO
+        document.getElementById(
+            "driverImage"
+        ).src = d.image;
 
-        document.getElementById("statIQ").textContent = d.iq;
-        document.getElementById("statVEL").textContent = d.vel;
-        document.getElementById("statCUR").textContent = d.cur;
+        // NOMBRE
+        document.getElementById(
+            "driverName"
+        ).textContent = d.name;
 
-        document.querySelector(".driver-rating").style.color = d.color;
+        // EQUIPO
+        document.getElementById(
+            "driverTeam"
+        ).textContent = d.team;
 
-        card.style.setProperty(
-            "--glow",
-            d.glow
-        );
+        // RATING
+        rating.textContent = d.rating;
+        rating.style.color = d.color;
 
+        // STATS
+        document.getElementById(
+            "statIQ"
+        ).textContent = d.iq;
+
+        document.getElementById(
+            "statVEL"
+        ).textContent = d.vel;
+
+        document.getElementById(
+            "statCUR"
+        ).textContent = d.cur;
+
+        // CAMBIAR CLASE VISUAL
         card.classList.remove(
             "top1",
             "top2",
