@@ -2412,11 +2412,13 @@ input, select, textarea {
     background:
         radial-gradient(
             circle,
-            rgba(123,47,255,.28),
+            var(--glow, rgba(123,47,255,.28)),
             transparent 70%
         );
 
     z-index:0;
+
+    transition:.4s;
 }
 
 /* TABS */
@@ -2450,7 +2452,7 @@ input, select, textarea {
 
 .driver-rating{
     position:absolute;
-    top:55px;
+    top:90px;
     left:35px;
 
     font-size:100px;
@@ -2461,6 +2463,8 @@ input, select, textarea {
     color:#00d4ff;
 
     z-index:2;
+
+    transition:.3s;
 }
 
 /* FOTO */
