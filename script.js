@@ -833,6 +833,7 @@ document.addEventListener('visibilitychange', () => {
   });
 });
 const drivers = {
+
     maria: {
         name: "MARÍA",
         team: "APEX ELITE",
@@ -841,6 +842,8 @@ const drivers = {
         vel: "96",
         cur: "98",
         color: "#00d4ff",
+        glow: "rgba(0,212,255,.28)",
+        class: "top1",
         image: "images/Corredora 1 (Maria).png"
     },
 
@@ -851,7 +854,9 @@ const drivers = {
         iq: "91",
         vel: "95",
         cur: "92",
-        color: "#ff3b5c",
+        color: "#FFD84D",
+        glow: "rgba(255,216,77,.28)",
+        class: "top2",
         image: "images/Corredor 2 (Thomas).png"
     },
 
@@ -862,12 +867,14 @@ const drivers = {
         iq: "94",
         vel: "89",
         cur: "95",
-        color: "#7B2FFF",
+        color: "#FF5E5E",
+        glow: "rgba(255,94,94,.28)",
+        class: "top3",
         image: "images/Corredor 3 (Ramiro).png"
     }
 };
-
 const tabs = document.querySelectorAll(".driver-tab");
+const card = document.getElementById("driverCard");
 
 tabs.forEach(tab => {
 
@@ -887,7 +894,12 @@ tabs.forEach(tab => {
         document.getElementById("statVEL").textContent = d.vel;
         document.getElementById("statCUR").textContent = d.cur;
 
-        const card = document.querySelector(".driver-card");
+        document.querySelector(".driver-rating").style.color = d.color;
+
+        card.style.setProperty(
+            "--glow",
+            d.glow
+        );
 
         card.classList.remove(
             "top1",
@@ -895,20 +907,9 @@ tabs.forEach(tab => {
             "top3"
         );
 
-        if(tab.dataset.driver === "maria"){
-            card.classList.add("top1");
-        }
-
-        if(tab.dataset.driver === "thomas"){
-            card.classList.add("top2");
-        }
-
-        if(tab.dataset.driver === "ramiro"){
-            card.classList.add("top3");
-        }
-
-        card.style.boxShadow =
-            `0 0 50px ${d.color}22`;
+        card.classList.add(
+            d.class
+        );
     });
 
 });
