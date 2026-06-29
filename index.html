@@ -562,299 +562,165 @@
     </div>
   </section>
 
-/* ─────────────────────────────────────────────────────
-   16. PROGRAMAS / EXPERIENCIAS
-   ───────────────────────────────────────────────────── */
+<!-- ══════════════════════════════════════ -->
+<!--  PROGRAMAS                            -->
+<!-- ══════════════════════════════════════ -->
+<section class="section eventos" id="eventos" aria-label="Programas APEX">
 
-.eventos{
+  <div class="container">
 
-    position:relative;
+    <div class="section-header reveal">
 
-    background:
-        radial-gradient(
-            circle at top left,
-            rgba(0,212,255,.18),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at bottom right,
-            rgba(123,47,255,.12),
-            transparent 40%
-        ),
-        linear-gradient(
-            135deg,
-            #ffffff 0%,
-            #f6fbff 40%,
-            #eaf7ff 100%
-        );
+      <span class="section-eyebrow">
+        COHORTES 2025
+      </span>
 
-    overflow:hidden;
-}
+      <h2 class="section-title">
+        <span class="eventos-title-light">
+          Próximos
+        </span>
+        <br>
+        <em>programas.</em>
+      </h2>
 
-.eventos::before{
-    content:"";
-    position:absolute;
-    inset:0;
+    </div>
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.02) 1px,
-            transparent 1px
-        );
+    <div class="eventos-grid">
 
-    background-size:120px 120px;
+      <!-- CARD 1 -->
+      <article class="evento-card glass-card reveal" data-delay="0">
 
-    opacity:.3;
-    pointer-events:none;
-}
+        <div class="evento-top">
 
-/* TITULO */
+          <div class="evento-date">
+            <span class="program-level">
+              ROOKIE
+            </span>
+          </div>
 
-.eventos-title-light{
-    color:#111827;
-}
+        </div>
 
-/* GRID */
+        <h3 class="evento-title">
+          Programa Rookie Driver
+        </h3>
 
-.eventos-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:1.5rem;
-}
+        <p class="evento-desc">
+          Formación intensiva para pilotos que buscan desarrollar fundamentos de conducción, trazadas, consistencia y adaptación al simulador profesional.
+        </p>
 
-/* CARD */
+        <div class="evento-footer">
 
-.evento-card{
+          <div class="evento-meta">
 
-    padding:1.75rem;
+            <span class="evento-location">
+              ◎ APEX HQ · Buenos Aires
+            </span>
 
-    display:flex;
-    flex-direction:column;
-    gap:1rem;
+            <span class="evento-slots slots--warning">
+              12 plazas disponibles
+            </span>
 
-    background:rgba(255,255,255,.72);
+          </div>
 
-    backdrop-filter:blur(20px);
+          <a href="#inscripcion" class="evento-price-btn">
+            USD 199
+          </a>
 
-    border:1px solid rgba(0,90,180,.10);
+        </div>
 
-    box-shadow:
-        0 20px 50px rgba(0,50,120,.08);
+      </article>
 
-    transition:
-        transform .3s,
-        box-shadow .3s,
-        border-color .3s;
-}
+      <!-- CARD 2 -->
+      <article class="evento-card glass-card reveal" data-delay="120">
 
-.evento-card:hover{
+        <div class="evento-top">
 
-    transform:translateY(-6px);
+          <div class="evento-date">
+            <span class="program-level">
+              ELITE
+            </span>
+          </div>
 
-    border-color:
-        rgba(0,212,255,.30);
+        </div>
 
-    box-shadow:
-        0 25px 70px
-        rgba(0,150,255,.15);
-}
+        <h3 class="evento-title">
+          Programa Elite Performance
+        </h3>
 
-/* TOP */
+        <p class="evento-desc">
+          Entrenamiento avanzado con telemetría, análisis de datos, coaching personalizado y metodología utilizada en el automovilismo profesional.
+        </p>
 
-.evento-top{
-    display:flex;
-    justify-content:flex-start;
-}
+        <div class="evento-footer">
 
-/* NIVEL */
+          <div class="evento-meta">
 
-.evento-date{
+            <span class="evento-location">
+              ◎ Presencial + Online
+            </span>
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+            <span class="evento-slots slots--critical">
+              4 plazas disponibles
+            </span>
 
-    min-width:120px;
-    height:58px;
+          </div>
 
-    border-radius:14px;
+          <a href="#inscripcion" class="evento-price-btn">
+            USD 499
+          </a>
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(123,47,255,.10),
-            rgba(0,212,255,.10)
-        );
+        </div>
 
-    border:
-        1px solid
-        rgba(0,120,255,.15);
-}
+      </article>
 
-.program-level{
+      <!-- CARD 3 -->
+      <article class="evento-card glass-card reveal" data-delay="240">
 
-    font-family:var(--font-condensed);
-    font-size:.82rem;
-    font-weight:800;
+        <div class="evento-top">
 
-    letter-spacing:.25em;
-    text-transform:uppercase;
+          <div class="evento-date">
+            <span class="program-level">
+              PRO
+            </span>
+          </div>
 
-    background:
-        linear-gradient(
-            90deg,
-            #7B2FFF,
-            #00D4FF
-        );
+        </div>
 
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
+        <h3 class="evento-title">
+          Bootcamp de Competición
+        </h3>
 
-/* TITULO */
+        <p class="evento-desc">
+          Experiencia inmersiva de alto rendimiento orientada a preparación para campeonatos, simulación profesional y gestión de carrera.
+        </p>
 
-.evento-title{
+        <div class="evento-footer">
 
-    font-family:var(--font-display);
-    font-size:1rem;
-    font-weight:700;
+          <div class="evento-meta">
 
-    color:#07111d;
+            <span class="evento-location">
+              ◎ APEX HQ · Buenos Aires
+            </span>
 
-    letter-spacing:.02em;
-    line-height:1.3;
-}
+            <span class="evento-slots">
+              8 plazas disponibles
+            </span>
 
-/* DESCRIPCION */
+          </div>
 
-.evento-desc{
+          <a href="#inscripcion" class="evento-price-btn">
+            USD 999
+          </a>
 
-    font-size:.88rem;
+        </div>
 
-    color:#58667d;
+      </article>
 
-    line-height:1.7;
+    </div>
 
-    flex:1;
-}
+  </div>
 
-/* FOOTER */
-
-.evento-footer{
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    flex-wrap:wrap;
-
-    gap:.75rem;
-
-    padding-top:.75rem;
-
-    border-top:
-        1px solid
-        rgba(0,100,180,.08);
-}
-
-/* META */
-
-.evento-meta{
-
-    display:flex;
-    flex-direction:column;
-    gap:.25rem;
-}
-
-.evento-location{
-
-    font-family:var(--font-condensed);
-    font-size:.72rem;
-
-    letter-spacing:.08em;
-
-    color:#71839a;
-}
-
-.evento-slots{
-
-    font-family:var(--font-condensed);
-    font-size:.72rem;
-    font-weight:700;
-
-    letter-spacing:.10em;
-
-    text-transform:uppercase;
-}
-
-.slots--warning{
-    color:#FFB020;
-}
-
-.slots--critical{
-    color:#FF6B57;
-}
-
-.evento-slots{
-    color:#00B36B;
-}
-
-/* BOTON PRECIO */
-
-.evento-price-btn{
-
-    padding:12px 24px;
-
-    border-radius:12px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #7B2FFF,
-            #00D4FF
-        );
-
-    color:white;
-
-    text-decoration:none;
-
-    font-family:var(--font-condensed);
-    font-size:.85rem;
-    font-weight:800;
-
-    letter-spacing:.15em;
-    text-transform:uppercase;
-
-    transition:.25s;
-}
-
-.evento-price-btn:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 12px 30px
-        rgba(0,212,255,.25);
-}
-
-/* RESPONSIVE */
-
-@media (min-width:768px){
-
-    .eventos-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-}
-
-@media (min-width:1024px){
-
-    .eventos-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-}
+</section>
   <!-- ══════════════════════════════════════ -->
   <!--  INSCRIPCIÓN                          -->
   <!-- ══════════════════════════════════════ -->
