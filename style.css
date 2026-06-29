@@ -1585,23 +1585,19 @@ input, select, textarea {
     flex-direction:column;
     gap:1rem;
 
-    background:
-        rgba(255,255,255,.72);
+    background:rgba(255,255,255,.72);
 
     backdrop-filter:blur(20px);
 
-    border:
-        1px solid
-        rgba(0,90,180,.10);
+    border:1px solid rgba(0,90,180,.10);
 
     box-shadow:
-        0 20px 50px
-        rgba(0,50,120,.08);
+        0 20px 50px rgba(0,50,120,.08);
 
     transition:
-        transform var(--t-med) var(--ease-out),
-        box-shadow var(--t-med),
-        border-color var(--t-med);
+        transform .3s,
+        box-shadow .3s,
+        border-color .3s;
 }
 
 .evento-card:hover{
@@ -1620,7 +1616,6 @@ input, select, textarea {
 
 .evento-top{
     display:flex;
-    align-items:flex-start;
     justify-content:flex-start;
 }
 
@@ -1629,8 +1624,13 @@ input, select, textarea {
 .evento-date{
 
     display:flex;
-    flex-direction:column;
     align-items:center;
+    justify-content:center;
+
+    min-width:120px;
+    height:58px;
+
+    border-radius:14px;
 
     background:
         linear-gradient(
@@ -1642,36 +1642,26 @@ input, select, textarea {
     border:
         1px solid
         rgba(0,120,255,.15);
-
-    border-radius:14px;
-
-    padding:.7rem .9rem;
-
-    min-width:90px;
 }
 
-.date-day{
-
-    font-family:var(--font-display);
-    font-size:2rem;
-    font-weight:900;
-    line-height:1;
-
-    color:#07111d;
-}
-
-.date-month{
+.program-level{
 
     font-family:var(--font-condensed);
-    font-size:.70rem;
-    font-weight:700;
+    font-size:.82rem;
+    font-weight:800;
 
-    letter-spacing:.20em;
+    letter-spacing:.25em;
     text-transform:uppercase;
 
-    color:#7B2FFF;
+    background:
+        linear-gradient(
+            90deg,
+            #7B2FFF,
+            #00D4FF
+        );
 
-    margin-top:6px;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 /* TITULO */
@@ -1708,6 +1698,7 @@ input, select, textarea {
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     flex-wrap:wrap;
 
     gap:.75rem;
@@ -1745,9 +1736,8 @@ input, select, textarea {
     font-weight:700;
 
     letter-spacing:.10em;
-    text-transform:uppercase;
 
-    color:#00B36B;
+    text-transform:uppercase;
 }
 
 .slots--warning{
@@ -1758,18 +1748,46 @@ input, select, textarea {
     color:#FF6B57;
 }
 
-/* PRECIOS */
+.evento-slots{
+    color:#00B36B;
+}
 
-.evento-price{
+/* BOTON PRECIO */
+
+.evento-price-btn{
+
+    padding:12px 24px;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7B2FFF,
+            #00D4FF
+        );
+
+    color:white;
+
+    text-decoration:none;
 
     font-family:var(--font-condensed);
-    font-size:1rem;
+    font-size:.85rem;
     font-weight:800;
 
-    letter-spacing:.12em;
+    letter-spacing:.15em;
     text-transform:uppercase;
 
-    color:#7B2FFF;
+    transition:.25s;
+}
+
+.evento-price-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,212,255,.25);
 }
 
 /* RESPONSIVE */
