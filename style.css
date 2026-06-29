@@ -2434,17 +2434,17 @@ input, select, textarea {
 .driver-photo{
     position:absolute;
     left:50%;
-    top:140px;
+    top:150px;
     transform:translateX(-50%);
 
-    width:170px;
-    height:170px;
+    width:320px;
+    height:320px;
 
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-end;
 
-    z-index:2;
+    z-index:3;
 }
 
 .driver-photo img{
@@ -2453,8 +2453,8 @@ input, select, textarea {
     object-fit:contain;
 
     filter:
-        drop-shadow(0 0 40px rgba(123,47,255,.35));
-} 
+        drop-shadow(0 0 50px rgba(123,47,255,.45));
+}
 
 
 .driver-info{
@@ -2512,5 +2512,68 @@ input, select, textarea {
 
 .sobre-layout{
     gap:2rem;
+}
+.driver-photo::after{
+    content:"";
+    position:absolute;
+    bottom:-10px;
+    left:0;
+    width:100%;
+    height:90px;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(7,7,13,0),
+        rgba(7,7,13,.85),
+        rgba(7,7,13,1)
+    );
+
+    pointer-events:none;
+}
+.driver-card.top1 .driver-rating{
+    color:#00D4FF;
+}
+.driver-card.top2 .driver-rating{
+    color:#FFD84D;
+}
+
+.driver-card.top2{
+    border-color:rgba(255,216,77,.25);
+}
+.driver-card.top3 .driver-rating{
+    color:#FF5E5E;
+}
+
+.driver-card.top3{
+    border-color:rgba(255,94,94,.25);
+}
+.driver-card.top1 .driver-photo{
+    filter:drop-shadow(0 0 60px rgba(0,212,255,.35));
+}
+
+.driver-card.top2 .driver-photo{
+    filter:drop-shadow(0 0 60px rgba(255,216,77,.35));
+}
+
+.driver-card.top3 .driver-photo{
+    filter:drop-shadow(0 0 60px rgba(255,94,94,.35));
+}
+.driver-card::before{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+
+    left:50%;
+    top:180px;
+    transform:translateX(-50%);
+
+    background:radial-gradient(
+        circle,
+        rgba(123,47,255,.25),
+        transparent 70%
+    );
+
+    z-index:0;
 }
 
