@@ -2403,25 +2403,33 @@ input, select, textarea {
 
 /* GLOW */
 
+.driver-card{
+    --driver-glow:#00D4FF;
+}
+
 .driver-card::before{
     content:"";
     position:absolute;
 
-    width:420px;
-    height:420px;
+    width:500px;
+    height:500px;
 
     left:50%;
-    top:110px;
-
+    top:100px;
     transform:translateX(-50%);
 
     background:
         radial-gradient(
             circle,
-            var(--glow),
+            color-mix(
+                in srgb,
+                var(--driver-glow) 28%,
+                transparent
+            ),
             transparent 70%
         );
 
+    transition:.5s;
     z-index:0;
 }
 
