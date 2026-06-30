@@ -1263,25 +1263,6 @@ input, select, textarea {
     transform:scale(1.08);
 }
 
-/* OSCURECER */
-
-.sim-hero::before{
-
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(0,0,0,.10),
-            rgba(0,0,0,.55)
-        );
-
-    z-index:1;
-}
-
 /* GLOW */
 
 .sim-hero::after{
