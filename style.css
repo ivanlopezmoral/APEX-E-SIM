@@ -1169,245 +1169,312 @@ input, select, textarea {
 }
 
 /* ─────────────────────────────────────────────────────
-   14. SIMULADORES
+   14. EXPERIENCE SIMULATOR
    ───────────────────────────────────────────────────── */
-.simuladores {
-  background: linear-gradient(180deg, var(--apex-dark-1) 0%, var(--apex-dark-2) 100%);
+
+.simuladores{
+
+    position:relative;
+
+    padding:120px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #050510 0%,
+            #020208 100%
+        );
+
+    overflow:hidden;
 }
 
-.sim-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+/* HEADER */
+
+.sim-header{
+
+    text-align:center;
+
+    max-width:900px;
+
+    margin:0 auto 60px;
 }
 
-.sim-card {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform var(--t-med) var(--ease-out),
-              box-shadow var(--t-med) var(--ease-out),
-              border-color var(--t-med) ease;
+.sim-header .section-title{
+    margin-bottom:20px;
 }
 
-.sim-card:hover {
-  transform: translateY(-6px);
+.sim-header p{
+
+    max-width:650px;
+    margin:auto;
+
+    color:var(--apex-grey-1);
+
+    font-size:1.05rem;
+    line-height:1.7;
 }
 
-.sim-card--featured {
-  border-color: rgba(0, 212, 255, 0.35);
+/* HERO */
+
+.sim-hero{
+
+    position:relative;
+
+    width:100%;
+    height:70vh;
+
+    min-height:550px;
+    max-height:800px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(123,47,255,.15);
+
+    box-shadow:
+        0 40px 120px
+        rgba(0,0,0,.55);
 }
 
-.sim-card--featured:hover {
-  border-color: rgba(0, 212, 255, 0.65);
-  box-shadow: 0 0 50px rgba(0, 212, 255, 0.1), 0 25px 60px rgba(0,0,0,0.45);
+/* IMAGEN */
+
+.sim-hero-image{
+
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transform:scale(1.03);
+
+    transition:
+        transform .8s ease;
 }
 
-/* Sim visual (CSS cockpit art) */
-.sim-visual {
-  position: relative;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+.sim-hero:hover
+.sim-hero-image{
+
+    transform:scale(1.08);
 }
 
-.sim-visual--gt3 { background: linear-gradient(160deg, #0D0820 0%, #08040F 100%); }
-.sim-visual--f3  { background: linear-gradient(160deg, #06101A 0%, #030A10 100%); }
-.sim-visual--turismo { background: linear-gradient(160deg, #0A0B1A 0%, #050610 100%); }
+/* OSCURECER */
 
-.sim-badge {
-  position: absolute;
-  top: 0.75rem;
-  left: 0.75rem;
-  font-family: var(--font-condensed);
-  font-size: 0.65rem;
-  font-weight: 800;
-  letter-spacing: 0.2em;
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
-  background: rgba(123,47,255,0.2);
-  border: 1px solid rgba(123,47,255,0.4);
-  color: var(--apex-violet-light);
-  z-index: 2;
+.sim-hero::before{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.10),
+            rgba(0,0,0,.55)
+        );
+
+    z-index:1;
 }
 
-.sim-badge--featured {
-  background: rgba(0,212,255,0.12);
-  border-color: rgba(0,212,255,0.4);
-  color: var(--apex-blue);
+/* GLOW */
+
+.sim-hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    right:-150px;
+    bottom:-150px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(123,47,255,.30),
+            transparent 70%
+        );
+
+    filter:blur(100px);
+
+    z-index:1;
 }
 
-.sim-badge--new {
-  background: rgba(255,107,43,0.12);
-  border-color: rgba(255,107,43,0.4);
-  color: var(--apex-orange);
+/* OVERLAY */
+
+.sim-overlay{
+
+    position:absolute;
+
+    left:60px;
+    bottom:60px;
+
+    z-index:2;
+
+    max-width:600px;
 }
 
-/* CSS cockpit art */
-.sim-cockpit {
-  position: relative;
-  width: 100%;
-  max-width: 340px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+.sim-kicker{
+
+    font-family:var(--font-condensed);
+
+    font-size:.75rem;
+    font-weight:700;
+
+    letter-spacing:.25em;
+
+    text-transform:uppercase;
+
+    color:var(--apex-blue);
+
+    margin-bottom:15px;
 }
 
-.sim-screens {
-  display: flex;
-  gap: 4px;
-  width: 100%;
+.sim-title{
+
+    font-family:var(--font-display);
+
+    font-size:clamp(2rem,5vw,4rem);
+
+    font-weight:800;
+
+    line-height:1;
+
+    color:white;
+
+    margin-bottom:20px;
 }
 
-.sim-screen {
-  border-radius: 4px;
-  background: linear-gradient(160deg, rgba(0,212,255,0.08), rgba(123,47,255,0.05));
-  border: 1px solid rgba(123,47,255,0.2);
-  position: relative;
-  overflow: hidden;
+.sim-text{
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+    color:
+        rgba(255,255,255,.75);
+
+    max-width:520px;
 }
 
-.sim-screen::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,212,255,0.05) 0%, transparent 60%);
+/* SPECS */
+
+.sim-specs{
+
+    margin-top:50px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:20px;
 }
 
-.sim-screen--left, .sim-screen--right {
-  flex: 1;
-  height: 70px;
-  transform: perspective(200px) rotateY(25deg);
+.sim-spec{
+
+    background:
+        rgba(10,10,25,.65);
+
+    backdrop-filter:
+        blur(20px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease;
 }
 
-.sim-screen--right {
-  transform: perspective(200px) rotateY(-25deg);
+.sim-spec:hover{
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(0,212,255,.4);
 }
 
-.sim-screen--center {
-  flex: 2;
-  height: 75px;
+.sim-spec-number{
+
+    font-family:var(--font-display);
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7B2FFF,
+            #00D4FF
+        );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    margin-bottom:10px;
 }
 
-.sim-wheel {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 3px solid rgba(123,47,255,0.5);
-  background: rgba(123,47,255,0.04);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  box-shadow: 0 0 20px rgba(123,47,255,0.2), inset 0 0 15px rgba(123,47,255,0.05);
+.sim-spec-label{
+
+    font-family:var(--font-condensed);
+
+    font-size:.75rem;
+
+    letter-spacing:.2em;
+
+    text-transform:uppercase;
+
+    color:
+        rgba(255,255,255,.6);
 }
 
-.sim-card:hover .sim-wheel {
-  border-color: rgba(123,47,255,0.9);
-  box-shadow: 0 0 30px rgba(123,47,255,0.4), inset 0 0 15px rgba(123,47,255,0.1);
-  animation: wheel-glow 1.5s ease-in-out infinite;
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .sim-overlay{
+
+        left:30px;
+        right:30px;
+        bottom:30px;
+    }
+
+    .sim-specs{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
 }
 
-.sim-wheel--mono {
-  border-color: rgba(0,212,255,0.5);
-  box-shadow: 0 0 20px rgba(0,212,255,0.2), inset 0 0 15px rgba(0,212,255,0.05);
+@media(max-width:600px){
+
+    .sim-hero{
+        height:60vh;
+    }
+
+    .sim-specs{
+
+        grid-template-columns:1fr;
+    }
 }
-
-.sim-card:hover .sim-wheel--mono {
-  border-color: rgba(0,212,255,0.9);
-  box-shadow: 0 0 30px rgba(0,212,255,0.4);
-}
-
-.sim-wheel-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.wheel-btn {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 2px;
-  background: rgba(123,47,255,0.6);
-}
-
-.wheel-btn--1 { top: 12px; right: 12px; }
-.wheel-btn--2 { top: 12px; left: 12px; }
-
-.sim-glow-line {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(123,47,255,0.6), transparent);
-  animation: glow-scan 3s ease-in-out infinite;
-}
-
-.sim-glow-line--blue {
-  background: linear-gradient(90deg, transparent, rgba(0,212,255,0.6), transparent);
-}
-
-.sim-body {
-  padding: 1.5rem;
-  flex: 1;
-}
-
-.sim-name {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--apex-white);
-  letter-spacing: 0.03em;
-  margin-bottom: 0.6rem;
-}
-
-.sim-desc {
-  font-size: 0.88rem;
-  color: var(--apex-grey-1);
-  line-height: 1.65;
-  margin-bottom: 1.25rem;
-}
-
-.sim-specs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.sim-spec {
-  font-family: var(--font-condensed);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--apex-violet-light);
-  background: rgba(123,47,255,0.08);
-  border: 1px solid rgba(123,47,255,0.18);
-  border-radius: 4px;
-  padding: 0.2rem 0.55rem;
-}
-
-.sim-cta {
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .sim-grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (min-width: 1024px) {
-  .sim-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
 /* ─────────────────────────────────────────────────────
    15. ESTADÍSTICAS
    ───────────────────────────────────────────────────── */
