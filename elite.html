@@ -16,11 +16,6 @@
 <body>
 
   <!-- ══════════════════════════════════════ -->
-  <!--  GLOW CURSOR                          -->
-  <!-- ══════════════════════════════════════ -->
-  <div class="glow-cursor" id="glowCursor" aria-hidden="true"></div>
-
-  <!-- ══════════════════════════════════════ -->
   <!--  NAVIGATION                           -->
   <!-- ══════════════════════════════════════ -->
   <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
@@ -81,13 +76,6 @@
     <!-- Contenido -->
     <div class="container">
       <div class="elite-content reveal">
-
-        <!-- Breadcrumb / badge -->
-        <div class="elite-breadcrumb" aria-label="Ruta de navegación">
-          <a href="index.html" class="elite-breadcrumb-link">APEX</a>
-          <span class="elite-breadcrumb-sep" aria-hidden="true">›</span>
-          <span class="elite-breadcrumb-current">PROGRAMA ELITE</span>
-        </div>
 
         <span class="section-eyebrow">APEX ELITE</span>
 
@@ -158,7 +146,7 @@
   <!-- ══════════════════════════════════════ -->
   <!--  ROADMAP                              -->
   <!-- ══════════════════════════════════════ -->
-  <section class="section" id="roadmap" aria-label="Metodología del programa">
+  <section class="section elite-roadmap-section" id="roadmap" aria-label="Metodología del programa">
     <div class="container">
 
       <div class="section-header reveal">
@@ -167,107 +155,80 @@
         <p class="section-subtitle">6 etapas progresivas diseñadas por coaches de competición profesional.</p>
       </div>
 
-      <div class="elite-roadmap">
+      <div class="elite-track">
+        <div class="elite-track-spine" aria-hidden="true"></div>
 
-        <article class="elite-step glass-card reveal" data-delay="0">
-          <span class="elite-step-number">01</span>
-          <div class="elite-step-tag">INICIO</div>
-          <h3 class="elite-step-title">Introducción</h3>
-          <p class="elite-step-desc">Diagnóstico inicial y adaptación al simulador. Evaluamos tu nivel actual y diseñamos un plan completamente personalizado.</p>
+        <article class="elite-track-item reveal" data-delay="0">
+          <div class="elite-track-node">
+            <span class="elite-track-num">01</span>
+            <div class="elite-track-node-pulse"></div>
+          </div>
+          <div class="elite-track-card glass-card">
+            <span class="elite-track-tag">INICIO</span>
+            <h3 class="elite-track-title">Introducción</h3>
+            <p class="elite-track-desc">Diagnóstico inicial y adaptación al simulador.</p>
+          </div>
         </article>
 
-        <article class="elite-step glass-card reveal" data-delay="80">
-          <span class="elite-step-number">02</span>
-          <div class="elite-step-tag">FUNDAMENTOS</div>
-          <h3 class="elite-step-title">Técnica</h3>
-          <p class="elite-step-desc">Frenado, trazadas y control avanzado del vehículo. Dominá los fundamentos que separan a los pilotos rápidos de los demás.</p>
+        <article class="elite-track-item reveal" data-delay="80">
+          <div class="elite-track-node">
+            <span class="elite-track-num">02</span>
+            <div class="elite-track-node-pulse"></div>
+          </div>
+          <div class="elite-track-card glass-card">
+            <span class="elite-track-tag">FUNDAMENTOS</span>
+            <h3 class="elite-track-title">Técnica</h3>
+            <p class="elite-track-desc">Frenado, trazadas y control avanzado del vehículo.</p>
+          </div>
         </article>
 
-        <article class="elite-step glass-card reveal" data-delay="160">
-          <span class="elite-step-number">03</span>
-          <div class="elite-step-tag">ANÁLISIS</div>
-          <h3 class="elite-step-title">Telemetría</h3>
-          <p class="elite-step-desc">Interpretación y análisis profesional de datos de carrera. Entendé los números que te hacen más rápido vuelta a vuelta.</p>
+        <article class="elite-track-item reveal" data-delay="160">
+          <div class="elite-track-node">
+            <span class="elite-track-num">03</span>
+            <div class="elite-track-node-pulse"></div>
+          </div>
+          <div class="elite-track-card glass-card">
+            <span class="elite-track-tag">ANÁLISIS</span>
+            <h3 class="elite-track-title">Telemetría</h3>
+            <p class="elite-track-desc">Interpretación profesional de datos, vuelta a vuelta.</p>
+          </div>
         </article>
 
-        <article class="elite-step glass-card reveal" data-delay="240">
-          <span class="elite-step-number">04</span>
-          <div class="elite-step-tag">COMPETICIÓN</div>
-          <h3 class="elite-step-title">Racecraft</h3>
-          <p class="elite-step-desc">Estrategia de carrera, adelantamientos y gestión de recursos. Las habilidades que hacen la diferencia en pista.</p>
+        <article class="elite-track-item reveal" data-delay="240">
+          <div class="elite-track-node">
+            <span class="elite-track-num">04</span>
+            <div class="elite-track-node-pulse"></div>
+          </div>
+          <div class="elite-track-card glass-card">
+            <span class="elite-track-tag">COMPETICIÓN</span>
+            <h3 class="elite-track-title">Racecraft</h3>
+            <p class="elite-track-desc">Estrategia, adelantamientos y gestión de recursos.</p>
+          </div>
         </article>
 
-        <article class="elite-step glass-card reveal" data-delay="320">
-          <span class="elite-step-number">05</span>
-          <div class="elite-step-tag">PRÁCTICA</div>
-          <h3 class="elite-step-title">Simulación</h3>
-          <p class="elite-step-desc">Carreras completas en escenarios reales. Aplicá todo lo aprendido bajo la presión de una competición verdadera.</p>
+        <article class="elite-track-item reveal" data-delay="320">
+          <div class="elite-track-node">
+            <span class="elite-track-num">05</span>
+            <div class="elite-track-node-pulse"></div>
+          </div>
+          <div class="elite-track-card glass-card">
+            <span class="elite-track-tag">PRÁCTICA</span>
+            <h3 class="elite-track-title">Simulación</h3>
+            <p class="elite-track-desc">Carreras completas en escenarios de competición real.</p>
+          </div>
         </article>
 
-        <article class="elite-step elite-step--gold glass-card reveal" data-delay="400">
-          <span class="elite-step-number">06</span>
-          <div class="elite-step-tag elite-step-tag--gold">CERTIFICACIÓN</div>
-          <h3 class="elite-step-title">Evaluación Final</h3>
-          <p class="elite-step-desc">Examen final, certificación oficial APEX y acceso a nuestra red de contactos del automovilismo profesional.</p>
+        <article class="elite-track-item elite-track-item--gold reveal" data-delay="400">
+          <div class="elite-track-node elite-track-node--gold">
+            <span class="elite-track-num">06</span>
+            <div class="elite-track-node-pulse elite-track-node-pulse--gold"></div>
+          </div>
+          <div class="elite-track-card elite-track-card--gold glass-card">
+            <span class="elite-track-tag elite-track-tag--gold">CERTIFICACIÓN</span>
+            <h3 class="elite-track-title">Evaluación Final</h3>
+            <p class="elite-track-desc">Certificación oficial APEX y red de contactos profesional.</p>
+          </div>
         </article>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ══════════════════════════════════════ -->
-  <!--  QUÉ INCLUYE                          -->
-  <!-- ══════════════════════════════════════ -->
-  <section class="section elite-features-section" aria-label="Qué incluye el programa">
-    <div class="elite-features-bg" aria-hidden="true">
-      <div class="features-orb features-orb--1"></div>
-      <div class="features-orb features-orb--2"></div>
-    </div>
-    <div class="container">
-
-      <div class="section-header reveal">
-        <span class="section-eyebrow">INCLUYE</span>
-        <h2 class="section-title">Todo lo necesario<br><em>para competir.</em></h2>
-      </div>
-
-      <div class="elite-features-grid">
-
-        <div class="elite-feature glass-card reveal" data-delay="0">
-          <div class="feature-icon" aria-hidden="true">◈</div>
-          <h4 class="feature-title">Coaching Personalizado</h4>
-          <p class="feature-desc">Sesiones 1 a 1 con tu coach asignado durante las 8 semanas completas del programa.</p>
-        </div>
-
-        <div class="elite-feature glass-card reveal" data-delay="80">
-          <div class="feature-icon" aria-hidden="true">◎</div>
-          <h4 class="feature-title">Telemetría Avanzada</h4>
-          <p class="feature-desc">Acceso completo a herramientas de análisis de datos de nivel profesional en cada sesión.</p>
-        </div>
-
-        <div class="elite-feature glass-card reveal" data-delay="160">
-          <div class="feature-icon" aria-hidden="true">◉</div>
-          <h4 class="feature-title">Racecraft</h4>
-          <p class="feature-desc">Técnicas de defensa, adelantamiento, gestión de neumáticos y estrategia de pit stop.</p>
-        </div>
-
-        <div class="elite-feature glass-card reveal" data-delay="240">
-          <div class="feature-icon" aria-hidden="true">◆</div>
-          <h4 class="feature-title">Simulación Profesional</h4>
-          <p class="feature-desc">Acceso prioritario a los 8 simuladores de clase F1 de la academia durante todo el programa.</p>
-        </div>
-
-        <div class="elite-feature glass-card reveal" data-delay="320">
-          <div class="feature-icon" aria-hidden="true">◇</div>
-          <h4 class="feature-title">Data Analysis</h4>
-          <p class="feature-desc">Revisión de datos vuelta por vuelta con el equipo técnico de APEX al finalizar cada sesión.</p>
-        </div>
-
-        <div class="elite-feature elite-feature--gold glass-card reveal" data-delay="400">
-          <div class="feature-icon feature-icon--gold" aria-hidden="true">◐</div>
-          <h4 class="feature-title">Certificación APEX</h4>
-          <p class="feature-desc">Título oficial de Piloto APEX Elite y acceso a nuestra red de contactos en el automovilismo profesional.</p>
-        </div>
 
       </div>
     </div>
@@ -347,7 +308,7 @@
           <span class="elite-cta-amount">USD 499</span>
           <span class="elite-cta-period">· 8 semanas · Certificación incluida</span>
         </div>
-        <a href="index.html#inscripcion" class="btn btn--primary btn--xl magnetic-btn" data-magnetic>
+        <a href="index.html#inscripcion" class="btn btn--primary magnetic-btn" data-magnetic>
           <span class="btn-inner">
             <span class="btn-text">RESERVAR MI PLAZA</span>
             <span class="btn-arrow">→</span>
