@@ -1,293 +1,428 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Programa Elite | APEX Racing Academy</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800;900&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- CSS principal -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- CSS exclusivo elite -->
-    <link rel="stylesheet" href="elite.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Programa Elite APEX – Entrenamiento profesional de E-Sim Racing para pilotos de alto rendimiento. 8 semanas, coach dedicado, certificación oficial.">
+  <meta property="og:title" content="Programa Elite | APEX Racing Academy">
+  <meta property="og:description" content="El programa de formación más avanzado de Latinoamérica. Simulación, telemetría y coaching profesional.">
+  <title>Programa Elite | APEX Racing Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="elite.css">
 </head>
-
 <body>
 
-    <!-- HERO -->
-    <section class="elite-hero">
+  <!-- ══════════════════════════════════════ -->
+  <!--  GLOW CURSOR                          -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="glow-cursor" id="glowCursor" aria-hidden="true"></div>
 
-        <div class="elite-bg"></div>
+  <!-- ══════════════════════════════════════ -->
+  <!--  NAVIGATION                           -->
+  <!-- ══════════════════════════════════════ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="APEX inicio">
+        <span class="nav-logo-text">APEX</span>
+        <span class="nav-logo-dot"></span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#sobre"       class="nav-link">Nosotros</a></li>
+        <li><a href="index.html#proceso"     class="nav-link">Proceso</a></li>
+        <li><a href="index.html#simuladores" class="nav-link">Simuladores</a></li>
+        <li><a href="index.html#eventos"     class="nav-link">Eventos</a></li>
+        <li><a href="index.html#inscripcion" class="nav-link nav-link--cta">Inscribite</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+      </button>
+    </div>
+  </nav>
 
-        <div class="container">
+  <!-- ══════════════════════════════════════ -->
+  <!--  MOBILE MENU                          -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <ul class="mobile-nav-list" role="list">
+        <li><a href="index.html#sobre"       class="mobile-nav-link"><span class="mobile-link-num">01</span> Nosotros</a></li>
+        <li><a href="index.html#proceso"     class="mobile-nav-link"><span class="mobile-link-num">02</span> Proceso</a></li>
+        <li><a href="index.html#simuladores" class="mobile-nav-link"><span class="mobile-link-num">03</span> Simuladores</a></li>
+        <li><a href="index.html#eventos"     class="mobile-nav-link"><span class="mobile-link-num">04</span> Eventos</a></li>
+        <li><a href="index.html#inscripcion" class="mobile-nav-link mobile-nav-link--cta">INSCRIBITE</a></li>
+      </ul>
+    </div>
+  </div>
 
-            <div class="elite-content reveal">
+  <!-- ══════════════════════════════════════ -->
+  <!--  HERO ELITE                           -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="elite-hero" id="elite-hero" aria-label="Programa Elite APEX">
 
-                <span class="section-eyebrow">
-                    PROGRAMA ELITE
-                </span>
-
-                <h1 class="elite-title">
-                    Entrenamiento profesional
-                    <br>
-                    <em>para pilotos de alto rendimiento.</em>
-                </h1>
-
-                <p class="elite-description">
-                    Nuestro programa más avanzado combina simulación,
-                    telemetría, coaching y análisis profesional para
-                    desarrollar pilotos competitivos.
-                </p>
-
-                <div class="elite-price">
-
-                    <div>
-                        <span class="elite-price-label">
-                            INVERSIÓN
-                        </span>
-
-                        <div class="elite-price-value">
-                            USD 499
-                        </div>
-                    </div>
-
-                    <div class="elite-price-data">
-                        8 SEMANAS<br>
-                        PRESENCIAL + ONLINE
-                    </div>
-
-                </div>
-
-                <a href="#inscripcion"
-                   class="btn btn--primary magnetic-btn">
-
-                    <span class="btn-inner">
-                        <span class="btn-text">
-                            RESERVAR VACANTE
-                        </span>
-
-                        <span class="btn-arrow">
-                            →
-                        </span>
-                    </span>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ROADMAP -->
-    <section class="section">
-
-        <div class="container">
-
-            <div class="section-header">
-
-                <span class="section-eyebrow">
-                    METODOLOGÍA
-                </span>
-
-                <h2 class="section-title">
-                    El camino hacia
-                    <br>
-                    <em>el alto rendimiento.</em>
-                </h2>
-
-            </div>
-
-            <div class="elite-roadmap">
-
-                <div class="elite-step glass-card">
-                    <span class="elite-step-number">01</span>
-                    <h3>Introducción</h3>
-                    <p>
-                        Diagnóstico inicial y adaptación al simulador.
-                    </p>
-                </div>
-
-                <div class="elite-step glass-card">
-                    <span class="elite-step-number">02</span>
-                    <h3>Técnica</h3>
-                    <p>
-                        Frenado, trazadas y control avanzado.
-                    </p>
-                </div>
-
-                <div class="elite-step glass-card">
-                    <span class="elite-step-number">03</span>
-                    <h3>Telemetría</h3>
-                    <p>
-                        Interpretación y análisis profesional.
-                    </p>
-                </div>
-
-                <div class="elite-step glass-card">
-                    <span class="elite-step-number">04</span>
-                    <h3>Racecraft</h3>
-                    <p>
-                        Estrategia, adelantamientos y gestión.
-                    </p>
-                </div>
-
-                <div class="elite-step glass-card">
-                    <span class="elite-step-number">05</span>
-                    <h3>Simulación</h3>
-                    <p>
-                        Carreras completas y escenarios reales.
-                    </p>
-                </div>
-
-                <div class="elite-step glass-card">
-                    <span class="elite-step-number">06</span>
-                    <h3>Evaluación Final</h3>
-                    <p>
-                        Examen final y certificación APEX.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FEATURES -->
-    <section class="section">
-
-        <div class="container">
-
-            <div class="section-header">
-
-                <span class="section-eyebrow">
-                    INCLUYE
-                </span>
-
-                <h2 class="section-title">
-                    Todo lo necesario
-                    <br>
-                    <em>para competir.</em>
-                </h2>
-
-            </div>
-
-            <div class="elite-features">
-
-                <div class="glass-card elite-feature">
-                    Coaching personalizado
-                </div>
-
-                <div class="glass-card elite-feature">
-                    Telemetría avanzada
-                </div>
-
-                <div class="glass-card elite-feature">
-                    Racecraft
-                </div>
-
-                <div class="glass-card elite-feature">
-                    Simulación profesional
-                </div>
-
-                <div class="glass-card elite-feature">
-                    Data analysis
-                </div>
-
-                <div class="glass-card elite-feature">
-                    Certificación APEX
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-   <!-- STATS -->
-<section class="section stats">
-
-    <div class="stats-bg">
-
-        <div class="stats-orb stats-orb--1"></div>
-        <div class="stats-orb stats-orb--2"></div>
-
-        <div class="stats-grid-line stats-grid-line--h1"></div>
-        <div class="stats-grid-line stats-grid-line--h2"></div>
-
+    <!-- Background decorativo -->
+    <div class="elite-bg" aria-hidden="true">
+      <div class="elite-orb elite-orb--violet"></div>
+      <div class="elite-orb elite-orb--blue"></div>
+      <div class="elite-orb elite-orb--accent"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-scanlines"></div>
+      <div class="racing-stripe"></div>
+      <div class="hero-corner hero-corner--tl"></div>
+      <div class="hero-corner hero-corner--tr"></div>
+      <div class="hero-corner hero-corner--bl"></div>
+      <div class="hero-corner hero-corner--br"></div>
     </div>
 
+    <!-- Contenido -->
+    <div class="container">
+      <div class="elite-content reveal">
+
+        <!-- Breadcrumb / badge -->
+        <div class="elite-breadcrumb" aria-label="Ruta de navegación">
+          <a href="index.html" class="elite-breadcrumb-link">APEX</a>
+          <span class="elite-breadcrumb-sep" aria-hidden="true">›</span>
+          <span class="elite-breadcrumb-current">PROGRAMA ELITE</span>
+        </div>
+
+        <span class="section-eyebrow">APEX ELITE</span>
+
+        <h1 class="elite-title">
+          Entrenamiento profesional<br>
+          <em>para pilotos de alto rendimiento.</em>
+        </h1>
+
+        <p class="elite-description">
+          Nuestro programa más avanzado combina simulación de clase F1,
+          telemetría profesional, coaching individual y análisis de datos
+          para desarrollar pilotos competitivos al más alto nivel.
+        </p>
+
+        <!-- Precio + datos -->
+        <div class="elite-price-block glass-card">
+          <div class="elite-price-main">
+            <span class="elite-price-label">INVERSIÓN</span>
+            <div class="elite-price-value">USD 499</div>
+          </div>
+          <div class="elite-price-divider" aria-hidden="true"></div>
+          <div class="elite-price-meta">
+            <div class="elite-price-row">
+              <span class="elite-price-icon" aria-hidden="true">◎</span>
+              <span>8 SEMANAS INTENSIVAS</span>
+            </div>
+            <div class="elite-price-row">
+              <span class="elite-price-icon" aria-hidden="true">◈</span>
+              <span>PRESENCIAL + ONLINE</span>
+            </div>
+            <div class="elite-price-row">
+              <span class="elite-price-icon" aria-hidden="true">◆</span>
+              <span>SOLO 6 PILOTOS POR EDICIÓN</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTAs -->
+        <div class="elite-actions">
+          <a href="index.html#inscripcion" class="btn btn--primary btn--xl magnetic-btn" data-magnetic>
+            <span class="btn-inner">
+              <span class="btn-text">RESERVAR VACANTE</span>
+              <span class="btn-arrow">→</span>
+            </span>
+            <span class="btn-glow"></span>
+          </a>
+          <a href="#roadmap" class="btn btn--ghost magnetic-btn" data-magnetic>
+            <span class="btn-inner">
+              <span class="btn-text">VER METODOLOGÍA</span>
+            </span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-track">
+        <div class="scroll-thumb"></div>
+      </div>
+      <span class="scroll-text">SCROLL</span>
+    </div>
+
+  </section>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  ROADMAP                              -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="section" id="roadmap" aria-label="Metodología del programa">
     <div class="container">
 
-        <div class="stats-grid">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">METODOLOGÍA</span>
+        <h2 class="section-title">El camino hacia<br><em>el alto rendimiento.</em></h2>
+        <p class="section-subtitle">6 etapas progresivas diseñadas por coaches de competición profesional.</p>
+      </div>
 
-            <div class="stat-block">
-                <div class="stat-counter">40+</div>
-                <div class="stat-label">HORAS</div>
-            </div>
+      <div class="elite-roadmap">
 
-            <div class="stat-block">
-                <div class="stat-counter">8</div>
-                <div class="stat-label">SEMANAS</div>
-            </div>
+        <article class="elite-step glass-card reveal" data-delay="0">
+          <span class="elite-step-number">01</span>
+          <div class="elite-step-tag">INICIO</div>
+          <h3 class="elite-step-title">Introducción</h3>
+          <p class="elite-step-desc">Diagnóstico inicial y adaptación al simulador. Evaluamos tu nivel actual y diseñamos un plan completamente personalizado.</p>
+        </article>
 
-            <div class="stat-block">
-                <div class="stat-counter">1</div>
-                <div class="stat-label">COACH</div>
-            </div>
+        <article class="elite-step glass-card reveal" data-delay="80">
+          <span class="elite-step-number">02</span>
+          <div class="elite-step-tag">FUNDAMENTOS</div>
+          <h3 class="elite-step-title">Técnica</h3>
+          <p class="elite-step-desc">Frenado, trazadas y control avanzado del vehículo. Dominá los fundamentos que separan a los pilotos rápidos de los demás.</p>
+        </article>
 
-            <div class="stat-block">
-                <div class="stat-counter">100%</div>
-                <div class="stat-label">PERSONALIZADO</div>
-            </div>
+        <article class="elite-step glass-card reveal" data-delay="160">
+          <span class="elite-step-number">03</span>
+          <div class="elite-step-tag">ANÁLISIS</div>
+          <h3 class="elite-step-title">Telemetría</h3>
+          <p class="elite-step-desc">Interpretación y análisis profesional de datos de carrera. Entendé los números que te hacen más rápido vuelta a vuelta.</p>
+        </article>
 
-        </div>
+        <article class="elite-step glass-card reveal" data-delay="240">
+          <span class="elite-step-number">04</span>
+          <div class="elite-step-tag">COMPETICIÓN</div>
+          <h3 class="elite-step-title">Racecraft</h3>
+          <p class="elite-step-desc">Estrategia de carrera, adelantamientos y gestión de recursos. Las habilidades que hacen la diferencia en pista.</p>
+        </article>
 
+        <article class="elite-step glass-card reveal" data-delay="320">
+          <span class="elite-step-number">05</span>
+          <div class="elite-step-tag">PRÁCTICA</div>
+          <h3 class="elite-step-title">Simulación</h3>
+          <p class="elite-step-desc">Carreras completas en escenarios reales. Aplicá todo lo aprendido bajo la presión de una competición verdadera.</p>
+        </article>
+
+        <article class="elite-step elite-step--gold glass-card reveal" data-delay="400">
+          <span class="elite-step-number">06</span>
+          <div class="elite-step-tag elite-step-tag--gold">CERTIFICACIÓN</div>
+          <h3 class="elite-step-title">Evaluación Final</h3>
+          <p class="elite-step-desc">Examen final, certificación oficial APEX y acceso a nuestra red de contactos del automovilismo profesional.</p>
+        </article>
+
+      </div>
     </div>
+  </section>
 
-</section>
 
-    <!-- CTA -->
-    <section class="section">
+  <!-- ══════════════════════════════════════ -->
+  <!--  QUÉ INCLUYE                          -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="section elite-features-section" aria-label="Qué incluye el programa">
+    <div class="elite-features-bg" aria-hidden="true">
+      <div class="features-orb features-orb--1"></div>
+      <div class="features-orb features-orb--2"></div>
+    </div>
+    <div class="container">
 
-        <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">INCLUYE</span>
+        <h2 class="section-title">Todo lo necesario<br><em>para competir.</em></h2>
+      </div>
 
-            <div class="elite-cta glass-card">
+      <div class="elite-features-grid">
 
-                <h2>
-                    ¿Listo para convertirte
-                    en piloto APEX?
-                </h2>
-
-                <p>
-                    Comenzá el programa más avanzado
-                    de simulación de Latinoamérica.
-                </p>
-
-                <a href="#inscripcion"
-                   class="btn btn--primary">
-
-                    RESERVAR MI PLAZA
-
-                </a>
-
-            </div>
-
+        <div class="elite-feature glass-card reveal" data-delay="0">
+          <div class="feature-icon" aria-hidden="true">◈</div>
+          <h4 class="feature-title">Coaching Personalizado</h4>
+          <p class="feature-desc">Sesiones 1 a 1 con tu coach asignado durante las 8 semanas completas del programa.</p>
         </div>
 
-    </section>
+        <div class="elite-feature glass-card reveal" data-delay="80">
+          <div class="feature-icon" aria-hidden="true">◎</div>
+          <h4 class="feature-title">Telemetría Avanzada</h4>
+          <p class="feature-desc">Acceso completo a herramientas de análisis de datos de nivel profesional en cada sesión.</p>
+        </div>
 
+        <div class="elite-feature glass-card reveal" data-delay="160">
+          <div class="feature-icon" aria-hidden="true">◉</div>
+          <h4 class="feature-title">Racecraft</h4>
+          <p class="feature-desc">Técnicas de defensa, adelantamiento, gestión de neumáticos y estrategia de pit stop.</p>
+        </div>
+
+        <div class="elite-feature glass-card reveal" data-delay="240">
+          <div class="feature-icon" aria-hidden="true">◆</div>
+          <h4 class="feature-title">Simulación Profesional</h4>
+          <p class="feature-desc">Acceso prioritario a los 8 simuladores de clase F1 de la academia durante todo el programa.</p>
+        </div>
+
+        <div class="elite-feature glass-card reveal" data-delay="320">
+          <div class="feature-icon" aria-hidden="true">◇</div>
+          <h4 class="feature-title">Data Analysis</h4>
+          <p class="feature-desc">Revisión de datos vuelta por vuelta con el equipo técnico de APEX al finalizar cada sesión.</p>
+        </div>
+
+        <div class="elite-feature elite-feature--gold glass-card reveal" data-delay="400">
+          <div class="feature-icon feature-icon--gold" aria-hidden="true">◐</div>
+          <h4 class="feature-title">Certificación APEX</h4>
+          <p class="feature-desc">Título oficial de Piloto APEX Elite y acceso a nuestra red de contactos en el automovilismo profesional.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  ESTADÍSTICAS                         -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="section stats" aria-label="Números del programa Elite">
+    <div class="stats-bg" aria-hidden="true">
+      <div class="stats-orb stats-orb--1"></div>
+      <div class="stats-orb stats-orb--2"></div>
+      <div class="stats-grid-line stats-grid-line--h1"></div>
+      <div class="stats-grid-line stats-grid-line--h2"></div>
+    </div>
+    <div class="container">
+      <div class="stats-grid">
+
+        <div class="stat-block reveal" data-delay="0">
+          <div class="stat-icon" aria-hidden="true">◎</div>
+          <div class="stat-figure">
+            <span class="stat-counter" data-target="40" data-suffix="+">0</span>
+          </div>
+          <div class="stat-label">Horas de Entrenamiento</div>
+          <div class="stat-sub">presencial + online</div>
+        </div>
+
+        <div class="stat-block reveal" data-delay="100">
+          <div class="stat-icon" aria-hidden="true">◈</div>
+          <div class="stat-figure">
+            <span class="stat-counter" data-target="8" data-suffix="">0</span>
+          </div>
+          <div class="stat-label">Semanas de Programa</div>
+          <div class="stat-sub">intensivo y progresivo</div>
+        </div>
+
+        <div class="stat-block reveal" data-delay="200">
+          <div class="stat-icon" aria-hidden="true">◉</div>
+          <div class="stat-figure">
+            <span class="stat-counter" data-target="6" data-suffix="">0</span>
+          </div>
+          <div class="stat-label">Pilotos por Edición</div>
+          <div class="stat-sub">cupos limitados</div>
+        </div>
+
+        <div class="stat-block reveal" data-delay="300">
+          <div class="stat-icon" aria-hidden="true">◆</div>
+          <div class="stat-figure">
+            <span class="stat-counter" data-target="100" data-suffix="%">0</span>
+          </div>
+          <div class="stat-label">Personalizado</div>
+          <div class="stat-sub">adaptado a tu nivel</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  CTA FINAL                            -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="section elite-cta-section" aria-label="Reservar vacante Elite">
+    <div class="elite-cta-bg" aria-hidden="true">
+      <div class="cta-orb cta-orb--1"></div>
+      <div class="cta-orb cta-orb--2"></div>
+      <div class="cta-line cta-line--1"></div>
+      <div class="cta-line cta-line--2"></div>
+    </div>
+    <div class="container">
+      <div class="elite-cta glass-card reveal">
+        <span class="section-eyebrow">CUPOS LIMITADOS</span>
+        <h2 class="elite-cta-title">¿Listo para convertirte<br><em>en piloto APEX?</em></h2>
+        <p class="elite-cta-desc">Comenzá el programa más avanzado de simulación de Latinoamérica. Solo aceptamos 6 pilotos por edición para garantizar una atención de máxima calidad.</p>
+        <div class="elite-cta-price-row">
+          <span class="elite-cta-amount">USD 499</span>
+          <span class="elite-cta-period">· 8 semanas · Certificación incluida</span>
+        </div>
+        <a href="index.html#inscripcion" class="btn btn--primary btn--xl magnetic-btn" data-magnetic>
+          <span class="btn-inner">
+            <span class="btn-text">RESERVAR MI PLAZA</span>
+            <span class="btn-arrow">→</span>
+          </span>
+          <span class="btn-glow"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  FOOTER                               -->
+  <!-- ══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="footer-logo" aria-label="APEX inicio">APEX</a>
+            <p class="footer-tagline">DEL SIMULADOR A LA PISTA</p>
+            <p class="footer-brand-desc">La academia de E-Sim Racing más exigente de Latinoamérica.</p>
+            <div class="footer-social" aria-label="Redes sociales">
+              <a href="#" class="social-link" aria-label="Instagram">IG</a>
+              <a href="#" class="social-link" aria-label="Twitter / X">TW</a>
+              <a href="#" class="social-link" aria-label="YouTube">YT</a>
+              <a href="#" class="social-link" aria-label="Twitch">TV</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Academia</h4>
+            <ul class="footer-links">
+              <li><a href="index.html#sobre">Sobre APEX</a></li>
+              <li><a href="index.html#proceso">Proceso de formación</a></li>
+              <li><a href="index.html#simuladores">Simuladores</a></li>
+              <li><a href="index.html#eventos">Eventos</a></li>
+              <li><a href="index.html#inscripcion">Inscripción</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Programas</h4>
+            <ul class="footer-links">
+              <li><a href="elite.html">Programa Elite</a></li>
+              <li><a href="#">Programa Estándar</a></li>
+              <li><a href="#">Clases Individuales</a></li>
+              <li><a href="#">Campeonatos</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Contacto</h4>
+            <ul class="footer-links">
+              <li><a href="mailto:hola@apexracing.gg">hola@apexracing.gg</a></li>
+              <li><a href="#">WhatsApp</a></li>
+              <li><a href="#">Buenos Aires, Argentina</a></li>
+            </ul>
+            <div class="footer-badge">
+              <span class="footer-badge-dot" aria-hidden="true"></span>
+              <span>Abiertos hoy · 10:00 – 22:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copy">© 2025 APEX Racing Academy. Todos los derechos reservados.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacidad</a>
+          <a href="#">Términos</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
