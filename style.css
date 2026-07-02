@@ -71,19 +71,14 @@ html {
   font-size: 16px;
 }
 
-body{
-    background:
-        linear-gradient(
-            90deg,
-            #140b2d 0%,
-            #050510 20%,
-            #050510 80%,
-            #081126 100%
-        );
-
-    color:var(--apex-white);
-    font-family:var(--font-body);
-    overflow-x:hidden;
+body {
+  background: var(--apex-dark-2);
+  color: var(--apex-white);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.65;
+  overflow-x: hidden;
+  cursor: default;
 }
 
   color: var(--apex-white);
@@ -135,11 +130,6 @@ input, select, textarea {
     transition-duration: 0.01ms !important;
   }
 }
-
-/* ─────────────────────────────────────────────────────
-   3. GLOW CURSOR
-   ───────────────────────────────────────────────────── */
-
 
 /* ─────────────────────────────────────────────────────
    4. CONTAINER & LAYOUT
@@ -1478,9 +1468,7 @@ input, select, textarea {
    15. ESTADÍSTICAS
    ───────────────────────────────────────────────────── */
 .stats {
-  background: var(--apex-dark-2);
-  border-top: 1px solid rgba(123,47,255,0.08);
-  border-bottom: 1px solid rgba(123,47,255,0.08);
+  background: transparent;
 }
 
 .stats-bg {
@@ -2002,7 +1990,7 @@ input, select, textarea {
    17. INSCRIPCIÓN
    ───────────────────────────────────────────────────── */
 .inscripcion {
-  background: var(--apex-dark-1);
+  background: transparent;
 }
 
 .inscripcion-bg {
@@ -2244,7 +2232,7 @@ input, select, textarea {
    18. CTA FINAL
    ───────────────────────────────────────────────────── */
 .cta-final {
-  background: var(--apex-dark-2);
+  background: transparent;
   text-align: center;
   overflow: hidden;
 }
