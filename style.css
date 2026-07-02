@@ -1221,10 +1221,8 @@ input, select, textarea {
     position:relative;
 
     width:100%;
-    height:70vh;
 
-    min-height:550px;
-    max-height:800px;
+    height:380px; /* antes: 70vh */
 
     border-radius:28px;
 
@@ -1250,17 +1248,21 @@ input, select, textarea {
     height:100%;
 
     object-fit:cover;
-
-    transform:scale(1.03);
+    object-position:center center;
 
     transition:
-        transform .8s ease;
+        transform .8s ease,
+        filter .8s ease;
+
+    filter:
+        brightness(.75)
+        saturate(1.05);
 }
 
 .sim-hero:hover
 .sim-hero-image{
 
-    transform:scale(1.08);
+    transform:scale(1.03);
 }
 
 /* OSCURECER */
@@ -1310,7 +1312,7 @@ input, select, textarea {
 
 /* OVERLAY */
 
-.sim-overlay{
+.sim-hero-overlay{
 
     position:absolute;
 
@@ -1322,25 +1324,7 @@ input, select, textarea {
     max-width:600px;
 }
 
-.sim-kicker{
-
-    font-family:var(--font-condensed);
-
-    font-size:.75rem;
-    font-weight:700;
-
-    letter-spacing:.25em;
-
-    text-transform:uppercase;
-
-    color:var(--apex-blue);
-
-    margin-bottom:15px;
-}
-
-.sim-title{
-
-    font-family:var(--font-display);
+.sim-hero-title{
 
     font-size:clamp(2rem,5vw,4rem);
 
@@ -1353,7 +1337,7 @@ input, select, textarea {
     margin-bottom:20px;
 }
 
-.sim-text{
+.sim-hero-desc{
 
     font-size:1rem;
 
@@ -1367,25 +1351,32 @@ input, select, textarea {
 
 /* SPECS */
 
-.sim-specs{
+.sim-specs-premium{
 
-    margin-top:50px;
+    margin-top:45px;
 
     display:grid;
 
     grid-template-columns:
         repeat(4,1fr);
 
-    gap:20px;
+    gap:24px;
 }
 
-.sim-spec{
+.sim-spec-card{
+
+    padding:28px 20px;
+
+    text-align:center;
 
     background:
-        rgba(10,10,25,.65);
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.02)
+        );
 
-    backdrop-filter:
-        blur(20px);
+    backdrop-filter:blur(20px);
 
     border:
         1px solid
@@ -1393,31 +1384,35 @@ input, select, textarea {
 
     border-radius:20px;
 
-    padding:25px;
-
-    text-align:center;
-
     transition:
         transform .3s ease,
         border-color .3s ease;
 }
 
-.sim-spec:hover{
+.sim-spec-card:hover{
 
     transform:
         translateY(-6px);
 
     border-color:
-        rgba(0,212,255,.4);
+        rgba(123,47,255,.35);
+
+    box-shadow:
+        0 20px 50px
+        rgba(123,47,255,.10);
 }
 
 .sim-spec-number{
 
+    display:block;
+
     font-family:var(--font-display);
 
-    font-size:2rem;
+    font-size:3rem;
 
     font-weight:800;
+
+    line-height:1;
 
     background:
         linear-gradient(
@@ -1429,35 +1424,41 @@ input, select, textarea {
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
 .sim-spec-label{
+
+    display:block;
 
     font-family:var(--font-condensed);
 
     font-size:.75rem;
 
-    letter-spacing:.2em;
+    letter-spacing:.18em;
 
     text-transform:uppercase;
 
     color:
-        rgba(255,255,255,.6);
+        rgba(255,255,255,.55);
 }
 
 /* RESPONSIVE */
 
 @media(max-width:900px){
 
-    .sim-overlay{
+    .sim-hero{
+        height:300px;
+    }
+
+    .sim-hero-overlay{
 
         left:30px;
         right:30px;
         bottom:30px;
     }
 
-    .sim-specs{
+    .sim-specs-premium{
 
         grid-template-columns:
             repeat(2,1fr);
@@ -1467,10 +1468,10 @@ input, select, textarea {
 @media(max-width:600px){
 
     .sim-hero{
-        height:60vh;
+        height:220px;
     }
 
-    .sim-specs{
+    .sim-specs-premium{
 
         grid-template-columns:1fr;
     }
