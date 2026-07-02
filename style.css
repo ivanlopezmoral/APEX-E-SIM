@@ -968,11 +968,34 @@ input, select, textarea {
     background:
         radial-gradient(
             circle,
-            color-mix(in srgb, var(--driver-color) 28%, transparent),
-            transparent 70%
+            color-mix(in srgb, var(--driver-color) 22%, transparent),
+            transparent 72%
         );
 
     z-index:0;
+}
+
+/* GLOW INFERIOR SUTIL */
+
+.driver-card::after{
+    content:"";
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:35%;
+
+    background:
+        linear-gradient(
+            to top,
+            color-mix(in srgb, var(--driver-color) 15%, transparent),
+            transparent 75%
+        );
+
+    pointer-events:none;
+    z-index:4;
 }
 
 /* TABS */
@@ -1009,7 +1032,6 @@ input, select, textarea {
         color-mix(in srgb,var(--driver-color) 60%,transparent);
 }
 
-
 /* FOTO */
 
 .driver-photo{
@@ -1041,10 +1063,6 @@ input, select, textarea {
         scale(1.02);
 }
 
-/* DEGRADADO DEL COLOR DEL PILOTO */
-
-
-
 /* INFO */
 
 .driver-info{
@@ -1063,7 +1081,8 @@ input, select, textarea {
     color:white;
 
     text-shadow:
-        0 5px 20px rgba(0,0,0,.7);
+        0 0 15px rgba(0,0,0,.9),
+        0 0 25px color-mix(in srgb, var(--driver-color) 20%, transparent);
 }
 
 .driver-info span{
@@ -1124,7 +1143,6 @@ input, select, textarea {
     font-weight:800;
     color:white;
 }
-
 /* ─────────────────────────────────────────────────────
    13. PROCESO
    ───────────────────────────────────────────────────── */
