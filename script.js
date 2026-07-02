@@ -890,6 +890,9 @@ tabs.forEach(tab => {
 
         // rating
         rating.textContent = d.rating;
+       document.getElementById(
+    "driverRating"
+).textContent = d.rating;
         rating.style.color = d.color;
 
         // stats
