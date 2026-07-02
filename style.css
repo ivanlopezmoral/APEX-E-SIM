@@ -71,15 +71,20 @@ html {
   font-size: 16px;
 }
 
-body {
-  background:
-    linear-gradient(
-      90deg,
-      #140b2d 0%,
-      #050510 25%,
-      #050510 75%,
-      #081126 100%
-    );
+body{
+    background:
+        linear-gradient(
+            90deg,
+            #140b2d 0%,
+            #050510 20%,
+            #050510 80%,
+            #081126 100%
+        );
+
+    color:var(--apex-white);
+    font-family:var(--font-body);
+    overflow-x:hidden;
+}
 
   color: var(--apex-white);
   font-family: var(--font-body);
