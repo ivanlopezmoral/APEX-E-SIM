@@ -72,7 +72,15 @@ html {
 }
 
 body {
-  background-color: var(--apex-black);
+  background:
+    linear-gradient(
+      90deg,
+      #140b2d 0%,
+      #050510 25%,
+      #050510 75%,
+      #081126 100%
+    );
+
   color: var(--apex-white);
   font-family: var(--font-body);
   font-weight: 400;
