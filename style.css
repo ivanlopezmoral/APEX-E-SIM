@@ -904,7 +904,7 @@ input, select, textarea {
    12. SOBRE APEX
    ───────────────────────────────────────────────────── */
 .sobre {
-  background: linear-gradient(180deg, var(--apex-black) 0%, var(--apex-dark-1) 100%);
+  background: transparent;
 }
 
 .sobre-layout {
@@ -995,7 +995,7 @@ input, select, textarea {
    13. PROCESO
    ───────────────────────────────────────────────────── */
 .proceso {
-  background: var(--apex-dark-1);
+  background: transparent;
 }
 
 .proceso-bg {
