@@ -1181,17 +1181,10 @@ input, select, textarea {
    ───────────────────────────────────────────────────── */
 
 .simuladores{
-
     position:relative;
-
     padding:120px 0;
 
-    background:
-        linear-gradient(
-            180deg,
-            #050510 0%,
-            #020208 100%
-        );
+    background:transparent;
 
     overflow:hidden;
 }
