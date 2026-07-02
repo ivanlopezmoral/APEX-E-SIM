@@ -3146,3 +3146,74 @@ input, select, textarea {
         min-height: 300px;
     }
 }
+/* ==========================================
+   MOBILE FIXES - ELITE HERO
+========================================== */
+
+@media (max-width: 768px){
+
+    .elite-hero{
+        min-height:auto;
+        padding:
+            120px 0
+            70px;
+    }
+
+    .elite-content{
+        max-width:100%;
+        text-align:left;
+    }
+
+    .elite-title{
+        font-size:clamp(2rem,9vw,3rem);
+        line-height:.95;
+        letter-spacing:-.03em;
+        margin-bottom:24px;
+    }
+
+    .elite-title em{
+        display:block;
+        margin-top:10px;
+    }
+
+    .elite-description{
+        font-size:1rem;
+        line-height:1.8;
+        max-width:100%;
+        margin-bottom:32px;
+    }
+
+    .elite-price-block{
+        padding:24px;
+        gap:20px;
+    }
+
+    .elite-price-value{
+        font-size:2rem;
+    }
+
+    .elite-price-divider{
+        display:none;
+    }
+
+    .elite-price-meta{
+        width:100%;
+        margin-top:15px;
+    }
+
+    .elite-actions{
+        flex-direction:column;
+        gap:16px;
+        width:100%;
+    }
+
+    .elite-actions .btn{
+        width:100%;
+        justify-content:center;
+    }
+
+    .hero-scroll{
+        display:none;
+    }
+
+}
