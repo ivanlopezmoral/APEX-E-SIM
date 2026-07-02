@@ -1,370 +1,570 @@
 /* =====================================================
-APEX ELITE PROGRAM
-elite.css
-===================================================== */
+   APEX RACING ACADEMY — PROGRAMA ELITE
+   elite.css
+   Depende de style.css para variables, tipografía,
+   botones, glass-card, reveal, navbar, footer, stats.
+   ===================================================== */
 
-/* HERO */
 
-.elite-hero{
-position:relative;
-min-height:100vh;
-
-```
-display:flex;
-align-items:center;
-
-overflow:hidden;
-```
-
+/* ─────────────────────────────────────────────────────
+   1. HERO
+   ───────────────────────────────────────────────────── */
+.elite-hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 100px;
+  padding-bottom: var(--section-py);
+  isolation: isolate;
 }
 
-.elite-bg{
-position:absolute;
-inset:0;
-
-```
-background:
-    radial-gradient(
-        circle at 80% 20%,
-        rgba(123,47,255,.22),
-        transparent 40%
-    ),
-    radial-gradient(
-        circle at 20% 70%,
-        rgba(0,212,255,.12),
-        transparent 45%
-    ),
-    linear-gradient(
-        180deg,
-        #050510,
-        #080811
-    );
-
-z-index:0;
-```
-
+/* Fondo con gradientes de color marca */
+.elite-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 75% 15%, rgba(123, 47, 255, 0.28) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(0, 212, 255, 0.14) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(123, 47, 255, 0.06) 0%, transparent 60%),
+    linear-gradient(180deg, #050510 0%, #03030a 100%);
 }
 
-.elite-content{
-position:relative;
-z-index:2;
-max-width:750px;
+/* Orbes animados */
+.elite-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
 }
 
-.elite-title{
-font-family:var(--font-display);
-font-size:clamp(3rem,7vw,5.5rem);
-font-weight:900;
-line-height:1.05;
-
-```
-margin-bottom:2rem;
-```
-
+.elite-orb--violet {
+  width: 650px;
+  height: 650px;
+  top: -180px;
+  right: -80px;
+  background: radial-gradient(circle, rgba(123, 47, 255, 0.22) 0%, transparent 65%);
+  animation: orb-pulse 9s ease-in-out infinite;
 }
 
-.elite-title em{
-font-style:normal;
-
-```
-background:
-    linear-gradient(
-        135deg,
-        var(--apex-violet-light),
-        var(--apex-blue)
-    );
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-```
-
+.elite-orb--blue {
+  width: 500px;
+  height: 500px;
+  bottom: -100px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.12) 0%, transparent 65%);
+  animation: orb-pulse 11s ease-in-out infinite reverse;
 }
 
-.elite-description{
-max-width:650px;
-
-```
-font-size:1.15rem;
-line-height:1.8;
-
-color:var(--apex-grey-1);
-
-margin-bottom:3rem;
-```
-
+.elite-orb--accent {
+  width: 300px;
+  height: 300px;
+  top: 40%;
+  left: 30%;
+  background: radial-gradient(circle, rgba(123, 47, 255, 0.08) 0%, transparent 65%);
+  animation: orb-float 14s ease-in-out infinite;
 }
 
-.elite-price{
-display:flex;
-align-items:center;
-gap:3rem;
-
-```
-margin-bottom:3rem;
-```
-
+/* Contenido hero */
+.elite-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
 }
 
-.elite-price-label{
-display:block;
-
-```
-font-family:var(--font-condensed);
-
-letter-spacing:.2em;
-font-size:.8rem;
-
-color:var(--apex-grey-2);
-```
-
+/* Breadcrumb */
+.elite-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-condensed);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--apex-grey-2);
+  margin-bottom: 2rem;
 }
 
-.elite-price-value{
-font-family:var(--font-display);
-
-```
-font-size:4rem;
-font-weight:900;
-
-background:
-    linear-gradient(
-        90deg,
-        var(--apex-violet-light),
-        var(--apex-blue)
-    );
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-```
-
+.elite-breadcrumb-link {
+  color: var(--apex-violet-light);
+  transition: color var(--t-fast) ease;
 }
 
-.elite-price-data{
-color:var(--apex-grey-1);
-
-```
-font-family:var(--font-condensed);
-font-size:1rem;
-
-letter-spacing:.15em;
-```
-
+.elite-breadcrumb-link:hover {
+  color: var(--apex-white);
 }
 
-/* ROADMAP */
-
-.elite-roadmap{
-display:grid;
-
-```
-grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
-
-gap:2rem;
-```
-
+.elite-breadcrumb-sep {
+  color: var(--apex-grey-2);
 }
 
-.elite-step{
-position:relative;
-
-```
-padding:2rem;
-
-overflow:hidden;
-
-transition:
-    transform .3s ease,
-    border-color .3s ease;
-```
-
+.elite-breadcrumb-current {
+  color: var(--apex-grey-1);
 }
 
-.elite-step:hover{
-transform:translateY(-8px);
-
-```
-border-color:
-    rgba(123,47,255,.4);
-```
-
+/* Título hero */
+.elite-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+  font-weight: 900;
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  color: var(--apex-white);
+  margin-bottom: 1.75rem;
+  filter: drop-shadow(0 0 40px rgba(123, 47, 255, 0.35));
 }
 
-.elite-step-number{
-display:block;
-
-```
-font-family:var(--font-display);
-
-font-size:4rem;
-font-weight:900;
-
-line-height:1;
-
-margin-bottom:1rem;
-
-background:
-    linear-gradient(
-        135deg,
-        var(--apex-violet-light),
-        var(--apex-blue)
-    );
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-```
-
+.elite-title em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--apex-violet-light) 0%, var(--apex-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.elite-step h3{
-font-family:var(--font-condensed);
-
-```
-font-size:1.5rem;
-font-weight:700;
-
-margin-bottom:1rem;
-
-text-transform:uppercase;
-```
-
+/* Descripción */
+.elite-description {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(240, 240, 255, 0.6);
+  max-width: 560px;
+  margin-bottom: 2.5rem;
 }
 
-.elite-step p{
-color:var(--apex-grey-1);
-
-```
-line-height:1.7;
-```
-
+/* Bloque de precio */
+.elite-price-block {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 1.75rem 2.25rem;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
 }
 
-/* FEATURES */
-
-.elite-features{
-display:grid;
-
-```
-grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
-
-gap:1.5rem;
-```
-
+.elite-price-main {
+  flex-shrink: 0;
 }
 
-.elite-feature{
-padding:2rem;
-
-```
-text-align:center;
-
-font-family:var(--font-condensed);
-font-size:1.1rem;
-font-weight:600;
-letter-spacing:.05em;
-
-transition:
-    transform .3s ease,
-    border-color .3s ease;
-```
-
+.elite-price-label {
+  display: block;
+  font-family: var(--font-condensed);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--apex-grey-2);
+  margin-bottom: 0.3rem;
 }
 
-.elite-feature:hover{
-transform:translateY(-6px);
-
-```
-border-color:
-    rgba(0,212,255,.35);
-```
-
+.elite-price-value {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(90deg, var(--apex-violet-light), var(--apex-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(123, 47, 255, 0.4));
 }
 
-/* CTA */
-
-.elite-cta{
-padding:5rem 3rem;
-
-```
-text-align:center;
-
-max-width:900px;
-margin:auto;
-```
-
+.elite-price-divider {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, transparent, rgba(123, 47, 255, 0.4), transparent);
+  flex-shrink: 0;
 }
 
-.elite-cta h2{
-font-family:var(--font-display);
-
-```
-font-size:clamp(2rem,5vw,3.5rem);
-
-margin-bottom:1rem;
-```
-
+.elite-price-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
 }
 
-.elite-cta p{
-color:var(--apex-grey-1);
-
-```
-margin-bottom:2rem;
-
-font-size:1.1rem;
-```
-
+.elite-price-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-condensed);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--apex-grey-1);
 }
 
-/* ANIMACIONES */
-
-.elite-step,
-.elite-feature{
-opacity:0;
-transform:translateY(30px);
-
-```
-animation:
-    eliteFade .8s ease forwards;
-```
-
+.elite-price-icon {
+  color: var(--apex-violet-light);
+  font-size: 0.65rem;
 }
 
-@keyframes eliteFade{
-
-```
-from{
-    opacity:0;
-    transform:translateY(30px);
+/* CTAs del hero */
+.elite-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
 }
 
-to{
-    opacity:1;
-    transform:translateY(0);
-}
-```
+/* Scroll indicator (reutiliza los estilos de style.css) */
 
-}
 
-/* MOBILE */
-
-@media(max-width:768px){
-
-```
-.elite-price{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:1rem;
+/* ─────────────────────────────────────────────────────
+   2. ROADMAP
+   ───────────────────────────────────────────────────── */
+.elite-roadmap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
-.elite-title{
-    font-size:3rem;
+.elite-step {
+  padding: 2rem 2rem 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--t-med) var(--ease-out),
+              border-color var(--t-med) var(--ease-out),
+              box-shadow var(--t-med) var(--ease-out);
 }
 
-.elite-cta{
-    padding:3rem 2rem;
+.elite-step::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(123, 47, 255, 0.0), transparent);
+  transition: background var(--t-med) ease;
 }
-```
 
+.elite-step:hover {
+  transform: translateY(-6px);
+  border-color: rgba(123, 47, 255, 0.45);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+              0 0 40px rgba(123, 47, 255, 0.1);
+}
+
+.elite-step:hover::before {
+  background: linear-gradient(90deg, transparent, var(--apex-violet), var(--apex-blue), transparent);
+}
+
+/* Variante gold (paso 6 – certificación) */
+.elite-step--gold {
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.elite-step--gold:hover {
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+              0 0 50px rgba(168, 85, 247, 0.15);
+}
+
+.elite-step--gold::before {
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.5), rgba(0, 212, 255, 0.3), transparent);
+}
+
+.elite-step-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, var(--apex-violet-light) 0%, var(--apex-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.7;
+}
+
+.elite-step-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-condensed);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--apex-violet-light);
+  background: rgba(123, 47, 255, 0.1);
+  border: 1px solid rgba(123, 47, 255, 0.2);
+  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.elite-step-tag--gold {
+  color: var(--apex-blue);
+  background: rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+.elite-step-title {
+  font-family: var(--font-condensed);
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--apex-white);
+  margin-bottom: 0.65rem;
+}
+
+.elite-step-desc {
+  font-size: 0.9rem;
+  color: var(--apex-grey-1);
+  line-height: 1.7;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   3. FEATURES
+   ───────────────────────────────────────────────────── */
+.elite-features-section {
+  background: transparent;
+}
+
+.elite-features-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.features-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+}
+
+.features-orb--1 {
+  width: 600px;
+  height: 600px;
+  top: -100px;
+  right: -150px;
+  background: radial-gradient(circle, rgba(123, 47, 255, 0.1) 0%, transparent 65%);
+  animation: orb-float 13s ease-in-out infinite;
+}
+
+.features-orb--2 {
+  width: 400px;
+  height: 400px;
+  bottom: -80px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.07) 0%, transparent 65%);
+  animation: orb-float 10s ease-in-out infinite reverse;
+}
+
+.elite-features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.elite-feature {
+  padding: 1.75rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--t-med) var(--ease-out),
+              border-color var(--t-med) var(--ease-out),
+              box-shadow var(--t-med) var(--ease-out);
+}
+
+.elite-feature:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 212, 255, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35),
+              0 0 30px rgba(0, 212, 255, 0.07);
+}
+
+.elite-feature--gold {
+  border-color: rgba(168, 85, 247, 0.25);
+}
+
+.elite-feature--gold:hover {
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35),
+              0 0 40px rgba(168, 85, 247, 0.12);
+}
+
+.feature-icon {
+  font-size: 1.4rem;
+  color: var(--apex-violet-light);
+  margin-bottom: 1rem;
+  display: block;
+  line-height: 1;
+}
+
+.feature-icon--gold {
+  color: var(--apex-blue);
+}
+
+.feature-title {
+  font-family: var(--font-condensed);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--apex-white);
+  margin-bottom: 0.55rem;
+}
+
+.feature-desc {
+  font-size: 0.88rem;
+  color: var(--apex-grey-1);
+  line-height: 1.65;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   4. CTA SECTION
+   ───────────────────────────────────────────────────── */
+.elite-cta-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.elite-cta-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.elite-cta {
+  position: relative;
+  z-index: 1;
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.elite-cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--apex-white);
+  margin-bottom: 1.25rem;
+}
+
+.elite-cta-title em {
+  font-style: normal;
+  background: linear-gradient(125deg, var(--apex-violet-light), var(--apex-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.elite-cta-desc {
+  font-size: 1rem;
+  color: rgba(240, 240, 255, 0.58);
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
+
+.elite-cta-price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.25rem;
+  flex-wrap: wrap;
+}
+
+.elite-cta-amount {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--apex-violet-light), var(--apex-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.elite-cta-period {
+  font-family: var(--font-condensed);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--apex-grey-2);
+  text-transform: uppercase;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   5. RESPONSIVE
+   ───────────────────────────────────────────────────── */
+
+/* Tablet: 2 columnas para roadmap y features */
+@media (min-width: 600px) {
+  .elite-roadmap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .elite-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 columnas */
+@media (min-width: 960px) {
+  .elite-roadmap {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .elite-features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Precio hero en mobile */
+@media (max-width: 600px) {
+  .elite-price-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .elite-price-divider {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(123, 47, 255, 0.4), transparent);
+  }
+
+  .elite-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .elite-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .elite-actions .btn .btn-inner {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .elite-title {
+    font-size: 2.4rem;
+  }
+
+  .elite-cta-title {
+    font-size: 1.8rem;
+  }
+
+  .elite-step-number {
+    font-size: 2.5rem;
+  }
 }
