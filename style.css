@@ -1009,31 +1009,6 @@ input, select, textarea {
         color-mix(in srgb,var(--driver-color) 60%,transparent);
 }
 
-/* NUMERO DETRAS DEL PILOTO */
-
-.driver-rating-bg{
-    position:absolute;
-
-    top:145px;
-    left:35px;
-
-    font-family:var(--font-display);
-    font-size:9rem;
-    font-weight:900;
-    line-height:1;
-
-    color:var(--driver-color);
-
-    opacity:.22;
-
-    z-index:2;
-
-    pointer-events:none;
-
-    text-shadow:
-        0 0 40px
-        color-mix(in srgb,var(--driver-color) 50%,transparent);
-}
 
 /* FOTO */
 
@@ -1068,36 +1043,7 @@ input, select, textarea {
 
 /* DEGRADADO DEL COLOR DEL PILOTO */
 
-.driver-gradient{
-    position:absolute;
 
-    left:0;
-    right:0;
-    bottom:0;
-
-    height:50%;
-
-    background:
-        linear-gradient(
-            to top,
-            color-mix(
-                in srgb,
-                var(--driver-color) 55%,
-                black
-            ) 0%,
-
-            color-mix(
-                in srgb,
-                var(--driver-color) 18%,
-                transparent
-            ) 45%,
-
-            transparent 100%
-        );
-
-    z-index:6;
-    pointer-events:none;
-}
 
 /* INFO */
 
