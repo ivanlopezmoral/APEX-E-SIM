@@ -3049,3 +3049,46 @@ input, select, textarea {
             transparent 70%
         );
 }
+/* ==========================================
+   HERO MOBILE FIX
+========================================== */
+
+@media (max-width: 768px) {
+
+  .hero,
+  .hero-section,
+  .equipamiento-hero {
+    min-height: auto;
+    height: auto;
+    padding: 100px 0 60px;
+  }
+
+  .hero-content,
+  .equipamiento-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 24px;
+  }
+
+  .hero-title,
+  .equipamiento-title {
+    font-size: clamp(2.2rem, 11vw, 4rem);
+    line-height: .95;
+    letter-spacing: -.03em;
+    margin-bottom: 20px;
+  }
+
+  .hero-description,
+  .equipamiento-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .hero-image,
+  .equipamiento-image {
+    min-height: 380px;
+    background-position: center;
+    background-size: cover;
+  }
+} 
