@@ -1747,17 +1747,17 @@ input, select, textarea {
 
     background:
         radial-gradient(circle at top left,
-            rgba(0,212,255,.06),
+            rgba(0,212,255,.05),
             transparent 35%),
         radial-gradient(circle at bottom right,
-            rgba(123,47,255,.08),
+            rgba(123,47,255,.06),
             transparent 45%);
 }
 
 .programs-grid{
     display:grid;
     grid-template-columns:1fr;
-    gap:1.5rem;
+    gap:1.6rem;
 }
 
 /* CARD */
@@ -1766,11 +1766,11 @@ input, select, textarea {
 
     position:relative;
 
-    height:420px;
+    height:360px;
 
     overflow:hidden;
 
-    border-radius:26px;
+    border-radius:24px;
 
     background:#05070f;
 
@@ -1781,10 +1781,24 @@ input, select, textarea {
         box-shadow .45s,
         border-color .45s;
 
-    cursor:pointer;
-
     isolation:isolate;
 }
+
+.program-card:hover{
+
+    transform:
+        translateY(-8px)
+        scale(1.015);
+
+    border-color:
+        rgba(255,255,255,.15);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.55),
+        0 0 40px rgba(0,212,255,.08);
+}
+
+/* SHINE */
 
 .program-card::before{
 
@@ -1796,61 +1810,46 @@ input, select, textarea {
     background:
         linear-gradient(
             120deg,
-            transparent 20%,
-            rgba(255,255,255,.05) 50%,
-            transparent 80%
+            transparent,
+            rgba(255,255,255,.05),
+            transparent
         );
 
     transform:translateX(-120%);
-    transition:1s;
-    z-index:20;
+    transition:.9s;
+
+    z-index:30;
 }
 
 .program-card:hover::before{
     transform:translateX(120%);
 }
 
-.program-card:hover{
-
-    transform:
-        translateY(-10px)
-        scale(1.015);
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.6),
-        0 0 50px rgba(123,47,255,.15);
-
-    border-color:
-        rgba(255,255,255,.18);
-}
-
-/* NUMERO GIGANTE */
+/* NUMERO */
 
 .program-bg-number{
 
     position:absolute;
 
-    top:10px;
-    right:20px;
+    top:0;
+    right:18px;
 
-    font-size:9rem;
+    font-size:7rem;
     font-weight:900;
 
-    color:rgba(255,255,255,.03);
+    color:rgba(255,255,255,.025);
 
     line-height:1;
 
     z-index:3;
-
-    pointer-events:none;
 }
 
 /* IMAGEN */
 
 .program-image{
+
     position:absolute;
     inset:0;
-    overflow:hidden;
 }
 
 .program-image img{
@@ -1860,23 +1859,25 @@ input, select, textarea {
 
     object-fit:cover;
 
-    transition:
-        transform .9s ease,
-        filter .9s ease;
-
     filter:
-        brightness(.45)
-        saturate(.9);
+        brightness(.65)
+        saturate(.95);
+
+    transition:
+        transform .9s,
+        filter .9s;
 }
 
 .program-card:hover .program-image img{
 
-    transform:scale(1.1);
+    transform:scale(1.08);
 
     filter:
-        brightness(.75)
-        saturate(1.1);
+        brightness(.78)
+        saturate(1.05);
 }
+
+/* OVERLAY */
 
 .program-overlay{
 
@@ -1886,11 +1887,34 @@ input, select, textarea {
     background:
         linear-gradient(
             180deg,
-            rgba(0,0,0,.10) 0%,
-            rgba(0,0,0,.30) 35%,
-            rgba(3,5,12,.92) 75%,
-            rgba(3,5,12,.98) 100%
+            rgba(0,0,0,.15) 0%,
+            rgba(0,0,0,.35) 45%,
+            rgba(3,5,12,.85) 100%
         );
+}
+
+/* GLASS TOP */
+
+.program-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:80px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.05),
+            transparent
+        );
+
+    z-index:5;
 }
 
 /* CONTENIDO */
@@ -1899,11 +1923,11 @@ input, select, textarea {
 
     position:absolute;
 
-    left:22px;
-    right:22px;
-    bottom:22px;
+    left:26px;
+    right:26px;
+    bottom:24px;
 
-    z-index:10;
+    z-index:20;
 }
 
 /* HEADER */
@@ -1912,28 +1936,27 @@ input, select, textarea {
 
     display:flex;
     align-items:center;
-    gap:12px;
 
-    margin-bottom:16px;
+    margin-bottom:12px;
 }
+
+/* LEVEL */
 
 .program-level{
 
     display:inline-flex;
 
-    align-items:center;
-
-    padding:8px 14px;
+    padding:8px 16px;
 
     border-radius:12px;
 
     background:
-        rgba(255,255,255,.06);
+        rgba(15,20,35,.75);
 
     border:
         1px solid rgba(255,255,255,.12);
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(12px);
 
     font-family:var(--font-condensed);
 
@@ -1943,25 +1966,13 @@ input, select, textarea {
     letter-spacing:.25em;
 }
 
-.program-live{
-
-    font-family:var(--font-condensed);
-
-    font-size:.75rem;
-
-    color:rgba(255,255,255,.85);
-
-    letter-spacing:.08em;
-}
-
 /* TITULO */
 
 .program-name{
 
     font-family:var(--font-display);
 
-    font-size:2rem;
-
+    font-size:1.65rem;
     font-weight:900;
 
     line-height:.9;
@@ -1973,26 +1984,27 @@ input, select, textarea {
 
     display:block;
 
-    margin-top:6px;
+    margin-top:5px;
 
     font-family:var(--font-condensed);
 
-    font-size:.9rem;
+    font-size:.72rem;
 
-    letter-spacing:.22em;
+    letter-spacing:.30em;
 
-    color:rgba(255,255,255,.60);
+    color:rgba(255,255,255,.65);
 }
 
 /* FEATURES */
 
 .program-features{
 
-    margin-top:18px;
+    margin-top:16px;
 
     display:flex;
     flex-direction:column;
-    gap:10px;
+
+    gap:8px;
 }
 
 .program-features li{
@@ -2001,9 +2013,9 @@ input, select, textarea {
 
     position:relative;
 
-    padding-left:20px;
+    padding-left:18px;
 
-    font-size:.82rem;
+    font-size:.78rem;
 
     color:rgba(255,255,255,.88);
 }
@@ -2024,56 +2036,47 @@ input, select, textarea {
 
     display:flex;
 
-    gap:24px;
+    gap:22px;
 
     margin-top:18px;
-}
-
-.program-stat{
-
-    display:flex;
-    flex-direction:column;
 }
 
 .program-stat strong{
 
     font-family:var(--font-display);
 
-    font-size:1.5rem;
+    font-size:1.25rem;
 
     color:white;
 }
 
 .program-stat span{
 
-    font-size:.65rem;
+    display:block;
 
-    letter-spacing:.15em;
+    margin-top:2px;
+
+    font-size:.62rem;
+
+    letter-spacing:.18em;
 
     color:rgba(255,255,255,.55);
 }
 
-/* DISPONIBILIDAD */
+/* PROGRESS */
 
 .program-progress{
 
-    margin-top:18px;
+    margin-top:16px;
 }
 
-.program-progress-text{
-
-    display:block;
-
-    font-size:.75rem;
-
-    color:rgba(255,255,255,.75);
-
-    margin-bottom:8px;
+.program-progress span{
+    display:none;
 }
 
 .program-bar{
 
-    height:5px;
+    height:4px;
 
     background:
         rgba(255,255,255,.08);
@@ -2097,7 +2100,7 @@ input, select, textarea {
         );
 
     box-shadow:
-        0 0 20px rgba(0,212,255,.4);
+        0 0 15px rgba(0,212,255,.4);
 }
 
 /* BOTON */
@@ -2110,7 +2113,7 @@ input, select, textarea {
 
     gap:10px;
 
-    margin-top:20px;
+    margin-top:18px;
 
     padding:12px 22px;
 
@@ -2129,26 +2132,20 @@ input, select, textarea {
 
     font-family:var(--font-condensed);
 
-    font-size:.78rem;
+    font-size:.75rem;
     font-weight:800;
 
-    letter-spacing:.15em;
+    letter-spacing:.18em;
 
-    transition:.3s;
-}
-
-.program-btn span{
     transition:.3s;
 }
 
 .program-btn:hover{
 
-    box-shadow:
-        0 15px 35px rgba(0,212,255,.30);
-}
+    transform:translateX(4px);
 
-.program-btn:hover span{
-    transform:translateX(5px);
+    box-shadow:
+        0 15px 35px rgba(0,212,255,.25);
 }
 
 /* COLORES */
@@ -2165,7 +2162,7 @@ input, select, textarea {
     color:#FFD700;
 }
 
-/* RESPONSIVE */
+/* DESKTOP */
 
 @media(min-width:1024px){
 
@@ -2174,18 +2171,20 @@ input, select, textarea {
     }
 }
 
+/* MOBILE */
+
 @media(max-width:768px){
 
     .program-card{
-        height:480px;
+        height:420px;
     }
 
     .program-name{
-        font-size:1.7rem;
+        font-size:1.5rem;
     }
 
     .program-bg-number{
-        font-size:6rem;
+        font-size:5rem;
     }
 }
 /* ─────────────────────────────────────────────────────
