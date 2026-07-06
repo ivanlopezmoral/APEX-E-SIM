@@ -138,13 +138,11 @@
       <div class="speed-line speed-line--3"></div>
     </div>
   </section>
-
 <!-- ══════════════════════════════════════ -->
 <!--  SOBRE APEX                            -->
 <!-- ══════════════════════════════════════ -->
 <section class="section sobre" id="sobre" aria-label="Sobre APEX">
 
-    <!-- AMBIENT BG -->
     <div class="sobre-bg" aria-hidden="true">
         <div class="sobre-orb sobre-orb--violet"></div>
         <div class="sobre-orb sobre-orb--blue"></div>
@@ -154,10 +152,7 @@
     <div class="container">
 
         <div class="section-header reveal">
-            <span class="section-eyebrow">
-                SOBRE APEX
-            </span>
-
+            <span class="section-eyebrow">SOBRE APEX</span>
             <h2 class="section-title">
                 No entrenamos gamers.<br>
                 <em>Formamos pilotos.</em>
@@ -169,84 +164,83 @@
             <!-- DRIVER CARD -->
             <div class="sobre-visual reveal">
 
-                <div class="driver-card top1" id="driverCard">
+                <div class="driver-card" id="driverCard" tabindex="0" aria-label="Selector de pilotos">
 
                     <div class="driver-card-border" aria-hidden="true"></div>
                     <div class="driver-card-sheen" aria-hidden="true"></div>
 
-                    <!-- TABS -->
-                    <div class="driver-tabs" id="driverTabs" role="tablist" aria-label="Ranking de pilotos">
+                    <!-- NAV -->
+                    <div class="driver-nav">
 
-                        <span class="driver-tabs-indicator" id="tabIndicator" aria-hidden="true"></span>
+                        <div class="driver-nav-count">
+                            <span id="driverIndex">01</span><span class="driver-nav-sep">/</span><span>03</span>
+                        </div>
 
-                        <button class="driver-tab active"
-                                data-driver="maria"
-                                role="tab"
-                                aria-selected="true">
-                            <span class="tab-medal">🥇</span>
-                            <span class="tab-label">TOP 1</span>
-                        </button>
+                        <div class="driver-nav-track" id="driverNavTrack" role="tablist" aria-label="Elegir piloto">
+                            <button class="driver-dot active" data-driver="maria" role="tab" aria-selected="true" aria-label="María — Top 1"></button>
+                            <button class="driver-dot" data-driver="thomas" role="tab" aria-selected="false" aria-label="Thomas — Top 2"></button>
+                            <button class="driver-dot" data-driver="ramiro" role="tab" aria-selected="false" aria-label="Ramiro — Top 3"></button>
+                        </div>
 
-                        <button class="driver-tab"
-                                data-driver="thomas"
-                                role="tab"
-                                aria-selected="false">
-                            <span class="tab-medal">🥈</span>
-                            <span class="tab-label">TOP 2</span>
-                        </button>
-
-                        <button class="driver-tab"
-                                data-driver="ramiro"
-                                role="tab"
-                                aria-selected="false">
-                            <span class="tab-medal">🥉</span>
-                            <span class="tab-label">TOP 3</span>
-                        </button>
+                        <div class="driver-nav-arrows">
+                            <button class="driver-arrow" id="prevDriver" aria-label="Piloto anterior">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg>
+                            </button>
+                            <button class="driver-arrow" id="nextDriver" aria-label="Siguiente piloto">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+                            </button>
+                        </div>
 
                     </div>
 
                     <!-- FOTO -->
-                    <div class="driver-photo">
-                        <img
-                            id="driverImage"
-                            src="images/Corredora 1 (Maria).png"
-                            alt="María">
+                    <div class="driver-photo-frame" id="driverPhotoFrame">
+                        <img id="driverImage" src="images/Corredora 1 (Maria).png" alt="María" class="driver-photo-img">
+                        <span class="driver-rank-badge" id="driverRankBadge">TOP 1</span>
                     </div>
 
                     <!-- INFO -->
-                    <div class="driver-info">
-                        <span class="driver-badge" id="driverTeam">APEX ELITE</span>
-                        <h3 id="driverName">MARÍA</h3>
+                    <div class="driver-info-row">
+                        <div class="driver-info-text">
+                            <span class="driver-badge" id="driverTeam">APEX ELITE</span>
+                            <h3 id="driverName">MARÍA</h3>
+                        </div>
                     </div>
 
                     <!-- STATS -->
-                    <div class="driver-stats">
+                    <div class="driver-stats-row">
 
                         <div class="driver-stat" data-stat="iq">
-                            <svg class="driver-stat-ring" viewBox="0 0 60 60" aria-hidden="true">
-                                <circle class="ring-track" cx="30" cy="30" r="26"></circle>
-                                <circle class="ring-fill" cx="30" cy="30" r="26"></circle>
-                            </svg>
+                            <div class="driver-stat-gauge">
+                                <svg viewBox="0 0 64 64" aria-hidden="true">
+                                    <circle class="ring-track" cx="32" cy="32" r="27"></circle>
+                                    <circle class="ring-fill" cx="32" cy="32" r="27"></circle>
+                                </svg>
+                                <strong id="statIQ">0</strong>
+                            </div>
                             <span>IQ</span>
-                            <strong id="statIQ" data-value="99">0</strong>
                         </div>
 
                         <div class="driver-stat" data-stat="vel">
-                            <svg class="driver-stat-ring" viewBox="0 0 60 60" aria-hidden="true">
-                                <circle class="ring-track" cx="30" cy="30" r="26"></circle>
-                                <circle class="ring-fill" cx="30" cy="30" r="26"></circle>
-                            </svg>
+                            <div class="driver-stat-gauge">
+                                <svg viewBox="0 0 64 64" aria-hidden="true">
+                                    <circle class="ring-track" cx="32" cy="32" r="27"></circle>
+                                    <circle class="ring-fill" cx="32" cy="32" r="27"></circle>
+                                </svg>
+                                <strong id="statVEL">0</strong>
+                            </div>
                             <span>VEL</span>
-                            <strong id="statVEL" data-value="96">0</strong>
                         </div>
 
                         <div class="driver-stat" data-stat="cur">
-                            <svg class="driver-stat-ring" viewBox="0 0 60 60" aria-hidden="true">
-                                <circle class="ring-track" cx="30" cy="30" r="26"></circle>
-                                <circle class="ring-fill" cx="30" cy="30" r="26"></circle>
-                            </svg>
+                            <div class="driver-stat-gauge">
+                                <svg viewBox="0 0 64 64" aria-hidden="true">
+                                    <circle class="ring-track" cx="32" cy="32" r="27"></circle>
+                                    <circle class="ring-fill" cx="32" cy="32" r="27"></circle>
+                                </svg>
+                                <strong id="statCUR">0</strong>
+                            </div>
                             <span>CUR</span>
-                            <strong id="statCUR" data-value="98">0</strong>
                         </div>
 
                     </div>
@@ -343,7 +337,6 @@
     </div>
 
 </section>
-
     <!-- ══════════════════════════════════════ -->
   <!--  ESTADÍSTICAS                         -->
   <!-- ══════════════════════════════════════ -->
