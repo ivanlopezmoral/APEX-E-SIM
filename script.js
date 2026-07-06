@@ -823,59 +823,41 @@ if (document.readyState === 'loading') {
 }
 
 // ─────────────────────────────────────────────────────
-// SOBRE APEX — DRIVER CARD (interactivo + premium)
+// SOBRE APEX — DRIVER CARD (carrusel premium)
 // ─────────────────────────────────────────────────────
 (function initDriverCard(){
 
+    const order = ['maria', 'thomas', 'ramiro'];
+
     const drivers = {
-        maria: {
-            name: "MARÍA", team: "APEX ELITE",
-            iq: 99, vel: 96, cur: 98,
-            color: "#00D4FF", class: "top1",
-            image: "images/Corredora 1 (Maria).png"
-        },
-        thomas: {
-            name: "THOMAS", team: "APEX PRO",
-            iq: 91, vel: 95, cur: 92,
-            color: "#FFD84D", class: "top2",
-            image: "images/Corredor 2 (Thomas).png"
-        },
-        ramiro: {
-            name: "RAMIRO", team: "APEX GT",
-            iq: 94, vel: 89, cur: 95,
-            color: "#FF5E5E", class: "top3",
-            image: "images/Corredor 3 (Ramiro).png"
-        }
+        maria:  { name:"MARÍA",  team:"APEX ELITE", rank:"TOP 1", iq:99, vel:96, cur:98, color:"#00D4FF", image:"images/Corredora 1 (Maria).png" },
+        thomas: { name:"THOMAS", team:"APEX PRO",   rank:"TOP 2", iq:91, vel:95, cur:92, color:"#FFD84D", image:"images/Corredor 2 (Thomas).png" },
+        ramiro: { name:"RAMIRO", team:"APEX GT",    rank:"TOP 3", iq:94, vel:89, cur:95, color:"#FF5E5E", image:"images/Corredor 3 (Ramiro).png" }
     };
 
     const card = document.getElementById('driverCard');
     if (!card) return;
 
-    const tabsWrap  = document.getElementById('driverTabs');
-    const tabs      = [...tabsWrap.querySelectorAll('.driver-tab')];
-    const indicator = document.getElementById('tabIndicator');
+    const dots      = [...document.querySelectorAll('#driverNavTrack .driver-dot')];
+    const indexEl   = document.getElementById('driverIndex');
     const img       = document.getElementById('driverImage');
+    const rankBadge = document.getElementById('driverRankBadge');
     const nameEl    = document.getElementById('driverName');
     const teamEl    = document.getElementById('driverTeam');
+    const infoText  = teamEl ? teamEl.closest('.driver-info-text') : null;
     const statEls   = {
         iq:  document.getElementById('statIQ'),
         vel: document.getElementById('statVEL'),
         cur: document.getElementById('statCUR')
     };
-    const RING_CIRC = 163.36;
+    const RING_CIRC = 169.65;
     const rings = {};
     card.querySelectorAll('.driver-stat').forEach(el => {
         rings[el.dataset.stat] = el.querySelector('.ring-fill');
     });
 
-    let currentKey = 'maria';
+    let currentIndex = 0;
     let switching = false;
-
-    function moveIndicator(tab){
-        if (!tab) return;
-        indicator.style.width     = tab.offsetWidth + 'px';
-        indicator.style.transform = `translateX(${tab.offsetLeft - 5}px)`;
-    }
 
     function animateNumber(el, from, to, duration = 700){
         const start = performance.now();
@@ -897,39 +879,48 @@ if (document.readyState === 'loading') {
         requestAnimationFrame(() => { ring.style.strokeDashoffset = offset; });
     }
 
-    function setActiveTab(tab){
-        tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-        moveIndicator(tab);
-    }
+    function goTo(newIndex, direction){
+        if (switching) return;
+        newIndex = ((newIndex % order.length) + order.length) % order.length;
+        if (newIndex === currentIndex) return;
 
-    function selectDriver(key, tab){
-        if (switching || key === currentKey) { setActiveTab(tab); return; }
         switching = true;
-        currentKey = key;
+        currentIndex = newIndex;
+        const key = order[currentIndex];
         const d = drivers[key];
 
-        setActiveTab(tab);
+        // dots + counter
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+            dot.setAttribute('aria-selected', i === currentIndex ? 'true' : 'false');
+        });
+        indexEl.textContent = String(currentIndex + 1).padStart(2, '0');
 
-        card.classList.remove('top1', 'top2', 'top3');
-        card.classList.add(d.class);
+        // glow color
         card.style.setProperty('--driver-glow', d.color);
 
-        img.classList.add('is-fading');
+        // foto: slide + fade según dirección
+        const outClass = direction === 'next' ? 'is-out-left' : 'is-out-right';
+        img.classList.add(outClass);
         setTimeout(() => {
             img.src = d.image;
             img.alt = d.name;
-            requestAnimationFrame(() => img.classList.remove('is-fading'));
+            img.classList.remove('is-out-left', 'is-out-right');
+            img.classList.add('is-in');
+            requestAnimationFrame(() => img.classList.remove('is-in'));
         }, 260);
 
-        [nameEl, teamEl].forEach(el => el.classList.add('is-swapping'));
+        rankBadge.textContent = d.rank;
+
+        // texto
+        if (infoText) infoText.classList.add('is-swapping');
         setTimeout(() => {
             nameEl.textContent = d.name;
             teamEl.textContent = d.team;
-            [nameEl, teamEl].forEach(el => el.classList.remove('is-swapping'));
+            if (infoText) infoText.classList.remove('is-swapping');
         }, 180);
 
+        // stats
         const prev = {
             iq:  parseInt(statEls.iq.textContent)  || 0,
             vel: parseInt(statEls.vel.textContent) || 0,
@@ -942,27 +933,42 @@ if (document.readyState === 'loading') {
         setRing(rings.vel, d.vel);
         setRing(rings.cur, d.cur);
 
-        setTimeout(() => { switching = false; }, 500);
+        setTimeout(() => { switching = false; }, 550);
     }
 
-    tabs.forEach(tab => {
-        tab.addEventListener('mouseenter', () => selectDriver(tab.dataset.driver, tab));
-        tab.addEventListener('click', () => selectDriver(tab.dataset.driver, tab));
-        tab.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                selectDriver(tab.dataset.driver, tab);
-            }
-        });
+    // dots
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => goTo(i, i > currentIndex ? 'next' : 'prev'));
     });
 
-    // init: indicador en posición + primer conteo apenas la card entra en viewport
-    requestAnimationFrame(() => moveIndicator(tabs.find(t => t.classList.contains('active')) || tabs[0]));
+    // arrows
+    document.getElementById('prevDriver').addEventListener('click', () => goTo(currentIndex - 1, 'prev'));
+    document.getElementById('nextDriver').addEventListener('click', () => goTo(currentIndex + 1, 'next'));
 
+    // teclado
+    card.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(currentIndex - 1, 'prev'); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(currentIndex + 1, 'next'); }
+    });
+
+    // swipe touch
+    let touchStartX = null;
+    const photoFrame = document.getElementById('driverPhotoFrame');
+    photoFrame.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    photoFrame.addEventListener('touchend', (e) => {
+        if (touchStartX === null) return;
+        const delta = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(delta) > 40) {
+            delta < 0 ? goTo(currentIndex + 1, 'next') : goTo(currentIndex - 1, 'prev');
+        }
+        touchStartX = null;
+    }, { passive: true });
+
+    // primer conteo cuando la card entra en viewport
     const initObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
-            const d = drivers[currentKey];
+            const d = drivers[order[currentIndex]];
             animateNumber(statEls.iq,  0, d.iq);
             animateNumber(statEls.vel, 0, d.vel);
             animateNumber(statEls.cur, 0, d.cur);
@@ -974,7 +980,7 @@ if (document.readyState === 'loading') {
     }, { threshold: 0.3 });
     initObserver.observe(card);
 
-    // tilt 3D + glow que sigue al mouse
+    // tilt 3D + glow que sigue al mouse (solo desktop)
     let rafPending = false;
     card.addEventListener('mousemove', (e) => {
         if (rafPending) return;
@@ -983,12 +989,7 @@ if (document.readyState === 'loading') {
         requestAnimationFrame(() => {
             const px = (e.clientX - rect.left) / rect.width;
             const py = (e.clientY - rect.top) / rect.height;
-            card.style.transform = `
-                perspective(1800px)
-                rotateX(${(0.5 - py) * 10}deg)
-                rotateY(${(px - 0.5) * 10}deg)
-                translateY(-4px)
-            `;
+            card.style.transform = `perspective(1800px) rotateX(${(0.5 - py) * 8}deg) rotateY(${(px - 0.5) * 8}deg) translateY(-4px)`;
             card.style.setProperty('--mx', `${px * 100}%`);
             card.style.setProperty('--my', `${py * 100}%`);
             rafPending = false;
@@ -1001,8 +1002,7 @@ if (document.readyState === 'loading') {
         card.style.setProperty('--my', '10%');
     });
 
-    window.addEventListener('resize', () => {
-        moveIndicator(tabs.find(t => t.classList.contains('active')));
-    });
+    // init glow color
+    card.style.setProperty('--driver-glow', drivers[order[0]].color);
 
 })();
