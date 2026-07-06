@@ -140,9 +140,16 @@
   </section>
 
 <!-- ══════════════════════════════════════ -->
-<!--  SOBRE APEX                           -->
+<!--  SOBRE APEX                            -->
 <!-- ══════════════════════════════════════ -->
 <section class="section sobre" id="sobre" aria-label="Sobre APEX">
+
+    <!-- AMBIENT BG -->
+    <div class="sobre-bg" aria-hidden="true">
+        <div class="sobre-orb sobre-orb--violet"></div>
+        <div class="sobre-orb sobre-orb--blue"></div>
+        <div class="sobre-grid"></div>
+    </div>
 
     <div class="container">
 
@@ -164,22 +171,36 @@
 
                 <div class="driver-card top1" id="driverCard">
 
+                    <div class="driver-card-border" aria-hidden="true"></div>
+                    <div class="driver-card-sheen" aria-hidden="true"></div>
+
                     <!-- TABS -->
-                    <div class="driver-tabs">
+                    <div class="driver-tabs" id="driverTabs" role="tablist" aria-label="Ranking de pilotos">
+
+                        <span class="driver-tabs-indicator" id="tabIndicator" aria-hidden="true"></span>
 
                         <button class="driver-tab active"
-                                data-driver="maria">
-                            TOP 1
+                                data-driver="maria"
+                                role="tab"
+                                aria-selected="true">
+                            <span class="tab-medal">🥇</span>
+                            <span class="tab-label">TOP 1</span>
                         </button>
 
                         <button class="driver-tab"
-                                data-driver="thomas">
-                            TOP 2
+                                data-driver="thomas"
+                                role="tab"
+                                aria-selected="false">
+                            <span class="tab-medal">🥈</span>
+                            <span class="tab-label">TOP 2</span>
                         </button>
 
                         <button class="driver-tab"
-                                data-driver="ramiro">
-                            TOP 3
+                                data-driver="ramiro"
+                                role="tab"
+                                aria-selected="false">
+                            <span class="tab-medal">🥉</span>
+                            <span class="tab-label">TOP 3</span>
                         </button>
 
                     </div>
@@ -194,33 +215,38 @@
 
                     <!-- INFO -->
                     <div class="driver-info">
-
-                        <h3 id="driverName">
-                            MARÍA
-                        </h3>
-
-                        <span id="driverTeam">
-                            APEX ELITE
-                        </span>
-
+                        <span class="driver-badge" id="driverTeam">APEX ELITE</span>
+                        <h3 id="driverName">MARÍA</h3>
                     </div>
 
                     <!-- STATS -->
                     <div class="driver-stats">
 
-                        <div class="driver-stat">
+                        <div class="driver-stat" data-stat="iq">
+                            <svg class="driver-stat-ring" viewBox="0 0 60 60" aria-hidden="true">
+                                <circle class="ring-track" cx="30" cy="30" r="26"></circle>
+                                <circle class="ring-fill" cx="30" cy="30" r="26"></circle>
+                            </svg>
                             <span>IQ</span>
-                            <strong id="statIQ">99</strong>
+                            <strong id="statIQ" data-value="99">0</strong>
                         </div>
 
-                        <div class="driver-stat">
+                        <div class="driver-stat" data-stat="vel">
+                            <svg class="driver-stat-ring" viewBox="0 0 60 60" aria-hidden="true">
+                                <circle class="ring-track" cx="30" cy="30" r="26"></circle>
+                                <circle class="ring-fill" cx="30" cy="30" r="26"></circle>
+                            </svg>
                             <span>VEL</span>
-                            <strong id="statVEL">96</strong>
+                            <strong id="statVEL" data-value="96">0</strong>
                         </div>
 
-                        <div class="driver-stat">
+                        <div class="driver-stat" data-stat="cur">
+                            <svg class="driver-stat-ring" viewBox="0 0 60 60" aria-hidden="true">
+                                <circle class="ring-track" cx="30" cy="30" r="26"></circle>
+                                <circle class="ring-fill" cx="30" cy="30" r="26"></circle>
+                            </svg>
                             <span>CUR</span>
-                            <strong id="statCUR">98</strong>
+                            <strong id="statCUR" data-value="98">0</strong>
                         </div>
 
                     </div>
@@ -232,50 +258,80 @@
             <!-- CONTENT -->
             <div class="sobre-content reveal" data-delay="100">
 
-                <div class="sobre-pillars">
+                <div class="sobre-pillars" id="sobrePillars">
 
                     <div class="pillar">
-                        <div class="pillar-icon">◆</div>
-
+                        <span class="pillar-index">01</span>
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="6" y="6" width="12" height="12" rx="2"></rect>
+                                <rect x="9" y="9" width="6" height="6" rx="1"></rect>
+                                <path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"></path>
+                            </svg>
+                        </div>
                         <div class="pillar-body">
                             <strong>TECNOLOGÍA PROFESIONAL</strong>
-                            <span>
-                                Simuladores de competición con física y movimiento real.
-                            </span>
+                            <span>Simuladores de competición con física y movimiento real.</span>
                         </div>
+                        <span class="pillar-arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+                        </span>
                     </div>
 
                     <div class="pillar">
-                        <div class="pillar-icon">◆</div>
-
+                        <span class="pillar-index">02</span>
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="2,13 7,13 9,6 13,20 16,13 22,13"></polyline>
+                            </svg>
+                        </div>
                         <div class="pillar-body">
                             <strong>TELEMETRÍA AVANZADA</strong>
-                            <span>
-                                Análisis de datos y rendimiento en tiempo real.
-                            </span>
+                            <span>Análisis de datos y rendimiento en tiempo real.</span>
                         </div>
+                        <span class="pillar-arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+                        </span>
                     </div>
 
                     <div class="pillar">
-                        <div class="pillar-icon">◆</div>
-
+                        <span class="pillar-index">03</span>
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="8.5"></circle>
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <circle cx="12" cy="12" r="0.6" fill="currentColor"></circle>
+                                <path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"></path>
+                            </svg>
+                        </div>
                         <div class="pillar-body">
                             <strong>ENTRENAMIENTO ELITE</strong>
-                            <span>
-                                Metodología profesional aplicada a pilotos reales.
-                            </span>
+                            <span>Metodología profesional aplicada a pilotos reales.</span>
                         </div>
+                        <span class="pillar-arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+                        </span>
                     </div>
 
                     <div class="pillar">
-                        <div class="pillar-icon">◆</div>
-
+                        <span class="pillar-index">04</span>
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M8 4h8v4a4 4 0 0 1-8 0V4z"></path>
+                                <path d="M8 5H5a3 3 0 0 0 3 3"></path>
+                                <path d="M16 5h3a3 3 0 0 1-3 3"></path>
+                                <path d="M12 12v3"></path>
+                                <path d="M9 20h6"></path>
+                                <path d="M10 15h4v2a2 2 0 0 1-4 0v-2z"></path>
+                            </svg>
+                        </div>
                         <div class="pillar-body">
                             <strong>COMPETICIÓN</strong>
-                            <span>
-                                Campeonatos, ranking y proyección deportiva.
-                            </span>
+                            <span>Campeonatos, ranking y proyección deportiva.</span>
                         </div>
+                        <span class="pillar-arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
+                        </span>
                     </div>
 
                 </div>
