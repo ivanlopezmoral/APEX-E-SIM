@@ -825,64 +825,63 @@ if (document.readyState === 'loading') {
 // ─────────────────────────────────────────────────────
 // SOBRE APEX — DRIVER CARD (interactivo + premium)
 // ─────────────────────────────────────────────────────
-const drivers = {
-    maria: {
-        name: "MARÍA", team: "APEX ELITE",
-        iq: 99, vel: 96, cur: 98,
-        color: "#00D4FF", class: "top1",
-        image: "images/Corredora 1 (Maria).png"
-    },
-    thomas: {
-        name: "THOMAS", team: "APEX PRO",
-        iq: 91, vel: 95, cur: 92,
-        color: "#FFD84D", class: "top2",
-        image: "images/Corredor 2 (Thomas).png"
-    },
-    ramiro: {
-        name: "RAMIRO", team: "APEX GT",
-        iq: 94, vel: 89, cur: 95,
-        color: "#FF5E5E", class: "top3",
-        image: "images/Corredor 3 (Ramiro).png"
-    }
-};
-
 (function initDriverCard(){
 
-    const card       = $('#driverCard');
+    const drivers = {
+        maria: {
+            name: "MARÍA", team: "APEX ELITE",
+            iq: 99, vel: 96, cur: 98,
+            color: "#00D4FF", class: "top1",
+            image: "images/Corredora 1 (Maria).png"
+        },
+        thomas: {
+            name: "THOMAS", team: "APEX PRO",
+            iq: 91, vel: 95, cur: 92,
+            color: "#FFD84D", class: "top2",
+            image: "images/Corredor 2 (Thomas).png"
+        },
+        ramiro: {
+            name: "RAMIRO", team: "APEX GT",
+            iq: 94, vel: 89, cur: 95,
+            color: "#FF5E5E", class: "top3",
+            image: "images/Corredor 3 (Ramiro).png"
+        }
+    };
+
+    const card = document.getElementById('driverCard');
     if (!card) return;
 
-    const tabsWrap   = $('#driverTabs');
-    const tabs       = $$('.driver-tab', tabsWrap);
-    const indicator  = $('#tabIndicator');
-    const img        = $('#driverImage');
-    const nameEl     = $('#driverName');
-    const teamEl     = $('#driverTeam');
-    const statEls    = {
-        iq:  $('#statIQ'),
-        vel: $('#statVEL'),
-        cur: $('#statCUR')
+    const tabsWrap  = document.getElementById('driverTabs');
+    const tabs      = [...tabsWrap.querySelectorAll('.driver-tab')];
+    const indicator = document.getElementById('tabIndicator');
+    const img       = document.getElementById('driverImage');
+    const nameEl    = document.getElementById('driverName');
+    const teamEl    = document.getElementById('driverTeam');
+    const statEls   = {
+        iq:  document.getElementById('statIQ'),
+        vel: document.getElementById('statVEL'),
+        cur: document.getElementById('statCUR')
     };
     const RING_CIRC = 163.36;
     const rings = {};
-    $$('.driver-stat', card).forEach(el => {
-        rings[el.dataset.stat] = $('.ring-fill', el);
+    card.querySelectorAll('.driver-stat').forEach(el => {
+        rings[el.dataset.stat] = el.querySelector('.ring-fill');
     });
 
     let currentKey = 'maria';
     let switching = false;
 
-    // ---- indicator position ----
     function moveIndicator(tab){
+        if (!tab) return;
         indicator.style.width     = tab.offsetWidth + 'px';
         indicator.style.transform = `translateX(${tab.offsetLeft - 5}px)`;
     }
 
-    // ---- animated number counter ----
     function animateNumber(el, from, to, duration = 700){
         const start = performance.now();
         function tick(now){
             const p = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+            const eased = 1 - Math.pow(1 - p, 3);
             el.textContent = Math.round(from + (to - from) * eased);
             if (p < 1) requestAnimationFrame(tick);
         }
@@ -891,63 +890,11 @@ const drivers = {
 
     function setRing(ring, value){
         const offset = RING_CIRC * (1 - value / 100);
-        // reset then animate for a nice re-fill effect
         ring.style.transition = 'none';
         ring.style.strokeDashoffset = RING_CIRC;
-        // force reflow
         void ring.getBoundingClientRect();
         ring.style.transition = '';
-        requestAnimationFrame(() => {
-            ring.style.strokeDashoffset = offset;
-        });
-    }
-
-    function selectDriver(key, tab){
-        if (switching || key === currentKey) {
-            setActiveTab(tab);
-            return;
-        }
-        switching = true;
-        currentKey = key;
-        const d = drivers[key];
-
-        setActiveTab(tab);
-
-        // color / class
-        card.classList.remove('top1', 'top2', 'top3');
-        card.classList.add(d.class);
-        card.style.setProperty('--driver-glow', d.color);
-
-        // foto crossfade
-        img.classList.add('is-fading');
-        setTimeout(() => {
-            img.src = d.image;
-            img.alt = d.name;
-            requestAnimationFrame(() => img.classList.remove('is-fading'));
-        }, 260);
-
-        // texto (fade rápido)
-        [nameEl, teamEl].forEach(el => el.classList.add('is-swapping'));
-        setTimeout(() => {
-            nameEl.textContent = d.name;
-            teamEl.textContent = d.team;
-            [nameEl, teamEl].forEach(el => el.classList.remove('is-swapping'));
-        }, 180);
-
-        // stats: contador + anillo
-        const prevValues = {
-            iq:  parseInt(statEls.iq.textContent)  || 0,
-            vel: parseInt(statEls.vel.textContent) || 0,
-            cur: parseInt(statEls.cur.textContent) || 0
-        };
-        animateNumber(statEls.iq,  prevValues.iq,  d.iq);
-        animateNumber(statEls.vel, prevValues.vel, d.vel);
-        animateNumber(statEls.cur, prevValues.cur, d.cur);
-        setRing(rings.iq,  d.iq);
-        setRing(rings.vel, d.vel);
-        setRing(rings.cur, d.cur);
-
-        setTimeout(() => { switching = false; }, 500);
+        requestAnimationFrame(() => { ring.style.strokeDashoffset = offset; });
     }
 
     function setActiveTab(tab){
@@ -957,10 +904,49 @@ const drivers = {
         moveIndicator(tab);
     }
 
+    function selectDriver(key, tab){
+        if (switching || key === currentKey) { setActiveTab(tab); return; }
+        switching = true;
+        currentKey = key;
+        const d = drivers[key];
+
+        setActiveTab(tab);
+
+        card.classList.remove('top1', 'top2', 'top3');
+        card.classList.add(d.class);
+        card.style.setProperty('--driver-glow', d.color);
+
+        img.classList.add('is-fading');
+        setTimeout(() => {
+            img.src = d.image;
+            img.alt = d.name;
+            requestAnimationFrame(() => img.classList.remove('is-fading'));
+        }, 260);
+
+        [nameEl, teamEl].forEach(el => el.classList.add('is-swapping'));
+        setTimeout(() => {
+            nameEl.textContent = d.name;
+            teamEl.textContent = d.team;
+            [nameEl, teamEl].forEach(el => el.classList.remove('is-swapping'));
+        }, 180);
+
+        const prev = {
+            iq:  parseInt(statEls.iq.textContent)  || 0,
+            vel: parseInt(statEls.vel.textContent) || 0,
+            cur: parseInt(statEls.cur.textContent) || 0
+        };
+        animateNumber(statEls.iq,  prev.iq,  d.iq);
+        animateNumber(statEls.vel, prev.vel, d.vel);
+        animateNumber(statEls.cur, prev.cur, d.cur);
+        setRing(rings.iq,  d.iq);
+        setRing(rings.vel, d.vel);
+        setRing(rings.cur, d.cur);
+
+        setTimeout(() => { switching = false; }, 500);
+    }
+
     tabs.forEach(tab => {
-        // desktop: hover
         tab.addEventListener('mouseenter', () => selectDriver(tab.dataset.driver, tab));
-        // touch / accesibilidad: click y teclado
         tab.addEventListener('click', () => selectDriver(tab.dataset.driver, tab));
         tab.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -970,45 +956,37 @@ const drivers = {
         });
     });
 
-    // ---- init: posicionar indicador + primer anillo/contador ----
-    const activeTab = $('.driver-tab.active', tabsWrap) || tabs[0];
-    requestAnimationFrame(() => moveIndicator(activeTab));
+    // init: indicador en posición + primer conteo apenas la card entra en viewport
+    requestAnimationFrame(() => moveIndicator(tabs.find(t => t.classList.contains('active')) || tabs[0]));
 
     const initObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const d = drivers[currentKey];
-                animateNumber(statEls.iq,  0, d.iq);
-                animateNumber(statEls.vel, 0, d.vel);
-                animateNumber(statEls.cur, 0, d.cur);
-                setRing(rings.iq,  d.iq);
-                setRing(rings.vel, d.vel);
-                setRing(rings.cur, d.cur);
-                initObserver.disconnect();
-            }
+            if (!entry.isIntersecting) return;
+            const d = drivers[currentKey];
+            animateNumber(statEls.iq,  0, d.iq);
+            animateNumber(statEls.vel, 0, d.vel);
+            animateNumber(statEls.cur, 0, d.cur);
+            setRing(rings.iq,  d.iq);
+            setRing(rings.vel, d.vel);
+            setRing(rings.cur, d.cur);
+            initObserver.disconnect();
         });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.3 });
     initObserver.observe(card);
 
-    // ---- 3D tilt + glow que sigue al mouse ----
+    // tilt 3D + glow que sigue al mouse
     let rafPending = false;
     card.addEventListener('mousemove', (e) => {
         if (rafPending) return;
         rafPending = true;
-        const rect = e.currentTarget.getBoundingClientRect();
+        const rect = card.getBoundingClientRect();
         requestAnimationFrame(() => {
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const px = x / rect.width;
-            const py = y / rect.height;
-
-            const rotateY = (px - 0.5) * 10;
-            const rotateX = (0.5 - py) * 10;
-
+            const px = (e.clientX - rect.left) / rect.width;
+            const py = (e.clientY - rect.top) / rect.height;
             card.style.transform = `
                 perspective(1800px)
-                rotateX(${rotateX}deg)
-                rotateY(${rotateY}deg)
+                rotateX(${(0.5 - py) * 10}deg)
+                rotateY(${(px - 0.5) * 10}deg)
                 translateY(-4px)
             `;
             card.style.setProperty('--mx', `${px * 100}%`);
@@ -1023,45 +1001,8 @@ const drivers = {
         card.style.setProperty('--my', '10%');
     });
 
-    // resize: reposicionar indicador
     window.addEventListener('resize', () => {
-        const active = $('.driver-tab.active', tabsWrap);
-        if (active) moveIndicator(active);
+        moveIndicator(tabs.find(t => t.classList.contains('active')));
     });
 
 })();
-/* ==========================================
-   PROGRAM CARDS 3D HOVER
-========================================== */
-
-document.querySelectorAll(".evento-card").forEach(card => {
-
-    card.addEventListener("mousemove", e => {
-
-        const rect = card.getBoundingClientRect();
-
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const rotateY = ((x / rect.width) - 0.5) * 10;
-        const rotateX = ((y / rect.height) - 0.5) * -10;
-
-        card.style.transform = `
-            perspective(1000px)
-            rotateX(${rotateX}deg)
-            rotateY(${rotateY}deg)
-            translateY(-6px)
-        `;
-    });
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform = `
-            perspective(1000px)
-            rotateX(0deg)
-            rotateY(0deg)
-            translateY(0px)
-        `;
-    });
-
-});
