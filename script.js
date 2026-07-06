@@ -320,6 +320,7 @@ function initCardTilt() {
     let currentRX = 0, currentRY = 0;
     let targetRX = 0, targetRY = 0;
     let isHovered = false;
+    let rafPending = false;
 
     function animate() {
       currentRX = lerp(currentRX, targetRX, 0.1);
@@ -343,23 +344,46 @@ function initCardTilt() {
       rafId = requestAnimationFrame(animate);
     }
 
-card.addEventListener('mousemove', (e) => {
-    if (rafPending) return;
-    rafPending = true;
-    const rect = card.getBoundingClientRect();
-    requestAnimationFrame(() => {
-        const px = (e.clientX - rect.left) / rect.width;
-        const py = (e.clientY - rect.top) / rect.height;
-        card.style.setProperty('--mx', `${px * 100}%`);
-        card.style.setProperty('--my', `${py * 100}%`);
-        rafPending = false;
-    });
-});
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const xc = rect.width / 2;
+        const yc = rect.height / 2;
 
-card.addEventListener('mouseleave', () => {
-    card.style.setProperty('--mx', '50%');
-    card.style.setProperty('--my', '10%');
-});
+        // Cálculo del efecto de inclinación 3D
+        targetRX = -(y - yc) / 10;
+        targetRY = (x - xc) / 10;
+
+        if (!rafId) {
+            isHovered = true;
+            rafId = requestAnimationFrame(animate);
+        }
+
+        // Efecto del destello luminoso (Glow)
+        if (rafPending) return;
+        rafPending = true;
+        requestAnimationFrame(() => {
+            const px = x / rect.width;
+            const py = y / rect.height;
+            card.style.setProperty('--mx', `${px * 100}%`);
+            card.style.setProperty('--my', `${py * 100}%`);
+            rafPending = false;
+        });
+    });
+
+    card.addEventListener('mouseleave', () => {
+        isHovered = false;
+        targetRX = 0;
+        targetRY = 0;
+        if (!rafId) {
+            rafId = requestAnimationFrame(animate);
+        }
+        card.style.setProperty('--mx', '50%');
+        card.style.setProperty('--my', '10%');
+    });
+  });
+}
 
 // ─────────────────────────────────────────────────────
 // 10. TELEMETRY VALUES (random fluctuation)
@@ -787,16 +811,16 @@ function init() {
   initCustomCursorTarget();
   initHeroEntrance();
 
-// Visual effects
-// initGlowCursor();
-initCustomCursorTarget();
-initHeroEntrance();
+  // Visual effects
+  // initGlowCursor();
+  initCustomCursorTarget();
+  initHeroEntrance();
 
   // Conditional (performance-aware)
-if (!window.matchMedia('(hover: none)').matches) {
-  initMagneticButtons();
-  initCardTilt();
-} 
+  if (!window.matchMedia('(hover: none)').matches) {
+    initMagneticButtons();
+    initCardTilt();
+  } 
 
   // Data & interactivity
   initCounters();
