@@ -3524,11 +3524,6 @@ input, select, textarea {
 /* ---- STATS RINGS ---- */
 .driver-stat{
     position:relative;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:2px;
     transition:transform .3s ease;
 }
 
@@ -3536,12 +3531,14 @@ input, select, textarea {
 
 .driver-stat-ring{
     position:absolute;
-    top:2px;
-    width:44px;
-    height:44px;
-    transform:rotate(-90deg);
-    opacity:.9;
+    top:50%;
+    left:50%;
+    width:78px;
+    height:78px;
+    transform:translate(-50%,-50%) rotate(-90deg);
+    opacity:.55;
     pointer-events:none;
+    z-index:0;
 }
 
 .ring-track{
@@ -3557,10 +3554,15 @@ input, select, textarea {
     stroke-linecap:round;
     stroke-dasharray:163.36;
     stroke-dashoffset:163.36;
-    transition:stroke-dashoffset 1s cubic-bezier(.16,1,.3,1), stroke 0.4s ease;
+    transition:stroke-dashoffset 1s cubic-bezier(.16,1,.3,1), stroke .4s ease;
 }
 
-.driver-stat span{ margin-top:38px; }
+.driver-stat span,
+.driver-stat strong{
+    position:relative;
+    z-index:1;
+}
+
 .driver-stat strong{ font-variant-numeric:tabular-nums; }
 
 /* ---- PILLARS ---- */
@@ -3642,20 +3644,20 @@ input, select, textarea {
     color:var(--apex-blue,#00D4FF);
 }
 
-/* staggered entrance for pillars once .sobre-content gets .is-visible from reveal system */
+/* staggered entrance for pillars — engancha con TU sistema real (.reveal.visible) */
 .sobre-content .pillar{
     opacity:0;
     transform:translateY(18px);
 }
 
-.sobre-content.is-visible .pillar{
+.sobre-content.visible .pillar{
     animation:pillarIn .6s cubic-bezier(.16,1,.3,1) forwards;
 }
 
-.sobre-content.is-visible .pillar:nth-child(1){ animation-delay:.05s; }
-.sobre-content.is-visible .pillar:nth-child(2){ animation-delay:.15s; }
-.sobre-content.is-visible .pillar:nth-child(3){ animation-delay:.25s; }
-.sobre-content.is-visible .pillar:nth-child(4){ animation-delay:.35s; }
+.sobre-content.visible .pillar:nth-child(1){ animation-delay:.15s; }
+.sobre-content.visible .pillar:nth-child(2){ animation-delay:.28s; }
+.sobre-content.visible .pillar:nth-child(3){ animation-delay:.41s; }
+.sobre-content.visible .pillar:nth-child(4){ animation-delay:.54s; }
 
 @keyframes pillarIn{
     to{ opacity:1; transform:translateY(0); }
