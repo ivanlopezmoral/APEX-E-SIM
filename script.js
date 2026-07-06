@@ -343,28 +343,23 @@ function initCardTilt() {
       rafId = requestAnimationFrame(animate);
     }
 
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-      targetRX = -y * 6;
-      targetRY = x * 6;
-
-      if (!rafId) {
-        isHovered = true;
-        rafId = requestAnimationFrame(animate);
-      }
+card.addEventListener('mousemove', (e) => {
+    if (rafPending) return;
+    rafPending = true;
+    const rect = card.getBoundingClientRect();
+    requestAnimationFrame(() => {
+        const px = (e.clientX - rect.left) / rect.width;
+        const py = (e.clientY - rect.top) / rect.height;
+        card.style.setProperty('--mx', `${px * 100}%`);
+        card.style.setProperty('--my', `${py * 100}%`);
+        rafPending = false;
     });
+});
 
-    card.addEventListener('mouseleave', () => {
-      isHovered = false;
-      targetRX = 0;
-      targetRY = 0;
-      if (!rafId) rafId = requestAnimationFrame(animate);
-    });
-  });
-}
+card.addEventListener('mouseleave', () => {
+    card.style.setProperty('--mx', '50%');
+    card.style.setProperty('--my', '10%');
+});
 
 // ─────────────────────────────────────────────────────
 // 10. TELEMETRY VALUES (random fluctuation)
