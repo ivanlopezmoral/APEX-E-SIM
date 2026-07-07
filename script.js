@@ -1187,3 +1187,40 @@ trackPoints.forEach(point=>{
     });
 
 });
+
+/* ==========================================
+   PROGRAMAS FLIP CARD
+========================================== */
+
+document.querySelectorAll(".program-card").forEach(card => {
+
+    const flipBtn = card.querySelector(".program-flip-btn");
+    const backBtn = card.querySelector(".program-back-btn");
+
+    if(flipBtn){
+
+        flipBtn.addEventListener("click",e=>{
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            card.classList.add("flipped");
+
+        });
+
+    }
+
+    if(backBtn){
+
+        backBtn.addEventListener("click",e=>{
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            card.classList.remove("flipped");
+
+        });
+
+    }
+
+});
