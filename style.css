@@ -2862,28 +2862,6 @@ input, select, textarea {
     --driver-glow:#00D4FF;
 }
 
-.driver-card::before{
-    content:"";
-    position:absolute;
-
-    width:500px;
-    height:500px;
-
-    left:50%;
-    top:100px;
-    transform:translateX(-50%);
-
-    background:
-        radial-gradient(
-            circle,
-            color-mix(
-                in srgb,
-                var(--driver-glow) 28%,
-                transparent
-            ),
-            transparent 70%
-        );
-
     transition:.5s;
     z-index:0;
 }
@@ -3443,7 +3421,7 @@ input, select, textarea {
 .driver-photo-img{
     position:absolute;
     left:50%;
-    top:8%;
+    top:1%;
     transform:translateX(-50%);
     height:150%;
     width:auto;
