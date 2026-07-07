@@ -1861,20 +1861,34 @@ FACES
 HOVER
 ==========================*/
 
-.program-card:hover .program-card-inner{
+.program-card{
 
-    transform:
-        translateY(-8px)
-        rotateX(3deg);
+    transition:transform .35s ease;
 
 }
 
-.program-card.flipped:hover .program-card-inner{
+.program-card:hover{
 
-    transform:
-        rotateY(180deg)
-        translateY(-8px)
-        rotateX(3deg);
+    transform:translateY(-8px);
+
+}
+
+.program-card-inner{
+
+    position:relative;
+    width:100%;
+    height:100%;
+
+    transform-style:preserve-3d;
+
+    transition:
+        transform .8s cubic-bezier(.22,1,.36,1);
+
+}
+
+.program-card.flipped .program-card-inner{
+
+    transform:rotateY(180deg);
 
 }
 
@@ -2084,9 +2098,11 @@ BOTONES
 
     display:flex;
 
-    gap:12px;
+    justify-content:center;
 
     margin-top:auto;
+
+    padding-top:28px;
 
 }
 
@@ -2097,11 +2113,10 @@ BOTONES
     align-items:center;
     justify-content:center;
 
-    height:46px;
+    width:100%;
+    height:54px;
 
-    padding:0 24px;
-
-    border-radius:14px;
+    border-radius:16px;
 
     background:linear-gradient(
         90deg,
@@ -2115,13 +2130,19 @@ BOTONES
 
     font-family:var(--font-condensed);
 
-    font-size:.74rem;
+    font-size:.82rem;
 
     font-weight:800;
 
-    letter-spacing:.18em;
+    letter-spacing:.22em;
+
+    text-transform:uppercase;
 
     transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
 
 }
 
@@ -2447,11 +2468,13 @@ BOTONES
 
 .program-back-actions{
 
-    display:flex;
-
-    gap:12px;
-
     margin-top:auto;
+
+}
+
+.program-back-actions .program-btn{
+
+    width:100%;
 
 }
 
@@ -4889,5 +4912,42 @@ padding:22px;
 font-size:1.35rem;
 
 }
+
+}
+.program-front,
+.program-back{
+
+    user-select:none;
+
+}
+
+.program-btn{
+
+    position:relative;
+
+    z-index:50;
+
+}
+
+.program-card.flipped .program-front{
+
+    pointer-events:none;
+
+}
+
+.program-card:not(.flipped) .program-back{
+
+    pointer-events:none;
+
+}
+.program-card{
+
+    cursor:pointer;
+
+}
+
+.program-btn{
+
+    cursor:pointer;
 
 }
