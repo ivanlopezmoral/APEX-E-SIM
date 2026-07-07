@@ -3577,3 +3577,662 @@ input, select, textarea {
         animation:none !important; transition:none !important;
     }
 }
+
+/* =========================================================
+   ELITE TRACK
+========================================================= */
+
+.elite-track{
+
+    position:relative;
+    overflow:hidden;
+
+    padding:120px 0;
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(0,212,255,.05),
+    transparent 35%),
+
+    radial-gradient(circle at bottom right,
+    rgba(123,47,255,.07),
+    transparent 45%);
+}
+
+.track-container{
+
+    display:grid;
+
+    grid-template-columns:1.1fr .9fr;
+
+    gap:70px;
+
+    align-items:center;
+
+    margin-top:70px;
+}
+
+/* =======================================
+   PISTA
+======================================= */
+
+.track-map{
+
+    position:relative;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+}
+
+.track-image{
+
+    width:100%;
+
+    max-width:760px;
+
+    display:block;
+
+    user-select:none;
+
+    pointer-events:none;
+
+    filter:
+    drop-shadow(0 0 40px rgba(0,212,255,.18));
+}
+
+/* =======================================
+   PUNTOS
+======================================= */
+
+.track-point{
+
+    position:absolute;
+
+    width:52px;
+    height:52px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+    135deg,
+    #7B2FFF,
+    #00D4FF);
+
+    color:white;
+
+    font-family:var(--font-display);
+
+    font-size:1rem;
+
+    font-weight:900;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    transition:.35s;
+
+    box-shadow:
+    0 0 25px rgba(0,212,255,.35);
+
+    z-index:20;
+}
+
+.track-point:hover{
+
+    transform:scale(1.2);
+
+    box-shadow:
+    0 0 45px rgba(0,212,255,.65);
+}
+
+/* Halo */
+
+.track-point::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-8px;
+
+    border-radius:50%;
+
+    border:2px solid rgba(0,212,255,.35);
+
+    animation:trackPulse 2.4s infinite;
+}
+
+@keyframes trackPulse{
+
+    from{
+
+        transform:scale(.8);
+
+        opacity:1;
+    }
+
+    to{
+
+        transform:scale(1.7);
+
+        opacity:0;
+    }
+
+}
+
+.track-point.active{
+
+    transform:scale(1.25);
+
+    box-shadow:
+    0 0 60px rgba(0,212,255,.9);
+}
+
+/* =======================================
+   POSICIONES
+======================================= */
+
+.p1{
+
+    left:8%;
+    bottom:10%;
+}
+
+.p2{
+
+    right:18%;
+    top:30%;
+}
+
+.p3{
+
+    left:52%;
+    bottom:8%;
+}
+
+.p4{
+
+    left:20%;
+    top:20%;
+}
+
+.p5{
+
+    left:52%;
+    top:3%;
+}
+
+/* =======================================
+   PANEL
+======================================= */
+
+.track-card{
+
+    background:
+
+    linear-gradient(
+    180deg,
+    rgba(18,22,35,.95),
+    rgba(10,12,20,.98));
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:38px;
+
+    backdrop-filter:blur(20px);
+
+    min-height:470px;
+
+    box-shadow:
+
+    0 30px 80px rgba(0,0,0,.45);
+
+    transition:.45s;
+}
+
+.track-card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.track-stage{
+
+    font-family:var(--font-condensed);
+
+    letter-spacing:.25em;
+
+    color:#00D4FF;
+
+    font-size:.75rem;
+}
+
+.track-stage-number{
+
+    font-size:3rem;
+
+    font-family:var(--font-display);
+
+    color:rgba(255,255,255,.08);
+}
+
+.track-card h3{
+
+    font-size:2rem;
+
+    color:white;
+
+    margin-bottom:18px;
+}
+
+.track-card p{
+
+    color:rgba(255,255,255,.7);
+
+    line-height:1.7;
+
+    margin-bottom:30px;
+}
+
+.track-info{
+
+    display:flex;
+
+    gap:45px;
+
+    margin-bottom:30px;
+}
+
+.track-info small{
+
+    display:block;
+
+    color:#7d8ba3;
+
+    letter-spacing:.18em;
+
+    margin-bottom:8px;
+
+    font-size:.7rem;
+}
+
+.track-info strong{
+
+    color:white;
+
+    font-size:1.3rem;
+}
+
+#trackList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+}
+
+#trackList li{
+
+    list-style:none;
+
+    color:white;
+
+    padding-left:22px;
+
+    position:relative;
+}
+
+#trackList li::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:8px;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#00D4FF;
+
+    box-shadow:
+    0 0 15px #00D4FF;
+}
+
+@media(max-width:1000px){
+
+.track-container{
+
+grid-template-columns:1fr;
+
+gap:50px;
+
+}
+
+.track-card{
+
+min-height:auto;
+
+}
+
+}
+/* ==========================================================
+   ANIMACIONES Y EFECTOS PREMIUM
+========================================================== */
+
+/* Entrada del panel */
+
+.track-card{
+
+    opacity:.95;
+
+    transform:translateY(15px);
+
+    animation:cardAppear .7s ease forwards;
+}
+
+@keyframes cardAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(35px)
+        scale(.97);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+}
+
+/* Glow del panel */
+
+.track-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:28px;
+
+    padding:1px;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    rgba(0,212,255,.25),
+    rgba(123,47,255,.18),
+    transparent);
+
+    -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+    pointer-events:none;
+}
+
+/* Hover panel */
+
+.track-card:hover{
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+
+    0 35px 90px rgba(0,0,0,.55),
+
+    0 0 50px rgba(0,212,255,.12);
+}
+
+/* Imagen */
+
+.track-map{
+
+    transition:.5s;
+}
+
+.track-map:hover{
+
+    transform:scale(1.015);
+}
+
+/* Glow circuito */
+
+.track-map::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:10%;
+
+    background:
+
+    radial-gradient(circle,
+    rgba(0,212,255,.08),
+    transparent 70%);
+
+    filter:blur(60px);
+
+    z-index:-1;
+}
+
+/* Botones */
+
+.track-point{
+
+    overflow:hidden;
+}
+
+.track-point::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:140%;
+    height:140%;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(circle,
+    rgba(255,255,255,.45),
+    transparent 70%);
+
+    opacity:0;
+
+    transition:.4s;
+}
+
+.track-point:hover::after{
+
+    opacity:1;
+
+}
+
+/* Active */
+
+.track-point.active{
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #00D4FF,
+    #7B2FFF);
+
+    box-shadow:
+
+    0 0 18px rgba(0,212,255,.9),
+
+    0 0 45px rgba(0,212,255,.55),
+
+    0 0 80px rgba(123,47,255,.25);
+}
+
+/* Cambio contenido */
+
+.track-card.change{
+
+    animation:swapCard .45s ease;
+}
+
+@keyframes swapCard{
+
+    0%{
+
+        opacity:.2;
+
+        transform:
+        translateY(15px);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+}
+
+/* Lista */
+
+#trackList li{
+
+    transition:.35s;
+}
+
+#trackList li:hover{
+
+    transform:translateX(8px);
+
+    color:#00D4FF;
+}
+
+/* Estadísticas */
+
+.track-info div{
+
+    transition:.35s;
+}
+
+.track-info div:hover{
+
+    transform:translateY(-3px);
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.track-point{
+
+width:42px;
+height:42px;
+
+font-size:.82rem;
+
+}
+
+.track-card{
+
+padding:28px;
+
+}
+
+.track-card h3{
+
+font-size:1.6rem;
+
+}
+
+.track-info{
+
+gap:25px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.track-image{
+
+width:100%;
+
+}
+
+.track-point{
+
+width:36px;
+height:36px;
+
+font-size:.75rem;
+
+}
+
+.track-stage-number{
+
+font-size:2rem;
+
+}
+
+.track-card{
+
+padding:22px;
+
+}
+
+.track-card h3{
+
+font-size:1.35rem;
+
+}
+
+}
