@@ -1194,33 +1194,16 @@ trackPoints.forEach(point=>{
 
 document.querySelectorAll(".program-card").forEach(card => {
 
-    const flipBtn = card.querySelector(".program-flip-btn");
-    const backBtn = card.querySelector(".program-back-btn");
+    card.addEventListener("click", function(e){
 
-    if(flipBtn){
+        // Si hace click en el botón, navega normalmente
+        if(e.target.closest(".program-btn")){
+            return;
+        }
 
-        flipBtn.addEventListener("click",e=>{
+        // En cualquier otro lugar de la card, gira
+        card.classList.toggle("flipped");
 
-            e.preventDefault();
-            e.stopPropagation();
-
-            card.classList.add("flipped");
-
-        });
-
-    }
-
-    if(backBtn){
-
-        backBtn.addEventListener("click",e=>{
-
-            e.preventDefault();
-            e.stopPropagation();
-
-            card.classList.remove("flipped");
-
-        });
-
-    }
+    });
 
 });
