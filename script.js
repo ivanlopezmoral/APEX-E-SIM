@@ -1025,3 +1025,165 @@ if (document.readyState === 'loading') {
     card.style.setProperty('--driver-glow', drivers[order[0]].color);
 
 })();
+
+/* ==========================================================
+   ELITE TRACK
+========================================================== */
+
+const trackData = {
+
+    1:{
+
+        number:"01",
+
+        title:"Briefing inicial",
+
+        text:"Antes de subir al simulador definimos objetivos, configuramos el cockpit y planificamos toda la sesión.",
+
+        time:"15 min",
+
+        goal:"Preparación",
+
+        list:[
+            "Configuración del simulador",
+            "Objetivos del piloto",
+            "Plan de entrenamiento"
+        ]
+
+    },
+
+    2:{
+
+        number:"02",
+
+        title:"Análisis técnico",
+
+        text:"Evaluamos tu nivel actual y detectamos dónde está el mayor margen de mejora mediante telemetría.",
+
+        time:"30 min",
+
+        goal:"Diagnóstico",
+
+        list:[
+            "Análisis de telemetría",
+            "Comparación de vueltas",
+            "Detección de errores"
+        ]
+
+    },
+
+    3:{
+
+        number:"03",
+
+        title:"Entrenamiento intensivo",
+
+        text:"Comienza el trabajo en pista con ejercicios específicos orientados al rendimiento.",
+
+        time:"60 min",
+
+        goal:"Performance",
+
+        list:[
+            "Trazadas ideales",
+            "Consistencia",
+            "Race Pace"
+        ]
+
+    },
+
+    4:{
+
+        number:"04",
+
+        title:"Coaching personalizado",
+
+        text:"El instructor revisa cada detalle de tu conducción y propone ejercicios específicos.",
+
+        time:"25 min",
+
+        goal:"Corrección",
+
+        list:[
+            "Feedback en vivo",
+            "Corrección de errores",
+            "Mejoras inmediatas"
+        ]
+
+    },
+
+    5:{
+
+        number:"05",
+
+        title:"Debrief final",
+
+        text:"Terminamos la jornada comparando resultados y definiendo el siguiente paso de evolución.",
+
+        time:"20 min",
+
+        goal:"Conclusión",
+
+        list:[
+            "Resumen completo",
+            "Plan futuro",
+            "Entrega de métricas"
+        ]
+
+    }
+
+};
+
+const trackPoints=document.querySelectorAll(".track-point");
+
+const number=document.querySelector(".track-stage-number");
+const title=document.getElementById("trackTitle");
+const text=document.getElementById("trackText");
+const time=document.getElementById("trackTime");
+const goal=document.getElementById("trackGoal");
+const list=document.getElementById("trackList");
+const card=document.getElementById("trackCard");
+
+/* SIN PUNTO ACTIVO */
+
+trackPoints.forEach(point=>{
+
+    point.addEventListener("click",()=>{
+
+        trackPoints.forEach(p=>p.classList.remove("active"));
+
+        point.classList.add("active");
+
+        const data=trackData[point.dataset.step];
+
+        card.classList.remove("change");
+
+        void card.offsetWidth;
+
+        card.classList.add("change");
+
+        number.textContent=data.number;
+
+        title.textContent=data.title;
+
+        text.textContent=data.text;
+
+        time.textContent=data.time;
+
+        goal.textContent=data.goal;
+
+        list.innerHTML="";
+
+        data.list.forEach(item=>{
+
+            const li=document.createElement("li");
+
+            li.textContent=item;
+
+            list.appendChild(li);
+
+        });
+
+    });
+
+});
