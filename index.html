@@ -385,94 +385,110 @@
   </section>
 
 
-  <!-- ══════════════════════════════════════ -->
-  <!--  PROCESO DE FORMACIÓN                 -->
-  <!-- ══════════════════════════════════════ -->
-  <section class="section proceso" id="proceso" aria-label="Proceso de formación">
-    <div class="proceso-bg" aria-hidden="true">
-      <div class="proceso-orb proceso-orb--1"></div>
-    </div>
+<!-- ==========================================
+     PROCESO ELITE - CIRCUITO INTERACTIVO
+========================================== -->
+
+<section class="section elite-track" id="proceso">
+
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-eyebrow">METODOLOGÍA</span>
-        <h2 class="section-title">El camino<br><em>al podio.</em></h2>
-      </div>
-      <div class="proceso-track" aria-hidden="true">
-        <div class="track-line"></div>
-      </div>
-      <div class="proceso-grid">
 
-        <article class="proceso-step reveal" data-delay="0">
-          <div class="step-marker">
-            <span class="step-num">01</span>
-            <div class="step-pulse"></div>
-          </div>
-          <div class="step-card glass-card">
-            <span class="step-tag">INICIO</span>
-            <h3 class="step-title">Introducción</h3>
-            <p class="step-desc">Evaluación inicial de habilidades, creación del perfil de piloto y primera sesión guiada en nuestros simuladores.</p>
-            <ul class="step-list">
-              <li>Assessment de nivel inicial</li>
-              <li>Configuración de perfil</li>
-              <li>Primera sesión supervisada</li>
-            </ul>
-          </div>
-        </article>
+        <div class="section-header reveal">
 
-        <article class="proceso-step reveal" data-delay="120">
-          <div class="step-marker">
-            <span class="step-num">02</span>
-            <div class="step-pulse"></div>
-          </div>
-          <div class="step-card glass-card">
-            <span class="step-tag">DESARROLLO</span>
-            <h3 class="step-title">Entrenamiento</h3>
-            <p class="step-desc">Programa intensivo con sesiones guiadas, análisis de telemetría y coaching técnico uno a uno.</p>
-            <ul class="step-list">
-              <li>Sesiones de práctica intensivas</li>
-              <li>Análisis de datos en vivo</li>
-              <li>Coaching individualizado</li>
-            </ul>
-          </div>
-        </article>
+            <span class="section-eyebrow">
+                METODOLOGÍA ELITE
+            </span>
 
-        <article class="proceso-step reveal" data-delay="240">
-          <div class="step-marker">
-            <span class="step-num">03</span>
-            <div class="step-pulse"></div>
-          </div>
-          <div class="step-card glass-card">
-            <span class="step-tag">COMPETICIÓN</span>
-            <h3 class="step-title">Racing</h3>
-            <p class="step-desc">Participación en campeonatos oficiales APEX, ligas nacionales e internacionales y eventos presenciales.</p>
-            <ul class="step-list">
-              <li>Campeonatos APEX internos</li>
-              <li>Ligas online globales</li>
-              <li>Eventos presenciales</li>
-            </ul>
-          </div>
-        </article>
+            <h2 class="section-title">
+                Descubrí el recorrido
+                <br>
+                <em>de un entrenamiento.</em>
+            </h2>
 
-        <article class="proceso-step reveal" data-delay="360">
-          <div class="step-marker step-marker--elite">
-            <span class="step-num">04</span>
-            <div class="step-pulse step-pulse--elite"></div>
-          </div>
-          <div class="step-card glass-card step-card--elite">
-            <span class="step-tag step-tag--elite">ÉLITE</span>
-            <h3 class="step-title">Piloto APEX</h3>
-            <p class="step-desc">Certificación oficial, acceso a la red de contactos del automovilismo y oportunidades en equipos profesionales.</p>
-            <ul class="step-list">
-              <li>Certificación oficial APEX</li>
-              <li>Red de contactos pro</li>
-              <li>Oportunidades profesionales</li>
-            </ul>
-          </div>
-        </article>
+            <p class="section-description">
+                Explorá cada punto del circuito para conocer cómo se desarrolla una sesión completa del Programa Elite.
+            </p>
 
-      </div>
+        </div>
+
+        <div class="track-container">
+
+            <div class="track-map">
+
+                <img
+                    src="images/elite-track.png"
+                    class="track-image"
+                    alt="Circuito Elite">
+
+                <button class="track-point p1" data-step="1">1</button>
+                <button class="track-point p2" data-step="2">2</button>
+                <button class="track-point p3" data-step="3">3</button>
+                <button class="track-point p4" data-step="4">4</button>
+                <button class="track-point p5" data-step="5">5</button>
+
+            </div>
+
+            <div class="track-card" id="trackCard">
+
+                <div class="track-card-header">
+
+                    <span class="track-stage">
+                        ETAPA
+                    </span>
+
+                    <span class="track-stage-number">
+                        01
+                    </span>
+
+                </div>
+
+                <h3 id="trackTitle">
+                    Seleccioná un punto
+                </h3>
+
+                <p id="trackText">
+
+                    Elegí cualquiera de los checkpoints del circuito para descubrir esa etapa del entrenamiento.
+
+                </p>
+
+                <div class="track-info">
+
+                    <div>
+
+                        <small>DURACIÓN</small>
+
+                        <strong id="trackTime">
+                            --
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <small>OBJETIVO</small>
+
+                        <strong id="trackGoal">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <ul id="trackList">
+
+                    <li>Esperando selección...</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
     </div>
-  </section>
+
+</section>
 
   <!-- ══════════════════════════════════════ -->
 <!--  SIMULADOR HERO                       -->
