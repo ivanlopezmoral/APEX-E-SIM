@@ -848,15 +848,27 @@ if (document.readyState === 'loading') {
 
     const order = ['maria', 'thomas', 'ramiro'];
 
-    const drivers = {
-        maria:  { name:"MARÍA",  team:"APEX ELITE", rank:"TOP 1", iq:99, vel:96, cur:98, color:"#00D4FF", image:"images/Corredora 1 (Maria).png" },
-        thomas: { name:"THOMAS", team:"APEX PRO",   rank:"TOP 2", iq:91, vel:95, cur:92, color:"#FFD84D", image:"images/Corredor 2 (Thomas).png" },
-        ramiro: { name:"RAMIRO", team:"APEX GT",    rank:"TOP 3", iq:94, vel:89, cur:95, color:"#FF5E5E", image:"images/Corredor 3 (Ramiro).png" }
-    };
+const drivers = {
+    maria:  { name:"MARÍA",  team:"APEX ELITE", rank:"TOP 1", iq:99, vel:96, cur:98, color:"#00D4FF",
+              image:"images/Corredora 1 (Maria).png",
+              fullName:"María Fernández", age:"19 años", country:"Argentina", titles:"2 veces campeona", category:"Fórmula 3" },
+    thomas: { name:"THOMAS", team:"APEX PRO",   rank:"TOP 2", iq:91, vel:95, cur:92, color:"#FFD84D",
+              image:"images/Corredor 2 (Thomas).png",
+              fullName:"Thomas Herrera", age:"22 años", country:"Chile", titles:"1 vez campeón", category:"Fórmula 2" },
+    ramiro: { name:"RAMIRO", team:"APEX GT",    rank:"TOP 3", iq:94, vel:89, cur:95, color:"#FF5E5E",
+              image:"images/Corredor 3 (Ramiro).png",
+              fullName:"Ramiro Salas", age:"20 años", country:"Uruguay", titles:"Debut 2024", category:"Fórmula 4" }
+};
 
     const card = document.getElementById('driverCard');
     if (!card) return;
-
+   
+    const profile           = document.getElementById('driverProfile');
+    const profileNameEl     = document.getElementById('profileFullName');
+    const profileAgeEl      = document.getElementById('profileAge');
+    const profileCountryEl  = document.getElementById('profileCountry');
+    const profileTitlesEl   = document.getElementById('profileTitles');
+    const profileCategoryEl = document.getElementById('profileCategory');
     const dots      = [...document.querySelectorAll('#driverNavTrack .driver-dot')];
     const indexEl   = document.getElementById('driverIndex');
     const img       = document.getElementById('driverImage');
@@ -939,6 +951,20 @@ if (document.readyState === 'loading') {
             if (infoText) infoText.classList.remove('is-swapping');
         }, 180);
 
+       // panel derecho: ficha del piloto
+if (profile) profile.classList.add('is-swapping');
+setTimeout(() => {
+    if (profileNameEl)     profileNameEl.textContent     = d.fullName;
+    if (profileAgeEl)      profileAgeEl.textContent      = d.age;
+    if (profileCountryEl)  profileCountryEl.textContent  = d.country;
+    if (profileTitlesEl)   profileTitlesEl.textContent   = d.titles;
+    if (profileCategoryEl) profileCategoryEl.textContent = d.category;
+    if (profile){
+        profile.classList.remove('is-swapping');
+        profile.style.setProperty('--driver-glow', d.color);
+    }
+}, 180);
+
         // stats
         const prev = {
             iq:  parseInt(statEls.iq.textContent)  || 0,
@@ -999,6 +1025,9 @@ if (document.readyState === 'loading') {
     }, { threshold: 0.3 });
     initObserver.observe(card);
 
+card.style.setProperty('--driver-glow', drivers[order[0]].color);
+if (profile) profile.style.setProperty('--driver-glow', drivers[order[0]].color);
+   
     // tilt 3D + glow que sigue al mouse (solo desktop)
     let rafPending = false;
     card.addEventListener('mousemove', (e) => {
