@@ -4151,7 +4151,8 @@ Responsive
 }
 
 .driver-info-row h3{
-    margin:0; font-size:clamp(1.35rem, 3.4vw, 1.8rem); line-height:1;
+    margin:0; font-family:var(--font-condensed); font-weight:700; letter-spacing:.02em;
+    font-size:clamp(1.35rem, 3.4vw, 1.8rem); line-height:1;
     text-shadow:0 0 30px color-mix(in srgb, var(--driver-glow) 50%, transparent);
     transition:text-shadow .4s ease;
 }
