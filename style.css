@@ -4301,6 +4301,11 @@ Responsive
     transparent 45%);
 }
 
+.elite-track-title{
+    font-size: clamp(1.7rem, 3.4vw, 2.75rem);
+    white-space: normal;
+}
+
 .track-container{
 
     display:grid;
@@ -4312,6 +4317,15 @@ Responsive
     align-items:center;
 
     margin-top:70px;
+}
+
+.track-container--single{
+    display:flex;
+    justify-content:center;
+}
+
+.track-container--single .track-map{
+    max-width:920px;
 }
 
 /* =======================================
@@ -4333,7 +4347,7 @@ Responsive
 
     width:100%;
 
-    max-width:760px;
+    max-width:920px;
 
     display:block;
 
@@ -4472,6 +4486,179 @@ Responsive
 
     left:52%;
     top:3%;
+}
+
+/* =======================================
+   POPOVER DE ETAPA (anclado al punto)
+======================================= */
+
+.track-popover{
+
+    position:absolute;
+
+    width:min(320px, 78vw);
+
+    z-index:40;
+
+    background:linear-gradient(160deg, rgba(18,22,35,.97), rgba(10,12,20,.98));
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:26px 26px 22px;
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:0 25px 70px rgba(0,0,0,.5), 0 0 40px rgba(0,212,255,.1);
+
+    opacity:0;
+    transform:scale(.92);
+    transform-origin:var(--pop-origin, center);
+
+    pointer-events:none;
+
+    transition:opacity .25s ease, transform .25s ease;
+}
+
+.track-popover.visible{
+    opacity:1;
+    transform:scale(1);
+    pointer-events:auto;
+}
+
+.track-popover::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:20px;
+
+    padding:1px;
+
+    background:linear-gradient(135deg, rgba(0,212,255,.3), rgba(123,47,255,.2), transparent);
+
+    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+
+    pointer-events:none;
+}
+
+/* Flecha conectora hacia el punto */
+.track-popover::after{
+    content:"";
+    position:absolute;
+    width:16px;
+    height:16px;
+    background:rgba(14,17,28,.98);
+    border-left:1px solid rgba(255,255,255,.08);
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.track-popover[data-arrow="left"]::after{
+    left:-8px;
+    top:var(--pop-arrow-offset, 30px);
+    transform:rotate(-45deg);
+}
+
+.track-popover[data-arrow="right"]::after{
+    right:-8px;
+    top:var(--pop-arrow-offset, 30px);
+    border-left:none;
+    border-top:none;
+    border-right:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    transform:rotate(-45deg);
+}
+
+.track-popover[data-arrow="top"]::after{
+    top:-8px;
+    left:var(--pop-arrow-offset, 30px);
+    transform:rotate(45deg);
+}
+
+.track-popover[data-arrow="bottom"]::after{
+    bottom:-8px;
+    left:var(--pop-arrow-offset, 30px);
+    border-left:none;
+    border-top:none;
+    border-right:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    transform:rotate(45deg);
+}
+
+.track-popover-close{
+    position:absolute;
+    top:14px;
+    right:14px;
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:rgba(255,255,255,.55);
+    background:rgba(255,255,255,.06);
+    font-size:.85rem;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.track-popover-close:hover{
+    color:#fff;
+    background:rgba(255,255,255,.14);
+}
+
+.track-popover .track-card-header{
+    padding-right:30px;
+}
+
+.track-popover h3{
+    font-size:1.35rem;
+    color:white;
+    margin-bottom:12px;
+}
+
+.track-popover p{
+    color:rgba(255,255,255,.7);
+    line-height:1.6;
+    font-size:.92rem;
+    margin-bottom:20px;
+}
+
+.track-popover .track-info{
+    gap:28px;
+    margin-bottom:20px;
+}
+
+/* Mobile: panel fijo abajo de pantalla */
+@media(max-width:900px){
+
+    .track-popover{
+        position:fixed;
+        left:0;
+        right:0;
+        bottom:0;
+        top:auto;
+        width:100%;
+        max-width:none;
+        border-radius:26px 26px 0 0;
+        padding:28px 24px calc(24px + env(safe-area-inset-bottom));
+        transform:translateY(100%);
+        transition:transform .3s ease;
+        box-shadow:0 -20px 60px rgba(0,0,0,.55);
+    }
+
+    .track-popover.visible{
+        transform:translateY(0);
+    }
+
+    .track-popover::after{
+        display:none;
+    }
 }
 
 /* =======================================
