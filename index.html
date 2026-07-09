@@ -383,21 +383,15 @@
                 METODOLOGÍA ELITE
             </span>
 
-            <h2 class="section-title">
-                Descubrí el recorrido
-                <br>
-                <em>de un entrenamiento.</em>
+            <h2 class="section-title elite-track-title">
+                Descubrí el recorrido <em>de un entrenamiento.</em>
             </h2>
-
-            <p class="section-description">
-                Explorá cada punto del circuito para conocer cómo se desarrolla una sesión completa del Programa Elite.
-            </p>
 
         </div>
 
-        <div class="track-container">
+        <div class="track-container track-container--single">
 
-            <div class="track-map">
+            <div class="track-map" id="trackMap">
 
                 <img
                     src="images/elite-track.png"
@@ -410,61 +404,35 @@
                 <button class="track-point p4" data-step="4">4</button>
                 <button class="track-point p5" data-step="5">5</button>
 
-            </div>
+                <div class="track-popover" id="trackPopover" role="dialog" aria-hidden="true" aria-label="Detalle de la etapa">
 
-            <div class="track-card" id="trackCard">
+                    <button class="track-popover-close" id="trackPopoverClose" aria-label="Cerrar detalle">✕</button>
 
-                <div class="track-card-header">
-
-                    <span class="track-stage">
-                        ETAPA
-                    </span>
-
-                    <span class="track-stage-number">
-                        01
-                    </span>
-
-                </div>
-
-                <h3 id="trackTitle">
-                    Seleccioná un punto
-                </h3>
-
-                <p id="trackText">
-
-                    Elegí cualquiera de los checkpoints del circuito para descubrir esa etapa del entrenamiento.
-
-                </p>
-
-                <div class="track-info">
-
-                    <div>
-
-                        <small>DURACIÓN</small>
-
-                        <strong id="trackTime">
-                            --
-                        </strong>
-
+                    <div class="track-card-header">
+                        <span class="track-stage">ETAPA</span>
+                        <span class="track-stage-number" id="popNumber">01</span>
                     </div>
 
-                    <div>
+                    <h3 id="popTitle">Seleccioná un punto</h3>
 
-                        <small>OBJETIVO</small>
+                    <p id="popText">Elegí cualquiera de los checkpoints del circuito para descubrir esa etapa del entrenamiento.</p>
 
-                        <strong id="trackGoal">
-                            --
-                        </strong>
-
+                    <div class="track-info">
+                        <div>
+                            <small>DURACIÓN</small>
+                            <strong id="popTime">--</strong>
+                        </div>
+                        <div>
+                            <small>OBJETIVO</small>
+                            <strong id="popGoal">--</strong>
+                        </div>
                     </div>
 
+                    <ul id="popList">
+                        <li>Esperando selección...</li>
+                    </ul>
+
                 </div>
-
-                <ul id="trackList">
-
-                    <li>Esperando selección...</li>
-
-                </ul>
 
             </div>
 
