@@ -1508,20 +1508,28 @@ input, select, textarea {
 
     z-index:2;
 
-    max-width:600px;
+    max-width:780px;
 }
 
 .sim-hero-title{
 
-    font-size:clamp(2rem,5vw,4rem);
+    font-size:clamp(1.5rem,3.2vw,2.4rem);
 
     font-weight:800;
 
-    line-height:1;
+    line-height:1.1;
 
     color:white;
 
     margin-bottom:20px;
+
+    white-space:nowrap;
+}
+
+.sim-hero-desc{
+
+    max-width:520px;
+
 }
 
 .sim-hero-desc{
@@ -1635,6 +1643,12 @@ input, select, textarea {
         left:30px;
         right:30px;
         bottom:30px;
+        max-width:none;
+    }
+
+    .sim-hero-title{
+        font-size:clamp(1.1rem,3.6vw,1.6rem);
+        white-space:normal;
     }
 
     .sim-specs-premium{
@@ -1768,11 +1782,32 @@ input, select, textarea {
     overflow:hidden;
     background:
         radial-gradient(circle at top left,
-            rgba(0,212,255,.05),
-            transparent 35%),
+            rgba(0,212,255,.22),
+            transparent 45%),
         radial-gradient(circle at bottom right,
-            rgba(123,47,255,.06),
-            transparent 45%);
+            rgba(123,47,255,.28),
+            transparent 55%),
+        linear-gradient(160deg,
+            #0a1226 0%,
+            #0d0d1a 45%,
+            #150a26 100%);
+}
+
+.eventos::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(125deg,
+        rgba(0,212,255,.10),
+        rgba(123,47,255,.14) 55%,
+        transparent 85%);
+    pointer-events:none;
+    z-index:0;
+}
+
+.eventos .container{
+    position:relative;
+    z-index:1;
 }
 
 .programs-grid{
@@ -1803,7 +1838,7 @@ CARD
 
     perspective:1800px;
 
-    height:470px;
+    height:640px;
 
     cursor:pointer;
 
@@ -2048,6 +2083,24 @@ FRENTE
     flex-direction:column;
 }
 
+.program-top-row{
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-bottom:18px;
+
+}
+
+.program-top-row .program-level{
+
+    margin-bottom:0;
+
+}
+
 .program-level{
 
     display:inline-flex;
@@ -2075,6 +2128,200 @@ FRENTE
     letter-spacing:.28em;
 
     margin-bottom:18px;
+
+}
+
+/*==========================
+PRECIO
+==========================*/
+
+.program-price{
+
+    display:inline-flex;
+    align-items:baseline;
+
+    gap:5px;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    white-space:nowrap;
+
+    background:
+        linear-gradient(#0a0e18,#0a0e18) padding-box,
+        linear-gradient(120deg,var(--apex-blue),var(--apex-violet-light)) border-box;
+
+    border:1px solid transparent;
+
+    backdrop-filter:blur(14px);
+
+}
+
+.program-price strong{
+
+    font-family:var(--font-display);
+
+    font-size:.92rem;
+
+    font-weight:800;
+
+    color:#fff;
+
+}
+
+.program-price span{
+
+    font-family:var(--font-condensed);
+
+    font-size:.6rem;
+
+    font-weight:700;
+
+    letter-spacing:.06em;
+
+    text-transform:uppercase;
+
+    color:rgba(255,255,255,.6);
+
+}
+
+/*==========================
+INSTRUCTOR
+==========================*/
+
+.program-instructor{
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:20px;
+
+    padding-bottom:18px;
+
+    border-bottom:1px solid rgba(255,255,255,.10);
+
+}
+
+.program-instructor-avatar{
+
+    flex-shrink:0;
+
+    width:36px;
+    height:36px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-family:var(--font-display);
+
+    font-size:.85rem;
+
+    font-weight:800;
+
+    color:#fff;
+
+    background:linear-gradient(135deg,var(--apex-violet),var(--apex-blue));
+
+}
+
+.program-instructor-info{
+
+    display:flex;
+    flex-direction:column;
+
+    line-height:1.35;
+
+}
+
+.program-instructor-name{
+
+    font-family:var(--font-condensed);
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    color:#fff;
+
+}
+
+.program-instructor-role{
+
+    font-size:.66rem;
+
+    letter-spacing:.09em;
+
+    text-transform:uppercase;
+
+    color:rgba(255,255,255,.5);
+
+}
+
+/*==========================
+STATS (FRENTE)
+==========================*/
+
+.program-stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:8px;
+
+    margin-bottom:24px;
+
+}
+
+.program-stat{
+
+    padding:10px 6px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.program-stat strong{
+
+    display:block;
+
+    font-family:var(--font-display);
+
+    font-size:clamp(.78rem,2.2vw,1.05rem);
+
+    font-weight:800;
+
+    color:#fff;
+
+    line-height:1.15;
+
+    margin-bottom:2px;
+
+}
+
+.program-stat span{
+
+    display:block;
+
+    font-size:.56rem;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    color:rgba(255,255,255,.55);
 
 }
 
@@ -2275,6 +2522,24 @@ COLORES
     color:#FFD54A;
 
 }
+
+.program-card--rookie .program-instructor-avatar{
+
+    background:linear-gradient(135deg,#0088BB,#00D4FF);
+
+}
+
+.program-card--elite .program-instructor-avatar{
+
+    background:linear-gradient(135deg,#7B2FFF,#B35CFF);
+
+}
+
+.program-card--pro .program-instructor-avatar{
+
+    background:linear-gradient(135deg,#B37B00,#FFD54A);
+
+}
 /*====================================================
 DORSO
 ====================================================*/
@@ -2427,6 +2692,87 @@ LISTA
 
     box-shadow:
         0 0 15px rgba(0,212,255,.5);
+
+}
+
+/*=========================
+INSTRUCTOR (DORSO)
+=========================*/
+
+.program-back-instructor{
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:20px;
+
+    padding:12px 14px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+/*=========================
+PRECIO / HORARIO (DORSO)
+=========================*/
+
+.program-back-meta{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:14px;
+
+    margin-bottom:24px;
+
+}
+
+.program-back-meta-item{
+
+    padding:12px 14px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.program-back-meta-item strong{
+
+    display:block;
+
+    font-family:var(--font-display);
+
+    font-size:.98rem;
+
+    font-weight:800;
+
+    color:#fff;
+
+    margin-bottom:3px;
+
+    line-height:1.2;
+
+}
+
+.program-back-meta-item span{
+
+    font-size:.62rem;
+
+    letter-spacing:.09em;
+
+    text-transform:uppercase;
+
+    color:rgba(255,255,255,.5);
 
 }
 
@@ -2733,7 +3079,7 @@ Responsive
 
     .program-card{
 
-        height:440px;
+        height:600px;
 
     }
 
@@ -2753,7 +3099,7 @@ Responsive
 
     .program-card{
 
-        height:470px;
+        height:640px;
 
     }
 
@@ -2763,7 +3109,7 @@ Responsive
 
     .program-card{
 
-        height:430px;
+        height:600px;
 
     }
 
@@ -2797,7 +3143,7 @@ Responsive
 
     .program-card{
 
-        height:410px;
+        height:600px;
 
     }
 
