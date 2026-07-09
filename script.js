@@ -869,6 +869,19 @@ if (document.readyState === 'loading') {
         vel: document.getElementById('statVEL'),
         cur: document.getElementById('statCUR')
     };
+   const profile = {
+
+    name: document.getElementById("profileName"),
+    role: document.getElementById("profileRole"),
+
+    age: document.getElementById("profileAge"),
+    exp: document.getElementById("profileExp"),
+    titles: document.getElementById("profileTitles"),
+    wins: document.getElementById("profileWins"),
+
+    description: document.getElementById("profileDescription")
+
+};
     const RING_CIRC = 169.65;
     const rings = {};
     card.querySelectorAll('.driver-stat').forEach(el => {
