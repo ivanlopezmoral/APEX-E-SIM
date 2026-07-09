@@ -4151,8 +4151,8 @@ Responsive
 }
 
 .driver-info-row h3{
-    margin:0; font-family:var(--font-condensed); font-weight:700; letter-spacing:.02em;
-    font-size:clamp(1.35rem, 3.4vw, 1.8rem); line-height:1;
+    margin:0; font-family:var(--font-display); font-weight:800; letter-spacing:.03em;
+    font-size:clamp(1.3rem, 3.2vw, 1.7rem); line-height:1;
     text-shadow:0 0 30px color-mix(in srgb, var(--driver-glow) 50%, transparent);
     transition:text-shadow .4s ease;
 }
@@ -4205,8 +4205,8 @@ Responsive
     letter-spacing:.16em; color:rgba(255,255,255,.35); margin-bottom:6px;
 }
 .driver-profile-name{
-    margin:0; font-family:var(--font-condensed); font-weight:700;
-    font-size:clamp(1.5rem, 3vw, 1.9rem); letter-spacing:.02em;
+    margin:0; font-family:var(--font-display); font-weight:800;
+    font-size:clamp(1.25rem, 2.6vw, 1.6rem); letter-spacing:.03em;
     text-transform:uppercase; color:#fff;
 }
 
