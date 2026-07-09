@@ -1164,57 +1164,162 @@ const trackData = {
 };
 
 const trackPoints=document.querySelectorAll(".track-point");
+const trackMap=document.getElementById("trackMap");
+const popover=document.getElementById("trackPopover");
+const popoverClose=document.getElementById("trackPopoverClose");
 
-const number=document.querySelector(".track-stage-number");
-const title=document.getElementById("trackTitle");
-const text=document.getElementById("trackText");
-const time=document.getElementById("trackTime");
-const goal=document.getElementById("trackGoal");
-const list=document.getElementById("trackList");
-const card=document.getElementById("trackCard");
+const popNumber=document.getElementById("popNumber");
+const popTitle=document.getElementById("popTitle");
+const popText=document.getElementById("popText");
+const popTime=document.getElementById("popTime");
+const popGoal=document.getElementById("popGoal");
+const popList=document.getElementById("popList");
 
-/* SIN PUNTO ACTIVO */
+let activePoint=null;
+
+function isMobileLayout(){
+    return window.matchMedia("(max-width:900px)").matches;
+}
+
+function fillPopover(data){
+    popNumber.textContent=data.number;
+    popTitle.textContent=data.title;
+    popText.textContent=data.text;
+    popTime.textContent=data.time;
+    popGoal.textContent=data.goal;
+
+    popList.innerHTML="";
+    data.list.forEach(item=>{
+        const li=document.createElement("li");
+        li.textContent=item;
+        popList.appendChild(li);
+    });
+}
+
+function positionPopover(point){
+    // En mobile el popover es un panel fijo abajo, no hace falta calcular posición
+    if(isMobileLayout()){
+        popover.style.left="";
+        popover.style.top="";
+        popover.removeAttribute("data-arrow");
+        popover.style.removeProperty("--pop-arrow-offset");
+        popover.style.removeProperty("--pop-origin");
+        return;
+    }
+
+    const mapRect=trackMap.getBoundingClientRect();
+    const pointRect=point.getBoundingClientRect();
+
+    const pointCenterX=pointRect.left + pointRect.width/2 - mapRect.left;
+    const pointCenterY=pointRect.top + pointRect.height/2 - mapRect.top;
+
+    const gap=26;
+    const edgePad=10;
+    const popoverWidth=popover.offsetWidth || Math.min(320, mapRect.width*0.78);
+    const popoverHeight=popover.offsetHeight || 340;
+
+    const goesRight = pointCenterX < mapRect.width/2;
+    const goesBelow = pointCenterY < mapRect.height/2; // punto en mitad superior -> hay lugar debajo
+
+    let left, top, arrow, origin, arrowOffset;
+
+    const fitsRight = pointCenterX + gap + popoverWidth <= mapRect.width - edgePad;
+    const fitsLeft  = pointCenterX - gap - popoverWidth >= edgePad;
+
+    if(goesRight && fitsRight){
+        // Popover a la derecha del punto
+        left = pointCenterX + gap;
+        top = clampValue(pointCenterY - popoverHeight/2, edgePad, mapRect.height - popoverHeight - edgePad);
+        arrow = "left";
+        arrowOffset = clampValue(pointCenterY - top, 24, popoverHeight - 24);
+        origin = "left center";
+    } else if(fitsLeft){
+        // Popover a la izquierda del punto
+        left = pointCenterX - gap - popoverWidth;
+        top = clampValue(pointCenterY - popoverHeight/2, edgePad, mapRect.height - popoverHeight - edgePad);
+        arrow = "right";
+        arrowOffset = clampValue(pointCenterY - top, 24, popoverHeight - 24);
+        origin = "right center";
+    } else {
+        // No entra de costado: lo centramos arriba o abajo del punto
+        left = clampValue(pointCenterX - popoverWidth/2, edgePad, mapRect.width - popoverWidth - edgePad);
+        arrowOffset = clampValue(pointCenterX - left, 24, popoverWidth - 24);
+
+        if(goesBelow){
+            top = pointCenterY + gap;
+            arrow = "top";
+            origin = "top center";
+        } else {
+            top = pointCenterY - gap - popoverHeight;
+            arrow = "bottom";
+            origin = "bottom center";
+        }
+        top = clampValue(top, edgePad, mapRect.height - popoverHeight - edgePad);
+    }
+
+    popover.style.left = `${left}px`;
+    popover.style.top = `${top}px`;
+    popover.setAttribute("data-arrow", arrow);
+    popover.style.setProperty("--pop-origin", origin);
+    popover.style.setProperty("--pop-arrow-offset", `${arrowOffset}px`);
+}
+
+function clampValue(v, min, max){
+    return Math.min(Math.max(v, min), max);
+}
+
+function openPopover(point){
+    const data=trackData[point.dataset.step];
+    fillPopover(data);
+    positionPopover(point);
+    popover.classList.add("visible");
+    popover.setAttribute("aria-hidden","false");
+    activePoint=point;
+}
+
+function closePopover(){
+    popover.classList.remove("visible");
+    popover.setAttribute("aria-hidden","true");
+    if(activePoint) activePoint.classList.remove("active");
+    activePoint=null;
+}
 
 trackPoints.forEach(point=>{
 
-    point.addEventListener("click",()=>{
+    point.addEventListener("click",(e)=>{
+        e.stopPropagation();
+
+        const isSame = activePoint === point;
 
         trackPoints.forEach(p=>p.classList.remove("active"));
 
+        if(isSame){
+            closePopover();
+            return;
+        }
+
         point.classList.add("active");
-
-        const data=trackData[point.dataset.step];
-
-        card.classList.remove("change");
-
-        void card.offsetWidth;
-
-        card.classList.add("change");
-
-        number.textContent=data.number;
-
-        title.textContent=data.title;
-
-        text.textContent=data.text;
-
-        time.textContent=data.time;
-
-        goal.textContent=data.goal;
-
-        list.innerHTML="";
-
-        data.list.forEach(item=>{
-
-            const li=document.createElement("li");
-
-            li.textContent=item;
-
-            list.appendChild(li);
-
-        });
-
+        openPopover(point);
     });
 
+});
+
+popoverClose.addEventListener("click", closePopover);
+
+document.addEventListener("click",(e)=>{
+    if(!popover.classList.contains("visible")) return;
+    if(popover.contains(e.target)) return;
+    closePopover();
+});
+
+document.addEventListener("keydown",(e)=>{
+    if(e.key === "Escape") closePopover();
+});
+
+window.addEventListener("resize", ()=>{
+    if(activePoint && popover.classList.contains("visible")){
+        positionPopover(activePoint);
+    }
 });
 
 /* ==========================================
