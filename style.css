@@ -4206,7 +4206,8 @@ Responsive
 }
 .driver-profile-name{
     margin:0; font-family:var(--font-condensed); font-weight:700;
-    font-size:clamp(1.5rem, 3vw, 1.9rem); color:#fff;
+    font-size:clamp(1.5rem, 3vw, 1.9rem); letter-spacing:.02em;
+    text-transform:uppercase; color:#fff;
 }
 
 .driver-profile-grid{
