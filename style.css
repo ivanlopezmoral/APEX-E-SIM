@@ -724,7 +724,7 @@ input, select, textarea {
   justify-content: center;
   gap: 1rem;
   font-family: var(--font-condensed);
-  font-size: 0.8rem;
+  font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: 0.35em;
   color: var(--apex-grey-1);
@@ -1401,183 +1401,180 @@ input, select, textarea {
     line-height:1.7;
 }
 
-/* HERO */
+/* ==========================================================
+   SIMULADOR — SHOWCASE INTERACTIVO
+========================================================== */
 
-.sim-hero{
-
-    position:relative;
-
-    width:100%;
-
-    height:380px; /* antes: 70vh */
-
-    border-radius:28px;
-
-    overflow:hidden;
-
-    border:
-        1px solid
-        rgba(123,47,255,.15);
-
-    box-shadow:
-        0 40px 120px
-        rgba(0,0,0,.55);
+.sim-showcase{
+    display:grid;
+    grid-template-columns:1.35fr .8fr;
+    gap:40px;
+    align-items:stretch;
+    margin-top:20px;
 }
 
-/* IMAGEN */
+/* VISUAL */
+
+.sim-showcase-visual{
+    position:relative;
+    border-radius:28px;
+    overflow:hidden;
+    min-height:440px;
+    border:1px solid rgba(123,47,255,.18);
+    box-shadow:0 40px 120px rgba(0,0,0,.55);
+}
 
 .sim-hero-image{
-
     position:absolute;
     inset:0;
-
     width:100%;
     height:100%;
-
     object-fit:cover;
     object-position:center center;
-
-    transition:
-        transform .8s ease,
-        filter .8s ease;
-
-    filter:
-        brightness(.75)
-        saturate(1.05);
+    transition:transform 1s ease, filter .8s ease;
+    filter:brightness(.8) saturate(1.05);
 }
 
-.sim-hero:hover
-.sim-hero-image{
-
-    transform:scale(1.03);
+.sim-showcase-visual:hover .sim-hero-image{
+    transform:scale(1.04);
 }
 
-/* OSCURECER */
-
-.sim-hero::before{
-
-    content:"";
-
+.sim-showcase-gradient{
     position:absolute;
     inset:0;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(0,0,0,.10),
-            rgba(0,0,0,.55)
-        );
-
-    z-index:1;
+    background:linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.55) 100%);
+    pointer-events:none;
 }
 
-/* GLOW */
-
-.sim-hero::after{
-
+.sim-showcase-visual::after{
     content:"";
-
     position:absolute;
-
     width:600px;
     height:600px;
-
     right:-150px;
     bottom:-150px;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(123,47,255,.30),
-            transparent 70%
-        );
-
+    background:radial-gradient(circle, rgba(123,47,255,.28), transparent 70%);
     filter:blur(100px);
-
-    z-index:1;
+    pointer-events:none;
 }
 
-/* OVERLAY */
+/* HOTSPOTS */
 
-.sim-hero-overlay{
-
+.sim-hotspot{
     position:absolute;
-
-    left:60px;
-    bottom:60px;
-
-    z-index:2;
-
-    max-width:780px;
+    transform:translate(-50%, -50%);
+    width:34px;
+    height:34px;
+    border:none;
+    border-radius:50%;
+    background:rgba(8,10,20,.55);
+    backdrop-filter:blur(6px);
+    border:1.5px solid rgba(255,255,255,.5);
+    cursor:pointer;
+    z-index:5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:transform .3s ease, border-color .3s ease, background .3s ease;
 }
 
-.sim-hero-title{
+.sim-hotspot-dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 0 0 0 rgba(0,212,255,.6);
+    animation:simHotspotPulse 2.2s infinite;
+}
 
-    font-size:clamp(1.5rem,3.2vw,2.4rem);
+@keyframes simHotspotPulse{
+    0%{ box-shadow:0 0 0 0 rgba(0,212,255,.55); }
+    70%{ box-shadow:0 0 0 14px rgba(0,212,255,0); }
+    100%{ box-shadow:0 0 0 0 rgba(0,212,255,0); }
+}
 
+.sim-hotspot:hover,
+.sim-hotspot.active{
+    transform:translate(-50%, -50%) scale(1.25);
+    background:linear-gradient(135deg, #7B2FFF, #00D4FF);
+    border-color:#fff;
+}
+
+.sim-hotspot:hover .sim-hotspot-dot,
+.sim-hotspot.active .sim-hotspot-dot{
+    animation:none;
+    box-shadow:none;
+}
+
+/* CAPTION lateral */
+
+.sim-caption{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:14px;
+    padding:36px 32px;
+    border-radius:24px;
+    background:linear-gradient(160deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.sim-caption-eyebrow{
+    font-family:var(--font-condensed);
+    font-size:.7rem;
+    letter-spacing:.24em;
+    color:var(--apex-blue);
+    text-transform:uppercase;
+}
+
+.sim-caption h3{
+    font-family:var(--font-display);
+    font-size:clamp(1.3rem, 2.2vw, 1.7rem);
     font-weight:800;
-
-    line-height:1.1;
-
-    color:white;
-
-    margin-bottom:20px;
-
-    white-space:nowrap;
+    color:#fff;
+    line-height:1.15;
+    margin:0;
+    transition:opacity .25s ease;
 }
 
-.sim-hero-desc{
-
-    max-width:520px;
-
+.sim-caption p{
+    font-size:.92rem;
+    line-height:1.7;
+    color:rgba(255,255,255,.65);
+    margin:0;
+    transition:opacity .25s ease;
 }
 
-.sim-hero-desc{
-
-    font-size:1rem;
-
-    line-height:1.8;
-
-    color:
-        rgba(255,255,255,.75);
-
-    max-width:520px;
+.sim-caption.is-swapping h3,
+.sim-caption.is-swapping p{
+    opacity:0;
 }
 
 /* SPECS */
 
 .sim-specs-premium{
-    margin:40px auto 0;
-
+    margin:56px auto 0;
     display:grid;
-    grid-template-columns:repeat(4, minmax(180px, 260px));
-    justify-content:center;
-    gap:24px;
-
-    max-width:1200px;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
 }
 
 .sim-spec-card{
-
-    padding:28px 24px;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,255,255,.03),
-            rgba(255,255,255,.01)
-        );
-
+    padding:26px 20px;
+    background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
     border:1px solid rgba(255,255,255,.08);
     border-radius:22px;
-
     backdrop-filter:blur(20px);
-
     text-align:center;
+    transition:transform .3s ease, border-color .3s ease;
+}
 
-    transition:
-        transform .3s ease,
-        border-color .3s ease;
+.sim-spec-icon{
+    width:34px;
+    height:34px;
+    margin:0 auto 14px;
+    color:var(--apex-blue);
 }
 
 .sim-spec-card:hover{
@@ -1586,89 +1583,59 @@ input, select, textarea {
 }
 
 .sim-spec-number{
-
     display:block;
-
     font-family:var(--font-display);
-    font-size:clamp(2.8rem,4vw,4rem);
+    font-size:clamp(2rem,2.6vw,2.6rem);
     font-weight:800;
     line-height:1;
-
-    background:
-        linear-gradient(
-            90deg,
-            #7B2FFF,
-            #00D4FF
-        );
-
+    background:linear-gradient(90deg, #7B2FFF, #00D4FF);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-
-    margin-bottom:14px;
+    margin-bottom:12px;
 }
 
 .sim-spec-label{
-
     font-family:var(--font-condensed);
-    font-size:.75rem;
-
-    letter-spacing:.22em;
+    font-size:.72rem;
+    letter-spacing:.2em;
     text-transform:uppercase;
-
     color:rgba(255,255,255,.55);
 }
 
+/* RESPONSIVE */
+
 @media(max-width:1100px){
     .sim-specs-premium{
-        grid-template-columns:repeat(2, minmax(180px, 260px));
+        grid-template-columns:repeat(2, 1fr);
     }
 }
-
-@media(max-width:600px){
-    .sim-specs-premium{
-        grid-template-columns:1fr;
-        max-width:320px;
-    }
-}
-/* RESPONSIVE */
 
 @media(max-width:900px){
 
-    .sim-hero{
-        height:300px;
+    .sim-showcase{
+        grid-template-columns:1fr;
     }
 
-    .sim-hero-overlay{
-
-        left:30px;
-        right:30px;
-        bottom:30px;
-        max-width:none;
+    .sim-showcase-visual{
+        min-height:320px;
     }
 
-    .sim-hero-title{
-        font-size:clamp(1.1rem,3.6vw,1.6rem);
-        white-space:normal;
-    }
-
-    .sim-specs-premium{
-
-        grid-template-columns:
-            repeat(2,1fr);
+    .sim-caption{
+        padding:28px 24px;
     }
 }
 
 @media(max-width:600px){
-
-    .sim-hero{
-        height:220px;
-    }
-
     .sim-specs-premium{
-
         grid-template-columns:1fr;
     }
+
+    .sim-hotspot{
+        width:28px;
+        height:28px;
+    }
 }
+
 /* ─────────────────────────────────────────────────────
    15. ESTADÍSTICAS
    ───────────────────────────────────────────────────── */
@@ -2366,6 +2333,70 @@ STATS (FRENTE)
 }
 
 /*==================================
+RATING + HIGHLIGHT (venta)
+==================================*/
+
+.program-rating{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    margin:10px 0 4px;
+}
+
+.program-rating-stars{
+    color:#FFD84D;
+    font-size:.85rem;
+    letter-spacing:2px;
+}
+
+.program-rating-text{
+    font-family:var(--font-condensed);
+    font-size:.68rem;
+    letter-spacing:.04em;
+    color:rgba(255,255,255,.5);
+}
+
+.program-highlight{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:12px 0 16px;
+    padding:9px 12px;
+    border-radius:10px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.09);
+    font-family:var(--font-condensed);
+    font-size:.66rem;
+    letter-spacing:.03em;
+    color:rgba(255,255,255,.8);
+}
+
+.program-highlight svg{
+    width:15px;
+    height:15px;
+    flex-shrink:0;
+    color:var(--apex-blue);
+}
+
+.program-popular-badge{
+    position:absolute;
+    top:0; left:0; right:0;
+    z-index:22;
+    text-align:center;
+    padding:8px 0;
+    font-family:var(--font-condensed);
+    font-size:.64rem;
+    font-weight:800;
+    letter-spacing:.2em;
+    color:#fff;
+    background:linear-gradient(90deg,#7B2FFF,#00D4FF);
+}
+
+.program-card--elite .program-top-badges{
+    top:52px;
+}
+
+/*==================================
 BOTONES
 ==================================*/
 
@@ -2572,8 +2603,6 @@ DORSO
 ====================================================*/
 
 .program-back{
-
-    position:relative;
 
     overflow:hidden;
 
@@ -4676,6 +4705,8 @@ Responsive
 
     position:absolute;
 
+    transform:translate(-50%, -50%);
+
     width:52px;
     height:52px;
 
@@ -4714,7 +4745,7 @@ Responsive
 
 .track-point:hover{
 
-    transform:scale(1.2);
+    transform:translate(-50%, -50%) scale(1.2);
 
     box-shadow:
     0 0 45px rgba(0,212,255,.65);
@@ -4757,44 +4788,39 @@ Responsive
 
 .track-point.active{
 
-    transform:scale(1.25);
+    transform:translate(-50%, -50%) scale(1.25);
 
     box-shadow:
     0 0 60px rgba(0,212,255,.9);
 }
 
 /* =======================================
-   POSICIONES
+   POSICIONES (recalculadas sobre la pista real)
 ======================================= */
 
 .p1{
-
-    left:8%;
-    bottom:10%;
+    left:22%;
+    top:93%;
 }
 
 .p2{
-
-    right:18%;
-    top:30%;
+    left:77%;
+    top:45%;
 }
 
 .p3{
-
-    left:52%;
-    bottom:8%;
+    left:54%;
+    top:93%;
 }
 
 .p4{
-
-    left:20%;
-    top:20%;
+    left:30%;
+    top:43%;
 }
 
 .p5{
-
-    left:52%;
-    top:3%;
+    left:57%;
+    top:28%;
 }
 
 /* =======================================
