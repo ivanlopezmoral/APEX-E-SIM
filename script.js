@@ -1342,42 +1342,66 @@ document.querySelectorAll(".program-card").forEach(card => {
 
 });
 
-/* ==========================================
-   SIMULADOR — HOTSPOTS INTERACTIVOS
-========================================== */
+/* =====================================================
+   SIMULADOR PREMIUM
+===================================================== */
 
-(function(){
+(function () {
 
-    const hotspots = document.querySelectorAll(".sim-hotspot");
-    const caption   = document.getElementById("simCaption");
-    const capTitle  = document.getElementById("simCaptionTitle");
-    const capText   = document.getElementById("simCaptionText");
+    const features = document.querySelectorAll(".sim-feature");
+    const wrapper = document.querySelector(".sim-image-wrapper");
 
-    if(!hotspots.length || !caption) return;
+    if (!features.length || !wrapper) return;
 
-    let swapTimeout = null;
+    function activate(feature){
 
-    function activate(btn){
+        // Limpia activos
+        features.forEach(f => f.classList.remove("active"));
 
-        hotspots.forEach(h => h.classList.remove("active"));
-        btn.classList.add("active");
+        wrapper.classList.remove(
+            "highlight-wheel",
+            "highlight-screen",
+            "highlight-motion",
+            "highlight-pedals"
+        );
 
-        clearTimeout(swapTimeout);
-        caption.classList.add("is-swapping");
+        // Activa el seleccionado
+        feature.classList.add("active");
 
-        swapTimeout = setTimeout(() => {
-            capTitle.textContent = btn.dataset.title;
-            capText.textContent  = btn.dataset.text;
-            caption.classList.remove("is-swapping");
-        }, 180);
+        const target = feature.dataset.target;
+
+        switch(target){
+
+            case "wheel":
+                wrapper.classList.add("highlight-wheel");
+                break;
+
+            case "screen":
+                wrapper.classList.add("highlight-screen");
+                break;
+
+            case "motion":
+                wrapper.classList.add("highlight-motion");
+                break;
+
+            case "pedals":
+                wrapper.classList.add("highlight-pedals");
+                break;
+
+        }
+
     }
 
-    hotspots.forEach(btn => {
+    features.forEach(feature => {
 
-        btn.addEventListener("mouseenter", () => activate(btn));
-        btn.addEventListener("focus", () => activate(btn));
-        btn.addEventListener("click", () => activate(btn));
+        feature.addEventListener("mouseenter", () => activate(feature));
+
+        feature.addEventListener("focus", () => activate(feature));
+
+        feature.addEventListener("click", () => activate(feature));
 
     });
+
+    activate(features[0]);
 
 })();
