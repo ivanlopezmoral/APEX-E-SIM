@@ -1350,12 +1350,19 @@ document.querySelectorAll(".program-card").forEach(card => {
 
     const features = document.querySelectorAll(".sim-feature");
     const wrapper = document.querySelector(".sim-image-wrapper");
+    const simulator = document.querySelector(".sim-image");
 
     if (!features.length || !wrapper) return;
 
+    let current = null;
+
     function activate(feature){
 
-        // Limpia activos
+        if(current === feature) return;
+
+        current = feature;
+
+        // limpia
         features.forEach(f => f.classList.remove("active"));
 
         wrapper.classList.remove(
@@ -1365,7 +1372,6 @@ document.querySelectorAll(".program-card").forEach(card => {
             "highlight-pedals"
         );
 
-        // Activa el seleccionado
         feature.classList.add("active");
 
         const target = feature.dataset.target;
@@ -1373,34 +1379,86 @@ document.querySelectorAll(".program-card").forEach(card => {
         switch(target){
 
             case "wheel":
+
                 wrapper.classList.add("highlight-wheel");
+
                 break;
 
             case "screen":
+
                 wrapper.classList.add("highlight-screen");
+
                 break;
 
             case "motion":
+
                 wrapper.classList.add("highlight-motion");
+
                 break;
 
             case "pedals":
+
                 wrapper.classList.add("highlight-pedals");
+
                 break;
 
         }
 
     }
 
-    features.forEach(feature => {
+    features.forEach(feature=>{
 
-        feature.addEventListener("mouseenter", () => activate(feature));
+        feature.addEventListener("mouseenter",()=>{
 
-        feature.addEventListener("focus", () => activate(feature));
+            activate(feature);
 
-        feature.addEventListener("click", () => activate(feature));
+        });
+
+        feature.addEventListener("focus",()=>{
+
+            activate(feature);
+
+        });
+
+        feature.addEventListener("click",()=>{
+
+            activate(feature);
+
+        });
 
     });
+
+    // cuando sale el mouse vuelve al primero
+
+    const container = document.querySelector(".sim-premium");
+
+    if(container){
+
+        container.addEventListener("mouseleave",()=>{
+
+            activate(features[0]);
+
+        });
+
+    }
+
+    // efecto muy sutil sobre la imagen
+
+    if(simulator){
+
+        wrapper.addEventListener("mouseenter",()=>{
+
+            simulator.style.transform="scale(1.03)";
+
+        });
+
+        wrapper.addEventListener("mouseleave",()=>{
+
+            simulator.style.transform="scale(1)";
+
+        });
+
+    }
 
     activate(features[0]);
 
