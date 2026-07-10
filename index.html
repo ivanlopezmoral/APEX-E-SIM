@@ -442,75 +442,101 @@
 </section>
 
   <!-- ══════════════════════════════════════ -->
-<!--  SIMULADOR HERO                       -->
+<!--  SIMULADOR                             -->
 <!-- ══════════════════════════════════════ -->
 <section class="section simuladores" id="simuladores">
 
-    <div class="sim-hero">
+    <div class="container">
 
-        <!-- IMAGEN -->
-        <img
-            src="images/esim.jpg"
-            alt="APEX Simulator"
-            class="sim-hero-image">
-
-        <!-- OVERLAY -->
-        <div class="sim-hero-overlay">
+        <div class="section-header reveal">
 
             <span class="section-eyebrow">
                 EQUIPAMIENTO
             </span>
 
-            <h2 class="section-title sim-hero-title">
+            <h2 class="section-title">
                 El simulador más avanzado <em>de LATAM.</em>
             </h2>
 
-            <p class="sim-hero-desc">
+            <p class="section-subtitle">
                 Tecnología profesional utilizada para entrenamiento,
                 análisis de telemetría y desarrollo de pilotos.
             </p>
 
         </div>
 
-    </div>
+        <div class="sim-showcase reveal">
 
-    <!-- SPECS -->
-    <div class="sim-specs-premium">
+            <div class="sim-showcase-visual" id="simVisual">
 
-        <div class="sim-spec-card">
-            <span class="sim-spec-number">
-                6DOF
-            </span>
-            <span class="sim-spec-label">
-                Motion Platform
-            </span>
+                <img
+                    src="images/esim.jpg"
+                    alt="APEX Simulator"
+                    class="sim-hero-image">
+
+                <div class="sim-showcase-gradient"></div>
+
+                <button class="sim-hotspot active" style="left:50%; top:56%;"
+                    data-title="Volante Direct Drive"
+                    data-text="20NM de torque real: la misma fuerza de retroalimentación que sentís en un auto de competición.">
+                    <span class="sim-hotspot-dot"></span>
+                </button>
+
+                <button class="sim-hotspot" style="left:50%; top:87%;"
+                    data-title="Pedalera Load Cell"
+                    data-text="Sensor de celda de carga en el freno: simula la presión real de pista, no solo el recorrido del pedal.">
+                    <span class="sim-hotspot-dot"></span>
+                </button>
+
+                <button class="sim-hotspot" style="left:81%; top:66%;"
+                    data-title="Plataforma 6DOF"
+                    data-text="Movimiento en 6 ejes: sentís la transferencia de peso, frenada y aceleración como en la pista real.">
+                    <span class="sim-hotspot-dot"></span>
+                </button>
+
+                <button class="sim-hotspot" style="left:50%; top:15%;"
+                    data-title="Triple pantalla 4K"
+                    data-text="240° de campo visual: visión periférica total para no perder ningún detalle del circuito.">
+                    <span class="sim-hotspot-dot"></span>
+                </button>
+
+            </div>
+
+            <div class="sim-caption" id="simCaption">
+                <span class="sim-caption-eyebrow">EXPLORÁ EL EQUIPO</span>
+                <h3 id="simCaptionTitle">Volante Direct Drive</h3>
+                <p id="simCaptionText">20NM de torque real: la misma fuerza de retroalimentación que sentís en un auto de competición.</p>
+            </div>
+
         </div>
 
-        <div class="sim-spec-card">
-            <span class="sim-spec-number">
-                240°
-            </span>
-            <span class="sim-spec-label">
-                Field of View
-            </span>
-        </div>
+        <!-- SPECS -->
+        <div class="sim-specs-premium">
 
-        <div class="sim-spec-card">
-            <span class="sim-spec-number">
-                20NM
-            </span>
-            <span class="sim-spec-label">
-                Direct Drive
-            </span>
-        </div>
+            <div class="sim-spec-card">
+                <svg class="sim-spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"></path><circle cx="12" cy="12" r="4"></circle></svg>
+                <span class="sim-spec-number">6DOF</span>
+                <span class="sim-spec-label">Motion Platform</span>
+            </div>
 
-        <div class="sim-spec-card">
-            <span class="sim-spec-number">
-                4K
-            </span>
-            <span class="sim-spec-label">
-                Triple Display
-            </span>
+            <div class="sim-spec-card">
+                <svg class="sim-spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2-4 6-7 10-7s8 3 10 7c-2 4-6 7-10 7s-8-3-10-7z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <span class="sim-spec-number">240°</span>
+                <span class="sim-spec-label">Field of View</span>
+            </div>
+
+            <div class="sim-spec-card">
+                <svg class="sim-spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3"></circle><path d="M12 3v3M12 18v3M3 12h3M18 12h3"></path></svg>
+                <span class="sim-spec-number">20NM</span>
+                <span class="sim-spec-label">Direct Drive</span>
+            </div>
+
+            <div class="sim-spec-card">
+                <svg class="sim-spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="13" rx="2"></rect><path d="M8 21h8M12 18v3"></path></svg>
+                <span class="sim-spec-number">4K</span>
+                <span class="sim-spec-label">Triple Display</span>
+            </div>
+
         </div>
 
     </div>
@@ -579,6 +605,16 @@
                             <h3 class="program-name">
                                 ROOKIE
                             </h3>
+
+                            <div class="program-rating">
+                                <span class="program-rating-stars">★★★★★</span>
+                                <span class="program-rating-text">4.8 (94 alumnos)</span>
+                            </div>
+
+                            <div class="program-highlight">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+                                Simulador profesional incluido
+                            </div>
 
                             <div class="program-actions">
 
@@ -681,6 +717,8 @@
 
                     <div class="program-front">
 
+                        <span class="program-popular-badge">MÁS ELEGIDO</span>
+
                         <div class="program-image">
                             <img src="images/programa-elite.jpg" alt="Programa Elite">
                             <div class="program-overlay"></div>
@@ -708,6 +746,16 @@
                             <h3 class="program-name">
                                 ELITE
                             </h3>
+
+                            <div class="program-rating">
+                                <span class="program-rating-stars">★★★★★</span>
+                                <span class="program-rating-text">4.9 (156 alumnos)</span>
+                            </div>
+
+                            <div class="program-highlight">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+                                Análisis de telemetría personalizado
+                            </div>
 
                             <div class="program-actions">
 
@@ -836,6 +884,16 @@
                             <h3 class="program-name">
                                 PRO
                             </h3>
+
+                            <div class="program-rating">
+                                <span class="program-rating-stars">★★★★★</span>
+                                <span class="program-rating-text">5.0 (61 alumnos)</span>
+                            </div>
+
+                            <div class="program-highlight">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+                                Coaching 1 a 1 con piloto profesional
+                            </div>
 
                             <div class="program-actions">
 
