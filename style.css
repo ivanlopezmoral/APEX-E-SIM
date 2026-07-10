@@ -1820,7 +1820,7 @@ RESPONSIVE
 
 @media(max-width:1200px){
 
-    .sim-layout{
+    .sim-premium{ 
 
         grid-template-columns:1fr;
 
