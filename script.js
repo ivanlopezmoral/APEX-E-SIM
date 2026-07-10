@@ -1341,3 +1341,43 @@ document.querySelectorAll(".program-card").forEach(card => {
     });
 
 });
+
+/* ==========================================
+   SIMULADOR — HOTSPOTS INTERACTIVOS
+========================================== */
+
+(function(){
+
+    const hotspots = document.querySelectorAll(".sim-hotspot");
+    const caption   = document.getElementById("simCaption");
+    const capTitle  = document.getElementById("simCaptionTitle");
+    const capText   = document.getElementById("simCaptionText");
+
+    if(!hotspots.length || !caption) return;
+
+    let swapTimeout = null;
+
+    function activate(btn){
+
+        hotspots.forEach(h => h.classList.remove("active"));
+        btn.classList.add("active");
+
+        clearTimeout(swapTimeout);
+        caption.classList.add("is-swapping");
+
+        swapTimeout = setTimeout(() => {
+            capTitle.textContent = btn.dataset.title;
+            capText.textContent  = btn.dataset.text;
+            caption.classList.remove("is-swapping");
+        }, 180);
+    }
+
+    hotspots.forEach(btn => {
+
+        btn.addEventListener("mouseenter", () => activate(btn));
+        btn.addEventListener("focus", () => activate(btn));
+        btn.addEventListener("click", () => activate(btn));
+
+    });
+
+})();
