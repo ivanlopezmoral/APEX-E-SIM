@@ -1950,7 +1950,7 @@ CARD
 
     perspective:1800px;
 
-    height:548px;
+    height:620px;
 
     cursor:pointer;
 
@@ -2545,7 +2545,7 @@ RATING + CHECKLIST (venta)
     flex-direction:column;
     gap:12px;
 
-    margin-top:26px;
+    margin-top:auto;
     padding-top:20px;
 
     border-top:1px solid rgba(255,255,255,.08);
