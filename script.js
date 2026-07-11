@@ -1392,7 +1392,7 @@ document.querySelectorAll(".program-card").forEach(card => {
 
 })();
 /* =====================================================
-   REVIEWS PREMIUM DRAG + AUTOSCROLL
+   REVIEWS PREMIUM · APPLE FEEL
 ===================================================== */
 
 (function () {
@@ -1402,27 +1402,38 @@ document.querySelectorAll(".program-card").forEach(card => {
 
     if (!slider || !track) return;
 
+    // duplicamos las cards
+    track.innerHTML += track.innerHTML;
+
     let isDown = false;
+
     let startX = 0;
+
     let scrollLeft = 0;
 
-    let autoSpeed = 0.7;
-    let autoPaused = false;
+    // -----------------------------
+    // velocidad
+    // -----------------------------
 
-    // duplicamos una vez para loop largo
-    track.innerHTML += track.innerHTML;
+    const MAX_SPEED = 0.85;
+
+    let currentSpeed = MAX_SPEED;
+
+    let targetSpeed = MAX_SPEED;
+
+    // -----------------------------
+    // loop
+    // -----------------------------
 
     function autoMove(){
 
-        if(!autoPaused){
+        currentSpeed += (targetSpeed - currentSpeed) * 0.05;
 
-            slider.scrollLeft += autoSpeed;
+        slider.scrollLeft += currentSpeed;
 
-            if(slider.scrollLeft >= track.scrollWidth / 2){
+        if(slider.scrollLeft >= track.scrollWidth / 2){
 
-                slider.scrollLeft = 0;
-
-            }
+            slider.scrollLeft = 0;
 
         }
 
@@ -1432,50 +1443,73 @@ document.querySelectorAll(".program-card").forEach(card => {
 
     requestAnimationFrame(autoMove);
 
-    slider.addEventListener("mouseenter", () => {
+    // -----------------------------
+    // Hover
+    // -----------------------------
 
-        autoPaused = true;
+    slider.addEventListener("mouseenter",()=>{
+
+        targetSpeed = 0;
+
+    });
+
+    slider.addEventListener("mouseleave",()=>{
+
+        if(!isDown){
+
+            targetSpeed = MAX_SPEED;
+
+        }
 
     });
 
-    slider.addEventListener("mouseleave", () => {
-
-        if(!isDown)
-            autoPaused = false;
-
-    });
+    // -----------------------------
+    // Mouse Down
+    // -----------------------------
 
     slider.addEventListener("mousedown",(e)=>{
 
         isDown = true;
 
-        autoPaused = true;
+        slider.classList.add("dragging");
+
+        targetSpeed = 0;
 
         startX = e.pageX;
 
         scrollLeft = slider.scrollLeft;
 
-        slider.style.cursor="grabbing";
-
     });
 
-    window.addEventListener("mouseup",()=>{
-
-        isDown=false;
-
-        slider.style.cursor="grab";
-
-        autoPaused=false;
-
-    });
+    // -----------------------------
+    // Drag
+    // -----------------------------
 
     window.addEventListener("mousemove",(e)=>{
 
         if(!isDown) return;
 
-        const walk = (e.pageX-startX)*1.6;
+        e.preventDefault();
+
+        const walk = (e.pageX-startX)*1.8;
 
         slider.scrollLeft = scrollLeft - walk;
+
+    });
+
+    // -----------------------------
+    // Mouse Up
+    // -----------------------------
+
+    window.addEventListener("mouseup",()=>{
+
+        if(!isDown) return;
+
+        isDown = false;
+
+        slider.classList.remove("dragging");
+
+        targetSpeed = MAX_SPEED;
 
     });
 
