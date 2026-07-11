@@ -1391,3 +1391,92 @@ document.querySelectorAll(".program-card").forEach(card => {
     activate(features[0]);
 
 })();
+/* =====================================================
+   REVIEWS PREMIUM DRAG + AUTOSCROLL
+===================================================== */
+
+(function () {
+
+    const slider = document.querySelector(".reviews-slider");
+    const track = document.querySelector(".reviews-track");
+
+    if (!slider || !track) return;
+
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    let autoSpeed = 0.7;
+    let autoPaused = false;
+
+    // duplicamos una vez para loop largo
+    track.innerHTML += track.innerHTML;
+
+    function autoMove(){
+
+        if(!autoPaused){
+
+            slider.scrollLeft += autoSpeed;
+
+            if(slider.scrollLeft >= track.scrollWidth / 2){
+
+                slider.scrollLeft = 0;
+
+            }
+
+        }
+
+        requestAnimationFrame(autoMove);
+
+    }
+
+    requestAnimationFrame(autoMove);
+
+    slider.addEventListener("mouseenter", () => {
+
+        autoPaused = true;
+
+    });
+
+    slider.addEventListener("mouseleave", () => {
+
+        if(!isDown)
+            autoPaused = false;
+
+    });
+
+    slider.addEventListener("mousedown",(e)=>{
+
+        isDown = true;
+
+        autoPaused = true;
+
+        startX = e.pageX;
+
+        scrollLeft = slider.scrollLeft;
+
+        slider.style.cursor="grabbing";
+
+    });
+
+    window.addEventListener("mouseup",()=>{
+
+        isDown=false;
+
+        slider.style.cursor="grab";
+
+        autoPaused=false;
+
+    });
+
+    window.addEventListener("mousemove",(e)=>{
+
+        if(!isDown) return;
+
+        const walk = (e.pageX-startX)*1.6;
+
+        slider.scrollLeft = scrollLeft - walk;
+
+    });
+
+})();
