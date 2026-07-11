@@ -1950,7 +1950,7 @@ CARD
 
     perspective:1800px;
 
-    height:460px;
+    height:548px;
 
     cursor:pointer;
 
@@ -2022,7 +2022,7 @@ FACES
     flex-direction:column;
     justify-content:space-between;
 
-    padding:24px;
+    padding:26px 24px 24px;
 
 }
 
@@ -2121,45 +2121,73 @@ NUMERO
 }
 
 /*==========================
-IMAGEN
+VISUAL (color por nivel, sin foto)
 ==========================*/
 
-.program-image{
+.program-visual{
 
     position:absolute;
-
     inset:0;
+    overflow:hidden;
 
+    background:linear-gradient(150deg, #10131f 0%, #05070f 65%);
+
+    transition:transform .9s ease;
 }
 
-.program-image img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    transition:
-
-        transform .9s ease,
-        filter .9s ease;
-
-    filter:
-
-        brightness(.88)
-        saturate(1.05);
-
+.program-card:hover .program-visual{
+    transform:scale(1.05);
 }
 
-.program-card:hover .program-image img{
+.program-visual::before{
 
-    transform:scale(1.08);
+    content:"";
+    position:absolute;
+    inset:-30%;
 
-    filter:
+    background:repeating-linear-gradient(
+        115deg,
+        rgba(255,255,255,.045) 0 2px,
+        transparent 2px 30px
+    );
 
-        brightness(1)
-        saturate(1.1);
+    -webkit-mask-image:linear-gradient(180deg, #000 0%, transparent 80%);
+            mask-image:linear-gradient(180deg, #000 0%, transparent 80%);
+}
 
+.program-visual-glow{
+
+    position:absolute;
+    width:440px;
+    height:440px;
+
+    top:-160px;
+    right:-140px;
+
+    border-radius:50%;
+    filter:blur(95px);
+}
+
+.program-card--rookie .program-visual-glow{ background:rgba(0,212,255,.32); }
+.program-card--elite  .program-visual-glow{ background:rgba(179,92,255,.38); }
+.program-card--pro    .program-visual-glow{ background:rgba(255,213,74,.30); }
+
+.program-visual-number{
+
+    position:absolute;
+    right:-14px;
+    bottom:-46px;
+
+    font-family:var(--font-display);
+    font-weight:900;
+    font-size:11.5rem;
+    line-height:1;
+
+    color:transparent;
+    -webkit-text-stroke:1.5px rgba(255,255,255,.07);
+
+    user-select:none;
+    pointer-events:none;
 }
 
 .program-overlay{
@@ -2605,6 +2633,52 @@ BOTONES
 
 }
 
+/* CTA del dorso: mas grande, glow permanente, flecha animada, color por nivel */
+
+.program-btn--cta{
+
+    height:54px;
+    gap:8px;
+
+    font-size:.78rem;
+    letter-spacing:.16em;
+
+    box-shadow:0 16px 40px -10px var(--tier-glow, rgba(0,212,255,.55));
+}
+
+.program-btn--cta:hover{
+
+    box-shadow:0 20px 50px -8px var(--tier-glow, rgba(0,212,255,.7));
+}
+
+.program-btn--cta .btn-arrow{
+
+    display:inline-block;
+
+    transition:transform .3s ease;
+}
+
+.program-btn--cta:hover .btn-arrow{
+
+    transform:translateX(5px);
+}
+
+.program-card--rookie .program-btn--cta{
+    --tier-glow:rgba(0,212,255,.55);
+    background:linear-gradient(90deg,#0090c9,#00D4FF);
+}
+
+.program-card--elite .program-btn--cta{
+    --tier-glow:rgba(179,92,255,.55);
+    background:linear-gradient(90deg,#7B2FFF,#B35CFF);
+}
+
+.program-card--pro .program-btn--cta{
+    --tier-glow:rgba(255,213,74,.55);
+    background:linear-gradient(90deg,#e0a400,#FFD54A);
+    color:#1a1206;
+}
+
 /* Botón más liviano para el frente: menos "cargado" que el gradiente sólido */
 .program-btn--slim{
 
@@ -2937,9 +3011,9 @@ PRECIO / HORARIO / PLAZAS / SEMANAS (DORSO)
 
 .program-back-grid-item{
 
-    padding:10px 12px;
+    padding:13px 14px;
 
-    border-radius:12px;
+    border-radius:14px;
 
     background:rgba(255,255,255,.04);
 
@@ -2953,13 +3027,13 @@ PRECIO / HORARIO / PLAZAS / SEMANAS (DORSO)
 
     font-family:var(--font-display);
 
-    font-size:.94rem;
+    font-size:1rem;
 
     font-weight:800;
 
     color:#fff;
 
-    margin-bottom:2px;
+    margin-bottom:3px;
 
     line-height:1.15;
 
@@ -2967,7 +3041,7 @@ PRECIO / HORARIO / PLAZAS / SEMANAS (DORSO)
 
 .program-back-grid-item span{
 
-    font-size:.58rem;
+    font-size:.6rem;
 
     letter-spacing:.08em;
 
@@ -2983,7 +3057,7 @@ BOTONES
 
 .program-back-actions{
 
-    margin-top:14px;
+    margin-top:18px;
 
 }
 
