@@ -2172,24 +2172,6 @@ VISUAL (color por nivel, sin foto)
 .program-card--elite  .program-visual-glow{ background:rgba(179,92,255,.38); }
 .program-card--pro    .program-visual-glow{ background:rgba(255,213,74,.30); }
 
-.program-visual-number{
-
-    position:absolute;
-    right:-14px;
-    bottom:-46px;
-
-    font-family:var(--font-display);
-    font-weight:900;
-    font-size:11.5rem;
-    line-height:1;
-
-    color:transparent;
-    -webkit-text-stroke:1.5px rgba(255,255,255,.07);
-
-    user-select:none;
-    pointer-events:none;
-}
-
 .program-overlay{
 
     position:absolute;
@@ -2209,15 +2191,28 @@ VISUAL (color por nivel, sin foto)
 FRENTE
 ====================================================*/
 
-.program-top-badges{
+.program-front-content{
 
-    position:absolute;
-
-    left:22px;
-    right:22px;
-    top:22px;
+    position:relative;
 
     z-index:20;
+
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:32px 26px 26px;
+
+}
+
+.program-card--elite .program-front-content{
+
+    padding-top:62px;
+
+}
+
+.program-front-top{
 
     display:flex;
     align-items:center;
@@ -2225,26 +2220,14 @@ FRENTE
 
     gap:10px;
 
+    margin-bottom:20px;
+
 }
 
-.program-top-badges .program-level{
+.program-front-top .program-level{
 
     margin-bottom:0;
 
-}
-
-.program-content{
-
-    position:absolute;
-
-    left:26px;
-    right:26px;
-    bottom:24px;
-
-    z-index:20;
-
-    display:flex;
-    flex-direction:column;
 }
 
 .program-level{
@@ -2283,24 +2266,12 @@ PRECIO
 
 .program-price{
 
-    display:inline-flex;
+    display:flex;
     align-items:baseline;
 
-    gap:5px;
+    gap:8px;
 
-    padding:8px 14px;
-
-    border-radius:999px;
-
-    white-space:nowrap;
-
-    background:
-        linear-gradient(#0a0e18,#0a0e18) padding-box,
-        linear-gradient(120deg,var(--apex-blue),var(--apex-violet-light)) border-box;
-
-    border:1px solid transparent;
-
-    backdrop-filter:blur(14px);
+    margin:6px 0 18px;
 
 }
 
@@ -2308,9 +2279,13 @@ PRECIO
 
     font-family:var(--font-display);
 
-    font-size:.92rem;
+    font-size:2.5rem;
 
-    font-weight:800;
+    font-weight:900;
+
+    line-height:1;
+
+    letter-spacing:-.01em;
 
     color:#fff;
 
@@ -2320,16 +2295,37 @@ PRECIO
 
     font-family:var(--font-condensed);
 
-    font-size:.6rem;
+    font-size:.72rem;
 
     font-weight:700;
 
-    letter-spacing:.06em;
+    letter-spacing:.08em;
 
     text-transform:uppercase;
 
-    color:rgba(255,255,255,.6);
+    color:rgba(255,255,255,.45);
 
+}
+
+.program-card--rookie .program-price strong{
+    background:linear-gradient(90deg,#00D4FF,#8FEFFF);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.program-card--elite .program-price strong{
+    background:linear-gradient(90deg,#B35CFF,#7B2FFF);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.program-card--pro .program-price strong{
+    background:linear-gradient(90deg,#FFD54A,#FFB800);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 /*==========================
@@ -2485,7 +2481,7 @@ STATS (FRENTE)
 
     text-transform:uppercase;
 
-    margin-bottom:0;
+    margin-bottom:4px;
 
 }
 
@@ -2506,7 +2502,7 @@ STATS (FRENTE)
 }
 
 /*==================================
-RATING + HIGHLIGHT (venta)
+RATING + CHECKLIST (venta)
 ==================================*/
 
 .program-rating{
@@ -2529,26 +2525,78 @@ RATING + HIGHLIGHT (venta)
     color:rgba(255,255,255,.5);
 }
 
-.program-highlight{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    margin:12px 0 16px;
-    padding:9px 12px;
-    border-radius:10px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.09);
-    font-family:var(--font-condensed);
-    font-size:.66rem;
-    letter-spacing:.03em;
-    color:rgba(255,255,255,.8);
+/* Rating compacto para el encabezado del frente (al lado del nivel) */
+.program-rating--compact{
+    margin:0;
+    gap:6px;
 }
 
-.program-highlight svg{
-    width:15px;
-    height:15px;
-    flex-shrink:0;
-    color:var(--apex-blue);
+.program-rating--compact .program-rating-stars{
+    font-size:.68rem;
+}
+
+.program-rating--compact .program-rating-text{
+    font-size:.62rem;
+}
+
+/* Checklist de venta: reemplaza el highlight único por 4 items concretos */
+.program-check-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+
+    margin-top:26px;
+    padding-top:20px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.program-check-list li{
+    position:relative;
+    list-style:none;
+    padding-left:26px;
+
+    font-family:var(--font-condensed);
+    font-size:.76rem;
+    letter-spacing:.01em;
+    line-height:1.4;
+    color:rgba(255,255,255,.82);
+}
+
+.program-check-list li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    top:0;
+
+    width:18px;
+    height:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:6px;
+
+    font-size:.62rem;
+    font-weight:900;
+
+    background:rgba(255,255,255,.07);
+}
+
+.program-card--rookie .program-check-list li::before{
+    color:#00D4FF;
+    box-shadow:inset 0 0 0 1px rgba(0,212,255,.35);
+}
+
+.program-card--elite .program-check-list li::before{
+    color:#B35CFF;
+    box-shadow:inset 0 0 0 1px rgba(179,92,255,.35);
+}
+
+.program-card--pro .program-check-list li::before{
+    color:#FFD54A;
+    box-shadow:inset 0 0 0 1px rgba(255,213,74,.35);
 }
 
 .program-popular-badge{
@@ -2563,10 +2611,6 @@ RATING + HIGHLIGHT (venta)
     letter-spacing:.2em;
     color:#fff;
     background:linear-gradient(90deg,#7B2FFF,#00D4FF);
-}
-
-.program-card--elite .program-top-badges{
-    top:52px;
 }
 
 /*==================================
