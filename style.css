@@ -1367,21 +1367,16 @@ SIMULADOR PREMIUM
 ══════════════════════════════════════════════*/
 
 .simuladores{
-    padding:120px 0;
+    padding:95px 0;
     overflow:hidden;
 }
 
 .sim-layout{
-
     display:grid;
-    grid-template-columns:1.35fr .85fr;
-
-    gap:70px;
-
+    grid-template-columns:1.45fr .95fr;
+    gap:60px;
     align-items:stretch;
-
-    margin-top:70px;
-
+    margin-top:50px;
 }
 
 /*══════════════════════════════
@@ -1389,80 +1384,51 @@ IMAGEN
 ══════════════════════════════*/
 
 .sim-stage{
-
     position:relative;
-
-    height:620px;
-
+    height:525px;
     overflow:hidden;
-
-    border-radius:30px;
-
+    border-radius:28px;
     background:#07090f;
-
     border:1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-        0 40px 100px rgba(0,0,0,.45);
-
+    box-shadow:0 35px 90px rgba(0,0,0,.45);
 }
 
 .sim-stage-glow{
-
     position:absolute;
-
-    width:700px;
-    height:700px;
-
-    right:-260px;
-    bottom:-260px;
-
+    width:620px;
+    height:620px;
+    right:-220px;
+    bottom:-220px;
     border-radius:50%;
-
-    background:
-    radial-gradient(
-        circle,
+    background:radial-gradient(circle,
         rgba(123,47,255,.35),
-        transparent 70%
-    );
-
+        transparent 70%);
     filter:blur(90px);
-
     pointer-events:none;
-
     z-index:1;
-
 }
 
 .sim-image{
-
     position:relative;
-
     width:100%;
     height:100%;
-
     object-fit:cover;
-
     object-position:center;
-
     z-index:2;
 
     transition:
         opacity .45s ease,
-        transform .7s ease,
+        transform .6s ease,
         filter .45s ease;
 
     filter:
-        brightness(1.04)
-        contrast(1.05)
+        brightness(1.05)
+        contrast(1.06)
         saturate(1.08);
-
 }
 
 .sim-stage:hover .sim-image{
-
-    transform:scale(1.025);
-
+    transform:scale(1.03);
 }
 
 /*══════════════════════════════
@@ -1470,28 +1436,19 @@ FEATURES
 ══════════════════════════════*/
 
 .sim-features{
-
     display:flex;
-
     flex-direction:column;
-
     justify-content:space-between;
-
-    height:620px;
-
+    height:525px;
 }
 
 .sim-feature{
-
     display:flex;
-
     align-items:center;
-
-    gap:26px;
-
+    gap:28px;
     flex:1;
 
-    padding:22px 28px;
+    padding:18px 24px;
 
     border-radius:22px;
 
@@ -1506,23 +1463,17 @@ FEATURES
         background .35s,
         border-color .35s,
         box-shadow .35s;
-
 }
 
 .sim-feature:hover{
-
     transform:translateX(8px);
-
-    background:rgba(255,255,255,.025);
-
+    background:rgba(255,255,255,.03);
 }
 
 .sim-feature.active{
-
     transform:translateX(12px);
 
     background:
-
     linear-gradient(
         90deg,
         rgba(123,47,255,.12),
@@ -1533,7 +1484,6 @@ FEATURES
 
     box-shadow:
         0 18px 45px rgba(0,0,0,.18);
-
 }
 
 /*══════════════════════════════
@@ -1542,17 +1492,25 @@ NUMERO
 
 .sim-number{
 
-    width:70px;
+    width:95px;
+
+    min-width:95px;
 
     flex-shrink:0;
 
-    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
     font-family:var(--font-display);
 
-    font-size:3rem;
+    font-size:3.2rem;
 
     font-weight:900;
+
+    line-height:1;
+
+    overflow:visible;
 
     background:
     linear-gradient(
@@ -1569,9 +1527,7 @@ NUMERO
 }
 
 .sim-feature.active .sim-number{
-
-    transform:scale(1.15);
-
+    transform:scale(1.12);
 }
 
 /*══════════════════════════════
@@ -1579,71 +1535,46 @@ TEXTOS
 ══════════════════════════════*/
 
 .sim-copy{
-
     display:flex;
-
     flex-direction:column;
-
-    gap:10px;
-
+    gap:8px;
 }
 
 .sim-tag{
-
-    font-size:.72rem;
-
-    text-transform:uppercase;
-
+    font-size:.68rem;
     letter-spacing:.28em;
-
+    text-transform:uppercase;
     color:#00D4FF;
-
-    opacity:.85;
-
+    opacity:.8;
 }
 
 .sim-copy h3{
-
     margin:0;
-
     color:#FFF;
-
-    font-size:1.55rem;
-
+    font-size:1.45rem;
     font-family:var(--font-display);
-
     font-weight:800;
-
 }
 
 .sim-copy p{
-
     margin:0;
-
-    color:rgba(255,255,255,.70);
-
-    line-height:1.7;
-
-    max-width:360px;
-
+    max-width:330px;
+    color:rgba(255,255,255,.68);
+    line-height:1.65;
+    font-size:.9rem;
     transition:.35s;
-
 }
 
 .sim-feature.active p{
-
     color:#FFF;
-
 }
 
 /*══════════════════════════════
-BOTONES MOBILE
+MOBILE
 ══════════════════════════════*/
 
 .sim-mobile-selector{
-
     display:none;
-
 }
 
 /*══════════════════════════════
@@ -1653,59 +1584,37 @@ RESPONSIVE
 @media(max-width:1100px){
 
 .sim-layout{
-
     grid-template-columns:1fr;
-
-    gap:35px;
-
+    gap:30px;
 }
 
 .sim-stage{
-
-    height:460px;
-
+    height:430px;
 }
 
 .sim-features{
-
     display:none;
-
 }
 
 .sim-mobile-selector{
-
     display:flex;
-
     justify-content:center;
-
-    gap:12px;
-
     flex-wrap:wrap;
-
+    gap:12px;
 }
 
 .sim-mobile-btn{
-
     border:none;
-
     border-radius:999px;
-
-    padding:12px 22px;
-
+    padding:12px 20px;
     background:rgba(255,255,255,.05);
-
     color:#FFF;
-
     cursor:pointer;
-
     transition:.3s;
-
 }
 
 .sim-mobile-btn.active{
-
     background:#7B2FFF;
-
 }
 
 }
@@ -1713,31 +1622,21 @@ RESPONSIVE
 @media(max-width:768px){
 
 .simuladores{
-
-    padding:90px 0;
-
+    padding:80px 0;
 }
 
 .sim-stage{
-
-    height:330px;
-
-    border-radius:22px;
-
+    height:310px;
+    border-radius:20px;
 }
 
 .sim-mobile-selector{
-
     gap:10px;
-
 }
 
 .sim-mobile-btn{
-
-    font-size:.82rem;
-
     padding:10px 16px;
-
+    font-size:.82rem;
 }
 
 }
