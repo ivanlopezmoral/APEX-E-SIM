@@ -1409,6 +1409,8 @@ document.querySelectorAll(".program-card").forEach(card => {
 
         changeImage(button.dataset.image);
 
+        button.scrollIntoView({behavior:"smooth", inline:"center", block:"nearest"});
+
     }
 
     desktopButtons.forEach(button=>{
@@ -1501,10 +1503,10 @@ document.querySelectorAll(".program-card").forEach(card => {
     });
 
     // -----------------------------
-    // Mouse Down
+    // Pointer Down (mouse + touch + pen)
     // -----------------------------
 
-    slider.addEventListener("mousedown",(e)=>{
+    slider.addEventListener("pointerdown",(e)=>{
 
         isDown = true;
 
@@ -1512,9 +1514,11 @@ document.querySelectorAll(".program-card").forEach(card => {
 
         targetSpeed = 0;
 
-        startX = e.pageX;
+        startX = e.clientX;
 
         scrollLeft = slider.scrollLeft;
+
+        slider.setPointerCapture(e.pointerId);
 
     });
 
@@ -1522,25 +1526,31 @@ document.querySelectorAll(".program-card").forEach(card => {
     // Drag
     // -----------------------------
 
-    window.addEventListener("mousemove",(e)=>{
+    slider.addEventListener("pointermove",(e)=>{
 
         if(!isDown) return;
 
-        e.preventDefault();
-
-        const walk = (e.pageX-startX)*1.8;
+        const walk = (e.clientX-startX)*1.8;
 
         slider.scrollLeft = scrollLeft - walk;
 
     });
 
     // -----------------------------
-    // Mouse Up
+    // Pointer Up
     // -----------------------------
 
-    window.addEventListener("mouseup",()=>{
+    slider.addEventListener("pointerup",()=>{
 
-        if(!isDown) return;
+        isDown = false;
+
+        slider.classList.remove("dragging");
+
+        targetSpeed = MAX_SPEED;
+
+    });
+
+    slider.addEventListener("pointercancel",()=>{
 
         isDown = false;
 
