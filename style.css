@@ -1663,24 +1663,12 @@ RESPONSIVE
 
     display:flex;
 
-    justify-content:flex-start;
+    justify-content:center;
 
-    flex-wrap:nowrap;
+    flex-wrap:wrap;
 
-    gap:12px;
+    gap:10px;
 
-    overflow-x:auto;
-    scroll-snap-type:x proximity;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-
-    margin:0 calc(var(--container-px) * -1);
-    padding:4px var(--container-px);
-
-}
-
-.sim-mobile-selector::-webkit-scrollbar{
-    display:none;
 }
 
 .sim-mobile-btn{
@@ -1689,11 +1677,15 @@ RESPONSIVE
 
     border-radius:999px;
 
-    padding:12px 20px;
+    padding:10px 18px;
 
     background:rgba(255,255,255,.05);
 
+    border:1px solid rgba(255,255,255,.08);
+
     color:#FFF;
+
+    font-size:.82rem;
 
     cursor:pointer;
 
@@ -1703,13 +1695,13 @@ RESPONSIVE
 
     white-space:nowrap;
 
-    scroll-snap-align:center;
-
 }
 
 .sim-mobile-btn.active{
 
     background:#7B2FFF;
+
+    border-color:#7B2FFF;
 
 }
 
