@@ -1409,8 +1409,6 @@ document.querySelectorAll(".program-card").forEach(card => {
 
         changeImage(button.dataset.image);
 
-        button.scrollIntoView({behavior:"smooth", inline:"center", block:"nearest"});
-
     }
 
     desktopButtons.forEach(button=>{
