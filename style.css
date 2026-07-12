@@ -1415,12 +1415,10 @@ IMAGEN
     object-fit:cover;
     object-position:center;
     z-index:2;
-
     transition:
         opacity .45s ease,
         transform .6s ease,
         filter .45s ease;
-
     filter:
         brightness(1.05)
         contrast(1.06)
@@ -1436,19 +1434,26 @@ FEATURES
 ══════════════════════════════*/
 
 .sim-features{
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
+
+    display:grid;
+
+    grid-template-rows:repeat(4,1fr);
+
     height:525px;
+
+    gap:12px;
+
 }
 
 .sim-feature{
-    display:flex;
-    align-items:center;
-    gap:28px;
-    flex:1;
 
-    padding:18px 24px;
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+    padding:20px 24px;
 
     border-radius:22px;
 
@@ -1463,14 +1468,19 @@ FEATURES
         background .35s,
         border-color .35s,
         box-shadow .35s;
+
 }
 
 .sim-feature:hover{
+
     transform:translateX(8px);
+
     background:rgba(255,255,255,.03);
+
 }
 
 .sim-feature.active{
+
     transform:translateX(12px);
 
     background:
@@ -1482,8 +1492,8 @@ FEATURES
 
     border-color:rgba(123,47,255,.35);
 
-    box-shadow:
-        0 18px 45px rgba(0,0,0,.18);
+    box-shadow:0 18px 45px rgba(0,0,0,.18);
+
 }
 
 /*══════════════════════════════
@@ -1499,7 +1509,9 @@ NUMERO
     flex-shrink:0;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     font-family:var(--font-display);
@@ -1509,8 +1521,6 @@ NUMERO
     font-weight:900;
 
     line-height:1;
-
-    overflow:visible;
 
     background:
     linear-gradient(
@@ -1527,7 +1537,9 @@ NUMERO
 }
 
 .sim-feature.active .sim-number{
+
     transform:scale(1.12);
+
 }
 
 /*══════════════════════════════
@@ -1535,38 +1547,65 @@ TEXTOS
 ══════════════════════════════*/
 
 .sim-copy{
+
     display:flex;
+
     flex-direction:column;
+
+    justify-content:center;
+
     gap:8px;
+
 }
 
 .sim-tag{
+
     font-size:.68rem;
+
     letter-spacing:.28em;
+
     text-transform:uppercase;
+
     color:#00D4FF;
+
     opacity:.8;
+
 }
 
 .sim-copy h3{
+
     margin:0;
+
     color:#FFF;
+
     font-size:1.45rem;
+
     font-family:var(--font-display);
+
     font-weight:800;
+
 }
 
 .sim-copy p{
+
     margin:0;
+
     max-width:330px;
+
     color:rgba(255,255,255,.68);
+
     line-height:1.65;
+
     font-size:.9rem;
+
     transition:.35s;
+
 }
 
 .sim-feature.active p{
+
     color:#FFF;
+
 }
 
 /*══════════════════════════════
@@ -1574,7 +1613,9 @@ MOBILE
 ══════════════════════════════*/
 
 .sim-mobile-selector{
+
     display:none;
+
 }
 
 /*══════════════════════════════
@@ -1584,37 +1625,59 @@ RESPONSIVE
 @media(max-width:1100px){
 
 .sim-layout{
+
     grid-template-columns:1fr;
+
     gap:30px;
+
 }
 
 .sim-stage{
+
     height:430px;
+
 }
 
 .sim-features{
+
     display:none;
+
 }
 
 .sim-mobile-selector{
+
     display:flex;
+
     justify-content:center;
+
     flex-wrap:wrap;
+
     gap:12px;
+
 }
 
 .sim-mobile-btn{
+
     border:none;
+
     border-radius:999px;
+
     padding:12px 20px;
+
     background:rgba(255,255,255,.05);
+
     color:#FFF;
+
     cursor:pointer;
+
     transition:.3s;
+
 }
 
 .sim-mobile-btn.active{
+
     background:#7B2FFF;
+
 }
 
 }
@@ -1622,25 +1685,34 @@ RESPONSIVE
 @media(max-width:768px){
 
 .simuladores{
+
     padding:80px 0;
+
 }
 
 .sim-stage{
+
     height:310px;
+
     border-radius:20px;
+
 }
 
 .sim-mobile-selector{
+
     gap:10px;
+
 }
 
 .sim-mobile-btn{
+
     padding:10px 16px;
+
     font-size:.82rem;
-}
 
 }
 
+}
 /* ─────────────────────────────────────────────────────
    15. ESTADÍSTICAS
    ───────────────────────────────────────────────────── */
