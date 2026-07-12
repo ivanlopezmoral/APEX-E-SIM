@@ -1367,17 +1367,21 @@ SIMULADOR PREMIUM
 ══════════════════════════════════════════════*/
 
 .simuladores{
-    position:relative;
     padding:120px 0;
     overflow:hidden;
 }
 
 .sim-layout{
+
     display:grid;
     grid-template-columns:1.35fr .85fr;
-    gap:80px;
-    align-items:center;
-    margin-top:60px;
+
+    gap:70px;
+
+    align-items:stretch;
+
+    margin-top:70px;
+
 }
 
 /*══════════════════════════════
@@ -1385,231 +1389,164 @@ IMAGEN
 ══════════════════════════════*/
 
 .sim-stage{
+
     position:relative;
-    height:560px;
-    border-radius:30px;
+
+    height:620px;
+
     overflow:hidden;
+
+    border-radius:30px;
+
+    background:#07090f;
+
     border:1px solid rgba(255,255,255,.08);
-    background:#06070d;
+
     box-shadow:
-        0 40px 120px rgba(0,0,0,.45);
+        0 40px 100px rgba(0,0,0,.45);
+
 }
 
 .sim-stage-glow{
+
     position:absolute;
-    inset:auto;
+
     width:700px;
     height:700px;
-    right:-250px;
-    bottom:-250px;
+
+    right:-260px;
+    bottom:-260px;
+
     border-radius:50%;
+
     background:
-        radial-gradient(circle,
+    radial-gradient(
+        circle,
         rgba(123,47,255,.35),
-        transparent 70%);
+        transparent 70%
+    );
+
     filter:blur(90px);
+
     pointer-events:none;
+
+    z-index:1;
+
 }
 
 .sim-image{
+
+    position:relative;
+
     width:100%;
     height:100%;
+
     object-fit:cover;
+
     object-position:center;
+
+    z-index:2;
+
+    transition:
+        opacity .45s ease,
+        transform .7s ease,
+        filter .45s ease;
+
     filter:
-        brightness(1.05)
+        brightness(1.04)
         contrast(1.05)
         saturate(1.08);
-    transition:
-        transform .6s ease,
-        filter .5s ease;
+
 }
 
 .sim-stage:hover .sim-image{
-    transform:scale(1.02);
-}
 
-/*══════════════════════════════
-LUCES
-══════════════════════════════*/
-
-.sim-light{
-
-    position:absolute;
-
-    width:240px;
-    height:240px;
-
-    border-radius:50%;
-
-    opacity:0;
-
-    transition:.35s;
-
-    filter:blur(42px);
-
-    background:
-        radial-gradient(circle,
-        rgba(0,212,255,.75),
-        rgba(123,47,255,.35),
-        transparent 72%);
-
-}
-
-.sim-light.wheel{
-
-    left:26%;
-    top:34%;
-
-}
-
-.sim-light.screen{
-
-    left:23%;
-    top:2%;
-
-}
-
-.sim-light.motion{
-
-    right:8%;
-    top:45%;
-
-}
-
-.sim-light.pedals{
-
-    left:28%;
-    bottom:-3%;
+    transform:scale(1.025);
 
 }
 
 /*══════════════════════════════
-PANEL DERECHO
+FEATURES
 ══════════════════════════════*/
 
 .sim-features{
 
     display:flex;
-    flex-direction:column;
-    justify-content:center;
-    gap:16px;
 
-    height:560px;
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    height:620px;
 
 }
 
 .sim-feature{
 
-    position:relative;
-
     display:flex;
+
     align-items:center;
 
-    gap:24px;
+    gap:26px;
 
     flex:1;
 
-    border:none;
+    padding:22px 28px;
+
+    border-radius:22px;
+
+    border:1px solid transparent;
+
+    background:transparent;
+
     cursor:pointer;
 
-    text-align:left;
-
-    padding:24px 0;
-
-    background:none;
-
-    transition:.35s;
-
-}
-
-/* línea */
-
-.sim-feature::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:-120px;
-    top:50%;
-
-    width:90px;
-    height:2px;
-
-    background:linear-gradient(90deg,#7B2FFF,#00D4FF);
-
-    transform:scaleX(0);
-
-    transform-origin:right;
-
-    transition:.35s;
-
-}
-
-/* punto */
-
-.sim-feature::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:-34px;
-    top:50%;
-
-    width:10px;
-    height:10px;
-
-    border-radius:50%;
-
-    background:#00D4FF;
-
-    transform:
-        translateY(-50%)
-        scale(.5);
-
-    opacity:0;
-
-    transition:.35s;
-
-    box-shadow:
-        0 0 15px #00D4FF,
-        0 0 30px rgba(0,212,255,.45);
-
-}
-
-.sim-feature.active::before{
-
-    transform:scaleX(1);
-
-}
-
-.sim-feature.active::after{
-
-    opacity:1;
-
-    transform:
-        translateY(-50%)
-        scale(1);
+    transition:
+        transform .35s,
+        background .35s,
+        border-color .35s,
+        box-shadow .35s;
 
 }
 
 .sim-feature:hover{
 
-    transform:translateX(10px);
+    transform:translateX(8px);
+
+    background:rgba(255,255,255,.025);
+
+}
+
+.sim-feature.active{
+
+    transform:translateX(12px);
+
+    background:
+
+    linear-gradient(
+        90deg,
+        rgba(123,47,255,.12),
+        rgba(255,255,255,.03)
+    );
+
+    border-color:rgba(123,47,255,.35);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.18);
 
 }
 
 /*══════════════════════════════
-NÚMERO
+NUMERO
 ══════════════════════════════*/
 
 .sim-number{
 
-    width:62px;
+    width:70px;
 
     flex-shrink:0;
+
+    text-align:center;
 
     font-family:var(--font-display);
 
@@ -1617,15 +1554,17 @@ NÚMERO
 
     font-weight:900;
 
-    line-height:1;
-
-    transition:.35s;
-
     background:
-        linear-gradient(180deg,#7B2FFF,#00D4FF);
+    linear-gradient(
+        180deg,
+        #7B2FFF,
+        #00D4FF
+    );
 
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
+
+    transition:.35s;
 
 }
 
@@ -1642,38 +1581,38 @@ TEXTOS
 .sim-copy{
 
     display:flex;
+
     flex-direction:column;
-    gap:8px;
+
+    gap:10px;
 
 }
 
 .sim-tag{
 
-    font-family:var(--font-condensed);
-
     font-size:.72rem;
-
-    letter-spacing:.25em;
-
-    color:rgba(255,255,255,.45);
 
     text-transform:uppercase;
 
-    transition:.35s;
+    letter-spacing:.28em;
+
+    color:#00D4FF;
+
+    opacity:.85;
 
 }
 
 .sim-copy h3{
 
-    font-family:var(--font-display);
+    margin:0;
+
+    color:#FFF;
 
     font-size:1.55rem;
 
+    font-family:var(--font-display);
+
     font-weight:800;
-
-    color:#fff;
-
-    margin:0;
 
 }
 
@@ -1681,53 +1620,29 @@ TEXTOS
 
     margin:0;
 
-    max-width:360px;
-
-    color:rgba(255,255,255,.62);
+    color:rgba(255,255,255,.70);
 
     line-height:1.7;
 
-    font-size:.94rem;
+    max-width:360px;
 
     transition:.35s;
 
 }
 
-.sim-feature.active .sim-tag{
-
-    color:#00D4FF;
-
-}
-
 .sim-feature.active p{
 
-    color:#ffffff;
+    color:#FFF;
 
 }
 
 /*══════════════════════════════
-ESTADOS DEL SIMULADOR
+BOTONES MOBILE
 ══════════════════════════════*/
 
-.sim-stage.highlight-wheel .sim-light.wheel,
-.sim-stage.highlight-screen .sim-light.screen,
-.sim-stage.highlight-motion .sim-light.motion,
-.sim-stage.highlight-pedals .sim-light.pedals{
+.sim-mobile-selector{
 
-    opacity:1;
-    transform:scale(1.15);
-
-}
-
-.sim-stage.highlight-wheel .sim-image,
-.sim-stage.highlight-screen .sim-image,
-.sim-stage.highlight-motion .sim-image,
-.sim-stage.highlight-pedals .sim-image{
-
-    filter:
-        brightness(1.12)
-        contrast(1.08)
-        saturate(1.1);
+    display:none;
 
 }
 
@@ -1737,47 +1652,93 @@ RESPONSIVE
 
 @media(max-width:1100px){
 
-    .sim-layout{
+.sim-layout{
 
-        grid-template-columns:1fr;
-        gap:50px;
+    grid-template-columns:1fr;
 
-    }
+    gap:35px;
 
-    .sim-stage{
+}
 
-        height:460px;
+.sim-stage{
 
-    }
+    height:460px;
 
-    .sim-features{
+}
 
-        height:auto;
+.sim-features{
 
-    }
+    display:none;
+
+}
+
+.sim-mobile-selector{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+}
+
+.sim-mobile-btn{
+
+    border:none;
+
+    border-radius:999px;
+
+    padding:12px 22px;
+
+    background:rgba(255,255,255,.05);
+
+    color:#FFF;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.sim-mobile-btn.active{
+
+    background:#7B2FFF;
+
+}
 
 }
 
 @media(max-width:768px){
 
-    .sim-stage{
+.simuladores{
 
-        height:340px;
+    padding:90px 0;
 
-    }
+}
 
-    .sim-feature::before,
-    .sim-feature::after{
+.sim-stage{
 
-        display:none;
+    height:330px;
 
-    }
+    border-radius:22px;
 
-    .sim-number{
+}
 
-        font-size:2.3rem;
+.sim-mobile-selector{
 
-    }
+    gap:10px;
+
+}
+
+.sim-mobile-btn{
+
+    font-size:.82rem;
+
+    padding:10px 16px;
+
+}
 
 }
 
