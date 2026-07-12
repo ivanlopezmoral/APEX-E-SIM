@@ -1348,47 +1348,84 @@ document.querySelectorAll(".program-card").forEach(card => {
 
 (function () {
 
-    const features = document.querySelectorAll(".sim-feature");
-    const stage = document.querySelector(".sim-stage");
+    const image = document.getElementById("simImage");
 
-    if (!features.length || !stage) return;
+    const desktopButtons = document.querySelectorAll(".sim-feature");
+    const mobileButtons = document.querySelectorAll(".sim-mobile-btn");
 
-    const classes = [
-        "highlight-wheel",
-        "highlight-screen",
-        "highlight-motion",
-        "highlight-pedals"
+    if (!image) return;
+
+    // Precarga imágenes
+    const images = [
+        "images/simulador.png",
+        "images/volante.png",
+        "images/pantallas.png",
+        "images/plataforma.png",
+        "images/pedales.png"
     ];
 
-    function activate(feature){
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
 
-        // limpia activos
-        features.forEach(item => item.classList.remove("active"));
-        stage.classList.remove(...classes);
+    function changeImage(src){
 
-        // activa card
-        feature.classList.add("active");
+        if(image.src.includes(src)) return;
 
-        // ilumina simulador
-        const target = feature.dataset.target;
+        image.style.opacity = "0";
+        image.style.transform = "scale(1.05)";
 
-        stage.classList.add(`highlight-${target}`);
+        setTimeout(() => {
+
+            image.src = src;
+
+            image.onload = () => {
+
+                image.style.opacity = "1";
+                image.style.transform = "scale(1)";
+
+            };
+
+        },180);
 
     }
 
-    // eventos
-    features.forEach(feature => {
+    function activateDesktop(button){
 
-        feature.addEventListener("mouseenter", () => activate(feature));
+        desktopButtons.forEach(b=>b.classList.remove("active"));
 
-        feature.addEventListener("focus", () => activate(feature));
+        button.classList.add("active");
 
-        feature.addEventListener("click", () => activate(feature));
+        changeImage(button.dataset.image);
+
+    }
+
+    function activateMobile(button){
+
+        mobileButtons.forEach(b=>b.classList.remove("active"));
+
+        button.classList.add("active");
+
+        changeImage(button.dataset.image);
+
+    }
+
+    desktopButtons.forEach(button=>{
+
+        button.addEventListener("mouseenter",()=>activateDesktop(button));
+
+        button.addEventListener("focus",()=>activateDesktop(button));
+
+        button.addEventListener("click",()=>activateDesktop(button));
 
     });
 
-    // estado inicial
-    activate(features[0]);
+    mobileButtons.forEach(button=>{
+
+        button.addEventListener("click",()=>activateMobile(button));
+
+    });
 
 })();
 /* =====================================================
