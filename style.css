@@ -1911,6 +1911,7 @@ CARD
 
     position:relative;
 
+    -webkit-perspective:1800px;
     perspective:1800px;
 
     height:548px;
@@ -1929,13 +1930,15 @@ CARD
     transition:
         transform .9s cubic-bezier(.22,1,.36,1);
 
+    -webkit-transform-style:preserve-3d;
     transform-style:preserve-3d;
 
 }
 
 .program-card.flipped .program-card-inner{
 
-    transform:rotateY(180deg);
+    -webkit-transform:rotateY(180deg) translateZ(0.01px);
+    transform:rotateY(180deg) translateZ(0.01px);
 
 }
 
@@ -1954,6 +1957,7 @@ FACES
 
     border-radius:24px;
 
+    -webkit-backface-visibility:hidden;
     backface-visibility:hidden;
 
     background:#05070f;
@@ -1964,6 +1968,9 @@ FACES
 
 .program-front{
 
+    -webkit-transform:translateZ(0.01px);
+    transform:translateZ(0.01px);
+
     box-shadow:
 
         0 25px 60px rgba(0,0,0,.45);
@@ -1972,7 +1979,8 @@ FACES
 
 .program-back{
 
-    transform:rotateY(180deg);
+    -webkit-transform:rotateY(180deg) translateZ(0.01px);
+    transform:rotateY(180deg) translateZ(0.01px);
 
     background:
         linear-gradient(
@@ -2011,6 +2019,7 @@ HOVER
     width:100%;
     height:100%;
 
+    -webkit-transform-style:preserve-3d;
     transform-style:preserve-3d;
 
     transition:
@@ -2020,7 +2029,8 @@ HOVER
 
 .program-card.flipped .program-card-inner{
 
-    transform:rotateY(180deg);
+    -webkit-transform:rotateY(180deg) translateZ(0.01px);
+    transform:rotateY(180deg) translateZ(0.01px);
 
 }
 
