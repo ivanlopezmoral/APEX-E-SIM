@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biblioteca UI — APEX Racing Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ui-kit.css">
+</head>
+<body>
+
+<div class="kit">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="kit-sidebar">
+    <div class="kit-logo">
+      <span class="kit-logo-text">APEX</span>
+      <span class="kit-logo-dot"></span>
+    </div>
+    <span class="kit-logo-sub">Sistema de diseño</span>
+
+    <div class="kit-progress">
+      <div class="kit-progress-spine">
+        <div class="kit-progress-fill" id="kitProgressFill"></div>
+        <div class="kit-progress-car" id="kitProgressCar"></div>
+      </div>
+      <nav class="kit-nav" id="kitNav">
+        <a href="#paleta" class="kit-nav-link"><span class="kit-nav-num">01</span> Paleta de color</a>
+        <a href="#tipografia" class="kit-nav-link"><span class="kit-nav-num">02</span> Tipografía</a>
+        <a href="#botones" class="kit-nav-link"><span class="kit-nav-num">03</span> Botones</a>
+        <a href="#superficies" class="kit-nav-link"><span class="kit-nav-num">04</span> Superficies</a>
+        <a href="#formularios" class="kit-nav-link"><span class="kit-nav-num">05</span> Formularios</a>
+        <a href="#badges" class="kit-nav-link"><span class="kit-nav-num">06</span> Badges &amp; tags</a>
+        <a href="#programas" class="kit-nav-link"><span class="kit-nav-num">07</span> Tarjetas 3D</a>
+        <a href="#navegacion" class="kit-nav-link"><span class="kit-nav-num">08</span> Tabs &amp; acordeón</a>
+        <a href="#telemetria" class="kit-nav-link"><span class="kit-nav-num">09</span> Telemetría</a>
+        <a href="#motion" class="kit-nav-link"><span class="kit-nav-num">10</span> Motion</a>
+        <a href="#iconos" class="kit-nav-link"><span class="kit-nav-num">11</span> Iconos</a>
+        <a href="#espaciado" class="kit-nav-link"><span class="kit-nav-num">12</span> Espaciado</a>
+        <a href="#forma" class="kit-nav-link"><span class="kit-nav-num">13</span> Forma</a>
+      </nav>
+    </div>
+
+    <div class="kit-sidebar-foot">
+      <span>Build</span><strong id="kitPct">00%</strong>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="kit-main">
+
+    <header class="kit-hero">
+      <span class="kit-kicker">Biblioteca UI · APEX Racing Academy</span>
+      <h1>Sistema de <em>diseño</em></h1>
+      <p>Cada token, componente e interacción reales de la experiencia digital de APEX, documentados en un solo lugar para construir con consistencia de punta a punta.</p>
+      <div class="kit-hero-meta">
+        <span class="kit-meta-chip">13 secciones</span>
+        <span class="kit-meta-chip">3 familias tipográficas</span>
+        <span class="kit-meta-chip">Componentes en vivo</span>
+      </div>
+    </header>
+
+    <!-- ============ 01 · PALETA ============ -->
+    <section class="kit-section" id="paleta">
+      <div class="kit-section-head">
+        <span class="kit-section-num">01</span>
+        <div class="kit-section-headings">
+          <span class="kit-section-eyebrow">Fundamentos</span>
+          <h2 class="kit-section-title">Paleta de color</h2>
+          <p class="kit-section-desc">Violeta y azul telemetría sobre una base casi negra. Cada swatch copia su hexadecimal al hacer clic.</p>
+        </div>
+      </div>
+
+      <p class="kit-block-label">Marca</p>
+      <div class="kit-swatch-grid" id="colorGridBrand"></div>
+
+      <p class="kit-block-label" style="margin-top:2.2rem;">Neutros &amp; superficie</p>
+      <div class="kit-swatch-grid" id="colorGridNeutral"></div>
+
+      <p class="kit-block-label" style="margin-top:2.2rem;">Estado</p>
+      <div class="kit-swatch-grid" id="colorGridState"></div>
+    </section>
+
+    <!-- ============ 02 · TIPOGRAFÍA ============ -->
+    <section class="kit-section" id="tipografia">
+      <div class="kit-section-head">
+        <span class="kit-section-num">02</span>
+        <div class="kit-section-headings">
+          <span class="kit-section-eyebrow">Fundamentos</span>
+          <h2 class="kit-section-title">Tipografía</h2>
+          <p class="kit-section-desc">Tres roles bien delimitados: display para impacto, condensada para etiquetas técnicas, body para lectura.</p>
+        </div>
+      </div>
+
+      <div class="type-card glass-card">
+        <div class="type-card-head"><h3>Orbitron · Display</h3><span>800 / 900 · títulos, precios, cifras</span></div>
+        <p class="type-sample-display">Programa Elite</p>
+        <p class="type-charset">ABCDEFGHIJKLMNOPQRSTUVWXYZ · 0123456789</p>
+      </div>
+
+      <div class="type-card glass-card">
+        <div class="type-card-head"><h3>Barlow Condensed</h3><span>600 / 700 · nav, botones, etiquetas técnicas</span></div>
+        <p class="type-sample-condensed">Racecraft · Telemetría · Coaching 1 a 1</p>
+        <p class="type-charset">ABCDEFGHIJKLMNOPQRSTUVWXYZ · 0123456789</p>
+      </div>
+
+      <div class="type-card glass-card">
+        <div class="type-card-head"><h3>Barlow</h3><span>300 / 400 / 500 · párrafos y descripciones</span></div>
+        <p class="type-sample-body">Frenado progresivo, trazadas ideales y control del vehículo en el límite.</p>
+        <p class="type-charset">ABCDEFGHIJKLMNOPQRSTUVWXYZ · 0123456789</p>
+      </div>
+
+      <p class="kit-block-label" style="margin-top:2.2rem;">Escala tipográfica</p>
+      <div class="glass-card kit-demo" style="padding:1.6rem 2rem;">
+        <div class="scale-row"><span class="scale-label">Hero · 3.8rem</span><span class="scale-sample" style="font-size:2.6rem;">Título hero</span></div>
+        <div class="scale-row"><span class="scale-label">Section · 2.9rem</span><span class="scale-sample" style="font-size:2.1rem;">Título de sección</span></div>
+        <div class="scale-row"><span class="scale-label">Panel · 1.7rem</span><span class="scale-sample" style="font-size:1.5rem;">Título de panel</span></div>
+        <div class="scale-row"><span class="scale-label">Label · 0.85rem</span><span class="scale-sample" style="font-size:.85rem; font-family:var(--font-condensed); letter-spacing:.1em; text-transform:uppercase;">Etiqueta de UI</span></div>
+        <div class="scale-row"><span class="scale-label">Micro · 0.6rem</span><span class="scale-sample" style="font-size:.6rem; font-family:var(--font-condensed); letter-spacing:.2em; text-transform:uppercase; color:var(--apex-grey-2);">Dato técnico</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 03 · BOTONES ============ -->
+    <section class="kit-section" id="botones">
+      <div class="kit-section-head">
+        <span class="kit-section-num">03</span>
+        <div class="kit-section-headings">
+          <span class="kit-section-eyebrow">Componentes</span>
+          <h2 class="kit-section-title">Botones</h2>
+          <p class="kit-section-desc">Primario con glow violeta, ghost con borde, y variantes de tamaño y ancho.</p>
+        </div>
+      </div>
+
+      <div class="glass-card kit-demo">
+        <div class="kit-row">
+          <a class="btn btn--primary" href="#"><span class="btn-inner"><span class="btn-text">Reservar mi lugar</span><span class="btn-arrow">→</span></span><span class="btn-glow"></span></a>
+          <a class="btn btn--ghost" href="#"><span class="btn-inner"><span class="btn-text">Explorar simulador</span></span></a>
+          <a class="btn btn--primary btn--xl" href="#"><span class="btn-inner"><span class="btn-text">Botón XL</span><span class="btn-arrow">→</span></span><span class="btn-glow"></span></a>
+          <a class="btn btn--ghost btn--sm" href="#"><span class="btn-inner"><span class="btn-text">Sm</span></span></a>
+          <a class="btn btn--primary btn--disabled" href="#"><span class="btn-inner"><span class="btn-text">Deshabilitado</span></span></a>
+        </div>
+        <div style="max-width:340px; margin-top:1.4rem;">
+          <a class="btn btn--primary btn--full" href="#"><span class="btn-inner"><span class="btn-text">Ancho completo</span><span class="btn-arrow">→</span></span><span class="btn-glow"></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 · SUPERFICIES ============ -->
+    <section class="kit-section" id="superficies">
+      <div class="kit-section-head">
+        <span class="kit-section-num">04</span>
+        <div class="kit-section-headings">
+          <span class="kit-section-eyebrow">Componentes</span>
+          <h2 class="kit-section-title">Superficies</h2>
+          <p class="kit-section-desc">La glass-card es la base de casi todos los módulos: fondo translúcido, blur y borde violeta que se ilumina al pasar el mouse.</p>
+        </div>
+      </div>
+      <div class="kit-swatch-grid">
+        <div class="glass-card kit-demo" style="text-align:center;">
+          <p style="font-family:var(--font-condensed); letter-spacing:.1em; text-transform:uppercase; font-size:.8rem; color:var(--apex-grey-1);">.glass-card</p>
+          <p style="font-size:.78rem; color:var(--apex-grey-2); margin-top:.4rem;">Pasá el mouse para ver el borde y el glow</p>
+        </div>
+        <div class="glass-card kit-demo" style="text-align:center; background:rgba(0,212,255,.03); border-color:rgba(0,212,255,.2);">
+          <p style="font-family:var(--font-condensed); letter-spacing:.1em; text-transform:uppercase; font-size:.8rem; color:var(--apex-grey-1);">Variante azul</p>
+          <p style="font-size:.78rem; color:var(--apex-grey-2); margin-top:.4rem;">Usada en fichas de pilotos y telemetría</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 · FORMULARIOS ============ -->
+    <section class="kit-section" id="formularios">
+      <div class="kit-section-head">
+        <span class="kit-section-num">05</span>
+        <div class="kit-section-headings">
+          <span class="kit-section-eyebrow">Componentes</span>
+          <h2 class="kit-section-title">Formularios</h2>
+          <p class="kit-section-desc">Inputs reales del formulario de inscripción, con estados de foco, error y éxito.</p>
+        </div>
+      </div>
+
+      <div class="glass-card kit-demo">
+        <form class="apex-form" onsubmit="return false">
+          <div class="form-row--two">
+            <div class="form-group">
+              <label class="form-label">Nombre</label>
+              <input class="form-input" type="text" placeholder="Tu nombre">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input class="form-input" type="email" placeholder="tu@email.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Programa</label>
+            <div class="select-wrap">
+              <select class="form-select">
+                <option>Elite — Performance</option>
+                <option>Pro — Racecraft</option>
+                <option>Rookie — Fundamentos</option>
+              </select>
+              <span class="select-arrow">▾</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mensaje</label>
+            <textarea class="form-textarea" placeholder="Contanos tu objetivo..."></textarea>
+          </div>
+          <div class="insc-checks">
+            <label class="insc-check"><input type="checkbox" checked> Acepto recibir novedades del programa por email.</label>
+          </div>
+          <div class="kit-row" style="gap:2rem;">
+            <div>
+              <p class="field-state-label">Estado — error</p>
+              <span class="form-error">Ingresá un email válido.</span>
+            </div>
+            <div>
+              <p class="field-state-label">Estado — éxito</p>
+              <span class="form-success">¡Listo! Te contactamos en breve.</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ 06 · BADGES ============ -->
+    <section class="kit-section" id="badges">
+      <div class="kit-section-head">
+        <span class="kit-section-num">06</span>
+        <div class="kit-section-headings">
+          <span class="kit-section-eyebrow">Componentes</span>
+          <h2 class="kit-section-title">Badges &amp; etiquetas</h2>
+          <p class="kit-section-desc">Marcadores de estado, nivel y categoría usados en tarjetas y secciones.</p>
+        </div>
+      </div>
+      <div class="glass-card kit-demo">
+        <div class="badge-row">
+          <span class="section-eyebrow">Eyebrow de sección</span>
+          <span class="elite-track-tag">Fundamentos</span>
+          <span class="elite-track-tag elite-track-tag--gold">Certificación</span>
+          <span class="coach-badge">Head Coach</span>
+          <span class="program-level">Nivel 02</span>
+          <span class="driver-badge">En pista</span>
+          <span class="footer-badge"><span class="footer-badge-dot"></span> Cupos abiertos</span>
+          <span class="rm-skill-chip">Trazada ideal</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 07 · TARJETAS 3D ============ -->
+    <section class="kit-section" id="programas">
+      <div class="kit-section-head">
+        <span class="kit-section-num">07</span>
+        <div class="kit-section-headings">
+          <span class="kit-section-eyebrow">Componentes</span>
+          <h2 class="kit-section-title">Tarjetas de programa</h2>
+          <p class="kit-section-desc">Tarjeta con flip 3D real: hacé clic para ver el detalle del programa.</p>
+        </div>
+      </div>
+
+      <div class="program-grid">
+
+        <div class="program-card" data-flip>
+          <div class="program-card-inner">
+            <div class="program-front">
+              <div class="program-visual"><span class="program-visual-glow"></span></div>
+              <div class="program-front-top">
+                <span class="program-level">Nivel 01</span>
+                <span class="program-rating program-rating--compact"><span class="program-rating-stars">★★★★★</span><span class="program-rating-text">4.8 (98)</span></span>
+              </div>
+              <span class="program-subtitle">Fundamentos</span>
+              <h3 class="program-name">Rookie</h3>
+              <span class="program-price"><strong>$28.000</strong><span>/mes</span></span>
+              <span class="program-btn">Ver programa</span>
+              <ul class="program-check-list"><li>Diagnóstico inicial</li><li>Técnica de manejo</li><li>Simulador profesional</li></ul>
+              <span class="program-hint">Clic para girar ↻</span>
+            </div>
+            <div class="program-back">
+              <span class="program-level">Nivel 01</span>
+              <h3 class="program-back-title">Rookie</h3>
+              <span class="program-back-subtitle">Fundamentos</span>
+              <ul class="program-back-list"><li>Frenado y trazada</li><li>Setup guiado</li><li>Grupo reducido</li></ul>
+              <div class="program-back-grid">
+                <div class="program-back-grid-item"><strong>$28.000</strong><span>Por mes</span></div>
+                <div class="program-back-grid-item"><strong>4</strong><span>Semanas</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="program-card program-card--pro" data-flip>
+          <div class="program-card-inner">
+            <div class="program-front">
+              <div class="program-visual"><span class="program-visual-glow"></span></div>
+              <div class="program-front-top">
+                <span class="program-level">Nivel 02</span>
+                <span class="program-rating program-rating--compact"><span class="program-rating-stars">★★★★★</span><span class="program-rating-text">4.9 (140)</span></span>
+              </div>
+              <span class="program-subtitle">Racecraft</span>
+              <h3 class="program-name">Pro</h3>
+              <span class="program-price"><strong>$41.000</strong><span>/mes</span></span>
+              <span class="program-btn">Ver programa</span>
+              <ul class="program-check-list"><li>Telemetría comparada</li><li>Racecraft y estrategia</li><li>Carreras completas</li></ul>
+              <span class="program-hint">Clic para girar ↻</span>
+            </div>
+            <div class="program-back">
+              <span class="program-level">Nivel 02</span>
+              <h3 class="program-back-title">Pro</h3>
+              <span class="program-back-subtitle">Racecraft</span>
+              <ul class="program-back-list"><li>Overlay de vueltas</li><li>Gestión de neumáticos</li><li>Clasificación simulada</li></ul>
+              <div class="program-back-grid">
+                <div class="program-back-grid-item"><strong>$41.000</strong><span>Por mes</span></div>
+                <div class="program-back-grid-item"><strong>6</strong><span>Semanas</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="program-card program-card--elite" data-flip>
+          <div class="program-card-inner">
+            <div class="program-front">
+              <div class="program-visual"><span class="program-visual-glow"></span></div>
+              <div class="program-front-top">
+                <span class="program-level">Nivel 03</span>
+                <span class="program-rating program-rating--compact"><span class="program-rating-stars">★★★★★</span><span class="program-rating-text">4.9 (156)</span></span>
+              </div>
+              <span class="program-subtitle">Performance</span>
+              <h3 class="program-name">Elite</h3>
+              <span class="program-price"><strong>$52.000</strong><span>/mes</span></span>
+              <span class="program-btn">Reservar mi lugar</span>
+              <ul class="program-check-list"><li>Coaching 1 a 1</li><li>Telemetría profesional</li><li>Certificación APEX</li></ul>
+              <span class="program-hint">Clic para girar ↻</span>
+            </div>
+            <div class="program-back">
+              <span class="program-level">Nivel 03</span>
+              <h3 class="program-back-title">Elite</h3>
+              <span class="program-back-subtitle">Performance</span>
+              <div class="program-back-instructor" style="display:flex; align-items:center; gap:.8rem; margin:.8rem 0;">
+                <span class="program-instructor-avatar" style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--apex-violet),var(--apex-blue));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:.8rem;font-weight:800;">MS</span>
+                <span style="display:flex; flex-direction:column;">
+                  <strong style="font-size:.82rem;">Martina Sosa</strong>
+                  <span style="font-size:.68rem; color:var(--apex-grey-2);">Coach de Telemetría</span>
+                </span>
+              </div>
+              <div class="program-back-grid">
+                <div class="program-back-grid-item"><strong>$52.000</strong><span>Por mes</span></div>
+                <div class="program-back-grid-item"><strong>8</strong><span>Semanas</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ 08 · NAVEGACIÓN ============ -->
+    <section class="kit-section" id="navegacion">
+      <div class="kit-section-head">
+        <span class="kit-section-num">08</span>
+        <div class="kit-section-headings">
+          <span class="kit-section-eyebrow">Interacción</span>
+          <h2 class="kit-section-title">Tabs &amp; acordeón</h2>
+          <p class="kit-section-desc">La sesión de competición usa tabs con contenido intercambiable; las preguntas frecuentes usan un acordeón con exclusividad simple.</p>
+        </div>
+      </div>
+
+      <p class="kit-block-label">Tabs de sesión</p>
+      <div class="glass-card">
+        <div style="padding:1.5rem 1.5rem 0;">
+          <div class="ss-tabs" id="ssTabs">
+            <button class="ss-tab active" data-i="0"><span class="ss-tab-num">01</span>Briefing</button>
+            <button class="ss-tab" data-i="1"><span class="ss-tab-num">02</span>Simulación</button>
+            <button class="ss-tab" data-i="2"><span class="ss-tab-num">03</span>Telemetría</button>
+            <button class="ss-tab" data-i="3"><span class="ss-tab-num">04</span>Debrief</button>
+          </div>
+        </div>
+        <div class="ss-panel">
+          <div class="ss-panel-inner" id="ssPanel">
+            <span class="ss-panel-time" id="ssTime">18:00 — 18:15</span>
+            <h3 class="ss-panel-title" id="ssTitle">Briefing</h3>
+            <p class="ss-panel-desc" id="ssDesc">Se define el objetivo de la sesión, el circuito a trabajar y la estrategia según el nivel de cada piloto.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="kit-block-label" style="margin-top:2.2rem;">Acordeón de preguntas frecuentes</p>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item active">
+          <button class="faq-question">¿Necesito experiencia previa? <span class="faq-icon"></span></button>
+          <div class="faq-answer"><p>No. El programa Rookie arranca desde cero con un diagnóstico inicial y va progresando en dificultad.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">¿Qué simulador usan? <span class="faq-icon"></span></button>
+          <div class="faq-answer"><p>Simuladores profesionales con volante de fuerza y telemetría en tiempo real, iguales a los usados por equipos reales.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">¿Puedo cambiar de programa? <span class="faq-icon"></span></button>
+          <div class="faq-answer"><p>Sí, podés subir de nivel en cualquier momento evaluando tu progreso junto al coach.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 09 · TELEMETRÍA ============ -->
+    <section class="kit-section" id="telemetria">
+      <div class="kit-section-head">
+        <span class="kit-section-num">09</span>
+        <div class="kit-section-headings">
+          <span class="kit-section-eyebrow">Datos</span>
+          <h2 class="kit-section-title">Telemetría &amp; progreso</h2>
+          <p class="kit-section-desc">Gráfico en vivo, anillos de estadística, barras de habilidad y nodo de circuito — los mismos elementos que narran el avance del piloto.</p>
+        </div>
+      </div>
+
+      <p class="kit-block-label">Gráfico de telemetría</p>
+      <div class="glass-card tm-dashboard">
+        <div class="tm-dashboard-head">
+          <div class="tm-tabs" id="tmTabs">
+            <button class="tm-tab active" data-metric="speed">Velocidad</button>
+            <button class="tm-tab" data-metric="rpm">RPM</button>
+            <button class="tm-tab" data-metric="brake">Freno</button>
+          </div>
+          <div class="tm-readout">
+            <span class="tm-readout-value" id="tmValue">0</span>
+            <span class="tm-readout-unit" id="tmUnit">km/h</span>
+          </div>
+        </div>
+        <svg class="tm-chart" id="tmChart" viewBox="0 0 720 220" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="tmGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#00D4FF" stop-opacity=".45"/>
+              <stop offset="100%" stop-color="#00D4FF" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g class="tm-grid-lines">
+            <line x1="18" y1="55" x2="702" y2="55"/><line x1="18" y1="110" x2="702" y2="110"/><line x1="18" y1="165" x2="702" y2="165"/>
+          </g>
+          <polygon id="tmArea" points=""></polygon>
+          <polyline id="tmLine" points=""></polyline>
+          <circle id="tmDot" cx="0" cy="0" r="5"></circle>
+        </svg>
+      </div>
+
+      <p class="kit-block-label" style="margin-top:2.2rem;">Anillos de estadística</p>
+      <div class="glass-card kit-demo">
+        <svg width="0" height="0" style="position:absolute;">
+          <defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7B2FFF"/><stop offset="100%" stop-color="#00D4FF"/></linearGradient></defs>
+        </svg>
+        <div class="ring-demo">
+          <div class="ring-item">
+            <svg viewBox="0 0 64 64"><circle class="ring-track" cx="32" cy="32" r="27"></circle><circle class="ring-fill" data-pct="86" cx="32" cy="32" r="27"></circle></svg>
+            <strong>86</strong><span>Racing IQ</span>
+          </div>
+          <div class="ring-item">
+            <svg viewBox="0 0 64 64"><circle class="ring-track" cx="32" cy="32" r="27"></circle><circle class="ring-fill" data-pct="94" cx="32" cy="32" r="27"></circle></svg>
+            <strong>94</strong><span>Velocidad</span>
+          </div>
+          <div class="ring-item">
+            <svg viewBox="0 0 64 64"><circle class="ring-track" cx="32" cy="32" r="27"></circle><circle class="ring-fill" data-pct="78" cx="32" cy="32" r="27"></circle></svg>
+            <strong>78</strong><span>Consistencia</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="kit-block-label" style="margin-top:2.2rem;">Barras de habilidad &amp; nodo de circuito</p>
+      <div class="kit-swatch-grid" style="grid-template-columns:1.3fr 1fr;">
+        <div class="glass-card kit-demo">
+          <div class="bar-demo" id="barDemo">
+            <div class="bar-row"><span class="bar-row-label"><span>Postura</span><span>92%</span></span><div class="bar-track"><div class="bar-fill" data-pct="92"></div></div></div>
+            <div class="bar-row"><span class="bar-row-label"><span>Control</span><span>81%</span></span><div class="bar-track"><div class="bar-fill" data-pct="81"></div></div></div>
+            <div class="bar-row"><span class="bar-row-label"><span>Baseline</span><span>68%</span></span><div class="bar-track"><div class="bar-fill" data-pct="68"></div></div></div>
+          </div>
+        </div>
+        <div class="glass-card kit-demo">
+          <div class="rm-mini">
+            <div class="rm-node-demo"><span class="pulse"></span><strong>02</strong></div>
+            <div class="rm-node-demo active"><span class="pulse"></span><strong>03</strong></div>
+            <div class="rm-node-demo"><span class="pulse"></span><strong>04</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10 · MOTION ============ -->
+    <section class="kit-section" id="motion">
+      <div class="kit-section-head">
+        <span class="kit-section-num">10</span>
+        <div class="kit-section-headings">
+          <span class="kit-section-eyebrow">Interacción</span>
+          <h2 class="kit-section-title">Motion</h2>
+          <p class="kit-section-desc">Micro-interacciones reales: elevación al hover, pulso de hotspot, revelado al hacer scroll y orbes ambientales.</p>
+        </div>
+      </div>
+      <div class="motion-grid">
+        <div class="glass-card motion-card">
+          <h4>Hover lift</h4>
+          <div class="motion-demo-box hover-lift-demo glass-card">Pasá el mouse</div>
+        </div>
+        <div class="glass-card motion-card">
+          <h4>Pulso hotspot</h4>
+          <div class="motion-demo-box"><span class="pulse-dot-demo"></span></div>
+        </div>
+        <div class="glass-card motion-card">
+          <h4>Revelado al scroll</h4>
+          <div class="motion-demo-box reveal-demo" id="revealDemo">Scrolleá hasta acá</div>
+        </div>
+        <div class="glass-card motion-card orb-demo-wrap">
+          <h4>Orbe ambiental</h4>
+          <div class="motion-demo-box"><span class="orb-demo"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11 · ICONOS ============ -->
+    <section class="kit-section" id="iconos">
+      <div class="kit-section-head">
+        <span class="kit-section-num">11</span>
+        <div class="kit-section-headings">
+          <span class="kit-section-eyebrow">Recursos</span>
+          <h2 class="kit-section-title">Iconos</h2>
+          <p class="kit-section-desc">Set lineal en trazo 1.6–2, 24×24, color heredado (currentColor).</p>
+        </div>
+      </div>
+      <div class="icon-grid">
+        <div class="glass-card icon-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg><span>Calendario</span></div>
+        <div class="glass-card icon-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18"></path></svg><span>Global</span></div>
+        <div class="glass-card icon-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v4a4 4 0 0 1-8 0V4z"></path><path d="M8 5H5a3 3 0 0 0 3 3"></path><path d="M16 5h3a3 3 0 0 1-3 3"></path><path d="M12 12v3M9 20h6M10 15h4v2a2 2 0 0 1-4 0v-2z"></path></svg><span>Logro</span></div>
+        <div class="glass-card icon-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18"></path><path d="M5 4h13l-3 4 3 4H5"></path></svg><span>Bandera</span></div>
+        <div class="glass-card icon-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg><span>Anterior</span></div>
+        <div class="glass-card icon-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg><span>Siguiente</span></div>
+        <div class="glass-card icon-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M12 4v16"></path></svg><span>Agregar</span></div>
+        <div class="glass-card icon-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"></path></svg><span>Cerrar</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 12 · ESPACIADO ============ -->
+    <section class="kit-section" id="espaciado">
+      <div class="kit-section-head">
+        <span class="kit-section-num">12</span>
+        <div class="kit-section-headings">
+          <span class="kit-section-eyebrow">Layout</span>
+          <h2 class="kit-section-title">Espaciado</h2>
+          <p class="kit-section-desc">Módulo base de 8px. Toda separación del sistema es múltiplo de esta unidad.</p>
+        </div>
+      </div>
+      <div class="glass-card kit-demo">
+        <div class="space-row"><span class="space-label">8px</span><div class="space-bar" style="width:8px;"></div><span class="space-use">Gap entre íconos y micro-elementos</span></div>
+        <div class="space-row"><span class="space-label">16px</span><div class="space-bar" style="width:16px;"></div><span class="space-use">Padding interno de badges y chips</span></div>
+        <div class="space-row"><span class="space-label">24px</span><div class="space-bar" style="width:24px;"></div><span class="space-use">Separación entre elementos de un grupo</span></div>
+        <div class="space-row"><span class="space-label">32px</span><div class="space-bar" style="width:32px;"></div><span class="space-use">Padding de cards</span></div>
+        <div class="space-row"><span class="space-label">48px</span><div class="space-bar" style="width:48px;"></div><span class="space-use">Separación entre bloques</span></div>
+        <div class="space-row"><span class="space-label">96px</span><div class="space-bar" style="width:96px;"></div><span class="space-use">Padding vertical de sección</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 13 · FORMA ============ -->
+    <section class="kit-section" id="forma">
+      <div class="kit-section-head">
+        <span class="kit-section-num">13</span>
+        <div class="kit-section-headings">
+          <span class="kit-section-eyebrow">Layout</span>
+          <h2 class="kit-section-title">Forma</h2>
+          <p class="kit-section-desc">Radios usados en botones, cards y módulos de datos.</p>
+        </div>
+      </div>
+      <div class="shape-grid">
+        <div class="glass-card shape-card"><div class="shape-swatch" style="border-radius:8px;"></div><strong>8px</strong><span>Botones, inputs</span></div>
+        <div class="glass-card shape-card"><div class="shape-swatch" style="border-radius:14px;"></div><strong>14px</strong><span>Chips, badges grandes</span></div>
+        <div class="glass-card shape-card"><div class="shape-swatch" style="border-radius:22px;"></div><strong>22px</strong><span>Glass-card estándar</span></div>
+        <div class="glass-card shape-card"><div class="shape-swatch" style="border-radius:32px;"></div><strong>32px</strong><span>Paneles grandes / hero</span></div>
+        <div class="glass-card shape-card"><div class="shape-swatch" style="border-radius:999px;"></div><strong>999px</strong><span>Pills, tabs, CTA circulares</span></div>
+      </div>
+    </section>
+
+    <footer class="kit-footer">
+      <p>⚡ Diseñado para rendir. <strong>Construido para ganar.</strong></p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ---------- 1. Paleta: genera swatches + copiar al portapapeles ---------- */
+  const palettes = {
+    colorGridBrand: [
+      {name:'Violeta', hex:'#7B2FFF', use:'Acción primaria, glow'},
+      {name:'Violeta claro', hex:'#A855F7', use:'Acentos, degradés'},
+      {name:'Violeta dim', hex:'#4A1A99', use:'Fondos de botón'},
+      {name:'Azul', hex:'#00D4FF', use:'Telemetría, datos'},
+      {name:'Azul dim', hex:'#0088BB', use:'Estados secundarios'},
+    ],
+    colorGridNeutral: [
+      {name:'Negro', hex:'#030309', use:'Base absoluta'},
+      {name:'Dark 1', hex:'#07070F', use:'Fondo navbar'},
+      {name:'Dark 2', hex:'#0D0D1A', use:'Fondo body'},
+      {name:'Dark 3', hex:'#131326', use:'Superficies elevadas'},
+      {name:'Blanco', hex:'#F0F0FF', use:'Texto principal'},
+      {name:'Grey 1', hex:'#9898BB', use:'Texto secundario'},
+      {name:'Grey 2', hex:'#5A5A7A', use:'Texto terciario / labels'},
+    ],
+    colorGridState: [
+      {name:'Verde', hex:'#00FF88', use:'Éxito, disponibilidad'},
+      {name:'Naranja', hex:'#FF6B2B', use:'Alertas, rating'},
+    ],
+  };
+
+  Object.entries(palettes).forEach(([gridId, colors]) => {
+    const grid = document.getElementById(gridId);
+    grid.innerHTML = colors.map(c => `
+      <div class="color-card" data-hex="${c.hex}">
+        <div class="color-swatch" style="background:${c.hex};"></div>
+        <span class="color-copy-tip">Copiar</span>
+        <div class="color-info">
+          <div class="color-name">${c.name}</div>
+          <div class="color-hex">${c.hex}</div>
+          <div class="color-use">${c.use}</div>
+        </div>
+      </div>`).join('');
+  });
+
+  document.querySelectorAll('.color-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const hex = card.dataset.hex;
+      navigator.clipboard?.writeText(hex).catch(()=>{});
+      const tip = card.querySelector('.color-copy-tip');
+      tip.textContent = 'Copiado ✓';
+      card.classList.add('copied');
+      setTimeout(() => { tip.textContent = 'Copiar'; card.classList.remove('copied'); }, 1200);
+    });
+  });
+
+  /* ---------- 2. Sidebar: scrollspy + pista de progreso ---------- */
+  const sections = [...document.querySelectorAll('.kit-section')];
+  const navLinks = [...document.querySelectorAll('.kit-nav-link')];
+  const fill = document.getElementById('kitProgressFill');
+  const car = document.getElementById('kitProgressCar');
+  const pct = document.getElementById('kitPct');
+
+  function onScroll(){
+    const scrollTop = window.scrollY;
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const ratio = Math.min(1, Math.max(0, scrollTop / docH));
+    fill.style.height = (ratio*100) + '%';
+    car.style.top = (ratio*100) + '%';
+    pct.textContent = Math.round(ratio*100) + '%';
+
+    let current = sections[0];
+    sections.forEach(s => { if (s.getBoundingClientRect().top - 140 <= 0) current = s; });
+    navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current.id));
+  }
+  document.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  /* ---------- 3. Tarjetas 3D: flip al clic ---------- */
+  document.querySelectorAll('[data-flip]').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+  });
+
+  /* ---------- 4. Tabs de sesión ---------- */
+  (function(){
+    const tabs = document.querySelectorAll('#ssTabs .ss-tab');
+    const panel = document.getElementById('ssPanel');
+    const timeEl = document.getElementById('ssTime');
+    const titleEl = document.getElementById('ssTitle');
+    const descEl = document.getElementById('ssDesc');
+    const data = [
+      {time:'18:00 — 18:15', title:'Briefing', desc:'Se define el objetivo de la sesión, el circuito a trabajar y la estrategia según el nivel de cada piloto.'},
+      {time:'18:15 — 19:00', title:'Simulación', desc:'Trabajo en pista sobre el objetivo definido: técnica, ritmo o carrera completa.'},
+      {time:'19:00 — 19:20', title:'Telemetría', desc:'Se analizan los datos de la sesión: sectores donde se pierde tiempo y patrones a corregir.'},
+      {time:'19:20 — 20:00', title:'Debrief', desc:'Cierre con un plan de trabajo concreto para la próxima clase.'},
+    ];
+    tabs.forEach(tab => tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const d = data[+tab.dataset.i];
+      panel.classList.add('is-swapping');
+      setTimeout(() => {
+        timeEl.textContent = d.time; titleEl.textContent = d.title; descEl.textContent = d.desc;
+        panel.classList.remove('is-swapping');
+      }, 180);
+    }));
+  })();
+
+  /* ---------- 5. FAQ acordeón ---------- */
+  document.querySelectorAll('#faqList .faq-item').forEach(item => {
+    item.querySelector('.faq-question').addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('#faqList .faq-item').forEach(i => i.classList.remove('active'));
+      if (!isActive) item.classList.add('active');
+    });
+  });
+
+  /* ---------- 6. Telemetría en vivo ---------- */
+  (function(){
+    const tabs = document.querySelectorAll('#tmTabs .tm-tab');
+    const lineEl = document.getElementById('tmLine');
+    const areaEl = document.getElementById('tmArea');
+    const dotEl = document.getElementById('tmDot');
+    const valueEl = document.getElementById('tmValue');
+    const unitEl = document.getElementById('tmUnit');
+    const W=720,H=220,PAD=18;
+    const metrics = {
+      speed:{unit:'km/h', min:60, max:320, base:[140,180,260,300,270,230,290,312]},
+      rpm:{unit:'rpm', min:2000, max:9000, base:[4200,5600,7800,8600,7200,6000,8200,8900]},
+      brake:{unit:'%', min:0, max:100, base:[10,0,0,85,60,15,0,95]},
+    };
+    let current='speed', phase=0;
+    function genPoints(metric, seed){
+      const m = metrics[metric], n = m.base.length, pts=[];
+      for(let i=0;i<n;i++){
+        const noise = Math.sin(seed*0.7+i*1.3)*(m.max-m.min)*0.035;
+        let v = Math.max(m.min, Math.min(m.max, m.base[i]+noise));
+        const x = PAD + (i/(n-1))*(W-PAD*2);
+        const y = H-PAD - ((v-m.min)/(m.max-m.min))*(H-PAD*2);
+        pts.push([x,y,v]);
+      }
+      return pts;
+    }
+    function draw(){
+      phase += 0.045;
+      const pts = genPoints(current, phase);
+      const lineStr = pts.map(p=>p[0]+','+p[1]).join(' ');
+      lineEl.setAttribute('points', lineStr);
+      areaEl.setAttribute('points', `${PAD},${H-PAD} `+lineStr+` ${W-PAD},${H-PAD}`);
+      const last = pts[pts.length-1];
+      dotEl.setAttribute('cx', last[0]); dotEl.setAttribute('cy', last[1]);
+      valueEl.textContent = Math.round(last[2]).toLocaleString('es-AR');
+      requestAnimationFrame(draw);
+    }
+    tabs.forEach(tab => tab.addEventListener('click', () => {
+      tabs.forEach(t=>t.classList.remove('active')); tab.classList.add('active');
+      current = tab.dataset.metric; unitEl.textContent = metrics[current].unit;
+    }));
+    unitEl.textContent = metrics[current].unit;
+    draw();
+  })();
+
+  /* ---------- 7. Anillos y barras: animan al entrar en viewport ---------- */
+  const ringObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(!e.isIntersecting) return;
+      e.target.querySelectorAll('.ring-fill').forEach(ring => {
+        const r = 27, circ = 2*Math.PI*r, pct = +ring.dataset.pct;
+        ring.style.strokeDasharray = circ;
+        ring.style.strokeDashoffset = circ;
+        requestAnimationFrame(() => { ring.style.strokeDashoffset = circ - (pct/100)*circ; });
+      });
+      e.target.querySelectorAll('.bar-fill').forEach(bar => {
+        requestAnimationFrame(() => { bar.style.width = bar.dataset.pct + '%'; });
+      });
+      ringObs.unobserve(e.target);
+    });
+  }, {threshold:.35});
+  document.querySelectorAll('.ring-demo, #barDemo').forEach(el => ringObs.observe(el));
+
+  /* ---------- 8. Reveal-on-scroll demo ---------- */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+  }, {threshold:.4});
+  const revealDemo = document.getElementById('revealDemo');
+  if (revealDemo) revealObs.observe(revealDemo);
+
+  /* ---------- 9. Nodo de circuito: ciclo activo ---------- */
+  const nodes = document.querySelectorAll('.rm-node-demo');
+  let ni = 1;
+  setInterval(() => {
+    nodes.forEach(n => n.classList.remove('active'));
+    nodes[ni % nodes.length].classList.add('active');
+    ni++;
+  }, 2200);
+
+});
+</script>
+
+</body>
+</html>
