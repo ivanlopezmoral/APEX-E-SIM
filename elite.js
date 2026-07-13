@@ -168,7 +168,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* ─────────────────────────────────────────────
-     3. SESIÓN DE COMPETICIÓN
+     3. PREGUNTAS FRECUENTES
+  ───────────────────────────────────────────── */
+  (function initFAQ(){
+
+    const items = document.querySelectorAll(".faq-item");
+    if(!items.length) return;
+
+    items.forEach(item => {
+      const btn = item.querySelector(".faq-question");
+      btn.addEventListener("click", () => {
+        const isActive = item.classList.contains("active");
+        items.forEach(i => {
+          i.classList.remove("active");
+          i.querySelector(".faq-question").setAttribute("aria-expanded","false");
+        });
+        if(!isActive){
+          item.classList.add("active");
+          btn.setAttribute("aria-expanded","true");
+        }
+      });
+    });
+
+  })();
+
+
+  /* ─────────────────────────────────────────────
+     4. SESIÓN DE COMPETICIÓN
   ───────────────────────────────────────────── */
   (function initSession(){
 
