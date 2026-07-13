@@ -59,6 +59,16 @@
   <!-- ══════════════════════════════════════ -->
   <section class="elite-hero" id="elite-hero" aria-label="Programa Elite APEX">
 
+    <video
+      class="elite-hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+    >
+      <source src="images/herodetalle.mp4" type="video/mp4">
+    </video>
+
     <!-- Background decorativo -->
     <div class="elite-bg" aria-hidden="true">
       <div class="elite-orb elite-orb--violet"></div>
@@ -146,43 +156,61 @@
 
       <div class="rm-wrap reveal">
 
-        <!-- Stepper -->
-        <div class="rm-stepper" id="rmStepper" role="tablist" aria-label="Etapas del programa">
+        <!-- Circuito interactivo -->
+        <div class="rm-circuit" role="tablist" aria-label="Etapas del programa">
+          <div class="rm-circuit-track">
 
-          <div class="rm-stepper-line" aria-hidden="true">
-            <span class="rm-stepper-line-fill" id="rmLineFill"></span>
+            <svg class="rm-circuit-svg" id="rmCircuitSvg" viewBox="0 0 1100 200" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="rmTrackGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#7B2FFF"></stop>
+                  <stop offset="55%" stop-color="#00D4FF"></stop>
+                  <stop offset="100%" stop-color="#FFD54A"></stop>
+                </linearGradient>
+              </defs>
+              <path id="rmTrackBase" class="rm-track-base"
+                d="M40,150 C160,40 260,40 380,110 C480,170 560,170 640,110 C740,40 840,40 940,110 C1000,150 1030,150 1060,120"></path>
+              <path id="rmTrackFill" class="rm-track-fill"
+                d="M40,150 C160,40 260,40 380,110 C480,170 560,170 640,110 C740,40 840,40 940,110 C1000,150 1030,150 1060,120"></path>
+              <circle id="rmCarGlow" class="rm-car-glow" r="15"></circle>
+              <circle id="rmCarDot" class="rm-car-dot" r="6"></circle>
+            </svg>
+
+            <div class="rm-circuit-nodes" id="rmNodes">
+
+              <button class="rm-node active" data-step="0" role="tab" aria-selected="true">
+                <span class="rm-node-num">01</span>
+                <span class="rm-node-tip">Introducción</span>
+              </button>
+
+              <button class="rm-node" data-step="1" role="tab" aria-selected="false">
+                <span class="rm-node-num">02</span>
+                <span class="rm-node-tip">Técnica</span>
+              </button>
+
+              <button class="rm-node" data-step="2" role="tab" aria-selected="false">
+                <span class="rm-node-num">03</span>
+                <span class="rm-node-tip">Telemetría</span>
+              </button>
+
+              <button class="rm-node" data-step="3" role="tab" aria-selected="false">
+                <span class="rm-node-num">04</span>
+                <span class="rm-node-tip">Racecraft</span>
+              </button>
+
+              <button class="rm-node" data-step="4" role="tab" aria-selected="false">
+                <span class="rm-node-num">05</span>
+                <span class="rm-node-tip">Simulación</span>
+              </button>
+
+              <button class="rm-node rm-node--gold" data-step="5" role="tab" aria-selected="false">
+                <span class="rm-node-num">06</span>
+                <span class="rm-node-tip">Certificación</span>
+              </button>
+
+            </div>
+
           </div>
-
-          <button class="rm-step active" data-step="0" role="tab" aria-selected="true">
-            <span class="rm-step-num">01</span>
-            <span class="rm-step-label">Introducción</span>
-          </button>
-
-          <button class="rm-step" data-step="1" role="tab" aria-selected="false">
-            <span class="rm-step-num">02</span>
-            <span class="rm-step-label">Técnica</span>
-          </button>
-
-          <button class="rm-step" data-step="2" role="tab" aria-selected="false">
-            <span class="rm-step-num">03</span>
-            <span class="rm-step-label">Telemetría</span>
-          </button>
-
-          <button class="rm-step" data-step="3" role="tab" aria-selected="false">
-            <span class="rm-step-num">04</span>
-            <span class="rm-step-label">Racecraft</span>
-          </button>
-
-          <button class="rm-step" data-step="4" role="tab" aria-selected="false">
-            <span class="rm-step-num">05</span>
-            <span class="rm-step-label">Simulación</span>
-          </button>
-
-          <button class="rm-step rm-step--gold" data-step="5" role="tab" aria-selected="false">
-            <span class="rm-step-num">06</span>
-            <span class="rm-step-label">Certificación</span>
-          </button>
-
         </div>
 
         <!-- Panel de detalle -->
