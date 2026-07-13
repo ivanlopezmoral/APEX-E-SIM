@@ -16,8 +16,8 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding-top: 90px;
-  padding-bottom: clamp(2rem, 5vw, 3rem);
+  padding-top: 84px;
+  padding-bottom: clamp(1.5rem, 4vw, 2.25rem);
   isolation: isolate;
 }
 
@@ -77,18 +77,18 @@
 
 /* Eyebrow ya viene estilizado por style.css (.section-eyebrow) */
 .elite-content .section-eyebrow {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 /* Título hero */
 .elite-title {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+  font-size: clamp(2.1rem, 4.6vw, 3.6rem);
   font-weight: 900;
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -0.01em;
   color: var(--apex-white);
-  margin-bottom: 1.1rem;
+  margin-bottom: .9rem;
   filter: drop-shadow(0 0 40px rgba(123, 47, 255, 0.35));
 }
 
@@ -102,21 +102,21 @@
 
 /* Descripción */
 .elite-description {
-  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  font-size: clamp(0.88rem, 1.6vw, 1rem);
   font-weight: 300;
-  line-height: 1.65;
+  line-height: 1.6;
   color: rgba(240, 240, 255, 0.6);
-  max-width: 520px;
-  margin-bottom: 1.75rem;
+  max-width: 500px;
+  margin-bottom: 1.4rem;
 }
 
 /* Bloque de precio */
 .elite-price-block {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  padding: 1.25rem 1.75rem;
-  margin-bottom: 1.75rem;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.4rem;
   max-width: 560px;
 }
 
@@ -193,6 +193,11 @@
 }
 
 /* Scroll indicator (reutiliza los estilos de style.css) */
+
+/* Títulos de sección un poco más chicos para que entren en una sola línea */
+.section-title {
+  font-size: clamp(1.7rem, 3.6vw, 2.9rem);
+}
 
 
 /* ─────────────────────────────────────────────────────
@@ -426,9 +431,9 @@
 
 .elite-cta-title {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3.8vw, 2.6rem);
+  font-size: clamp(1.5rem, 3.4vw, 2.3rem);
   font-weight: 900;
-  line-height: 1.12;
+  line-height: 1.15;
   color: var(--apex-white);
   margin-bottom: 1rem;
 }
@@ -963,41 +968,6 @@
   margin-top: 3rem;
 }
 
-.tm-counters{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
-}
-
-.tm-counter-item{
-  text-align: center;
-  padding: 1.25rem .75rem;
-  border-radius: 16px;
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(255,255,255,.07);
-}
-
-.tm-counter-item .stat-counter{
-  display: block;
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3vw, 2.3rem);
-  font-weight: 900;
-  line-height: 1;
-  background: linear-gradient(90deg, var(--apex-violet-light), var(--apex-blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: .5rem;
-}
-
-.tm-counter-label{
-  font-family: var(--font-condensed);
-  font-size: .68rem;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--apex-grey-2);
-}
-
 .tm-dashboard{
   padding: clamp(1.5rem, 3vw, 2.25rem);
 }
@@ -1273,150 +1243,103 @@
 
 
 /* =====================================================
-   9. COMPARATIVA DE PLANES
+   9. PREGUNTAS FRECUENTES
    ===================================================== */
 
-.cmp-table{
+.faq-list{
   margin-top: 3rem;
-  border-radius: 22px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.08);
-}
-
-.cmp-row{
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  align-items: center;
-}
-
-.cmp-row:not(.cmp-row--head):not(.cmp-row--foot){
-  border-top: 1px solid rgba(255,255,255,.06);
-}
-
-.cmp-row:nth-of-type(odd):not(.cmp-row--head):not(.cmp-row--foot){
-  background: rgba(255,255,255,.015);
-}
-
-.cmp-cell{
-  padding: 1.1rem .75rem;
-  text-align: center;
-  font-size: .85rem;
-  color: var(--apex-grey-1);
-}
-
-.cmp-cell--label{
-  text-align: left;
-  font-family: var(--font-condensed);
-  font-size: .85rem;
-  font-weight: 600;
-  color: var(--apex-white);
-  padding-left: 1.5rem;
-}
-
-.cmp-row--head{
-  background: rgba(255,255,255,.03);
-}
-
-.cmp-plan{
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: .3rem;
-  padding: 1.5rem .75rem;
-  position: relative;
+  gap: .8rem;
 }
 
-.cmp-plan-name{
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1rem;
-  color: var(--apex-white);
-  letter-spacing: .04em;
-}
-
-.cmp-plan-price{
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 1.15rem;
-  color: var(--apex-grey-1);
-}
-
-.cmp-plan-price small{
-  font-family: var(--font-condensed);
-  font-size: .6rem;
-  color: var(--apex-grey-2);
-  font-weight: 500;
-}
-
-.cmp-plan--active{
-  background: linear-gradient(180deg, rgba(123,47,255,.14), rgba(0,212,255,.05));
-}
-
-.cmp-plan--active .cmp-plan-price{
-  background: linear-gradient(90deg, var(--apex-violet-light), var(--apex-blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.cmp-plan-tag{
-  font-family: var(--font-condensed);
-  font-size: .58rem;
-  font-weight: 800;
-  letter-spacing: .15em;
-  color: #fff;
-  background: linear-gradient(90deg, var(--apex-violet), var(--apex-blue));
-  border-radius: 999px;
-  padding: .25rem .7rem;
-  margin-bottom: .3rem;
-}
-
-.cmp-check{
-  font-size: 1rem;
-  color: rgba(255,255,255,.35);
-}
-
-.cmp-check--active{
-  color: var(--apex-blue);
-  font-weight: 800;
-  text-shadow: 0 0 12px rgba(0,212,255,.5);
-}
-
-.cmp-dash{
-  color: rgba(255,255,255,.2);
-}
-
-.cmp-row--foot{
+.faq-item{
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
   background: rgba(255,255,255,.02);
+  overflow: hidden;
+  transition: border-color .3s ease, background .3s ease;
 }
 
-.cmp-btn{
-  display: inline-block;
+.faq-item.active{
+  border-color: rgba(123,47,255,.35);
+  background: rgba(255,255,255,.035);
+}
+
+.faq-question{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 1.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
   font-family: var(--font-condensed);
-  font-size: .68rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-decoration: none;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--apex-white);
+}
+
+.faq-icon{
+  position: relative;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.faq-icon::before,
+.faq-icon::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--apex-blue);
+  transform: translate(-50%, -50%);
+  transition: transform .3s ease, opacity .3s ease;
+}
+
+.faq-icon::before{
+  width: 12px;
+  height: 2px;
+}
+
+.faq-icon::after{
+  width: 2px;
+  height: 12px;
+}
+
+.faq-item.active .faq-icon::after{
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+
+.faq-answer{
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows .35s ease;
+}
+
+.faq-answer p{
+  min-height: 0;
+  padding: 0 1.4rem;
+  font-size: .88rem;
+  line-height: 1.65;
   color: var(--apex-grey-1);
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 999px;
-  padding: .55rem 1.1rem;
-  transition: all .3s ease;
 }
 
-.cmp-btn:hover{
-  border-color: rgba(255,255,255,.4);
-  color: #fff;
+.faq-item.active .faq-answer{
+  grid-template-rows: 1fr;
 }
 
-.cmp-btn--active{
-  color: #fff;
-  background: linear-gradient(90deg, var(--apex-violet), var(--apex-blue));
-  border-color: transparent;
-}
-
-.cmp-btn--active:hover{
-  box-shadow: 0 8px 20px rgba(123,47,255,.4);
+.faq-item.active .faq-answer p{
+  padding: 0 1.4rem 1.3rem;
 }
 
 
@@ -1576,37 +1499,17 @@
     text-align: center;
   }
 
-  .tm-counters{
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .coach-layout{
     grid-template-columns: 1fr;
   }
 
-  .cmp-cell--label{
-    padding-left: .75rem;
-    font-size: .72rem;
-  }
-
-  .cmp-plan-name{
-    font-size: .82rem;
-  }
-
-  .cmp-plan-price{
-    font-size: .95rem;
-  }
 }
 
 @media (max-width: 560px){
 
-  .cmp-row{
-    grid-template-columns: 1.3fr 1fr 1fr 1fr;
-  }
-
-  .cmp-cell{
-    padding: .8rem .4rem;
-    font-size: .7rem;
+  .faq-question{
+    padding: 1rem 1.1rem;
+    font-size: .88rem;
   }
 
   .tm-dashboard-head{
@@ -1614,8 +1517,4 @@
     align-items: flex-start;
   }
 
-  .tm-counters{
-    grid-template-columns: 1fr 1fr;
-    gap: .75rem;
-  }
 }
