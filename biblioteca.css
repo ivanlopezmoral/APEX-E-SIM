@@ -272,6 +272,7 @@ body::after{
 
 .kit-row{ display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
 .kit-swatch-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1.1rem; }
+.kit-split-2{ grid-template-columns:1.3fr 1fr; }
 .kit-demo{ padding:2.2rem; border-radius:var(--radius-lg); }
 .kit-demo--dark{ background:rgba(0,0,0,.28); border:1px dashed rgba(255,255,255,.1); }
 
@@ -501,4 +502,97 @@ body::after{
 @media (max-width:640px){
   .form-row--two{ grid-template-columns:1fr; }
   .kit-section-head{ flex-direction:column; gap:.4rem; }
+
+  /* -- Layout general: menos aire arriba/abajo -- */
+  .kit-main{ padding:0 1.1rem 3rem; }
+
+  /* -- Hero -- */
+  .kit-hero{ padding:2.6rem 0 2rem; margin-bottom:.4rem; }
+  .kit-kicker{ font-size:.65rem; letter-spacing:.2em; margin-bottom:1rem; }
+  .kit-hero h1{ font-size:clamp(1.9rem,9vw,2.5rem); margin-bottom:1rem; }
+  .kit-hero p{ font-size:.92rem; margin-bottom:1.4rem; }
+  .kit-hero-meta{ gap:.5rem; }
+  .kit-meta-chip{ font-size:.62rem; padding:.4rem .8rem; }
+
+  /* -- Secciones -- */
+  .kit-section{ padding:2.4rem 0; }
+  .kit-section-head{ margin-bottom:1.6rem; }
+  .kit-section-num{ font-size:.95rem; }
+  .kit-section-desc{ font-size:.88rem; margin-top:.4rem; }
+  .kit-block-label{ margin-bottom:.7rem; }
+
+  /* -- Grillas: menos separación -- */
+  .kit-swatch-grid{ gap:.8rem; }
+  .kit-split-2{ grid-template-columns:1fr; }
+
+  /* -- Superficies / demos genéricas -- */
+  .kit-demo{ padding:1.3rem; }
+  .color-swatch{ height:78px; }
+
+  /* -- Tipografía -- */
+  .type-card{ padding:1.3rem 1.4rem; margin-bottom:.8rem; }
+  .type-card-head{ margin-bottom:.8rem; }
+  .type-sample-display{ font-size:clamp(1.5rem,8vw,2.1rem); }
+  .type-sample-condensed{ font-size:1.3rem; }
+  .type-sample-body{ font-size:1rem; }
+  .scale-row{ gap:.9rem; padding:.65rem 0; flex-wrap:wrap; }
+  .scale-label{ width:100%; font-size:.65rem; }
+
+  /* -- Formularios -- */
+  .apex-form{ max-width:100%; gap:.9rem; }
+
+  /* -- Tarjetas de programa (flip) -- */
+  .program-grid{ gap:1rem; }
+  .program-card{ height:400px; }
+  .program-front,.program-back{ padding:1.25rem; }
+  .program-visual{ height:60px; margin-bottom:.8rem; }
+  .program-front-top{ margin-bottom:.6rem; }
+  .program-name{ font-size:1.5rem; margin-bottom:.4rem; }
+  .program-price{ margin-bottom:.8rem; }
+  .program-price strong{ font-size:1.2rem; }
+  .program-btn{ padding:.6rem .8rem; margin-bottom:.8rem; font-size:.68rem; }
+  .program-check-list{ gap:.4rem; font-size:.74rem; }
+  .program-hint{ bottom:.7rem; right:.9rem; font-size:.56rem; }
+  .program-back-title{ font-size:1.35rem; }
+  .program-back-list{ margin:.8rem 0; }
+
+  /* -- Tabs / acordeón -- */
+  .ss-panel{ padding:1.3rem; min-height:120px; }
+  .ss-panel-title{ font-size:1.15rem; }
+  .ss-panel-desc{ font-size:.85rem; }
+  .faq-question{ padding:.9rem 1.05rem; font-size:.85rem; }
+
+  /* -- Telemetría -- */
+  .tm-dashboard{ padding:1.3rem; }
+  .tm-readout-value{ font-size:1.3rem; }
+  .ring-demo{ gap:1.4rem; justify-content:space-between; }
+  .ring-item svg{ width:70px; height:70px; }
+  .ring-item strong{ margin-top:-48px; font-size:.9rem; }
+  .rm-mini{ gap:1rem; }
+  .rm-node-demo{ width:44px; height:44px; }
+
+  /* -- Motion -- */
+  .motion-grid{ gap:.9rem; }
+  .motion-card{ padding:1.2rem; }
+  .motion-demo-box{ height:56px; }
+  .orb-demo{ width:100px; height:100px; }
+
+  /* -- Iconos -- */
+  .icon-grid{ gap:.7rem; }
+  .icon-card{ padding:1rem .5rem; gap:.5rem; }
+
+  /* -- Espaciado / forma -- */
+  .space-row{ padding:.55rem 0; gap:.9rem; }
+  .space-label{ width:56px; font-size:.72rem; }
+  .shape-grid{ gap:.9rem; }
+  .shape-card{ padding:1.2rem; }
+  .shape-swatch{ height:60px; margin-bottom:.7rem; }
+
+  /* -- Footer -- */
+  .kit-footer{ padding:2.2rem 0 .8rem; }
+}
+
+@media (max-width:400px){
+  .ring-demo{ justify-content:center; gap:1.8rem; }
+  .program-card{ height:420px; }
 }
