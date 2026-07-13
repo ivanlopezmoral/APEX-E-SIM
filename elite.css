@@ -144,6 +144,13 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.elite-price-value small{
+  font-size: 0.42em;
+  font-weight: 700;
+  opacity: .7;
+  -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 20px rgba(123, 47, 255, 0.4));
 }
 
