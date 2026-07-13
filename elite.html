@@ -144,7 +144,7 @@
 
 
   <!-- ══════════════════════════════════════ -->
-  <!--  ROADMAP                              -->
+  <!--  1. ROADMAP INTERACTIVO                -->
   <!-- ══════════════════════════════════════ -->
   <section class="section elite-roadmap-section" id="roadmap" aria-label="Metodología del programa">
     <div class="container">
@@ -152,307 +152,391 @@
       <div class="section-header reveal">
         <span class="section-eyebrow">METODOLOGÍA</span>
         <h2 class="section-title">El camino hacia<br><em>el alto rendimiento.</em></h2>
-        <p class="section-subtitle">6 etapas progresivas diseñadas por coaches de competición profesional.</p>
+        <p class="section-subtitle">6 etapas progresivas. Elegí un paso para ver en qué consiste.</p>
       </div>
 
-      <div class="elite-track">
-        <div class="elite-track-spine" aria-hidden="true"></div>
+      <div class="rm-wrap reveal">
 
-        <article class="elite-track-item reveal" data-delay="0">
-          <div class="elite-track-node">
-            <span class="elite-track-num">01</span>
-            <div class="elite-track-node-pulse"></div>
-          </div>
-          <div class="elite-track-card glass-card">
-            <span class="elite-track-tag">INICIO</span>
-            <h3 class="elite-track-title">Introducción</h3>
-            <p class="elite-track-desc">Diagnóstico inicial y adaptación al simulador.</p>
-          </div>
-        </article>
+        <!-- Stepper -->
+        <div class="rm-stepper" id="rmStepper" role="tablist" aria-label="Etapas del programa">
 
-        <article class="elite-track-item reveal" data-delay="80">
-          <div class="elite-track-node">
-            <span class="elite-track-num">02</span>
-            <div class="elite-track-node-pulse"></div>
+          <div class="rm-stepper-line" aria-hidden="true">
+            <span class="rm-stepper-line-fill" id="rmLineFill"></span>
           </div>
-          <div class="elite-track-card glass-card">
-            <span class="elite-track-tag">FUNDAMENTOS</span>
-            <h3 class="elite-track-title">Técnica</h3>
-            <p class="elite-track-desc">Frenado, trazadas y control avanzado del vehículo.</p>
-          </div>
-        </article>
 
-        <article class="elite-track-item reveal" data-delay="160">
-          <div class="elite-track-node">
-            <span class="elite-track-num">03</span>
-            <div class="elite-track-node-pulse"></div>
-          </div>
-          <div class="elite-track-card glass-card">
-            <span class="elite-track-tag">ANÁLISIS</span>
-            <h3 class="elite-track-title">Telemetría</h3>
-            <p class="elite-track-desc">Interpretación profesional de datos, vuelta a vuelta.</p>
-          </div>
-        </article>
+          <button class="rm-step active" data-step="0" role="tab" aria-selected="true">
+            <span class="rm-step-num">01</span>
+            <span class="rm-step-label">Introducción</span>
+          </button>
 
-        <article class="elite-track-item reveal" data-delay="240">
-          <div class="elite-track-node">
-            <span class="elite-track-num">04</span>
-            <div class="elite-track-node-pulse"></div>
-          </div>
-          <div class="elite-track-card glass-card">
-            <span class="elite-track-tag">COMPETICIÓN</span>
-            <h3 class="elite-track-title">Racecraft</h3>
-            <p class="elite-track-desc">Estrategia, adelantamientos y gestión de recursos.</p>
-          </div>
-        </article>
+          <button class="rm-step" data-step="1" role="tab" aria-selected="false">
+            <span class="rm-step-num">02</span>
+            <span class="rm-step-label">Técnica</span>
+          </button>
 
-        <article class="elite-track-item reveal" data-delay="320">
-          <div class="elite-track-node">
-            <span class="elite-track-num">05</span>
-            <div class="elite-track-node-pulse"></div>
-          </div>
-          <div class="elite-track-card glass-card">
-            <span class="elite-track-tag">PRÁCTICA</span>
-            <h3 class="elite-track-title">Simulación</h3>
-            <p class="elite-track-desc">Carreras completas en escenarios de competición real.</p>
-          </div>
-        </article>
+          <button class="rm-step" data-step="2" role="tab" aria-selected="false">
+            <span class="rm-step-num">03</span>
+            <span class="rm-step-label">Telemetría</span>
+          </button>
 
-        <article class="elite-track-item elite-track-item--gold reveal" data-delay="400">
-          <div class="elite-track-node elite-track-node--gold">
-            <span class="elite-track-num">06</span>
-            <div class="elite-track-node-pulse elite-track-node-pulse--gold"></div>
+          <button class="rm-step" data-step="3" role="tab" aria-selected="false">
+            <span class="rm-step-num">04</span>
+            <span class="rm-step-label">Racecraft</span>
+          </button>
+
+          <button class="rm-step" data-step="4" role="tab" aria-selected="false">
+            <span class="rm-step-num">05</span>
+            <span class="rm-step-label">Simulación</span>
+          </button>
+
+          <button class="rm-step rm-step--gold" data-step="5" role="tab" aria-selected="false">
+            <span class="rm-step-num">06</span>
+            <span class="rm-step-label">Certificación</span>
+          </button>
+
+        </div>
+
+        <!-- Panel de detalle -->
+        <div class="rm-panel glass-card" id="rmPanel">
+
+          <div class="rm-panel-inner" id="rmPanelInner">
+
+            <span class="rm-panel-tag" id="rmTag">INICIO</span>
+            <span class="rm-panel-week" id="rmWeek">SEMANA 1</span>
+
+            <h3 class="rm-panel-title" id="rmTitle">Introducción</h3>
+            <p class="rm-panel-desc" id="rmDesc">Diagnóstico inicial de manejo y adaptación completa al simulador profesional: postura, configuración de fuerza del volante y primeros contactos con la telemetría.</p>
+
+            <div class="rm-panel-skills" id="rmSkills">
+              <span class="rm-skill-chip">Evaluación de nivel</span>
+              <span class="rm-skill-chip">Setup del simulador</span>
+              <span class="rm-skill-chip">Primeros circuitos</span>
+            </div>
+
           </div>
-          <div class="elite-track-card elite-track-card--gold glass-card">
-            <span class="elite-track-tag elite-track-tag--gold">CERTIFICACIÓN</span>
-            <h3 class="elite-track-title">Evaluación Final</h3>
-            <p class="elite-track-desc">Certificación oficial APEX y red de contactos profesional.</p>
-          </div>
-        </article>
+
+        </div>
 
       </div>
+
     </div>
   </section>
 
 
   <!-- ══════════════════════════════════════ -->
-  <!--  ESTADÍSTICAS                         -->
+  <!--  2. TELEMETRÍA EN VIVO                 -->
   <!-- ══════════════════════════════════════ -->
-  <section class="section stats" aria-label="Números del programa Elite">
+  <section class="section elite-telemetry-section" id="telemetria" aria-label="Telemetría del programa">
     <div class="stats-bg" aria-hidden="true">
       <div class="stats-orb stats-orb--1"></div>
       <div class="stats-orb stats-orb--2"></div>
-      <div class="stats-grid-line stats-grid-line--h1"></div>
-      <div class="stats-grid-line stats-grid-line--h2"></div>
     </div>
     <div class="container">
-      <div class="stats-grid">
 
-        <div class="stat-block reveal" data-delay="0">
-          <div class="stat-icon" aria-hidden="true">◎</div>
-          <div class="stat-figure">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">TELEMETRÍA</span>
+        <h2 class="section-title">El piloto recibe<br><em>datos reales.</em></h2>
+        <p class="section-subtitle">Cada sesión queda registrada. Mirá cómo se ve un canal de telemetría en vivo.</p>
+      </div>
+
+      <div class="tm-grid reveal">
+
+        <!-- Contadores -->
+        <div class="tm-counters">
+
+          <div class="tm-counter-item">
             <span class="stat-counter" data-target="40" data-suffix="+">0</span>
+            <span class="tm-counter-label">Horas de entrenamiento</span>
           </div>
-          <div class="stat-label">Horas de Entrenamiento</div>
-          <div class="stat-sub">presencial + online</div>
-        </div>
 
-        <div class="stat-block reveal" data-delay="100">
-          <div class="stat-icon" aria-hidden="true">◈</div>
-          <div class="stat-figure">
+          <div class="tm-counter-item">
             <span class="stat-counter" data-target="8" data-suffix="">0</span>
+            <span class="tm-counter-label">Semanas de programa</span>
           </div>
-          <div class="stat-label">Semanas de Programa</div>
-          <div class="stat-sub">intensivo y progresivo</div>
-        </div>
 
-        <div class="stat-block reveal" data-delay="200">
-          <div class="stat-icon" aria-hidden="true">◉</div>
-          <div class="stat-figure">
+          <div class="tm-counter-item">
             <span class="stat-counter" data-target="6" data-suffix="">0</span>
+            <span class="tm-counter-label">Pilotos por edición</span>
           </div>
-          <div class="stat-label">Pilotos por Edición</div>
-          <div class="stat-sub">cupos limitados</div>
+
+          <div class="tm-counter-item">
+            <span class="stat-counter" data-target="120" data-suffix="+">0</span>
+            <span class="tm-counter-label">Variables analizadas</span>
+          </div>
+
         </div>
 
-        <div class="stat-block reveal" data-delay="300">
-          <div class="stat-icon" aria-hidden="true">◆</div>
-          <div class="stat-figure">
-            <span class="stat-counter" data-target="100" data-suffix="%">0</span>
+        <!-- Dashboard interactivo -->
+        <div class="tm-dashboard glass-card">
+
+          <div class="tm-dashboard-head">
+
+            <div class="tm-tabs" id="tmTabs" role="tablist">
+              <button class="tm-tab active" data-metric="speed" role="tab" aria-selected="true">Velocidad</button>
+              <button class="tm-tab" data-metric="rpm" role="tab" aria-selected="false">RPM</button>
+              <button class="tm-tab" data-metric="brake" role="tab" aria-selected="false">Frenada</button>
+            </div>
+
+            <div class="tm-readout">
+              <span class="tm-readout-value" id="tmValue">312</span>
+              <span class="tm-readout-unit" id="tmUnit">km/h</span>
+            </div>
+
           </div>
-          <div class="stat-label">Personalizado</div>
-          <div class="stat-sub">adaptado a tu nivel</div>
+
+          <svg class="tm-chart" id="tmChart" viewBox="0 0 720 220" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="tmFillGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="var(--apex-blue)" stop-opacity=".35"></stop>
+                <stop offset="100%" stop-color="var(--apex-blue)" stop-opacity="0"></stop>
+              </linearGradient>
+            </defs>
+            <g class="tm-grid-lines">
+              <line x1="0" y1="55"  x2="720" y2="55"></line>
+              <line x1="0" y1="110" x2="720" y2="110"></line>
+              <line x1="0" y1="165" x2="720" y2="165"></line>
+            </g>
+            <polygon id="tmArea" class="tm-area" points="" fill="url(#tmFillGrad)"></polygon>
+            <polyline id="tmLine" class="tm-line" points="" fill="none"></polyline>
+            <circle id="tmDot" class="tm-dot" r="5" cx="0" cy="0"></circle>
+          </svg>
+
+          <div class="tm-chart-labels" aria-hidden="true">
+            <span>T-8s</span><span>T-6s</span><span>T-4s</span><span>T-2s</span><span>AHORA</span>
+          </div>
+
         </div>
 
       </div>
+
     </div>
   </section>
 
 
   <!-- ══════════════════════════════════════ -->
-<!-- DATA CENTER -->
-<!-- ══════════════════════════════════════ -->
+  <!--  3. COACH ELITE                        -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="section elite-coach-section" id="coach" aria-label="Coach del programa">
+    <div class="container">
 
-<section class="section elite-data-section">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">TU COACH</span>
+        <h2 class="section-title">Formación guiada<br><em>por profesionales.</em></h2>
+      </div>
+
+      <div class="coach-layout reveal">
+
+        <div class="coach-card glass-card">
+
+          <div class="coach-avatar">
+            <span class="coach-avatar-glow"></span>
+            <span class="coach-avatar-initials">MS</span>
+          </div>
+
+          <span class="coach-badge">HEAD COACH · TELEMETRÍA</span>
+
+          <h3 class="coach-name">Martina Sosa</h3>
+          <p class="coach-role">Ex piloto GT3 · 15 años en simulación profesional</p>
+
+          <p class="coach-quote">
+            "No entreno reflejos, entreno criterio. La diferencia entre un piloto rápido
+            y un piloto completo está en cómo lee los datos después de cada vuelta."
+          </p>
+
+          <div class="coach-stats">
+            <div class="coach-stat">
+              <strong>+200</strong>
+              <span>Pilotos formados</span>
+            </div>
+            <div class="coach-stat">
+              <strong>3x</strong>
+              <span>Campeona nacional</span>
+            </div>
+            <div class="coach-stat">
+              <strong>15</strong>
+              <span>Años de experiencia</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="coach-side">
+
+          <div class="coach-side-item">
+            <span class="coach-side-icon">◎</span>
+            <div>
+              <h4>Seguimiento 1 a 1</h4>
+              <p>Cada piloto tiene devoluciones personalizadas después de cada sesión, no feedback genérico de grupo.</p>
+            </div>
+          </div>
+
+          <div class="coach-side-item">
+            <span class="coach-side-icon">◈</span>
+            <div>
+              <h4>Metodología propia</h4>
+              <p>Desarrollada durante su carrera como piloto profesional y adaptada a la simulación de alto rendimiento.</p>
+            </div>
+          </div>
+
+          <div class="coach-side-item">
+            <span class="coach-side-icon">◆</span>
+            <div>
+              <h4>Red de contactos</h4>
+              <p>Vínculo directo con equipos y organizadores de campeonatos de e-sim de la región.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  4. COMPARATIVA DE PLANES              -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="section elite-compare-section" id="comparativa" aria-label="Comparativa de programas">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-eyebrow">POR QUÉ ELITE</span>
+        <h2 class="section-title">Compará y elegí<br><em>tu nivel.</em></h2>
+      </div>
+
+      <div class="cmp-table reveal">
+
+        <div class="cmp-row cmp-row--head">
+          <div class="cmp-cell cmp-cell--label"></div>
+          <div class="cmp-cell cmp-plan">
+            <span class="cmp-plan-name">Rookie</span>
+            <span class="cmp-plan-price">$38.000<small>/mes</small></span>
+          </div>
+          <div class="cmp-cell cmp-plan cmp-plan--active">
+            <span class="cmp-plan-tag">Tu programa</span>
+            <span class="cmp-plan-name">Elite</span>
+            <span class="cmp-plan-price">$52.000<small>/mes</small></span>
+          </div>
+          <div class="cmp-cell cmp-plan">
+            <span class="cmp-plan-name">Pro</span>
+            <span class="cmp-plan-price">$68.000<small>/mes</small></span>
+          </div>
+        </div>
+
+        <div class="cmp-row">
+          <div class="cmp-cell cmp-cell--label">Simulador profesional</div>
+          <div class="cmp-cell cmp-check">✓</div>
+          <div class="cmp-cell cmp-check cmp-check--active">✓</div>
+          <div class="cmp-cell cmp-check">✓</div>
+        </div>
+
+        <div class="cmp-row">
+          <div class="cmp-cell cmp-cell--label">Análisis de telemetría</div>
+          <div class="cmp-cell cmp-dash">—</div>
+          <div class="cmp-cell cmp-check cmp-check--active">✓</div>
+          <div class="cmp-cell cmp-check">✓</div>
+        </div>
+
+        <div class="cmp-row">
+          <div class="cmp-cell cmp-cell--label">Coaching personalizado</div>
+          <div class="cmp-cell cmp-dash">—</div>
+          <div class="cmp-cell cmp-check cmp-check--active">✓</div>
+          <div class="cmp-cell cmp-check">1 a 1</div>
+        </div>
+
+        <div class="cmp-row">
+          <div class="cmp-cell cmp-cell--label">Certificación oficial</div>
+          <div class="cmp-cell cmp-dash">—</div>
+          <div class="cmp-cell cmp-check cmp-check--active">✓</div>
+          <div class="cmp-cell cmp-check">✓</div>
+        </div>
+
+        <div class="cmp-row">
+          <div class="cmp-cell cmp-cell--label">Preparación competitiva</div>
+          <div class="cmp-cell cmp-dash">—</div>
+          <div class="cmp-cell cmp-dash cmp-dash--active">—</div>
+          <div class="cmp-cell cmp-check">✓</div>
+        </div>
+
+        <div class="cmp-row cmp-row--foot">
+          <div class="cmp-cell cmp-cell--label"></div>
+          <div class="cmp-cell">
+            <a href="index.html#programas" class="cmp-btn">Ver Rookie</a>
+          </div>
+          <div class="cmp-cell">
+            <a href="index.html#inscripcion" class="cmp-btn cmp-btn--active">Elegir Elite</a>
+          </div>
+          <div class="cmp-cell">
+            <a href="index.html#programas" class="cmp-btn">Ver Pro</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  5. SESIÓN DE COMPETICIÓN               -->
+  <!-- ══════════════════════════════════════ -->
+  <section class="section elite-session-section" id="sesion" aria-label="Una sesión de competición">
 
     <div class="container">
 
-        <div class="section-header reveal">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">EXPERIENCIA ELITE</span>
+        <h2 class="section-title">Una sesión<br><em>de competición.</em></h2>
+        <p class="section-subtitle">Elegí un momento de la sesión para ver de qué se trata.</p>
+      </div>
 
-            <span class="section-eyebrow">
-                TELEMETRÍA
-            </span>
+      <div class="ss-wrap reveal">
 
-            <h2 class="section-title">
-                El piloto recibe
-                <br>
-                <em>datos reales.</em>
-            </h2>
+        <div class="ss-tabs" id="ssTabs">
 
-        </div>
+          <button class="ss-tab active" data-session="0">
+            <span class="ss-tab-num">01</span>
+            <span>Briefing</span>
+          </button>
 
-        <div class="elite-data-grid">
+          <button class="ss-tab" data-session="1">
+            <span class="ss-tab-num">02</span>
+            <span>Simulación</span>
+          </button>
 
-            <div class="elite-data-card glass-card reveal">
+          <button class="ss-tab" data-session="2">
+            <span class="ss-tab-num">03</span>
+            <span>Telemetría</span>
+          </button>
 
-                <div class="elite-data-number">
-                    +120
-                </div>
+          <button class="ss-tab" data-session="3">
+            <span class="ss-tab-num">04</span>
+            <span>Coaching</span>
+          </button>
 
-                <div class="elite-data-label">
-                    VARIABLES ANALIZADAS
-                </div>
-
-                <div class="elite-data-bar">
-                    <span style="width:92%"></span>
-                </div>
-
-            </div>
-
-            <div class="elite-data-card glass-card reveal">
-
-                <div class="elite-data-number">
-                    240Hz
-                </div>
-
-                <div class="elite-data-label">
-                    TELEMETRÍA EN TIEMPO REAL
-                </div>
-
-                <div class="elite-data-bar">
-                    <span style="width:85%"></span>
-                </div>
-
-            </div>
-
-            <div class="elite-data-card glass-card reveal">
-
-                <div class="elite-data-number">
-                    1:1
-                </div>
-
-                <div class="elite-data-label">
-                    COACHING PERSONAL
-                </div>
-
-                <div class="elite-data-bar">
-                    <span style="width:100%"></span>
-                </div>
-
-            </div>
-
-            <div class="elite-data-card glass-card reveal">
-
-                <div class="elite-data-number">
-                    100%
-                </div>
-
-                <div class="elite-data-label">
-                    METODOLOGÍA PROFESIONAL
-                </div>
-
-                <div class="elite-data-bar">
-                    <span style="width:100%"></span>
-                </div>
-
-            </div>
+          <button class="ss-tab" data-session="4">
+            <span class="ss-tab-num">05</span>
+            <span>Debrief</span>
+          </button>
 
         </div>
+
+        <div class="ss-panel glass-card">
+          <div class="ss-panel-inner" id="ssPanelInner">
+            <span class="ss-panel-time" id="ssTime">18:00 — 18:15</span>
+            <h3 class="ss-panel-title" id="ssTitle">Briefing</h3>
+            <p class="ss-panel-desc" id="ssDesc">Se define el objetivo de la sesión, el circuito a trabajar y la estrategia según el nivel de cada piloto. Coach y piloto repasan la vuelta anterior antes de salir a pista.</p>
+          </div>
+        </div>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════════ -->
-<!-- SIMULACION DE CARRERA -->
-<!-- ══════════════════════════════════════ -->
-
-<section class="section elite-session-section">
-
-    <div class="container">
-
-        <div class="section-header reveal">
-
-            <span class="section-eyebrow">
-                EXPERIENCIA ELITE
-            </span>
-
-            <h2 class="section-title">
-                Una sesión
-                <br>
-                <em>de competición.</em>
-            </h2>
-
-        </div>
-
-        <div class="elite-session-track">
-
-            <div class="session-stop reveal">
-                <span class="session-number">01</span>
-                <h3>Briefing</h3>
-                <p>
-                    Estrategia, objetivos y preparación.
-                </p>
-            </div>
-
-            <div class="session-stop reveal">
-                <span class="session-number">02</span>
-                <h3>Simulación</h3>
-                <p>
-                    Trabajo en pista y ejecución.
-                </p>
-            </div>
-
-            <div class="session-stop reveal">
-                <span class="session-number">03</span>
-                <h3>Telemetría</h3>
-                <p>
-                    Análisis completo de datos.
-                </p>
-            </div>
-
-            <div class="session-stop reveal">
-                <span class="session-number">04</span>
-                <h3>Coaching</h3>
-                <p>
-                    Correcciones y optimización.
-                </p>
-            </div>
-
-            <div class="session-stop reveal">
-                <span class="session-number">05</span>
-                <h3>Debrief</h3>
-                <p>
-                    Plan de mejora continua.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section> 
 
   <!-- ══════════════════════════════════════ -->
   <!--  CTA FINAL                            -->
@@ -550,5 +634,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="elite.js"></script>
 </body>
 </html>
