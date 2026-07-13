@@ -6,12 +6,15 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ─────────────────────────────────────────────
-     1. ROADMAP INTERACTIVO
+     1. CIRCUITO INTERACTIVO (roadmap)
   ───────────────────────────────────────────── */
   (function initRoadmap(){
 
-    const steps = document.querySelectorAll(".rm-step");
-    const lineFill = document.getElementById("rmLineFill");
+    const svg = document.getElementById("rmCircuitSvg");
+    const trackFill = document.getElementById("rmTrackFill");
+    const carDot = document.getElementById("rmCarDot");
+    const carGlow = document.getElementById("rmCarGlow");
+    const nodes = document.querySelectorAll(".rm-node");
     const panelInner = document.getElementById("rmPanelInner");
     const tagEl   = document.getElementById("rmTag");
     const weekEl  = document.getElementById("rmWeek");
@@ -19,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const descEl  = document.getElementById("rmDesc");
     const skillsEl = document.getElementById("rmSkills");
 
-    if(!steps.length) return;
+    if(!svg || !nodes.length || !trackFill) return;
 
     const data = [
       {
@@ -54,6 +57,47 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     ];
 
+    // Posiciona cada nodo sobre el trazado real del circuito
+    const viewBox = svg.viewBox.baseVal;
+    const totalLen = trackFill.getTotalLength();
+    const points = [];
+
+    nodes.forEach((node, i) => {
+      const frac = nodes.length > 1 ? i / (nodes.length - 1) : 0;
+      const pt = trackFill.getPointAtLength(frac * totalLen);
+      points.push(pt);
+      node.style.left = ((pt.x - viewBox.x) / viewBox.width * 100) + "%";
+      node.style.top  = ((pt.y - viewBox.y) / viewBox.height * 100) + "%";
+    });
+
+    trackFill.style.strokeDasharray = totalLen;
+
+    // Auto que recorre el circuito hasta el paso activo
+    let carPos = { x: points[0].x, y: points[0].y };
+    let carTarget = { x: points[0].x, y: points[0].y };
+    let raf = null;
+
+    function placeCar(x, y){
+      carDot.setAttribute("cx", x);
+      carDot.setAttribute("cy", y);
+      carGlow.setAttribute("cx", x);
+      carGlow.setAttribute("cy", y);
+    }
+
+    function animateCar(){
+      carPos.x += (carTarget.x - carPos.x) * 0.14;
+      carPos.y += (carTarget.y - carPos.y) * 0.14;
+      placeCar(carPos.x, carPos.y);
+
+      if(Math.abs(carTarget.x - carPos.x) > 0.3 || Math.abs(carTarget.y - carPos.y) > 0.3){
+        raf = requestAnimationFrame(animateCar);
+      } else {
+        placeCar(carTarget.x, carTarget.y);
+        carPos = { x: carTarget.x, y: carTarget.y };
+        raf = null;
+      }
+    }
+
     function render(i){
       const d = data[i];
 
@@ -68,21 +112,25 @@ document.addEventListener("DOMContentLoaded", () => {
         panelInner.classList.remove("is-swapping");
       }, 200);
 
-      steps.forEach(s => {
-        s.classList.remove("active");
-        s.setAttribute("aria-selected", "false");
+      nodes.forEach(n => {
+        n.classList.remove("active");
+        n.setAttribute("aria-selected", "false");
       });
-      steps[i].classList.add("active");
-      steps[i].setAttribute("aria-selected", "true");
+      nodes[i].classList.add("active");
+      nodes[i].setAttribute("aria-selected", "true");
 
-      const pct = steps.length > 1 ? (i / (steps.length - 1)) * 100 : 0;
-      if(lineFill) lineFill.style.width = pct + "%";
+      const frac = nodes.length > 1 ? i / (nodes.length - 1) : 0;
+      trackFill.style.strokeDashoffset = totalLen * (1 - frac);
+
+      carTarget = points[i];
+      if(!raf) raf = requestAnimationFrame(animateCar);
     }
 
-    steps.forEach((s, i) => {
-      s.addEventListener("click", () => render(i));
+    nodes.forEach((node, i) => {
+      node.addEventListener("click", () => render(i));
     });
 
+    placeCar(points[0].x, points[0].y);
     render(0);
 
   })();
