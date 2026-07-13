@@ -21,16 +21,28 @@
   isolation: isolate;
 }
 
-/* Fondo con gradientes de color marca */
+/* Video de portada */
+.elite-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: .28;
+  pointer-events: none;
+}
+
+/* Fondo con gradientes de color marca (filtro violeta/azul sobre el video) */
 .elite-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse at 75% 15%, rgba(123, 47, 255, 0.28) 0%, transparent 50%),
-    radial-gradient(ellipse at 20% 80%, rgba(0, 212, 255, 0.14) 0%, transparent 45%),
-    radial-gradient(ellipse at 50% 50%, rgba(123, 47, 255, 0.06) 0%, transparent 60%),
-    linear-gradient(180deg, #050510 0%, #03030a 100%);
+    radial-gradient(ellipse at 75% 15%, rgba(123, 47, 255, 0.32) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(0, 212, 255, 0.18) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(123, 47, 255, 0.1) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(5, 5, 16, 0.6) 0%, rgba(3, 3, 10, 0.8) 100%);
 }
 
 /* Orbes animados */
@@ -781,101 +793,128 @@
    ===================================================== */
 
 .rm-wrap{
-  display: grid;
-  grid-template-columns: 260px 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 2.5rem;
-  align-items: start;
   margin-top: 3rem;
 }
 
-.rm-stepper{
+.rm-circuit{
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  padding: 2.5rem 0 .5rem;
 }
 
-.rm-stepper-line{
+.rm-circuit-track{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1100 / 200;
+}
+
+.rm-circuit-svg{
   position: absolute;
-  left: 19px;
-  top: 22px;
-  bottom: 22px;
-  width: 2px;
-  background: rgba(255,255,255,.08);
-  border-radius: 2px;
-  overflow: hidden;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }
 
-.rm-stepper-line-fill{
+.rm-track-base{
+  fill: none;
+  stroke: rgba(255,255,255,.08);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.rm-track-fill{
+  fill: none;
+  stroke: url(#rmTrackGrad);
+  stroke-width: 3;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px rgba(0,212,255,.5));
+  transition: stroke-dashoffset .7s var(--ease-out);
+}
+
+.rm-car-glow{
+  fill: rgba(0,212,255,.4);
+  filter: blur(7px);
+  pointer-events: none;
+}
+
+.rm-car-dot{
+  fill: #fff;
+  stroke: var(--apex-blue);
+  stroke-width: 3;
+  filter: drop-shadow(0 0 10px rgba(0,212,255,.9));
+  pointer-events: none;
+}
+
+.rm-circuit-nodes{
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 0%;
-  background: linear-gradient(180deg, var(--apex-violet), var(--apex-blue));
-  transition: height .5s var(--ease-out);
-  box-shadow: 0 0 12px rgba(0,212,255,.5);
+  inset: 0;
 }
 
-.rm-step{
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  padding: 0.65rem 0.75rem;
-  background: none;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  text-align: left;
-  color: var(--apex-grey-1);
-  transition: background .3s ease;
-}
-
-.rm-step:hover{
-  background: rgba(255,255,255,.04);
-}
-
-.rm-step-num{
-  position: relative;
-  z-index: 1;
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+.rm-node{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
+  background: #0a0a14;
+  border: 1.5px solid rgba(255,255,255,.18);
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  color: rgba(255,255,255,.55);
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 0.8rem;
-  background: #0a0a14;
-  border: 1.5px solid rgba(255,255,255,.15);
-  color: rgba(255,255,255,.5);
-  transition: all .35s ease;
+  font-size: .7rem;
+  transition: transform .3s ease, background .3s ease, border-color .3s ease, box-shadow .3s ease, color .3s ease;
+  z-index: 2;
 }
 
-.rm-step-label{
-  font-family: var(--font-condensed);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: .02em;
-  transition: color .3s ease;
+.rm-node:hover{
+  border-color: rgba(255,255,255,.4);
 }
 
-.rm-step.active .rm-step-num{
+.rm-node-num{
+  pointer-events: none;
+}
+
+.rm-node.active{
   background: linear-gradient(135deg, var(--apex-violet), var(--apex-blue));
   border-color: transparent;
   color: #fff;
-  box-shadow: 0 0 20px rgba(123,47,255,.5);
-  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(123,47,255,.55);
+  transform: translate(-50%, -50%) scale(1.15);
 }
 
-.rm-step.active .rm-step-label{
-  color: #fff;
-}
-
-.rm-step--gold.active .rm-step-num{
+.rm-node--gold.active{
   background: linear-gradient(135deg, #FFD54A, #ff9d4a);
-  box-shadow: 0 0 20px rgba(255,213,74,.5);
+  box-shadow: 0 0 20px rgba(255,213,74,.55);
+}
+
+.rm-node-tip{
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  white-space: nowrap;
+  font-family: var(--font-condensed);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  color: var(--apex-grey-1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.rm-node:hover .rm-node-tip,
+.rm-node.active .rm-node-tip{
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  color: #fff;
 }
 
 .rm-panel{
@@ -1457,46 +1496,18 @@
 
 @media (max-width: 900px){
 
-  .rm-wrap{
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
+  .rm-circuit-track{
+    aspect-ratio: 1100 / 340;
   }
 
-  .rm-stepper{
-    flex-direction: row;
-    overflow-x: auto;
-    gap: 0;
-    padding-bottom: .5rem;
-    scrollbar-width: none;
+  .rm-node{
+    width: 30px;
+    height: 30px;
+    font-size: .65rem;
   }
 
-  .rm-stepper::-webkit-scrollbar{ display: none; }
-
-  .rm-stepper-line{
-    left: 22px;
-    right: 22px;
-    top: 19px;
-    bottom: auto;
-    height: 2px;
-    width: auto;
-  }
-
-  .rm-stepper-line-fill{
-    height: 100%;
-    width: 0%;
-    transition: width .5s var(--ease-out);
-  }
-
-  .rm-step{
-    flex-direction: column;
-    flex-shrink: 0;
-    width: 84px;
-    gap: .4rem;
-  }
-
-  .rm-step-label{
-    font-size: .68rem;
-    text-align: center;
+  .rm-node-tip{
+    font-size: .64rem;
   }
 
   .coach-layout{
@@ -1510,6 +1521,16 @@
   .faq-question{
     padding: 1rem 1.1rem;
     font-size: .88rem;
+  }
+
+  .rm-circuit-track{
+    aspect-ratio: 1100 / 460;
+  }
+
+  .rm-node{
+    width: 26px;
+    height: 26px;
+    font-size: .6rem;
   }
 
   .tm-dashboard-head{
